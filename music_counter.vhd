@@ -7,8 +7,8 @@ entity music_counter is
          clk : in std_logic;
          addr_in : in std_logic_vector(15 downto 0);
         addr_out : out std_logic_vector(15 downto 0) );
-end program_counter;
-architecture behavioral of program_counter is
+end music_counter;
+architecture behavioral of music_counter is
 begin
   update_process: process ( reset, clk ) is
   begin

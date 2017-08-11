@@ -1,15 +1,16 @@
-ibrary IEEE;
+library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity musicplayer is
   port (reset     : in std_logic;
         clk       : in std_logic;
-        musicdata : in std_logic_vector(11 downto 0); --??? Depends on the format of the text file input
+      music_data : in std_logic_vector(11 downto 0); --??? Depends on the format of the text file input
         sensor    : in std_logic;
         ready     :out std_logic; --??? might not need
-        sound     :out std_logic; --pwm output 
+        sound     :out std_logic --pwm output 
         );
+end musicplayer;
 
 architecture structural of musicplayer is
   --components
@@ -32,7 +33,7 @@ architecture structural of musicplayer is
   component pwm is --contents will change depending on when the pwm is completed
     port (enable : in std_logic;
           data   : in std_logic_vector(11 downto 0);
-          wave   : out std_logic_vector(11 downto 0));
+          wave   : out std_logic);
   end component;
   
   component adder_16b is
@@ -85,7 +86,7 @@ architecture structural of musicplayer is
     adder: adder_16b
     port map (src_a => sig_mem_addr_in,
               src_b => sig_one_16b,
-              sum => sig_addr_sum.
+              sum => sig_addr_sum,
               carry_out => sig_carry
               );
 end structural; 
