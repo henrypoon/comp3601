@@ -1,0 +1,10 @@
+a4
+b6
+c5
+d3
+E4
+F5
+G3
+
+%test
+c3 %comment
