@@ -1,8 +1,8 @@
 fin = open('music.txt', 'r')
 fout = open('binary.txt', 'w')
 
-result = ''
-binary = {}
+noteHash = {}
+durationHash = {}
 
 def generateNoteHash():
     # dictionary of notes
@@ -12,7 +12,7 @@ def generateNoteHash():
     # 52 notes in required range
     # 37 frequencies in required range
     # dictionary requires 38 entries to include rest
-    binary['rest'] = 0
+    noteHash['rest'] = 0
 
     count = 1
     octave = 3
@@ -23,22 +23,34 @@ def generateNoteHash():
             # flat
             # C and F do not have flats
             if letter != 'c' and letter != 'f':
-                binary[letter + str(octave) + 'b'] = format(count, '06b')
+                noteHash[letter + str(octave) + 'b'] = format(count, '06b')
                 count += 1
             
             # normal
-            binary[letter + str(octave)] = format(count, '06b')
+            noteHash[letter + str(octave)] = format(count, '06b')
             count += 1
 
             # sharp
             # B and E do not have sharps
             if letter != 'b' and letter != 'e':
-                binary[letter + str(octave) + '#'] = format(count, '06b')
+                noteHash[letter + str(octave) + '#'] = format(count, '06b')
 
             if letter == 'g':
                 octave += 1
 
-    binary['c6'] = format(count, '06b')
+    noteHash['c6'] = format(count, '06b')
+
+def generateDurationHash():
+    durationHash['sq'] = format(0, '04b')
+    durationHash['t'] = format(1, '04b')
+    durationHash['q'] = format(2, '04b')
+    durationHash['dq'] = format(3, '04b')
+    durationHash['c'] = format(4, '04b')
+    durationHash['dc'] = format(5, '04b')
+    durationHash['m'] = format(6, '04b')
+    durationHash['dm'] = format(7, '04b')
+    durationHash['sb'] = format(8, '04b')
+    durationHash['b'] = format(9, '04b')
 
 def readFile(fileName):
     lines = []
@@ -68,14 +80,45 @@ def removeComments(line):
 
 #BPM and timing between notes
 
-def ASCIItoBinaryNote():
+def ASCIItoBinaryNote(noteASCII):
+    return(noteHash[noteASCII])
 
-def ASCIItoBinaryDuration():
+def ASCIItoBinaryDuration(durationASCII):
+    return(durationHash[durationASCII])
+
+def conversion(lines):
+    timing = 0
+    bpm = 80
+    bpmFlag = 0
+    count = 0
+    converted = ''
+    for line in lines:
+        # set bpm
+        if line == "bpm":
+            bpmFlag = 1
+        elif bpmFlag == 1:
+            bpm = int(line)
+            bpmFlag = 0
+        # set timing
+        # default is already normal so normal can be ignored
+        elif line == "slurred":
+            timing = 1
+        elif line == "stacatto":
+            timing = 2
+        # convert notes to binary
+        elif count == 0:
+            converted += ASCIItoBinaryNote(line)
+            count = 1
+        else:
+            converted += ASCIItoBinaryDuration(line) +"00\n"
+            count = 0
+    converted = format(timing, '03b') + format(bpm, '07b') + "00\n" + converted
+    return(converted)
 
 ########## MAIN ##########
 generateNoteHash()
+generateDurationHash()
 lines = readFile(fin)
-print(lines)
-
-
-# print(binary)
+# print(lines)
+result = conversion(lines)
+print(result)
