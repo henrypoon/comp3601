@@ -1,4 +1,4 @@
-stacatto
+staccato
 c4 c a5#
 sb g3b
 sq
