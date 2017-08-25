@@ -22,6 +22,34 @@ begin
     if (reset = '1') then
       -- instantiate all other values to zero
       var_data_mem := ((others=> (others=>'0')));
+		--var_data_mem(0)  := X"00000008";
+		var_data_mem(0)  := "000111010000";
+		var_data_mem(1)  := "000100010000";
+		var_data_mem(2)  := "000010010000";
+		var_data_mem(3)  := "000100010000";
+		var_data_mem(4)  := "000111010000";
+		var_data_mem(5)  := "000111010000";
+		var_data_mem(6)  := "000111010000";
+		var_data_mem(7)  := "000100010000";
+		var_data_mem(8)  := "000100010000";
+		var_data_mem(9)  := "000100010000";
+		var_data_mem(10) := "000111010000";
+		var_data_mem(11) := "001001010000";
+		var_data_mem(12) := "001001010000";
+		var_data_mem(13) := "000111010000";
+		var_data_mem(14) := "000100010000";
+		var_data_mem(15) := "000010010000";
+		var_data_mem(16) := "000100010000";
+		var_data_mem(17) := "000111010000";
+		var_data_mem(18) := "000111010000";
+		var_data_mem(19) := "000111010000";
+		var_data_mem(20) := "000111010000";
+		var_data_mem(21) := "000100010000";
+		var_data_mem(22) := "000100010000";
+		var_data_mem(23) := "000111010000";
+		var_data_mem(24) := "000100010000";
+		var_data_mem(25) := "000010010000";
+		
     elsif (falling_edge(clk) and write_enable = '1') then
       -- memory writes on the falling clock edge
       var_data_mem(var_addr) := write_data;

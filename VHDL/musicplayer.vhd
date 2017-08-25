@@ -89,4 +89,5 @@ architecture structural of musicplayer is
               sum => sig_addr_sum,
               carry_out => sig_carry
               );
+				  
 end structural; 
