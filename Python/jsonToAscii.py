@@ -1,14 +1,18 @@
 import json
 
 fin = open('input.json', 'r')
+fout = open('ascii.txt', 'w')
 
 jsonLine = ""
 for line in fin:
     jsonLine += line.strip()
-    print jsonLine
 parsedJson = json.loads(jsonLine)
 
-for i in parsedJson:
-    print(i)
+outputString = ""
+
+outputString += parsedJson["mode"] + "\n"
+outputString += parsedJson["bpm"] + "\n"
+fout.write(outputString)
 
 fin.close()
+fout.close()
