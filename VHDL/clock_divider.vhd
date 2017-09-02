@@ -24,7 +24,7 @@ USE ieee.numeric_std.ALL;
 entity clock_divider is
 	port( clk : in std_logic;
 			reset: in std_logic;
-			--en	:	in std_logic;
+			en	:	in std_logic;
 			max_counter: in std_logic_vector(19 downto 0);
 			square_wave: out std_logic
 	);
@@ -32,27 +32,30 @@ end clock_divider;
 
 architecture Behavioral of clock_divider is
 	signal count:  integer range 0 to 400000 := 0;
-	signal temp: std_logic;
+	signal temp: std_logic := '0';
 	signal sig_max: integer;	
 begin
 
 	sig_max <= to_integer(unsigned(max_counter));
 	
 	counter: process(clk, reset)
-			begin
-			if (reset = '1') then
-				temp <= '0';
-				count <= 0;
-			elsif (rising_edge(clk)) then
-				--if en ='1' then
-					if count = sig_max then 
-						temp <= NOT(temp);
-						count <= 0;
-					else
-						count <= count + 1;
-					end if;
+	begin
+		if (reset = '1') then
+			temp <= '0';
+			count <= 0;
+		elsif (rising_edge(clk) AND en = '1') then
+			--if en ='1' then
+				if sig_max = 0 then
+					temp <= '0';
+					count <= 0;
+				elsif count = sig_max then 
+					temp <= NOT(temp);
+					count <= 0;
+				else
+					count <= count + 1;
 				end if;
-	--		end if;
+			--end if;
+		end if;
 		end process;
 		
 	square_wave <= temp;

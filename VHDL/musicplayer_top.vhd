@@ -72,11 +72,12 @@ architecture Behavioral of musicplayer_top is
 	);
 	end component;
 	
-	component sound_generator is --need to make
+	component sound_generator is 
 	port (clk	: in std_logic;
 			reset	: in std_logic;
 			note_data: in std_logic_vector(11 downto 0);
 			tempo_data: in std_logic_vector(11 downto 0);
+			enable:	in std_logic;
 			sound	: out std_logic;
 			done	: out std_logic
 	);
@@ -101,6 +102,7 @@ architecture Behavioral of musicplayer_top is
 	signal sig_tempo_reg_en : std_logic; -- control signal
 	signal sig_tempo_data: std_logic_vector(11 downto 0);
 	signal sig_sound_done: std_logic;
+	signal sig_sound_en: std_logic;
 	
 begin
 	music_counter: register_16b 
@@ -159,13 +161,14 @@ begin
 		data_out => sig_tempo_data
 	);
 	
-	speaker	: sound_generator
+	sound_gen: sound_generator
 	port map (
 		clk => clk,
 		reset => reset,
 		note_data => sig_note_data,
 		tempo_data => sig_tempo_data,
-		sound	=>speaker,
+		enable => sig_sound_en,
+		sound	=> speaker,
 		done => sig_sound_done
 	);
 	
@@ -173,7 +176,10 @@ begin
 	process(clk, reset)
 	begin
 		if reset = '1' then
-		
+			sig_buffer_reg_en <= '0';
+			sig_tempo_reg_en <= '0';
+			sig_add_en <= '0';
+			sig_sound_en <= '0';
 		elsif rising_edge(clk) then -- might be able to convert this to not need clock signals
 			--handling the first mem address being tempo. Will need to change this logic when the tempo control unit is added
 			if sig_curr_addr = sig_zero then 
@@ -186,7 +192,7 @@ begin
 		end if;
 		
 		sig_add_en <= sig_sound_done;
-	
+		sig_sound_en <= '1';
 	end process;
 	
 	
