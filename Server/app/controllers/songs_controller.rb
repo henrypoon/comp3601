@@ -22,9 +22,17 @@ class SongsController < ApplicationController
 		@song.destroy
 	end
 
+	def update
+		@song = Song.find(params[:id])
+		if @song.update(song_params)
+			render json: @song
+		else
+			render json: {status: 'ERROR'}
+		end
+	end
 
 	def play
-		system('echo fuck')
+		system('echo Compliing the Song')
 		render json: Song.all
 	end
 
