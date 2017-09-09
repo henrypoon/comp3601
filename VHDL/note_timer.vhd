@@ -84,14 +84,20 @@ begin
 		if reset = '1' then 
 			timeout <= '0';
 			counter <= 0;
-		elsif falling_edge(clk) and en ='1' then -- falling edge since input signals sent on rising edge
-			if counter < sig_duration then
+		elsif falling_edge(clk) then -- falling edge since input signals sent on rising edge
+			if en = '1' then
+				if counter < sig_duration then
+					timeout <= '0';
+					counter <= counter +1;
+				else 
+					timeout <= '1'; 
+				end if;
+			else
 				timeout <= '0';
-				counter <= counter +1;
-			else 
-				timeout <= '1'; 
+				counter <= 0;
 			end if;
 		end if;
+			
 	end process;
 end Behavioral;
 
