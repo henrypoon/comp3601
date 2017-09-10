@@ -1,0 +1,5 @@
+export default {
+	SET_SLIDER1: 'SET_SLIDER1',
+	SET_SLIDER2: 'SET_SLIDER2',
+	PLAY_MUSIC: 'PLAY_MUSIC'
+};
