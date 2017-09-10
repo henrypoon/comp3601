@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import { RkButton } from 'react-native-ui-kitten';
 import SliderBar from './SliderBar';
 import Launchpad from './Launchpad';
+import ProcessBar from './ProcessBar';
 
 class Home extends React.Component {
 
@@ -14,6 +15,7 @@ class Home extends React.Component {
 	render() {
 		return (
 			<View style={{ flex: 1, alignItems: 'center', backgroundColor: 'black' }}>
+				<ProcessBar />
 				<SliderBar
 					setSlider={this.props.setSlider1}
 					value={this.props.sliderVal1}
@@ -24,7 +26,7 @@ class Home extends React.Component {
 					value={this.props.sliderVal2}
 					min={60} max={200}
 				/>
-				<Launchpad />
+				<Launchpad setCurrentNote={this.props.setCurrentNote} />
 				<RkButton onPress={this.props.playMusic}>Play</RkButton>
 			</View>
 		);
