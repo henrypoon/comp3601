@@ -5,14 +5,14 @@ const pinkIMG = require('../../../../assets/img/grid/pink.png');
 export const ProcessBar = ({ song }) => {
 
   return (
-    <View style={{ flex: 0.2 }}>
+    <View style={{ flex: 0.5 }}>
       <ScrollView
         contentContainerStyle={styles.contentContainer}
         automaticallyAdjustContentInsets={false}
         horizontal={true}
       >
       {song.map((e, i) => {
-        return <Text key={i} style={{ color: 'white' }}>{e}</Text>;
+        return <Text key={i} style={{ color: 'white' }}>{e} </Text>;
       })}
       </ScrollView>
     </View>
