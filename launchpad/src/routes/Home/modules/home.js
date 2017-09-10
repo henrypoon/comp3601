@@ -2,7 +2,7 @@ import update from 'react-addons-update';
 import axios from 'axios';
 import constants from './actionConstants';
 
-const { SET_SLIDER1, SET_SLIDER2, PLAY_MUSIC, SET_CURRENTNOTE } = constants;
+const { SET_SLIDER1, SET_SLIDER2, PLAY_MUSIC, SET_CURRENTNOTE, ADD_TO_SONG } = constants;
 
 export function playMusic() {
 	console.log('play');
@@ -40,6 +40,18 @@ export function setSlider2(payload) {
 	};
 }
 
+export function addToSong() {
+	return (dispatch, store) => {
+		const currNote = store().home.currentNote;
+		const song = store().home.song;
+		const add = song.concat(currNote);
+		dispatch({
+			type: ADD_TO_SONG,
+			payload: add
+		});
+	};
+}
+
 function handleSetCurrentNote(state, action) {
 	return update(state, {
 		currentNote: {
@@ -64,13 +76,23 @@ function handleSetSlider2(state, action) {
 	});
 }
 
+function handleAddToSong(state, action) {
+	return update(state, {
+		song: {
+			$set: action.payload
+		}
+	});
+}
+
 const ACTION_HANDLERS = {
 	SET_SLIDER1: handleSetSlider1,
 	SET_SLIDER2: handleSetSlider2,
-	SET_CURRENTNOTE: handleSetCurrentNote
+	SET_CURRENTNOTE: handleSetCurrentNote,
+	ADD_TO_SONG: handleAddToSong
 };
 
 const initialState = {
+	song: [],
 	currentNote: null,
 	sliderVal1: 0,
 	sliderVal2: 0

@@ -2,42 +2,18 @@ import React from 'react';
 import { Text, View, ScrollView, TouchableOpacity, StyleSheet, Image } from 'react-native';
 const pinkIMG = require('../../../../assets/img/grid/pink.png');
 
-export const ProcessBar = () => {
+export const ProcessBar = ({ song }) => {
 
   return (
-    <View style={{ flex: 0.5 }}>
+    <View style={{ flex: 0.2 }}>
       <ScrollView
         contentContainerStyle={styles.contentContainer}
         automaticallyAdjustContentInsets={false}
         horizontal={true}
       >
-      <Image
-        source={pinkIMG}
-      />
-      <Image
-        source={pinkIMG}
-      />
-      <Image
-        source={pinkIMG}
-      />
-      <Image
-        source={pinkIMG}
-      />
-      <Image
-        source={pinkIMG}
-      />
-      <Image
-        source={pinkIMG}
-      />
-      <Image
-        source={pinkIMG}
-      />
-      <Image
-        source={pinkIMG}
-      />
-      <Image
-        source={pinkIMG}
-      />
+      {song.map((e) => {
+        return <Text style={{ color: 'white' }}>{e}</Text>;
+      })}
       </ScrollView>
     </View>
   );

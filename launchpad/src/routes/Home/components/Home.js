@@ -15,7 +15,7 @@ class Home extends React.Component {
 	render() {
 		return (
 			<View style={{ flex: 1, alignItems: 'center', backgroundColor: 'black' }}>
-				<ProcessBar />
+				<ProcessBar song={this.props.song} />
 				<SliderBar
 					setSlider={this.props.setSlider1}
 					value={this.props.sliderVal1}
@@ -26,6 +26,10 @@ class Home extends React.Component {
 					value={this.props.sliderVal2}
 					min={60} max={200}
 				/>
+				<View style={{ flexDirection: 'row' }}>
+					<RkButton onPress={this.props.addToSong}>Add</RkButton>
+					<RkButton onPress={this.props.addToSong}>Delete</RkButton>
+				</View>
 				<Launchpad setCurrentNote={this.props.setCurrentNote} />
 				<RkButton onPress={this.props.playMusic}>Play</RkButton>
 			</View>

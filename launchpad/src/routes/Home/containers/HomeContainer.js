@@ -4,19 +4,22 @@ import {
 	setSlider1,
 	setSlider2,
 	playMusic,
-	setCurrentNote
+	setCurrentNote,
+	addToSong
 } from '../modules/home';
 
 const mapStateToProps = (state) => ({
 	sliderVal1: state.home.sliderVal1,
 	sliderVal2: state.home.sliderVal2,
-	setCurrentNote: state.home.setCurrentNote
+	setCurrentNote: state.home.setCurrentNote,
+	song: state.home.song
 });
 
 const mapActionCreators = {
 	setSlider1,
 	setSlider2,
 	playMusic,
-	setCurrentNote
+	setCurrentNote,
+	addToSong
 };
 export default connect(mapStateToProps, mapActionCreators)(Home);
