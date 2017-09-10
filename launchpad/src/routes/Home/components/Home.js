@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { RkButton } from 'react-native-ui-kitten';
 import SliderBar from './SliderBar';
+import Launchpad from './Launchpad';
 
 class Home extends React.Component {
 
@@ -23,6 +24,7 @@ class Home extends React.Component {
 					value={this.props.sliderVal2}
 					min={60} max={200}
 				/>
+				<Launchpad />
 				<RkButton onPress={this.props.playMusic}>Play</RkButton>
 			</View>
 		);

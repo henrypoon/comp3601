@@ -33,7 +33,7 @@ class SongsController < ApplicationController
 
 	def play
 		system('echo Compliing the Song')
-		render json: Song.all
+		render json: {status: 'ok'}
 	end
 
 	private
