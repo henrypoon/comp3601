@@ -5,7 +5,8 @@ import {
 	setSlider2,
 	playMusic,
 	setCurrentNote,
-	addToSong
+	addToSong,
+	deleteNote
 } from '../modules/home';
 
 const mapStateToProps = (state) => ({
@@ -20,6 +21,7 @@ const mapActionCreators = {
 	setSlider2,
 	playMusic,
 	setCurrentNote,
-	addToSong
+	addToSong,
+	deleteNote
 };
 export default connect(mapStateToProps, mapActionCreators)(Home);

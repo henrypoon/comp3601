@@ -11,8 +11,8 @@ export const ProcessBar = ({ song }) => {
         automaticallyAdjustContentInsets={false}
         horizontal={true}
       >
-      {song.map((e) => {
-        return <Text style={{ color: 'white' }}>{e}</Text>;
+      {song.map((e, i) => {
+        return <Text key={i} style={{ color: 'white' }}>{e}</Text>;
       })}
       </ScrollView>
     </View>

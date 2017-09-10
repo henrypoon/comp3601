@@ -28,7 +28,7 @@ class Home extends React.Component {
 				/>
 				<View style={{ flexDirection: 'row' }}>
 					<RkButton onPress={this.props.addToSong}>Add</RkButton>
-					<RkButton onPress={this.props.addToSong}>Delete</RkButton>
+					<RkButton onPress={this.props.deleteNote}>Delete</RkButton>
 				</View>
 				<Launchpad setCurrentNote={this.props.setCurrentNote} />
 				<RkButton onPress={this.props.playMusic}>Play</RkButton>
