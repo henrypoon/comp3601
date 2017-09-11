@@ -193,7 +193,7 @@ begin
 	sig_add_en <= sig_sound_done;
 	
 	--control
-	sig_load_done <= sig_buffer_reg_en; 
+	--sig_load_done <= sig_buffer_reg_en; 
 	
 	--takes in the done signal from the sound generator and counts to 2500000(? aka 1/20 of a second) 
 	--before outputing the sig_load_done output as high
@@ -214,14 +214,19 @@ begin
 			rest_counter <= 0;
 			sig_sound_en <= '0';
 			--speaker <= '0';
+			sig_load_done <= '0';
 		elsif rising_edge(clk) and sig_load_timer = '1' then
-			if rest_counter < 50000000 then
+			--if rest_counter < 1000000 then --slurred?
+			--if rest_counter < 500000 then
+			if rest_counter < 30000000 then --normal?
 				rest_counter <= rest_counter +1;
 				sig_sound_en <= '0';
+				sig_load_done <= '0';
 				--speaker <= '0';
 			else
 				sig_sound_en <= '1';
 				rest_counter <= 0;
+				sig_load_done <= '1';
 				--speaker <= sig_sound_gen_out;
 			end if;
 		end if;
