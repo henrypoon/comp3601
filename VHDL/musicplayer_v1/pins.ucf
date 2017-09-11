@@ -1,0 +1,4 @@
+NET "speaker" LOC = "T14";
+NET "clk" LOC = "A8";
+NET "reset" LOC = "J13";
+NET "sw" LOC = "N15";
