@@ -28,6 +28,7 @@ entity sound_generator is
 		tempo_data: in std_logic_vector(11 downto 0);
 		enable:	in std_logic;
 		sound	: out std_logic;
+		base_vector : out std_logic_vector(25 downto 0);
 		done	: out std_logic
 			);
 end sound_generator;
@@ -52,6 +53,7 @@ architecture Behavioral of sound_generator is
 			en: in std_logic;
 			note_dur: in std_logic_vector(3 downto 0);
 			tempo: in std_logic_vector(7 downto 0);
+			base_vector : out std_logic_vector(25 downto 0);
 			timeout: out std_logic
 	);
 	end component;
@@ -88,9 +90,10 @@ architecture Behavioral of sound_generator is
 	signal sig_clk_div_en: std_logic;
 	--signal sig_freq_max: std_logic_vector(19 downto 0); --frequency sel
 	signal sig_timer_out: std_logic;
-
+	signal sig_base: std_logic_vector(25 downto 0);
 	
 begin
+	base_vector <= sig_base;
  	--note data
 	sig_note <= note_data(11 downto 6);
 	sig_duration <= note_data(5 downto 2);
@@ -128,6 +131,7 @@ begin
 		en => enable,
 		note_dur => sig_duration,
 		tempo => sig_tempo,
+		base_vector => sig_base,
 		timeout => sig_timer_out
 	);
 	

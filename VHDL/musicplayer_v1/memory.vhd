@@ -24,7 +24,10 @@ begin
       var_data_mem := ((others=> (others=>'0')));
 		--var_data_mem(0)  := X"00000008";
 		--might need to change this to have the first line be timing-tempo
-		var_data_mem(0)  := "010111100000";--timing = slurred, bpm = 120 
+		--var_data_mem(0)  := "010111100000";--timing = slurred, bpm = 120
+		var_data_mem(0)  := "000011110000"; -- timing: normal, bpm = 60		
+		--var_data_mem(0)  := "001011101100"; -- timing: normal, bpm = 187
+		--var_data_mem(0)  := "001001001100"; -- timing: normal, bpm = 147	
 		var_data_mem(1)  := "000111010000";
 		var_data_mem(2)  := "000100010000";
 		var_data_mem(3)  := "000010010000";

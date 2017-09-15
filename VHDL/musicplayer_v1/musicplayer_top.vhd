@@ -15,15 +15,19 @@
 -- Revision: 
 -- Revision 0.01 - File Created
 -- Additional Comments: 
---
+-- modified to test changing tempos. 8 switches are used. s(0) = play, s(1) = is to enable the dynamic tmepo control
+-- sw(7 downto 2) will enter the tempo value. In this case, "00" will need to be concatentated at the end of the tempo
+-- because there are not enought switches on the board to control all this
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
+USE ieee.numeric_std.ALL;
 entity musicplayer_top is
 	port (clk 	  : in std_logic;
 			reset	  : in std_logic;
-			sw		  : in std_logic;
+			play		  : in std_logic;
+			tempo_mode:	in std_logic; -- switches between tempo in file to dynaimic tempo
+			tempo_val	: in std_logic_vector (5 downto 0); --used for testing
 			speaker : out std_logic
 			);
 
@@ -67,13 +71,21 @@ architecture Behavioral of musicplayer_top is
   end component;
   
   component mux2to1_16b is
-  	port (data_a : in std_logic_vector(15 downto 0);
+		port (data_a : in std_logic_vector(15 downto 0);
 			data_b : in std_logic_vector(15 downto 0);
 			sel	 : in std_logic;
 			data	 : out std_logic_vector(15 downto 0)
 	);
 	end component;
-	
+
+	component mux2to1_12b is
+		port (data_a : in std_logic_vector(11 downto 0);
+			data_b : in std_logic_vector(11 downto 0);
+			sel	 : in std_logic;
+			data	 : out std_logic_vector(11 downto 0)
+	);
+	end component;
+
 	component sound_generator is 
 	port (clk	: in std_logic;
 			reset	: in std_logic;
@@ -81,6 +93,7 @@ architecture Behavioral of musicplayer_top is
 			tempo_data: in std_logic_vector(11 downto 0);
 			enable:	in std_logic;
 			sound	: out std_logic;
+			base_vector : out std_logic_vector(25 downto 0);
 			done	: out std_logic
 	);
 	end component;
@@ -110,7 +123,13 @@ architecture Behavioral of musicplayer_top is
 	
 	signal sig_load_timer : std_logic;
 	signal rest_counter: integer range 0 to 100000000;
+	signal rest_max: integer range 0 to 100000000;
 	signal sig_sound_gen_out: std_logic; 
+	signal sig_base : std_logic_vector(25 downto 0);
+	signal sig_play : std_logic;
+	signal sig_tempo_mux_out : std_logic_vector (11 downto 0);
+	signal sig_tempo_mux_b : std_logic_vector (11 downto 0);
+
 	--fsm
 	TYPE State_Type IS (idle, read_note, play_note); ---added handshake state
 	SIGNAL y : State_Type;
@@ -176,25 +195,33 @@ begin
 		data_out => sig_tempo_data
 	);
 	
+	sig_tempo_mux_b <= sig_tempo_data(11 downto 10) & tempo_val & "0000";
+	
+	tempo_mux :	mux2to1_12b 
+	port map (
+		data_a => sig_tempo_data,
+		data_b => sig_tempo_mux_b,
+		sel => tempo_mode,
+		data => sig_tempo_mux_out
+	);
+	
+	
 	sound_gen: sound_generator
 	port map (
 		clk => clk,
 		reset => reset,
 		note_data => sig_note_data,
-		tempo_data => sig_tempo_data,
+		tempo_data => sig_tempo_data,--sig_tempo_mux_out,--
 		enable => sig_sound_en,
 		sound	=> sig_sound_gen_out,--speaker,
+		base_vector => sig_base,
 		done => sig_sound_done
 	);
 	
-	
-	
-	--sig_sound_en <= sw;
+	sig_play <= play;
 	sig_add_en <= sig_sound_done;
 	
 	--control
-	--sig_load_done <= sig_buffer_reg_en; 
-	
 	--takes in the done signal from the sound generator and counts to 2500000(? aka 1/20 of a second) 
 	--before outputing the sig_load_done output as high
 	save_done_sig:process(sig_sound_done, sig_sound_en)
@@ -207,10 +234,10 @@ begin
 		end if;
 	end process;
 	
-	rest_time: process(clk, sw, sig_load_timer)
+	rest_time: process(clk, sig_play, sig_load_timer)
 	--signal rest_counter: integer
 	begin
-		if sw = '0' then
+		if sig_play = '0' then
 			rest_counter <= 0;
 			sig_sound_en <= '0';
 			--speaker <= '0';
@@ -218,7 +245,11 @@ begin
 		elsif rising_edge(clk) and sig_load_timer = '1' then
 			--if rest_counter < 1000000 then --slurred?
 			--if rest_counter < 500000 then
-			if rest_counter < 30000000 then --normal?
+			--if rest_counter < 30000000 then --normal?
+			--if sig_tempo_data(11 downto 10) = "00" then
+
+			
+			if rest_counter < rest_max then 
 				rest_counter <= rest_counter +1;
 				sig_sound_en <= '0';
 				sig_load_done <= '0';
@@ -232,16 +263,24 @@ begin
 		end if;
 	end process;
 	
-	
-	
-	fsm_transitions: process (clk, sw, sig_load_done, sig_sound_done)
+	rest_max_counter: process (sig_tempo_data(11 downto 10), sig_base)
 	begin
-		if sw = '0' then
+		case sig_tempo_data(11 downto 10) is
+			when "01" => rest_max <= 700000; --slurred
+			when "10" => rest_max <= to_integer(unsigned(sig_base)); --staccato
+			when others => rest_max <= to_integer(unsigned('0' & sig_base(25 downto 1))); --normal
+		end case;
+	end process;
+	
+	
+	fsm_transitions: process (clk, sig_play, sig_load_done, sig_sound_done)
+	begin
+		if sig_play = '0' then
 			y <= idle;
 		elsif rising_edge(clk) then
 			case y is 
 				when idle =>
-					if sw = '1' then 
+					if sig_play = '1' then 
 						y <= read_note;
 					else 
 						y <= idle;

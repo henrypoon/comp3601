@@ -28,6 +28,7 @@ entity note_timer is
 		en: in std_logic;
 		note_dur: in std_logic_vector(3 downto 0);
 		tempo: in std_logic_vector(7 downto 0);
+		base_vector : out std_logic_vector(25 downto 0);
 		timeout: out std_logic
 	);
 end note_timer;
@@ -48,6 +49,8 @@ architecture Behavioral of note_timer is
 	signal sig_duration: integer range 0 to 200000000;
 	signal counter : integer range 0 to 250000000:=0; -- bigger than note duration just in case it overflows
 begin
+	
+	base_vector <= sig_base; 
 	
 	--handle different note durations
 	sig_1_8 <= to_integer(unsigned(sig_base(25 downto 3)));
@@ -107,7 +110,7 @@ begin
 	process (tempo)
 	begin 
 	case tempo is 
-		when "00111100" => sig_base <= "10111110101111000010000000";
+		--when "00111100" => sig_base <= "10111110101111000010000000"; --60 bpm, this case should be covered already using "others"
 		when "00111101" => sig_base <= "10111011100110111010100111";
 		when "00111110" => sig_base <= "10111000100101010000011000";
 		when "00111111" => sig_base <= "10110101101001101111100111";
