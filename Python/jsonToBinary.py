@@ -1,3 +1,5 @@
+#1/usr/bin/python3
+
 import json
 
 fin = open('input.json', 'r')

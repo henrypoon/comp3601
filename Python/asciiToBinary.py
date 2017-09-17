@@ -1,3 +1,5 @@
+#1/usr/bin/python3
+
 fin = open('music.txt', 'r')
 fout = open('binary.txt', 'w')
 
