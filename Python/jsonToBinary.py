@@ -55,7 +55,7 @@ def ASCIItoBinaryNote(noteASCII):
 def FractiontoBinaryDuration(durationFraction):
     return(durationHash[durationFraction])
 
-def conversion(lines):
+def conversion():
     timing = 0
     bpm = 80
     count = 0
@@ -89,12 +89,7 @@ for line in fin:
     jsonLine += line.strip()
 parsedJson = json.loads(jsonLine)
 
-outputString += parsedJson["mode"] + "\n"
-outputString += parsedJson["bpm"] + "\n"
-
-notes = parsedJson["song"].split("|")
-for i in range(0, len(notes)-1, 2):
-    outputString += notes[i] + " " + durationHash[notes[i+1]] + "\n"
+conversion()
 
 fout.write(outputString)
 
