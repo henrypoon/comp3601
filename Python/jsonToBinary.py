@@ -5,6 +5,38 @@ import json
 fin = open('input.json', 'r')
 fout = open('ascii.txt', 'w')
 
+def generateNoteHash():
+    # dictionary of notes
+    # 21 notes per octave
+    # only 12 frequencies
+    # 3 octaves required and 1 note
+    # 64 notes in required range
+    # 37 frequencies in required range
+    # dictionary requires 38 entries to include rest
+    noteHash['rest'] = 0
+
+    count = 1
+    octave = 3
+
+    #actual range in hash goes slightly beyond required range
+    while count <= 38:
+        for letter in ['c', 'd', 'e', 'f', 'g', 'a', 'b']:
+            # flat
+            noteHash[letter + str(octave) + 'b'] = format(count, '06b')
+            count += 1
+            
+            # normal
+            noteHash[letter + str(octave)] = format(count, '06b')
+            count += 1
+
+            # sharp
+            noteHash[letter + str(octave) + '#'] = format(count, '06b')
+            if letter == 'e' or letter == 'b':
+                count -= 1
+
+            if letter == 'g':
+                octave += 1
+
 def generateDurationHash():
     durationHash['1/4'] = format(0, '04b')
     durationHash['1/3'] = format(1, '04b')
@@ -17,8 +49,44 @@ def generateDurationHash():
     durationHash['4'] = format(8, '04b')
     durationHash['8'] = format(9, '04b')
 
+def ASCIItoBinaryNote(noteASCII):
+    return(noteHash[noteASCII])
+
+def FractiontoBinaryDuration(durationFraction):
+    return(durationHash[durationFraction])
+
+def conversion(lines):
+    timing = 0
+    bpm = 80
+    bpmFlag = 0
+    count = 0
+    converted = ''
+    for line in lines:
+        # set bpm
+        if line == "bpm":
+            bpmFlag = 1
+        elif bpmFlag == 1:
+            bpm = int(line)
+            bpmFlag = 0
+        # set timing
+        # default is already normal so normal can be ignored
+        elif line == "slurred":
+            timing = 1
+        elif line == "staccato":
+            timing = 2
+        # convert notes to binary
+        elif count == 0:
+            converted += ASCIItoBinaryNote(line)
+            count = 1
+        else:
+            converted += ASCIItoBinaryDuration(line) +"00\n"
+            count = 0
+    converted = format(timing, '03b') + format(bpm, '07b') + "00\n" + converted
+    return(converted)
+
 jsonLine = ""
 outputString = ""
+noteHash = {}
 durationHash = {}
 generateDurationHash()
 
