@@ -112,7 +112,7 @@ def conversion(lines):
             # convert duration
             converted += ASCIItoBinaryDuration(line) +"00\n"
             count = 0
-    converted = format(timing, '03b') + format(bpm, '07b') + "00\n" + converted
+    converted = format(timing, '02b') + format(bpm, '08b') + "00\n" + converted
     return(converted)
 
 ########## MAIN ##########

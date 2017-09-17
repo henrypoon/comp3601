@@ -75,7 +75,7 @@ def conversion():
     notes = parsedJson["song"].split("|")
     for i in range(0, len(notes)-1, 2):
         converted += ASCIItoBinaryNote(notes[i]) + FractiontoBinaryDuration(notes[i+1]) + "00\n"
-    converted = format(timing, '03b') + format(bpm, '07b') + "00\n" + converted
+    converted = format(timing, '02b') + format(bpm, '08b') + "00\n" + converted
     return(converted)
 
 jsonLine = ""
