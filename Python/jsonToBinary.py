@@ -3,7 +3,7 @@
 import json
 
 fin = open('input.json', 'r')
-fout = open('ascii.txt', 'w')
+fout = open('binary.txt', 'w')
 
 def generateNoteHash():
     # dictionary of notes
