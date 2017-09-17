@@ -58,24 +58,23 @@ def FractiontoBinaryDuration(durationFraction):
 def conversion(lines):
     timing = 0
     bpm = 80
-    bpmFlag = 0
     count = 0
     converted = ''
-    for line in lines:
-        # set bpm
-        if line == "bpm":
-            bpmFlag = 1
-        elif bpmFlag == 1:
-            bpm = int(line)
-            bpmFlag = 0
-        # set timing
-        # default is already normal so normal can be ignored
-        elif line == "slurred":
-            timing = 1
-        elif line == "staccato":
-            timing = 2
-        # convert notes to binary
-        elif count == 0:
+    # set bpm
+    bpm = int(parsedJson["bpm"])
+
+    # set timing
+    # default is already normal so normal can be ignored
+    jsonTiming = parsedJson["mode"]
+    if jsonTiming == "slurred":
+        timing = 1
+    elif jsonTiming == "staccato":
+        timing = 2
+
+    # convert notes to binary
+    notes = parsedJson["song"].split("|")
+    for i in range(0, len(notes)-1, 2):
+        if count == 0:
             converted += ASCIItoBinaryNote(line)
             count = 1
         else:
