@@ -89,7 +89,7 @@ for line in fin:
     jsonLine += line.strip()
 parsedJson = json.loads(jsonLine)
 
-conversion()
+outputString = conversion()
 
 fout.write(outputString)
 
