@@ -20,7 +20,7 @@ class List extends React.Component {
 
 	renderDetails() {
 		return this.props.data.map(song => 
-			<ListDetails key={song.id} details={song} />
+			<ListDetails key={song.id} song={song} />
 		);
 	}
 
@@ -39,26 +39,46 @@ class List extends React.Component {
 
 const data = [
   {
-    "id": 0,
-    "title": "EastGarden",
-    "num": "100."
+    id: 1,
+    notes: '#3|#6|%3',
+    length: '156',
+    name: 'hello world',
+    description: 'compcompcomp3601',
+    mode: 'normal',
+    created_at: '2017-09-17 16:34:34',
+    bpm: '120'
   },
   {
-    "id": 1,
-    "title": "NorthGarden",
-    "num": "100"
+    id: 2,
+    notes: '#3|#6|%3',
+    length: '156',
+    name: 'hello world',
+    description: 'compcompcomp3601',
+    mode: 'normal',
+    created_at: '2017-09-17 16:34:34',
+    bpm: '160'
   },
   {
-    "id": 2,
-    "title": "SouthGarden",
-    "num": "10"
+    id: 3,
+    notes: '#7|%3',
+    length: '156',
+    name: 'hello world',
+    description: 'compcompcomp3601',
+    mode: 'normal',
+    created_at: '2017-09-17 16:34:34',
+    bpm: '180'
   },
   {
-    "id": 3,
-    "title": "WestGarden",
-    "num": "10000"
+    id: 4,
+    notes: '#3|#6|%3',
+    length: '156',
+    name: 'hello world',
+    description: 'compcompcomp3601',
+    mode: 'normal',
+    created_at: '2017-09-17 16:34:34',
+    bpm: '190'
   },
-]
+];
 
 let styles = StyleSheet.create({
   screen: {

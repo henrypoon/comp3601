@@ -38,6 +38,6 @@ class SongsController < ApplicationController
 
 	private
 	def song_params
-		params.permit(:notes, :mode, :bpm)
+		params.permit(:notes, :mode, :bpm, :name, :description, :length, :created_at)
 	end
 end

@@ -16,7 +16,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { ImageIcon } from '../imageIcon';
 
 
-export const ListDetails = ({ key, details }) => {
+export const ListDetails = ({ key, song }) => {
   const likeStyle = [styles.buttonIcon, { color: RkTheme.colors.accent }];
   const iconButton = [styles.buttonIcon, { color: RkTheme.current.colors.text.hint }];
   return (
@@ -24,7 +24,7 @@ export const ListDetails = ({ key, details }) => {
       <View>
         <Image rkCardImg source={require('../../img/post4.png')} />
         <View rkCardImgOverlay style={styles.overlay}>
-          <RkText rkType='header xxlarge' style={{ color: 'white' }}>Header</RkText>
+          <RkText rkType='header xxlarge' style={{ color: 'white' }}>{song.name}</RkText>
         </View>
       </View>
       <RkButton rkType='circle accent-bg' style={styles.floating}>
@@ -34,27 +34,20 @@ export const ListDetails = ({ key, details }) => {
       <View rkCardHeader style={{ paddingBottom: 2.5 }}>
         <View>
 
-          <RkText rkType='subtitle'>Subtitle</RkText>
+          <RkText rkType='subtitle'>Length: {song.length}</RkText>
         </View>
       </View>
       <View rkCardContent>
-        <RkText rkType='compactCardText'>
-          Far far away, behind the word mountains, far from the countries Vokalia
-          and
-          Consonantia, there live the blind texts.</RkText>
+        <RkText rkType='compactCardText'>{song.description}</RkText>
       </View>
       <View rkCardFooter>
         <RkButton rkType='clear link'>
           <Icon name="heart" style={likeStyle} />
-          <RkText rkType='accent'>18 Likes</RkText>
+          <RkText rkType='accent'>Edit</RkText>
         </RkButton>
         <RkButton rkType='clear link'>
-          <Icon name="comment-o" style={iconButton} />
-          <RkText rkType='hint'>2 Comments</RkText>
-        </RkButton>
-        <RkButton rkType='clear link'>
-          <Icon name="send-o" style={iconButton} />
-          <RkText rkType='hint'>6 Shares</RkText>
+          <Icon name="send" style={iconButton} />
+          <RkText rkType='hint'>Remove</RkText>
         </RkButton>
       </View >
     </RkCard>

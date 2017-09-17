@@ -15,6 +15,10 @@ ActiveRecord::Schema.define(version: 20170907132316) do
   create_table "songs", force: :cascade do |t|
     t.string "notes"
     t.string "mode"
+    t.string "name"
+    t.string "description"
+    t.integer "length"
+    t.datetime "activated"
     t.integer "bpm"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

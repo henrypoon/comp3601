@@ -8,12 +8,11 @@
 
 songs = Song.create([
   {
-    notes: '1|2#|0',
-    mode: 'normal',
-    bpm: 180
-  },
-  {
-    notes: '32|2#|2',
-    mode: 'normal',
-    bpm: 120
+    "notes": "d",
+    "mode": "normal",
+    "name": "hi",
+    "description": "hello world",
+    "activated": DateTime.now,
+    "length": 120,
+    "bpm": 120
   }])
