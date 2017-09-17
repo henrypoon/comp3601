@@ -105,9 +105,11 @@ def conversion(lines):
             timing = 2
         # convert notes to binary
         elif count == 0:
+            # convert note
             converted += ASCIItoBinaryNote(line)
             count = 1
         else:
+            # convert duration
             converted += ASCIItoBinaryDuration(line) +"00\n"
             count = 0
     converted = format(timing, '03b') + format(bpm, '07b') + "00\n" + converted
