@@ -119,6 +119,5 @@ def conversion(lines):
 generateNoteHash()
 generateDurationHash()
 lines = readFile(fin)
-print(noteHash)
 result = conversion(lines)
 print(result)
