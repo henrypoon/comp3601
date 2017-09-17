@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import makeRootReducer from './reducers';
+import { composeWithDevTools } from 'remote-redux-devtools';
 
 
 const log = createLogger({ diff: true, collapsed: true });
@@ -24,7 +25,7 @@ export default (initialState = {}) => {
     const store = createStore(
         makeRootReducer(),
         initialState,
-        compose(
+        composeWithDevTools(
             applyMiddleware(...middleware),
             ...enhancers
         )

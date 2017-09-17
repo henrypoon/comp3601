@@ -32,7 +32,7 @@ class SongsController < ApplicationController
 	end
 
 	def play
-		system('echo Compliing the Song')
+		system('cd ../Python ; python jsonToAscii.py')
 		render json: {status: 'ok'}
 	end
 
