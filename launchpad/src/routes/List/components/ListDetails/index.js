@@ -18,6 +18,9 @@ import { ImageIcon } from '../imageIcon';
 
 
 export const ListDetails = ({ song }) => {
+  console.log(typeof(song.length));
+  console.log(typeof(1));
+
   const likeStyle = [styles.buttonIcon, { color: RkTheme.colors.accent }];
   const iconButton = [styles.buttonIcon, { color: RkTheme.current.colors.text.hint }];
   return (
@@ -34,7 +37,7 @@ export const ListDetails = ({ song }) => {
 
       <View rkCardHeader style={{ paddingBottom: 2.5 }}>
         <View>
-          <RkText rkType='subtitle'>Length: {song.length}</RkText>
+          <RkText rkType='subtitle'>Length: {song.length.toString()}</RkText>
         </View>
       </View>
       <View rkCardContent>

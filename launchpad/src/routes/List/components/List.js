@@ -19,9 +19,10 @@ class List extends React.Component {
 	}
 
 	renderDetails() {
-		return this.props.data.map(song => 
-			<ListDetails key={song.id} song={song} />
-		);
+    const rendering = this.props.data.map((song) => 
+      <ListDetails key={song.id} song={song.attributes} />
+    );
+		return rendering;
 	}
 
 	render() {

@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import {
   Dimensions,
   StyleSheet,
+  StatusBar,
   Text,
   View
 } from 'react-native';
-import Swiper from 'react-native-swiper'
+import Swiper from 'react-native-swiper';
 import HomeContainer from '../../../routes/Home/containers/HomeContainer';
 import ListContainer from '../../../routes/List/containers/ListContainer';
 
@@ -22,17 +23,19 @@ class Nav extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-      <Swiper
-        loop={false}
-        showsPagination={false}
-        index={1}>
-        <View style={{ flex: 1 }}>
-          <HomeContainer />
-        </View>
-        <View style={{ flex: 1 }}>
-          <ListContainer />
-        </View>
-      </Swiper>
+        <StatusBar hidden={true} />
+        <Swiper
+          loop={false}
+          showsPagination={false}
+          index={1}
+        >
+          <View style={{ flex: 1 }}>
+            <HomeContainer />
+          </View>
+          <View style={{ flex: 1 }}>
+            <ListContainer />
+          </View>
+        </Swiper>
       </View>
     );
   }

@@ -4,10 +4,18 @@ import constants from './actionConstants';
 
 const { SET_DATA } = constants;
 
-export function setData(payload) {
-	return {
-		type: SET_DATA,
-		payload
+export function setData() {
+	return (dispatch) => {
+		axios.get('http://192.168.0.5:3000/songs')
+		.then((response) => {
+			dispatch({
+				type: SET_DATA,
+				payload: response.data.data
+			});
+		})
+		.catch((error) => {
+			console.log(error);
+		});
 	};
 }
 
