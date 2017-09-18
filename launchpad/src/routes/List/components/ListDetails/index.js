@@ -16,7 +16,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { ImageIcon } from '../imageIcon';
 
 
-export const ListDetails = ({ key, song }) => {
+export const ListDetails = ({ song }) => {
   const likeStyle = [styles.buttonIcon, { color: RkTheme.colors.accent }];
   const iconButton = [styles.buttonIcon, { color: RkTheme.current.colors.text.hint }];
   return (
