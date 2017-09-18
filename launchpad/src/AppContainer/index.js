@@ -3,19 +3,18 @@ import { Router } from 'react-native-router-flux';
 import { Provider, connect } from 'react-redux';
 import { Text, View } from 'react-native';
 import Nav from './NavBar/containers/NavContainer';
-
+import scenes from '../routes/scenes';
 
 export default class AppContainer extends Component {
-	// static propTypes = {
-	// 	store: PropTypes.object.isRequired
-	// }
+	static propTypes = {
+		store: PropTypes.object.isRequired
+	}
 	
-
 	render() {
 		console.log(this.props);
 		return (
 			<Provider store={this.props.store}>
-				<Nav />
+				<Router scenes={scenes} />
 			</Provider>
 		);
 	}

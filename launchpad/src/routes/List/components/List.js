@@ -3,6 +3,7 @@ import {
   View,
   StyleSheet,
   ScrollView,
+  StatusBar
 } from 'react-native';
 
 import {
@@ -28,6 +29,7 @@ class List extends React.Component {
 	render() {
     return (
       <View style={{ flex: 1, backgroundColor: 'black' }}>
+      <StatusBar hidden />
         <ScrollView
           automaticallyAdjustContentInsets={true}
           style={[UtilStyles.container, styles.screen]}>
