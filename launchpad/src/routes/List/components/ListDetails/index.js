@@ -11,8 +11,9 @@ import {
   RkCard,
   RkTheme
 } from 'react-native-ui-kitten';
-
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { Buto } from 'native-base';
+import { Button } from 'native-base';
+import Icon from 'react-native-vector-icons/Feather';
 import { ImageIcon } from '../imageIcon';
 
 
@@ -27,13 +28,12 @@ export const ListDetails = ({ song }) => {
           <RkText rkType='header xxlarge' style={{ color: 'white' }}>{song.name}</RkText>
         </View>
       </View>
-      <RkButton rkType='circle accent-bg' style={styles.floating}>
-        <ImageIcon name='plus' />
-      </RkButton>
+      <Button transparent style={styles.floating}>
+        <Icon name='play-circle' size={50} />
+      </Button>
 
       <View rkCardHeader style={{ paddingBottom: 2.5 }}>
         <View>
-
           <RkText rkType='subtitle'>Length: {song.length}</RkText>
         </View>
       </View>
@@ -42,11 +42,11 @@ export const ListDetails = ({ song }) => {
       </View>
       <View rkCardFooter>
         <RkButton rkType='clear link'>
-          <Icon name="heart" style={likeStyle} />
+          <Icon name="edit" style={likeStyle} />
           <RkText rkType='accent'>Edit</RkText>
         </RkButton>
         <RkButton rkType='clear link'>
-          <Icon name="send" style={iconButton} />
+          <Icon name="delete" style={iconButton} />
           <RkText rkType='hint'>Remove</RkText>
         </RkButton>
       </View >
@@ -79,8 +79,6 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   floating: {
-    width: 56,
-    height: 56,
     position: 'absolute',
     zIndex: 200,
     right: 16,
