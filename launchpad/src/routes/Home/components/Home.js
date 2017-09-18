@@ -17,17 +17,19 @@ class Home extends React.Component {
 	render() {
 		return (
 			<View style={{ flex: 1 }}>
-				<Header>
-          <Left />
-          <Body>
-            <Title>EDITOR</Title>
-          </Body>
-          <Right>
-            <Button transparent>
-              <Icon name='align-justify' />
-            </Button>
-          </Right>
-        </Header>
+				<View style={{ flex: 0.07 }}>
+					<Header>
+						<Left style={{ flex: 0.2, top: -15 }} />
+						<Body style={{ top: -15 }}>
+							<Title>MUSIC EDITOR</Title>
+						</Body>
+						<Right style={{ flex: 0.2, top: -15 }}>
+							<Button transparent>
+								<Icon name='align-justify' />
+							</Button>
+						</Right>
+					</Header>
+				</View>
 				<View style={{ flex: 1, alignItems: 'center', backgroundColor: 'black' }}>
 					<ProcessBar song={this.props.song} />
 					<SliderBar

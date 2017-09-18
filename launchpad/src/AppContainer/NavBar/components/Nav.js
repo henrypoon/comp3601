@@ -27,7 +27,10 @@ class Nav extends React.Component {
         <Swiper
           loop={false}
           showsPagination={false}
+          horizontal={false}
           index={1}
+          dot={<View style={{backgroundColor:'rgba(0,0,0,.2)', width: 16, height: 16, borderRadius: 8, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 0, }} />}
+          activeDot={<View style={{backgroundColor: '#007aff', width: 16, height: 16, borderRadius: 8, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 0, }} />}
         >
           <View style={{ flex: 1 }}>
             <HomeContainer />

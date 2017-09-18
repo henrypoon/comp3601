@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, ScrollView, TouchableOpacity, StyleSheet, Image } from 'react-native';
-const pinkIMG = require('../../../../assets/img/grid/pink.png');
+const pinkIMG = require('../../../../assets/img/Grid/pink.png');
 
 export const ProcessBar = ({ song }) => {
 

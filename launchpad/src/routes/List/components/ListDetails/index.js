@@ -11,16 +11,10 @@ import {
   RkCard,
   RkTheme
 } from 'react-native-ui-kitten';
-import { Buto } from 'native-base';
 import { Button } from 'native-base';
 import Icon from 'react-native-vector-icons/Feather';
-import { ImageIcon } from '../imageIcon';
 
-
-export const ListDetails = ({ song }) => {
-  console.log(typeof(song.length));
-  console.log(typeof(1));
-
+export const ListDetails = ({ i, song, playMusic }) => {
   const likeStyle = [styles.buttonIcon, { color: RkTheme.colors.accent }];
   const iconButton = [styles.buttonIcon, { color: RkTheme.current.colors.text.hint }];
   return (
@@ -31,13 +25,14 @@ export const ListDetails = ({ song }) => {
           <RkText rkType='header xxlarge' style={{ color: 'white' }}>{song.name}</RkText>
         </View>
       </View>
-      <Button transparent style={styles.floating}>
+      <Button transparent style={styles.floating} onPress={() => playMusic(i)}>
         <Icon name='play-circle' size={50} />
       </Button>
 
       <View rkCardHeader style={{ paddingBottom: 2.5 }}>
         <View>
-          <RkText rkType='subtitle'>Length: {song.length.toString()}</RkText>
+          <RkText rkType='subtitle'>Length: {song.length.toString()}s</RkText>
+          <RkText rkType='subtitle'>BPM: {song.bpm.toString()}</RkText>
         </View>
       </View>
       <View rkCardContent>

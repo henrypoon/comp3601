@@ -15,19 +15,19 @@ import ListDetails from './ListDetails';
 class List extends React.Component {
 
 	componentDidMount() {
-		this.props.setData(data);
+		this.props.setData();
 	}
 
 	renderDetails() {
     const rendering = this.props.data.map((song) => 
-      <ListDetails key={song.id} song={song.attributes} />
+      <ListDetails key={song.id} song={song.attributes} playMusic={this.props.playMusic} i={song.id} />
     );
 		return rendering;
 	}
 
 	render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, backgroundColor: 'black' }}>
         <ScrollView
           automaticallyAdjustContentInsets={true}
           style={[UtilStyles.container, styles.screen]}>
@@ -37,49 +37,6 @@ class List extends React.Component {
     );
   }
 }
-
-const data = [
-  {
-    id: 1,
-    notes: '#3|#6|%3',
-    length: '156',
-    name: 'hello world',
-    description: 'compcompcomp3601',
-    mode: 'normal',
-    created_at: '2017-09-17 16:34:34',
-    bpm: '120'
-  },
-  {
-    id: 2,
-    notes: '#3|#6|%3',
-    length: '156',
-    name: 'hello world',
-    description: 'compcompcomp3601',
-    mode: 'normal',
-    created_at: '2017-09-17 16:34:34',
-    bpm: '160'
-  },
-  {
-    id: 3,
-    notes: '#7|%3',
-    length: '156',
-    name: 'hello world',
-    description: 'compcompcomp3601',
-    mode: 'normal',
-    created_at: '2017-09-17 16:34:34',
-    bpm: '180'
-  },
-  {
-    id: 4,
-    notes: '#3|#6|%3',
-    length: '156',
-    name: 'hello world',
-    description: 'compcompcomp3601',
-    mode: 'normal',
-    created_at: '2017-09-17 16:34:34',
-    bpm: '190'
-  },
-];
 
 let styles = StyleSheet.create({
   screen: {

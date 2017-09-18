@@ -2,7 +2,7 @@ import update from 'react-addons-update';
 import axios from 'axios';
 import constants from './actionConstants';
 
-const { SET_DATA } = constants;
+const { SET_DATA, PLAY_MUSIC } = constants;
 
 export function setData() {
 	return (dispatch) => {
@@ -16,6 +16,23 @@ export function setData() {
 		.catch((error) => {
 			console.log(error);
 		});
+	};
+}
+
+export function playMusic(payload) {
+	console.log('play');
+	const api = 'http://192.168.0.5:3000/songs/play/' + payload.toString();
+	console.log(api);
+	axios.post(api)
+		.then((response) => {
+			console.log(response);
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+	return {
+		type: PLAY_MUSIC,
+		payload: null
 	};
 }
 

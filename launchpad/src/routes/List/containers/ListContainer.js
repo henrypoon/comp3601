@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import List from '../components/List';
 
 import {
-	setData
+	setData,
+	playMusic
 } from '../modules/list';
 
 const mapStateToProps = (state) => ({
@@ -10,7 +11,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapActionCreators = {
-	setData
+	setData,
+	playMusic
 };
 
 export default connect(mapStateToProps, mapActionCreators)(List);
