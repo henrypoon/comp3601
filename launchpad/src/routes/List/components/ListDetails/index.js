@@ -22,7 +22,7 @@ export const ListDetails = ({ song }) => {
   return (
     <RkCard rkType='shadowed'>
       <View>
-        <Image rkCardImg source={require('../../img/post4.png')} />
+        <Image rkCardImg source={require('../../img/nm.gif')} />
         <View rkCardImgOverlay style={styles.overlay}>
           <RkText rkType='header xxlarge' style={{ color: 'white' }}>{song.name}</RkText>
         </View>

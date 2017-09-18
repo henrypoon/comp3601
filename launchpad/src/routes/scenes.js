@@ -13,7 +13,7 @@ const TabIcon = ({ selected, title }) => {
 const scenes = () => (
 	<Router>
 		<Stack key="root">
-			<Scene key="Home" component={ListContainer} title="Music Editor" />
+			<Scene key="List" component={ListContainer} title="Music Editor" />
 		</Stack>
 	</Router>
 );
