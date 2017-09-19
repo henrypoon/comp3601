@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, TouchableHighlight, Image, Dimensions } from 'react-native';
+import FadeInView from 'react-native-fade-in-view';
 const pink = require('../../../../assets/img/Grid/pink.png');
 const blue = require('../../../../assets/img/Grid/blue.png');
 const orange = require('../../../../assets/img/Grid/orange.png');
@@ -16,6 +17,10 @@ export const Launchpad = ({ setCurrentNote, setSign }) => {
 
   return (
     <View>
+      <FadeInView
+        duration={750}
+        style={{ alignItems: 'center' }}
+      >
       <View style={{ flexDirection: 'row' }}>
         <TouchableHighlight onPress={() => setCurrentNote('rest')}>
           <Image
@@ -76,6 +81,7 @@ export const Launchpad = ({ setCurrentNote, setSign }) => {
           />
         </TouchableHighlight>
       </View>
+      </FadeInView>
     </View>
   );
 };

@@ -1,6 +1,7 @@
 import update from 'react-addons-update';
 import axios from 'axios';
 import constants from './actionConstants';
+import { AlertIOS } from 'react-native';
 
 const { 
 	SET_OCTAVE, 
@@ -71,6 +72,7 @@ export function saveMusic() {
 		axios.post('http://192.168.0.5:3000/songs', jsonToSend)
 			.then((response) => {
 				console.log(response);
+				AlertIOS.alert('Save Successfully!');
 			})
 			.catch((error) => {
 				console.log(error);
