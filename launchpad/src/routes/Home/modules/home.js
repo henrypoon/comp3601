@@ -10,8 +10,29 @@ const {
 	ADD_TO_SONG, 
 	DELETE_NOTE, 
 	SAVE_MUSIC,
-	SET_SELECTED
+	SET_SELECTED,
+	SET_SIGN
 } = constants;
+
+export function setSign() {
+	return (dispatch, store) => {
+		const curr = store().home.sign;
+		let next = '';
+		if (curr === '') {
+			next = '#';
+		}
+		if (curr === '#') {
+			next = 'b';
+		}
+		if (curr === 'b') {
+			next = '';
+		}
+		dispatch({
+			type: SET_SIGN,
+			payload: next
+		});
+	};
+}
 
 export function playMusic() {
 	console.log('play');
@@ -38,8 +59,6 @@ export function saveMusic() {
 			length += e.duration;
 		});
 		song = song.slice(0, song.length - 1);
-		console.log(song);
-		console.log(length);
 		const jsonToSend = {
 			notes: song,
 			mode: 'normal',
@@ -65,21 +84,14 @@ export function saveMusic() {
 
 export function setCurrentNote(payload) {
 	return (dispatch, store) => {
-		const octave = store().home.octave;
-		const duration = store().home.duration;
-		if (store().home.selected !== -1) {
-			dispatch({
-				type: SET_CURRENTNOTE,
-				payload: { notes: payload + octave, duration: duration }
-			});
-		} else {
+		dispatch({
+			type: SET_CURRENTNOTE,
+			payload
+		});
+		if (store().home.selected === -1) {
 			dispatch({
 				type: SET_SELECTED,
 				payload: 0
-			});
-			dispatch({
-				type: SET_CURRENTNOTE,
-				payload: { notes: payload + octave, duration: duration }
 			});
 		}
 	};
@@ -102,8 +114,13 @@ export function setDuraction(payload) {
 export function addToSong() {
 	return (dispatch, store) => {
 		const currNote = store().home.currentNote;
+		const octave = store().home.octave;
+		const duration = store().home.duration;
+		const sign = store().home.sign;
+		const notes = currNote === 'rest' ? 'rest' : currNote + octave + sign;
+		const n = { notes: notes, duration: duration };
 		const song = store().home.song;
-		const add = song.concat(currNote);
+		const add = song.concat(n);
 		if (store().home.selected !== -1) {
 			dispatch({
 				type: ADD_TO_SONG,
@@ -187,20 +204,30 @@ function handleSetSelected(state, action) {
 	});
 }
 
+function handleSetSign(state, action) {
+	return update(state, {
+		sign: {
+			$set: action.payload
+		}
+	});
+}
+
 const ACTION_HANDLERS = {
 	SET_OCTAVE: handleSetOctave,
 	SET_DURATION: handleSetDuration,
 	SET_CURRENTNOTE: handleSetCurrentNote,
 	ADD_TO_SONG: handleAddToSong,
 	DELETE_NOTE: handleDeteleNote,
-	SET_SELECTED: handleSetSelected
+	SET_SELECTED: handleSetSelected,
+	SET_SIGN: handleSetSign
 };
 
 const initialState = {
 	song: [],
-	currentNote: {},
+	currentNote: '',
 	octave: 0,
 	duration: 0,
+	sign: '',
 	selected: 0
 };
 

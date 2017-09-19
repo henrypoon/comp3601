@@ -15,6 +15,11 @@ import { Button } from 'native-base';
 import Icon from 'react-native-vector-icons/Feather';
 
 export const ListDetails = ({ i, song, playMusic }) => {
+  console.log(song['created-at']);
+  let d = song['created-at'];
+  let date = d.split('T')[0];
+  let time = d.split('T')[1].split('Z')[0].slice(0, -7);
+  let s = date + ' ' + time;
   const likeStyle = [styles.buttonIcon, { color: RkTheme.colors.accent }];
   const iconButton = [styles.buttonIcon, { color: RkTheme.current.colors.text.hint }];
   return (
@@ -33,6 +38,7 @@ export const ListDetails = ({ i, song, playMusic }) => {
         <View>
           <RkText rkType='subtitle'>Length: {song.length.toString()}s</RkText>
           <RkText rkType='subtitle'>BPM: {song.bpm.toString()}</RkText>
+          <RkText rkType='subtitle'>Create At: {s}</RkText>
         </View>
       </View>
       <View rkCardContent>

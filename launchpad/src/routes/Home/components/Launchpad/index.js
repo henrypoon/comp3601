@@ -12,7 +12,7 @@ const brown = require('../../../../assets/img/Grid/brown.png');
 
 const deviceW = Dimensions.get('window').width;
 
-export const Launchpad = ({ setCurrentNote }) => {
+export const Launchpad = ({ setCurrentNote, setSign }) => {
 
   return (
     <View>
@@ -23,13 +23,13 @@ export const Launchpad = ({ setCurrentNote }) => {
             style={{ width: deviceW / 3, height: deviceW / 3 }}
           />
         </TouchableHighlight>
-        <TouchableHighlight onPress={() => setCurrentNote('A')}>
+        <TouchableHighlight onPress={() => setSign()}>
           <Image
             source={blue}
             style={{ width: deviceW / 3, height: deviceW / 3 }}
           />
         </TouchableHighlight>
-        <TouchableHighlight onPress={() => setCurrentNote('B')}>
+        <TouchableHighlight onPress={() => setCurrentNote('A')}>
           <Image
             source={orange}
             style={{ width: deviceW / 3, height: deviceW / 3 }}
@@ -37,19 +37,19 @@ export const Launchpad = ({ setCurrentNote }) => {
         </TouchableHighlight>
       </View>
       <View style={{ flexDirection: 'row' }}>
-        <TouchableHighlight onPress={() => setCurrentNote('C')}>
+        <TouchableHighlight onPress={() => setCurrentNote('B')}>
           <Image
             source={grey}
             style={{ width: deviceW / 3, height: deviceW / 3 }}
           />
         </TouchableHighlight>
-        <TouchableHighlight onPress={() => setCurrentNote('D')}>
+        <TouchableHighlight onPress={() => setCurrentNote('C')}>
           <Image
             source={cyan}
             style={{ width: deviceW / 3, height: deviceW / 3 }}
           />
         </TouchableHighlight>
-        <TouchableHighlight onPress={() => setCurrentNote('E')}>
+        <TouchableHighlight onPress={() => setCurrentNote('D')}>
           <Image
             source={purple}
             style={{ width: deviceW / 3, height: deviceW / 3 }}
@@ -57,19 +57,19 @@ export const Launchpad = ({ setCurrentNote }) => {
         </TouchableHighlight>
       </View>
       <View style={{ flexDirection: 'row' }}>
-        <TouchableHighlight onPress={() => setCurrentNote('F')}>
+        <TouchableHighlight onPress={() => setCurrentNote('E')}>
           <Image
             source={brown}
             style={{ width: deviceW / 3, height: deviceW / 3 }}
           />
         </TouchableHighlight>
-        <TouchableHighlight onPress={() => setCurrentNote('G')}>
+        <TouchableHighlight onPress={() => setCurrentNote('F')}>
           <Image
             source={green}
             style={{ width: deviceW / 3, height: deviceW / 3 }}
           />
         </TouchableHighlight>
-        <TouchableHighlight onPress={() => setCurrentNote('H')}>
+        <TouchableHighlight onPress={() => setCurrentNote('G')}>
           <Image
             source={yellow}
             style={{ width: deviceW / 3, height: deviceW / 3 }}

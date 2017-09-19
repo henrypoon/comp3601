@@ -8,7 +8,8 @@ import {
 	setCurrentNote,
 	addToSong,
 	deleteNote,
-	setSelected
+	setSelected,
+	setSign
 } from '../modules/home';
 
 const mapStateToProps = (state) => ({
@@ -27,6 +28,7 @@ const mapActionCreators = {
 	setCurrentNote,
 	addToSong,
 	deleteNote,
-	setSelected
+	setSelected,
+	setSign
 };
 export default connect(mapStateToProps, mapActionCreators)(Home);

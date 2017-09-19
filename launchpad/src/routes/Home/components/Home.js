@@ -56,7 +56,7 @@ class Home extends React.Component {
 						<RkButton rkType='success' onPress={this.props.addToSong}>Add</RkButton>
 						<RkButton rkType='danger' onPress={this.props.deleteNote}>Delete</RkButton>
 					</View>
-					<Launchpad setCurrentNote={this.props.setCurrentNote} />
+					<Launchpad setCurrentNote={this.props.setCurrentNote} setSign={this.props.setSign}/>
 					<View style={{ flexDirection: 'row' }}>
 						<RkButton rkType='success' onPress={() => Actions.modal()}>Play</RkButton>
 						<RkButton rkType='danger' onPress={this.props.saveMusic}>Save</RkButton>
