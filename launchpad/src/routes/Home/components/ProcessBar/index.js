@@ -1,18 +1,47 @@
 import React from 'react';
 import { Text, View, ScrollView, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import Svg,{
+    Circle,
+    Ellipse,
+    G,
+    LinearGradient,
+    RadialGradient,
+    Line,
+    Path,
+    Polygon,
+    Polyline,
+    Rect,
+    Symbol,
+    Use,
+    Defs,
+    Stop
+} from 'react-native-svg';
 const pinkIMG = require('../../../../assets/img/Grid/pink.png');
 
-export const ProcessBar = ({ song }) => {
+export const ProcessBar = ({ song, setSelected, selected }) => {
 
   return (
-    <View style={{ flex: 0.5 }}>
+    <View style={{ flex: 1 }}>
       <ScrollView
         contentContainerStyle={styles.contentContainer}
         automaticallyAdjustContentInsets={false}
         horizontal={true}
+        ref={ref => this.scrollView = ref}
+        onContentSizeChange={(contentWidth, contentHeight)=>{        
+          this.scrollView.scrollToEnd({ animated: true });
+        }}
       >
       {song.map((e, i) => {
-        return <Text key={i} style={{ color: 'white' }}>{e} </Text>;
+        const random = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+        const stroke = i === selected ? '#f5ff77' : '';
+        const x = e.notes.indexOf('rest') === -1 ? 15 : 11;
+        return  <TouchableOpacity key={i} onPress={() => setSelected(i)}>
+                <Svg height="150" width="55">
+                  <Text style={{ color: 'white', left: x, top: 20 }}>{e.notes} </Text>
+                  <Rect x="0" y="0" width="50" stroke={stroke} height="70" strokeWidth="5" fill={random}>
+                  </Rect>
+                </Svg>
+                </TouchableOpacity>
       })}
       </ScrollView>
     </View>

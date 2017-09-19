@@ -12,8 +12,9 @@ import HomeContainer from './Home/containers/HomeContainer';
 import ListContainer from './List/containers/ListContainer';
 
 const scenes = Actions.create(
+  <Router>
     <Scene key="root" hideNavBar>
-      <Scene key="home" hideNavBar component={HomeContainer} title="home"/>
+      <Scene key="home" hideNavBar component={HomeContainer} title="home" />
       <Scene
         key='modal'
         hideNavBar 
@@ -22,7 +23,7 @@ const scenes = Actions.create(
         title="list"
       />
     </Scene>
-
+  </Router>
 );
 
 export default scenes;

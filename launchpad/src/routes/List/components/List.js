@@ -31,7 +31,7 @@ class List extends React.Component {
       <View style={{ flex: 1, backgroundColor: 'black' }}>
       <StatusBar hidden />
         <ScrollView
-          automaticallyAdjustContentInsets={true}
+          automaticallyAdjustContentInsets
           style={[UtilStyles.container, styles.screen]}>
           {this.renderDetails()}
         </ScrollView>

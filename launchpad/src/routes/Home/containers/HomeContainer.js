@@ -7,14 +7,16 @@ import {
 	saveMusic,
 	setCurrentNote,
 	addToSong,
-	deleteNote
+	deleteNote,
+	setSelected
 } from '../modules/home';
 
 const mapStateToProps = (state) => ({
 	octave: state.home.octave,
 	duration: state.home.duration,
 	setCurrentNote: state.home.setCurrentNote,
-	song: state.home.song
+	song: state.home.song,
+	selected: state.home.selected
 });
 
 const mapActionCreators = {
@@ -24,6 +26,7 @@ const mapActionCreators = {
 	saveMusic,
 	setCurrentNote,
 	addToSong,
-	deleteNote
+	deleteNote,
+	setSelected
 };
 export default connect(mapStateToProps, mapActionCreators)(Home);

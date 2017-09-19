@@ -9,7 +9,8 @@ const {
 	SET_CURRENTNOTE, 
 	ADD_TO_SONG, 
 	DELETE_NOTE, 
-	SAVE_MUSIC 
+	SAVE_MUSIC,
+	SET_SELECTED
 } = constants;
 
 export function playMusic() {
@@ -28,24 +29,59 @@ export function playMusic() {
 }
 
 export function saveMusic() {
-	console.log('save');
-	axios.post('http://192.168.0.5:3000/songs/play/1')
-		.then((response) => {
-			console.log(response);
-		})
-		.catch((error) => {
-			console.log(error);
+	return (dispatch, store) => {
+		console.log(store().home.song);
+		let song = '';
+		let length = 0;
+		store().home.song.map((e) => {
+			song = song + e.notes + '|';
+			length += e.duration;
 		});
-	return {
-		type: SAVE_MUSIC,
-		payload: null
+		song = song.slice(0, song.length - 1);
+		console.log(song);
+		console.log(length);
+		const jsonToSend = {
+			notes: song,
+			mode: 'normal',
+			name: 'test',
+			description: 'heeeee',
+			length: length/1000,
+			bpm: 20
+		};
+
+		axios.post('http://192.168.0.5:3000/songs', jsonToSend)
+			.then((response) => {
+				console.log(response);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+		dispatch({
+			type: SAVE_MUSIC,
+			payload: null
+		});
 	};
 }
 
 export function setCurrentNote(payload) {
-	return {
-		type: SET_CURRENTNOTE,
-		payload
+	return (dispatch, store) => {
+		const octave = store().home.octave;
+		const duration = store().home.duration;
+		if (store().home.selected !== -1) {
+			dispatch({
+				type: SET_CURRENTNOTE,
+				payload: { notes: payload + octave, duration: duration }
+			});
+		} else {
+			dispatch({
+				type: SET_SELECTED,
+				payload: 0
+			});
+			dispatch({
+				type: SET_CURRENTNOTE,
+				payload: { notes: payload + octave, duration: duration }
+			});
+		}
 	};
 }
 
@@ -68,23 +104,38 @@ export function addToSong() {
 		const currNote = store().home.currentNote;
 		const song = store().home.song;
 		const add = song.concat(currNote);
-		dispatch({
-			type: ADD_TO_SONG,
-			payload: add
-		});
+		if (store().home.selected !== -1) {
+			dispatch({
+				type: ADD_TO_SONG,
+				payload: add
+			});
+		}
 	};
 }
 
 export function deleteNote() {
 	return (dispatch, store) => {
 		const song = store().home.song;
-		const len = song.length - 1;
-		console.log(len);
-		const add = song.splice(0, len);
+		const s = store().home.selected;
+		const len = song.length;
+		const add = song.slice(0, s).concat(song.slice(s + 1, len));
 		dispatch({
 			type: DELETE_NOTE,
 			payload: add
 		});
+		if (s === len - 1) {
+			dispatch({
+				type: SET_SELECTED,
+				payload: s - 1
+			});
+		}
+	};
+}
+
+export function setSelected(payload) {
+	return {
+		type: SET_SELECTED,
+		payload
 	};
 }
 
@@ -128,19 +179,29 @@ function handleDeteleNote(state, action) {
 	});
 }
 
+function handleSetSelected(state, action) {
+	return update(state, {
+		selected: {
+			$set: action.payload
+		}
+	});
+}
+
 const ACTION_HANDLERS = {
 	SET_OCTAVE: handleSetOctave,
 	SET_DURATION: handleSetDuration,
 	SET_CURRENTNOTE: handleSetCurrentNote,
 	ADD_TO_SONG: handleAddToSong,
-	DELETE_NOTE: handleDeteleNote
+	DELETE_NOTE: handleDeteleNote,
+	SET_SELECTED: handleSetSelected
 };
 
 const initialState = {
 	song: [],
-	currentNote: null,
+	currentNote: {},
 	octave: 0,
-	duration: 0
+	duration: 0,
+	selected: 0
 };
 
 export function HomeReducer(state = initialState, action) {
