@@ -11,7 +11,7 @@ import ProcessBar from './ProcessBar';
 class Home extends React.Component {
 
 	componentDidMount() {
-		this.props.setOctave(0);
+		this.props.setOctave(3);
 		this.props.setDuraction(0);
 		this.props.setSelected(-1);
 	}
@@ -42,7 +42,7 @@ class Home extends React.Component {
 					<SliderBar
 						setSlider={this.props.setOctave}
 						value={this.props.octave}
-						min={0} 
+						min={3} 
 						max={6}
 					/>
 					<SliderBar
@@ -53,13 +53,14 @@ class Home extends React.Component {
 						opt={'ms'}
 					/>
 					<View style={{ flexDirection: 'row' }}>
-						<RkButton rkType='success' onPress={this.props.addToSong}>Add</RkButton>
-						<RkButton rkType='danger' onPress={this.props.deleteNote}>Delete</RkButton>
+						<RkButton rkType='success rounded' onPress={this.props.addToSong}>Add</RkButton>
+						<RkButton rkType='danger rounded' onPress={this.props.deleteNote}>Delete</RkButton>
 					</View>
-					<Launchpad setCurrentNote={this.props.setCurrentNote} setSign={this.props.setSign}/>
+					<Launchpad setCurrentNote={this.props.setCurrentNote} setSign={this.props.setSign} octave={this.props.octave} />
 					<View style={{ flexDirection: 'row' }}>
-						<RkButton rkType='success' onPress={() => Actions.modal()}>Play</RkButton>
-						<RkButton rkType='danger' onPress={this.props.saveMusic}>Save</RkButton>
+						<RkButton rkType='success rounded' onPress={this.props.playMusic}>Play</RkButton>
+						<RkButton rkType='danger rounded' onPress={this.props.saveMusic}>Save</RkButton>
+						<RkButton rkType='warning rounded' onPress={() => Actions.list()}>Album</RkButton>
 					</View>
 				</View>
 			</View>

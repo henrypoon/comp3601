@@ -8,7 +8,6 @@
 	},
 	"dependencies": {
 		"axios": "^0.16.2",
-		"lottie-react-native": "^2.2.0",
 		"nachos-ui": "^0.1.2",
 		"native-base": "^2.3.1",
 		"react": "16.0.0-alpha.12",

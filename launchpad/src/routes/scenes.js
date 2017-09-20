@@ -16,7 +16,7 @@ const scenes = Actions.create(
     <Scene key="root" hideNavBar>
       <Scene key="home" hideNavBar component={HomeContainer} title="home" />
       <Scene
-        key='modal'
+        key='list'
         hideNavBar 
         direction='vertical' 
         component={ListContainer} 
