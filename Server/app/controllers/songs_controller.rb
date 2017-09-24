@@ -32,7 +32,7 @@ class SongsController < ApplicationController
 	end
 
 	def play
-		system('cd ../Python ; python jsonToAscii.py')
+		exec('C:\Users\henrypan\source\repos\FPGA\Debug\FPGA.exe')
 		render json: {status: 'ok'}
 	end
 
