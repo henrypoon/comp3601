@@ -1,0 +1,20 @@
+NET "ctlEppAstb" LOC = "N8";
+NET "ctlEppDwr" LOC = "P7";
+NET "ctlEppWr" LOC = "N7";
+NET "pwait" LOC = "N5";
+NET "data(0)" LOC = "N12";
+NET "data(1)" LOC = "P12";
+NET "data(2)" LOC = "N11";
+NET "data(3)" LOC = "P11";
+NET "data(4)" LOC = "N10";
+NET "data(5)" LOC = "P10";
+NET "data(6)" LOC = "M10";
+NET "data(7)" LOC = "R10";
+#NET "clk" LOC = "A8";
+NET "sw" LOC = "N15"; # clk is switch
+NET "led(0)" LOC = "L14";
+NET "led(1)" LOC = "L13";
+NET "led(2)" LOC = "M14";
+NET "led(3)" LOC = "L12";
+NET "sw" CLOCK_DEDICATED_ROUTE = FALSE; 
+
