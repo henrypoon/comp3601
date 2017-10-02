@@ -1,6 +1,8 @@
 import React from 'react';
 import { Text, View, TouchableHighlight, Image, Dimensions, StyleSheet } from 'react-native';
 import FadeInView from 'react-native-fade-in-view';
+import { connect } from 'react-redux';
+
 const pink = require('../../../../assets/img/Grid/pink.png');
 const blue = require('../../../../assets/img/Grid/blue.png');
 const orange = require('../../../../assets/img/Grid/orange.png');
@@ -13,48 +15,86 @@ const brown = require('../../../../assets/img/Grid/brown.png');
 
 const deviceW = Dimensions.get('window').width;
 
-export const Launchpad = ({ setCurrentNote, setSign }) => {
+export default class Launchpad extends React.Component {
 
-  const renderGrid = (color, val) => {
-    return <TouchableHighlight onPress={() => setCurrentNote(val)}>
-            <Image
-            source={color}
-            style={{ width: deviceW / 3, height: deviceW / 3 }}
-            blurRadius={0}
-            />
-          </TouchableHighlight>;
-  };
+  constructor(props) {
+    super(props);
+    console.log(this.props.octave + 'dddddd');
+  }
 
-  return (
-    <View>
-      <FadeInView
-        duration={750}
-        style={{ alignItems: 'center' }}
-      >
-      <View style={{ flexDirection: 'row' }}>
-        {renderGrid(pink, 'rest')}
-        <TouchableHighlight onPress={() => setSign()}>
-          <Image
-            source={blue}
-            style={{ width: deviceW / 3, height: deviceW / 3 }}
-          />
-        </TouchableHighlight>
-        {renderGrid(orange, 'A')}
-      </View>
-      <View style={{ flexDirection: 'row' }}>
-        {renderGrid(grey, 'B')}
-        {renderGrid(cyan, 'C')} 
-        {renderGrid(purple, 'D')}
-      </View>
-      <View style={{ flexDirection: 'row' }}>
-        {renderGrid(brown, 'E')}
-        {renderGrid(green, 'F')}
-        {renderGrid(yellow, 'G')}
-      </View>
-      </FadeInView>
-    </View>
-  );
-};
+  render() {
+
+    const blurMap = (val) => {
+      switch (this.props.octave) {
+        case 3:
+          if (val === 'C' && val === 'D' && val === 'E' && val === 'F' && val === 'G' && val === 'A' && val === 'B') {
+            return true;
+          }
+          return false;
+        case 4:
+          if (val === 'C' && val === 'D' && val === 'E' && val === 'F' && val === 'G') {
+            return true;
+          }
+          return false;
+        case 5:
+          if (val === 'C' && val === 'D' && val === 'E' && val === 'F' && val === 'G' && val === 'A' && val === 'B') {
+            return true;
+          }
+          return false;
+        case 6:
+          if (val === 'C' && val === 'D' && val === 'E' && val === 'F' && val === 'G' && val === 'A' && val === 'B') {
+            return true;
+          }
+          return false;
+        default:
+          return false;
+      }
+    };
+
+    const renderGrid = (color, val) => {
+      const blur = blurMap(val) ? 100 : 0;
+      return (
+        <TouchableHighlight onPress={() => this.props.setCurrentNote(val)}>
+              <Image
+              source={color}
+              style={{ width: deviceW / 3, height: deviceW / 3 }}
+              blurRadius={blur}
+              />
+            </TouchableHighlight>
+      );
+    };
+
+    return (
+        <View>
+          <FadeInView
+            duration={750}
+            style={{ alignItems: 'center' }}
+          >
+          <View style={{ flexDirection: 'row' }}>
+            {renderGrid(pink, 'rest')}
+            <TouchableHighlight onPress={() => this.props.setSign()}>
+              <Image
+                source={blue}
+                style={{ width: deviceW / 3, height: deviceW / 3 }}
+              />
+            </TouchableHighlight>
+            {renderGrid(orange, 'A')}
+          </View>
+          <View style={{ flexDirection: 'row' }}>
+            {renderGrid(grey, 'B')}
+            {renderGrid(cyan, 'C')} 
+            {renderGrid(purple, 'D')}
+          </View>
+          <View style={{ flexDirection: 'row' }}>
+            {renderGrid(brown, 'E')}
+            {renderGrid(green, 'F')}
+            {renderGrid(yellow, 'G')}
+          </View>
+          </FadeInView>
+        </View>
+      );
+    }
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -67,4 +107,3 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Launchpad;

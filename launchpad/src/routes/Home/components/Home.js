@@ -27,7 +27,7 @@ class Home extends React.Component {
 							<Title>MUSIC EDITOR</Title>
 						</Body>
 						<Right style={{ flex: 0.2, top: -15 }}>
-							<Button transparent>
+							<Button transparent onPress={() => Actions.setting()}>
 								<Icon name='align-justify' />
 							</Button>
 						</Right>

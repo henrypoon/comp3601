@@ -1,0 +1,27 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Wed Sep 27 22:27:43 2017
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "ctlEppAstb" LOCATE = SITE "N8" LEVEL 1;
+NET "sw_BUFGP/IBUFG" BEL "sw_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+COMP "ctlEppDwr" LOCATE = SITE "P7" LEVEL 1;
+COMP "led<0>" LOCATE = SITE "L14" LEVEL 1;
+COMP "led<1>" LOCATE = SITE "L13" LEVEL 1;
+COMP "data<0>" LOCATE = SITE "N12" LEVEL 1;
+COMP "led<2>" LOCATE = SITE "M14" LEVEL 1;
+COMP "data<1>" LOCATE = SITE "P12" LEVEL 1;
+COMP "led<3>" LOCATE = SITE "L12" LEVEL 1;
+COMP "data<2>" LOCATE = SITE "N11" LEVEL 1;
+COMP "data<3>" LOCATE = SITE "P11" LEVEL 1;
+COMP "data<4>" LOCATE = SITE "N10" LEVEL 1;
+COMP "data<5>" LOCATE = SITE "P10" LEVEL 1;
+COMP "data<6>" LOCATE = SITE "M10" LEVEL 1;
+COMP "pwait" LOCATE = SITE "N5" LEVEL 1;
+COMP "data<7>" LOCATE = SITE "R10" LEVEL 1;
+COMP "ctlEppWr" LOCATE = SITE "N7" LEVEL 1;
+COMP "sw" LOCATE = SITE "N15" LEVEL 1;
+PIN sw_pin<0> = BEL "sw" PINNAME PAD;
+PIN "sw_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+SCHEMATIC END;
+

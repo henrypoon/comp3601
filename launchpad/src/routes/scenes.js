@@ -10,6 +10,7 @@ import {Dimensions} from 'react-native';
 import { Actions, Scene, Router, Stack } from 'react-native-router-flux';
 import HomeContainer from './Home/containers/HomeContainer';
 import ListContainer from './List/containers/ListContainer';
+import SettingContainer from './Setting/containers/SettingContainer';
 
 const scenes = Actions.create(
   <Router>
@@ -21,6 +22,13 @@ const scenes = Actions.create(
         direction='vertical' 
         component={ListContainer} 
         title="list"
+      />
+      <Scene
+        key='setting'
+        hideNavBar 
+        direction='vertical' 
+        component={SettingContainer} 
+        title="setting"
       />
     </Scene>
   </Router>

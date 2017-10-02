@@ -1,0 +1,7 @@
+xst -intstyle ise -ifn "Z:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Z:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
