@@ -1,5 +1,4 @@
 import update from 'react-addons-update';
-import axios from 'axios';
 import constants from './actionConstants';
 
 const { CHANGE_MODE } = constants;
@@ -7,7 +6,7 @@ const { CHANGE_MODE } = constants;
 export function changeMode(payload) {
 	return ({
 		type: CHANGE_MODE,
-		payload: payload
+		payload
 	});
 }
 

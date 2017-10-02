@@ -1,12 +1,12 @@
 import React from 'react';
-import { Modal, View, Picker } from 'react-native';
+import { View, Picker } from 'react-native';
 import { RkButton } from 'react-native-ui-kitten';
 import { Actions } from 'react-native-router-flux';
 
 export default class Setting extends React.Component {
 
 	render() {
-		console.log(this.props)
+		console.log(this.props);
 		return (
 			<View>
 				<Picker
