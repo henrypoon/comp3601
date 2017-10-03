@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/xst"
+elaborate
+-ifn distCalc.prj
+-ifmt mixed

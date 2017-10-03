@@ -1,0 +1,84 @@
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.syr" 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s400-ft256-5 "sensorComponent.ngc" sensorComponent.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o sensorComponent_map.ncd sensorComponent.ngd sensorComponent.pcf 
+par -w -intstyle ise -ol high -t 1 sensorComponent_map.ncd sensorComponent.ncd sensorComponent.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml sensorComponent.twx sensorComponent.ncd -o sensorComponent.twr sensorComponent.pcf 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s400-ft256-5 "sensorComponent.ngc" sensorComponent.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o sensorComponent_map.ncd sensorComponent.ngd sensorComponent.pcf 
+par -w -intstyle ise -ol high -t 1 sensorComponent_map.ncd sensorComponent.ncd sensorComponent.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml sensorComponent.twx sensorComponent.ncd -o sensorComponent.twr sensorComponent.pcf 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s400-ft256-5 "sensorComponent.ngc" sensorComponent.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o sensorComponent_map.ncd sensorComponent.ngd sensorComponent.pcf 
+par -w -intstyle ise -ol high -t 1 sensorComponent_map.ncd sensorComponent.ncd sensorComponent.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml sensorComponent.twx sensorComponent.ncd -o sensorComponent.twr sensorComponent.pcf 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc myConst.ucf -p xc3s400-ft256-5 "sensorComponent.ngc" sensorComponent.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o sensorComponent_map.ncd sensorComponent.ngd sensorComponent.pcf 
+par -w -intstyle ise -ol high -t 1 sensorComponent_map.ncd sensorComponent.ncd sensorComponent.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml sensorComponent.twx sensorComponent.ncd -o sensorComponent.twr sensorComponent.pcf -ucf myConst.ucf 
+bitgen -intstyle ise -f sensorComponent.ut sensorComponent.ncd 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.syr" 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc myConst.ucf -p xc3s400-ft256-5 "sensorComponent.ngc" sensorComponent.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o sensorComponent_map.ncd sensorComponent.ngd sensorComponent.pcf 
+par -w -intstyle ise -ol high -t 1 sensorComponent_map.ncd sensorComponent.ncd sensorComponent.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml sensorComponent.twx sensorComponent.ncd -o sensorComponent.twr sensorComponent.pcf -ucf myConst.ucf 
+bitgen -intstyle ise -f sensorComponent.ut sensorComponent.ncd 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc myConst.ucf -p xc3s400-ft256-5 "sensorComponent.ngc" sensorComponent.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o sensorComponent_map.ncd sensorComponent.ngd sensorComponent.pcf 
+par -w -intstyle ise -ol high -t 1 sensorComponent_map.ncd sensorComponent.ncd sensorComponent.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml sensorComponent.twx sensorComponent.ncd -o sensorComponent.twr sensorComponent.pcf -ucf myConst.ucf 
+bitgen -intstyle ise -f sensorComponent.ut sensorComponent.ncd 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.syr" 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.syr" 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc myConst.ucf -p xc3s400-ft256-5 "sensorComponent.ngc" sensorComponent.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o sensorComponent_map.ncd sensorComponent.ngd sensorComponent.pcf 
+par -w -intstyle ise -ol high -t 1 sensorComponent_map.ncd sensorComponent.ncd sensorComponent.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml sensorComponent.twx sensorComponent.ncd -o sensorComponent.twr sensorComponent.pcf -ucf myConst.ucf 
+bitgen -intstyle ise -f sensorComponent.ut sensorComponent.ncd 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc myConst.ucf -p xc3s400-ft256-5 "sensorComponent.ngc" sensorComponent.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o sensorComponent_map.ncd sensorComponent.ngd sensorComponent.pcf 
+par -w -intstyle ise -ol high -t 1 sensorComponent_map.ncd sensorComponent.ncd sensorComponent.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml sensorComponent.twx sensorComponent.ncd -o sensorComponent.twr sensorComponent.pcf -ucf myConst.ucf 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc myConst.ucf -p xc3s400-ft256-5 "sensorComponent.ngc" sensorComponent.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o sensorComponent_map.ncd sensorComponent.ngd sensorComponent.pcf 
+par -w -intstyle ise -ol high -t 1 sensorComponent_map.ncd sensorComponent.ncd sensorComponent.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml sensorComponent.twx sensorComponent.ncd -o sensorComponent.twr sensorComponent.pcf -ucf myConst.ucf 
+bitgen -intstyle ise -f sensorComponent.ut sensorComponent.ncd 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.syr" 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc myConst.ucf -p xc3s400-ft256-5 "sensorComponent.ngc" sensorComponent.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o sensorComponent_map.ncd sensorComponent.ngd sensorComponent.pcf 
+par -w -intstyle ise -ol high -t 1 sensorComponent_map.ncd sensorComponent.ncd sensorComponent.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml sensorComponent.twx sensorComponent.ncd -o sensorComponent.twr sensorComponent.pcf -ucf myConst.ucf 
+bitgen -intstyle ise -f sensorComponent.ut sensorComponent.ncd 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc myConst.ucf -p xc3s400-ft256-5 "sensorComponent.ngc" sensorComponent.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o sensorComponent_map.ncd sensorComponent.ngd sensorComponent.pcf 
+par -w -intstyle ise -ol high -t 1 sensorComponent_map.ncd sensorComponent.ncd sensorComponent.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml sensorComponent.twx sensorComponent.ncd -o sensorComponent.twr sensorComponent.pcf -ucf myConst.ucf 
+bitgen -intstyle ise -f sensorComponent.ut sensorComponent.ncd 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc myConst.ucf -p xc3s400-ft256-5 "sensorComponent.ngc" sensorComponent.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o sensorComponent_map.ncd sensorComponent.ngd sensorComponent.pcf 
+par -w -intstyle ise -ol high -t 1 sensorComponent_map.ncd sensorComponent.ncd sensorComponent.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml sensorComponent.twx sensorComponent.ncd -o sensorComponent.twr sensorComponent.pcf -ucf myConst.ucf 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc myConst.ucf -p xc3s400-ft256-5 "sensorComponent.ngc" sensorComponent.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o sensorComponent_map.ncd sensorComponent.ngd sensorComponent.pcf 
+par -w -intstyle ise -ol high -t 1 sensorComponent_map.ncd sensorComponent.ncd sensorComponent.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml sensorComponent.twx sensorComponent.ncd -o sensorComponent.twr sensorComponent.pcf -ucf myConst.ucf 
+bitgen -intstyle ise -f sensorComponent.ut sensorComponent.ncd 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensorComponent.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc myConst.ucf -p xc3s400-ft256-5 "sensorComponent.ngc" sensorComponent.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o sensorComponent_map.ncd sensorComponent.ngd sensorComponent.pcf 
+par -w -intstyle ise -ol high -t 1 sensorComponent_map.ncd sensorComponent.ncd sensorComponent.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml sensorComponent.twx sensorComponent.ncd -o sensorComponent.twr sensorComponent.pcf -ucf myConst.ucf 
+bitgen -intstyle ise -f sensorComponent.ut sensorComponent.ncd 

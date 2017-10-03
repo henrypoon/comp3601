@@ -1,0 +1,511 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.35 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.35 secs
+ 
+--> Reading design: sensoModule.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "sensoModule.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "sensoModule"
+Output Format                      : NGC
+Target Device                      : xc3s400-5-ft256
+
+---- Source Options
+Top Module Name                    : sensoModule
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/countr.vhd" in Library work.
+Architecture behavioral of Entity countr is up to date.
+Compiling vhdl file "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/trigGen.vhd" in Library work.
+Architecture behavioral of Entity triggen is up to date.
+Compiling vhdl file "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/distCalc.vhd" in Library work.
+Architecture behavioral of Entity distcalc is up to date.
+Compiling vhdl file "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensoModule.vhd" in Library work.
+Entity <sensomodule> compiled.
+Entity <sensomodule> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <sensoModule> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <trigGen> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <distCalc> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <countr> in library <work> (architecture <behavioral>) with generics.
+	n = 24
+
+Analyzing hierarchy for entity <countr> in library <work> (architecture <behavioral>) with generics.
+	n = 22
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <sensoModule> in library <work> (Architecture <behavioral>).
+Entity <sensoModule> analyzed. Unit <sensoModule> generated.
+
+Analyzing Entity <trigGen> in library <work> (Architecture <behavioral>).
+Entity <trigGen> analyzed. Unit <trigGen> generated.
+
+Analyzing generic Entity <countr.1> in library <work> (Architecture <behavioral>).
+	n = 24
+Entity <countr.1> analyzed. Unit <countr.1> generated.
+
+Analyzing Entity <distCalc> in library <work> (Architecture <behavioral>).
+WARNING:Xst:819 - "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/distCalc.vhd" line 56: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <pWidth>
+Entity <distCalc> analyzed. Unit <distCalc> generated.
+
+Analyzing generic Entity <countr.2> in library <work> (Architecture <behavioral>).
+	n = 22
+Entity <countr.2> analyzed. Unit <countr.2> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <countr_1>.
+    Related source file is "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/countr.vhd".
+    Found 24-bit up counter for signal <count>.
+    Summary:
+	inferred   1 Counter(s).
+Unit <countr_1> synthesized.
+
+
+Synthesizing Unit <countr_2>.
+    Related source file is "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/countr.vhd".
+    Found 22-bit up counter for signal <count>.
+    Summary:
+	inferred   1 Counter(s).
+Unit <countr_2> synthesized.
+
+
+Synthesizing Unit <trigGen>.
+    Related source file is "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/trigGen.vhd".
+    Found 24-bit comparator greater for signal <trigOut$cmp_gt0000> created at line 61.
+    Found 24-bit comparator less for signal <trigOut$cmp_lt0000> created at line 61.
+    Summary:
+	inferred   2 Comparator(s).
+Unit <trigGen> synthesized.
+
+
+Synthesizing Unit <distCalc>.
+    Related source file is "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/distCalc.vhd".
+WARNING:Xst:737 - Found 9-bit latch for signal <dist>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 11-bit comparator greater for signal <dist$cmp_gt0000> created at line 64.
+    Found 22x2-bit multiplier for signal <mult$mult0000> created at line 62.
+    Summary:
+	inferred   1 Multiplier(s).
+	inferred   1 Comparator(s).
+Unit <distCalc> synthesized.
+
+
+Synthesizing Unit <sensoModule>.
+    Related source file is "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensoModule.vhd".
+    Found 9-bit comparator greater for signal <senseVal$cmp_gt0000> created at line 64.
+    Summary:
+	inferred   1 Comparator(s).
+Unit <sensoModule> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 1
+ 22x2-bit multiplier                                   : 1
+# Counters                                             : 2
+ 22-bit up counter                                     : 1
+ 24-bit up counter                                     : 1
+# Latches                                              : 1
+ 9-bit latch                                           : 1
+# Comparators                                          : 4
+ 11-bit comparator greater                             : 1
+ 24-bit comparator greater                             : 1
+ 24-bit comparator less                                : 1
+ 9-bit comparator greater                              : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 1
+ 22x2-bit multiplier                                   : 1
+# Counters                                             : 2
+ 22-bit up counter                                     : 1
+ 24-bit up counter                                     : 1
+# Latches                                              : 1
+ 9-bit latch                                           : 1
+# Comparators                                          : 4
+ 11-bit comparator greater                             : 1
+ 24-bit comparator greater                             : 1
+ 24-bit comparator less                                : 1
+ 9-bit comparator greater                              : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <sensoModule> ...
+
+Optimizing unit <distCalc> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block sensoModule, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 46
+ Flip-Flops                                            : 46
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : sensoModule.ngr
+Top Level Output File Name         : sensoModule
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 4
+
+Cell Usage :
+# BELS                             : 283
+#      GND                         : 1
+#      INV                         : 8
+#      LUT1                        : 54
+#      LUT2                        : 44
+#      LUT3                        : 4
+#      LUT4                        : 10
+#      MUXCY                       : 105
+#      VCC                         : 1
+#      XORCY                       : 56
+# FlipFlops/Latches                : 55
+#      FDC                         : 24
+#      FDCE                        : 22
+#      LD_1                        : 9
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 3
+#      IBUF                        : 1
+#      OBUF                        : 2
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s400ft256-5 
+
+ Number of Slices:                       61  out of   3584     1%  
+ Number of Slice Flip Flops:             55  out of   7168     0%  
+ Number of 4 input LUTs:                120  out of   7168     1%  
+ Number of IOs:                           4
+ Number of bonded IOBs:                   4  out of    173     2%  
+ Number of GCLKs:                         2  out of      8    25%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 46    |
+pulse                              | IBUF+BUFG              | 9     |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-------------------------------------------------+----------------------------------+-------+
+Control Signal                                   | Buffer(FF name)                  | Load  |
+-------------------------------------------------+----------------------------------+-------+
+trigr/rstCount_inv(trigr/rstCount_inv_wg_cy<5>:O)| NONE(trigr/trigger_gen/count_0)  | 24    |
+trig_OBUF(trigr/trigOut_and00001:O)              | NONE(pWidth/pulseCounter/count_0)| 22    |
+-------------------------------------------------+----------------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 4.742ns (Maximum Frequency: 210.884MHz)
+   Minimum input arrival time before clock: 2.685ns
+   Maximum output required time after clock: 11.346ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 4.742ns (frequency: 210.884MHz)
+  Total number of paths / destination ports: 553 / 46
+-------------------------------------------------------------------------
+Delay:               4.742ns (Levels of Logic = 24)
+  Source:            trigr/trigger_gen/count_1 (FF)
+  Destination:       trigr/trigger_gen/count_23 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: trigr/trigger_gen/count_1 to trigr/trigger_gen/count_23
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              4   0.626   1.074  trigr/trigger_gen/count_1 (trigr/trigger_gen/count_1)
+     LUT1:I0->O            1   0.479   0.000  trigr/trigger_gen/Mcount_count_cy<1>_rt (trigr/trigger_gen/Mcount_count_cy<1>_rt)
+     MUXCY:S->O            1   0.435   0.000  trigr/trigger_gen/Mcount_count_cy<1> (trigr/trigger_gen/Mcount_count_cy<1>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/trigger_gen/Mcount_count_cy<2> (trigr/trigger_gen/Mcount_count_cy<2>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/trigger_gen/Mcount_count_cy<3> (trigr/trigger_gen/Mcount_count_cy<3>)
+     MUXCY:CI->O           1   0.055   0.000  trigr/trigger_gen/Mcount_count_cy<4> (trigr/trigger_gen/Mcount_count_cy<4>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/trigger_gen/Mcount_count_cy<5> (trigr/trigger_gen/Mcount_count_cy<5>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/trigger_gen/Mcount_count_cy<6> (trigr/trigger_gen/Mcount_count_cy<6>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/trigger_gen/Mcount_count_cy<7> (trigr/trigger_gen/Mcount_count_cy<7>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/trigger_gen/Mcount_count_cy<8> (trigr/trigger_gen/Mcount_count_cy<8>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/trigger_gen/Mcount_count_cy<9> (trigr/trigger_gen/Mcount_count_cy<9>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/trigger_gen/Mcount_count_cy<10> (trigr/trigger_gen/Mcount_count_cy<10>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/trigger_gen/Mcount_count_cy<11> (trigr/trigger_gen/Mcount_count_cy<11>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/trigger_gen/Mcount_count_cy<12> (trigr/trigger_gen/Mcount_count_cy<12>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/trigger_gen/Mcount_count_cy<13> (trigr/trigger_gen/Mcount_count_cy<13>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/trigger_gen/Mcount_count_cy<14> (trigr/trigger_gen/Mcount_count_cy<14>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/trigger_gen/Mcount_count_cy<15> (trigr/trigger_gen/Mcount_count_cy<15>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/trigger_gen/Mcount_count_cy<16> (trigr/trigger_gen/Mcount_count_cy<16>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/trigger_gen/Mcount_count_cy<17> (trigr/trigger_gen/Mcount_count_cy<17>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/trigger_gen/Mcount_count_cy<18> (trigr/trigger_gen/Mcount_count_cy<18>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/trigger_gen/Mcount_count_cy<19> (trigr/trigger_gen/Mcount_count_cy<19>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/trigger_gen/Mcount_count_cy<20> (trigr/trigger_gen/Mcount_count_cy<20>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/trigger_gen/Mcount_count_cy<21> (trigr/trigger_gen/Mcount_count_cy<21>)
+     MUXCY:CI->O           0   0.056   0.000  trigr/trigger_gen/Mcount_count_cy<22> (trigr/trigger_gen/Mcount_count_cy<22>)
+     XORCY:CI->O           1   0.786   0.000  trigr/trigger_gen/Mcount_count_xor<23> (Result<23>)
+     FDC:D                     0.176          trigr/trigger_gen/count_23
+    ----------------------------------------
+    Total                      4.742ns (3.668ns logic, 1.074ns route)
+                                       (77.3% logic, 22.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 22 / 22
+-------------------------------------------------------------------------
+Offset:              2.685ns (Levels of Logic = 1)
+  Source:            pulse (PAD)
+  Destination:       pWidth/pulseCounter/count_21 (FF)
+  Destination Clock: clk rising
+
+  Data Path: pulse to pWidth/pulseCounter/count_21
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            23   0.715   1.446  pulse_IBUF (pulse_IBUF1)
+     FDCE:CE                   0.524          pWidth/pulseCounter/count_0
+    ----------------------------------------
+    Total                      2.685ns (1.239ns logic, 1.446ns route)
+                                       (46.1% logic, 53.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'pulse'
+  Total number of paths / destination ports: 9 / 1
+-------------------------------------------------------------------------
+Offset:              8.926ns (Levels of Logic = 3)
+  Source:            pWidth/dist_2 (LATCH)
+  Destination:       senseOut (PAD)
+  Source Clock:      pulse rising
+
+  Data Path: pWidth/dist_2 to senseOut
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD_1:G->Q             1   0.551   0.976  pWidth/dist_2 (pWidth/dist_2)
+     LUT4:I0->O            1   0.479   0.851  senseVal25 (senseVal25)
+     LUT3:I1->O            1   0.479   0.681  senseVal40 (senseOut_OBUF)
+     OBUF:I->O                 4.909          senseOut_OBUF (senseOut)
+    ----------------------------------------
+    Total                      8.926ns (6.418ns logic, 2.508ns route)
+                                       (71.9% logic, 28.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 47 / 1
+-------------------------------------------------------------------------
+Offset:              11.346ns (Levels of Logic = 17)
+  Source:            trigr/trigger_gen/count_0 (FF)
+  Destination:       trig (PAD)
+  Source Clock:      clk rising
+
+  Data Path: trigr/trigger_gen/count_0 to trig
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              3   0.626   1.066  trigr/trigger_gen/count_0 (trigr/trigger_gen/count_0)
+     LUT4:I0->O            1   0.479   0.000  trigr/Mcompar_trigOut_cmp_gt0000_lut<0> (trigr/Mcompar_trigOut_cmp_gt0000_lut<0>)
+     MUXCY:S->O            1   0.435   0.000  trigr/Mcompar_trigOut_cmp_gt0000_cy<0> (trigr/Mcompar_trigOut_cmp_gt0000_cy<0>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/Mcompar_trigOut_cmp_gt0000_cy<1> (trigr/Mcompar_trigOut_cmp_gt0000_cy<1>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/Mcompar_trigOut_cmp_gt0000_cy<2> (trigr/Mcompar_trigOut_cmp_gt0000_cy<2>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/Mcompar_trigOut_cmp_gt0000_cy<3> (trigr/Mcompar_trigOut_cmp_gt0000_cy<3>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/Mcompar_trigOut_cmp_gt0000_cy<4> (trigr/Mcompar_trigOut_cmp_gt0000_cy<4>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/Mcompar_trigOut_cmp_gt0000_cy<5> (trigr/Mcompar_trigOut_cmp_gt0000_cy<5>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/Mcompar_trigOut_cmp_gt0000_cy<6> (trigr/Mcompar_trigOut_cmp_gt0000_cy<6>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/Mcompar_trigOut_cmp_gt0000_cy<7> (trigr/Mcompar_trigOut_cmp_gt0000_cy<7>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/Mcompar_trigOut_cmp_gt0000_cy<8> (trigr/Mcompar_trigOut_cmp_gt0000_cy<8>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/Mcompar_trigOut_cmp_gt0000_cy<9> (trigr/Mcompar_trigOut_cmp_gt0000_cy<9>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/Mcompar_trigOut_cmp_gt0000_cy<10> (trigr/Mcompar_trigOut_cmp_gt0000_cy<10>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/Mcompar_trigOut_cmp_gt0000_cy<11> (trigr/Mcompar_trigOut_cmp_gt0000_cy<11>)
+     MUXCY:CI->O           1   0.056   0.000  trigr/Mcompar_trigOut_cmp_gt0000_cy<12> (trigr/Mcompar_trigOut_cmp_gt0000_cy<12>)
+     MUXCY:CI->O           1   0.264   0.976  trigr/Mcompar_trigOut_cmp_gt0000_cy<13> (trigr/Mcompar_trigOut_cmp_gt0000_cy<13>)
+     LUT2:I0->O           23   0.479   1.446  trigr/trigOut_and00001 (trig_OBUF)
+     OBUF:I->O                 4.909          trig_OBUF (trig)
+    ----------------------------------------
+    Total                     11.346ns (7.859ns logic, 3.488ns route)
+                                       (69.3% logic, 30.7% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 5.38 secs
+ 
+--> 
+
+Total memory usage is 263460 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

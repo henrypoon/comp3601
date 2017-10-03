@@ -1,0 +1,33 @@
+NET "swingValue<0>" LOC = "L14";
+NET "swingValue<1>" LOC = "L13";
+NET "swingValue<2>" LOC = "M14";
+NET "swingValue<3>" LOC = "L12";
+NET "swingValue<4>" LOC = "N14";
+NET "swingValue<5>" LOC = "M13";
+NET "swingValue<6>" LOC = "P14";
+NET "swingValue<7>" LOC = "R16";
+
+NET "timerSwitch" LOC = "N15";
+
+#NET "JA<1>" LOC = "T14";
+#NET "pulse" LOC = "R13";
+#NET "JA<3>" LOC = "T13";
+#NET "JA<4>" LOC = "R12";
+
+NET "clk" LOC = "A8";
+NET "pulse" CLOCK_DEDICATED_ROUTE = FALSE;
+
+#NET "JB<1>" LOC = "T12";
+NET "trig" LOC = "R11";
+NET "pulse" LOC = "P8";
+#NET "JB<4>" LOC = "T10";
+#
+#NET "JC<1>" LOC = "D5";
+#NET "JC<2>" LOC = "P9";
+#NET "JC<3>" LOC = "A5";
+#NET "JC<4>" LOC = "A7";
+#
+#NET "JD<1>" LOC = "A9";
+#NET "JD<2>" LOC = "A12";
+#NET "JD<3>" LOC = "C10";
+#NET "JD<4>" LOC = "D12";

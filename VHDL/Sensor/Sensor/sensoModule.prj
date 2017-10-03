@@ -1,0 +1,4 @@
+vhdl work "countr.vhd"
+vhdl work "trigGen.vhd"
+vhdl work "distCalc.vhd"
+vhdl work "sensoModule.vhd"

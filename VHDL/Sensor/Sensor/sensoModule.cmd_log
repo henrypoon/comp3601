@@ -1,0 +1,18 @@
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensoModule.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensoModule.syr" 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensoModule.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensoModule.syr" 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensoModule.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensoModule.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s400-ft256-5 "sensoModule.ngc" sensoModule.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o sensoModule_map.ncd sensoModule.ngd sensoModule.pcf 
+par -w -intstyle ise -ol high -t 1 sensoModule_map.ncd sensoModule.ncd sensoModule.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml sensoModule.twx sensoModule.ncd -o sensoModule.twr sensoModule.pcf 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensoModule.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensoModule.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s400-ft256-5 "sensoModule.ngc" sensoModule.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o sensoModule_map.ncd sensoModule.ngd sensoModule.pcf 
+par -w -intstyle ise -ol high -t 1 sensoModule_map.ncd sensoModule.ncd sensoModule.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml sensoModule.twx sensoModule.ncd -o sensoModule.twr sensoModule.pcf 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensoModule.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensoModule.syr" 
+xst -intstyle ise -ifn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensoModule.xst" -ofn "C:/Users/Akmal/Desktop/Uni Stuff/COMP3601/Sensor/sensoModule.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s400-ft256-5 "sensoModule.ngc" sensoModule.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o sensoModule_map.ncd sensoModule.ngd sensoModule.pcf 
+par -w -intstyle ise -ol high -t 1 sensoModule_map.ncd sensoModule.ncd sensoModule.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml sensoModule.twx sensoModule.ncd -o sensoModule.twr sensoModule.pcf 
