@@ -6,7 +6,7 @@ const { SET_DATA, PLAY_MUSIC } = constants;
 
 export function setData() {
 	return (dispatch) => {
-		axios.get('http://192.168.0.5:3000/songs')
+		axios.get('http://192.168.0.4:3000/songs')
 		.then((response) => {
 			dispatch({
 				type: SET_DATA,
@@ -21,7 +21,7 @@ export function setData() {
 
 export function playMusic(payload) {
 	console.log('play');
-	const api = 'http://192.168.0.5:3000/songs/play/' + payload.toString();
+	const api = 'http://192.168.0.4:3000/songs/play/' + payload.toString();
 	console.log(api);
 	axios.post(api)
 		.then((response) => {

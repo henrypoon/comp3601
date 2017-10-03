@@ -10,7 +10,7 @@ import ProcessBar from './ProcessBar';
 
 class Home extends React.Component {
 
-	componentDidMount() {
+	componentWillMount() {
 		this.props.setOctave(3);
 		this.props.setDuraction(0);
 		this.props.setSelected(-1);

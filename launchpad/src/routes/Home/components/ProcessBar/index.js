@@ -27,33 +27,21 @@ export const ProcessBar = ({ song, setSelected, selected }) => {
         automaticallyAdjustContentInsets={false}
         horizontal={true}
         ref={ref => this.scrollView = ref}
-        onContentSizeChange={(contentWidth, contentHeight)=>{        
+        onContentSizeChange={(contentWidth, contentHeight) => {        
           this.scrollView.scrollToEnd({ animated: true });
         }}
       >
       {song.map((e, i) => {
         const random = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+        const stroke = i === selected ? '#f5ff77' : '';
         const x = e.notes.indexOf('rest') === -1 ? 15 : 11;
         return  <TouchableOpacity key={i} onPress={() => setSelected(i)}>
                 <Svg height="150" width="55">
                   <Text style={{ color: 'white', left: x, top: 20 }}>{e.notes} </Text>
-                  {() => {
-                      if (selected) {
-                        console.log('sssss')
-                        return (
-                          <Rect x="0" y="0" width="50" stroke='#f5ff77' height="70" strokeWidth="5" fill={random}>
-                          </Rect>
-                        );
-                      } else {
-                        return (
-                          <Rect x="0" y="0" width="50" height="70" strokeWidth="5" fill={random}>
-                          </Rect>
-                        );
-                      }
-                    }
-                  }
+                  <Rect x="0" y="0" width="50" stroke={stroke} height="70" strokeWidth="5" fill={random}>
+                  </Rect>
                 </Svg>
-                </TouchableOpacity>;
+                </TouchableOpacity>
       })}
       </ScrollView>
     </View>

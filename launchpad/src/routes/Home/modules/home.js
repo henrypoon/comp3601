@@ -37,7 +37,7 @@ export function setSign() {
 
 export function playMusic() {
 	console.log('play');
-	axios.post('http://192.168.0.5:3000/songs/play/1')
+	axios.post('http://192.168.0.4:3000/songs/play/1')
 		.then((response) => {
 			console.log(response);
 		})
@@ -69,7 +69,7 @@ export function saveMusic() {
 			bpm: 20
 		};
 
-		axios.post('http://192.168.0.5:3000/songs', jsonToSend)
+		axios.post('http://192.168.0.4:3000/songs', jsonToSend)
 			.then((response) => {
 				console.log(response);
 				AlertIOS.alert('Save Successfully!');
