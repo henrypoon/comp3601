@@ -20,43 +20,38 @@
 //////////////////////////////////////////////////////////////////////////////////
 module sevenSeg(
     input CLKK,
-    //input [3:0] A,
-    //input [3:0] B,
-    //input [3:0] C,
-    //input [3:0] D,
-    output [7:0] segments,
-    output [3:0] displayOut
+    input [7:0] number,
+    output [7:0] segments, //which segments to turn on
+    output [3:0] displayOut ////which 7-seg to display on
     );
 
-slowClock SG1(.CLKIN(CLKK), .CLKOUT(SLWCLK));
-sseg_dec(.binary(displayOut), .CLK(CLKK), .SEGMENTS(segments));
-
 reg [1:0] counter;
-reg [3:0] BCD;
-reg [3:0] display;
-parameter C0 = 16'd50000;
-parameter A = 4'd1;
-parameter B = 4'd2;
-parameter C = 4'd3;
-parameter D = 4'd4;
+reg [3:0] BCD; //digit to display
+reg [3:0] display; //which 7-seg to display on
+reg [11:0] digits; //3 x 4 bit numbers
+assign displayOut = display;
+
+slowClock SG1(.CLKIN(CLKK), .CLKOUT(SLWCLK));
+SevenSegment(.binary(displayOut), .SEGMENTS(segments));
+bin2bcd bin2bcd(.binIN(number), .ones(digits[3:0]), .tens(digits[7:4]), .hundreds(digits[11:8]));
 
 always @ (posedge SLWCLK)
 	begin
 	if (counter == 1) begin
-        BCD <= A;
+        BCD <= digits[3:0];
         display <= 4'b0111;
     end
 	else if (counter == 2) begin
-        BCD = B;
-        display = 4'b1011;
+        BCD <= digits[7:4];
+        display <= 4'b1011;
     end
 	else if (counter == 3) begin
-        BCD = C;
-        display = 4'b1101;
+        BCD <= digits[11:8];
+        display <= 4'b1101;
     end
     else if (counter == 4) begin
-        BCD = D;
-        display = 4'b1110;
+        BCD <= 4'b0000;
+        display <= 4'b1110;
     end
 	 
 	 
