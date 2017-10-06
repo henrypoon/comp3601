@@ -55,6 +55,45 @@ begin
 			when "001000" => sig_max <= 270270; --f3# g3b
 			when "001001" => sig_max <= 255102; --g3
 			when "001010" => sig_max <= 240789 ; --g3# a4b
+			when "001011" => sig_max <= 113636 ; --a3
+			when "001100" => sig_max <= 107259 ; --a3# b3b
+			when "001101" => sig_max <= 101239 ; --b3 c3b
+			when "001110" => sig_max <= 191109 ; --b3# c4
+			when "001111" => sig_max <= 180388 ; --c4# d4b
+			when "010000" => sig_max <= 170264 ; --d4
+			when "010001" => sig_max <= 160704 ; --d4# e4b
+			when "010010" => sig_max <= 151685 ; --e4 f4b
+			when "010011" => sig_max <= 143172 ; --e4# f4
+			when "010100" => sig_max <= 135138 ; --f4# g4b
+			when "010101" => sig_max <= 127551 ; --g4
+			when "010110" => sig_max <= 120394 ; --g4# a4b
+			when "010111" => sig_max <= 56818 ; --a4
+			when "011000" => sig_max <= 53629 ; --a4# b4b
+			when "011001" => sig_max <= 50619 ; --b4 c5b
+			when "011010" => sig_max <= 95556 ; --b5# c5
+			when "011011" => sig_max <= 90192 ; --c5# d5b
+			when "011100" => sig_max <= 85131 ; --d5
+			when "011101" => sig_max <= 80353 ; --d5# e5b
+			when "011110" => sig_max <= 75843 ; --e5 f5b
+			when "011111" => sig_max <= 71586 ; --e5# f5
+			when "100000" => sig_max <= 67568 ; --f5# g5b
+			when "100001" => sig_max <= 63776 ; --g5
+			when "100010" => sig_max <= 60196 ; --g5# a5b
+			when "100011" => sig_max <= 56818 ; --a5
+			when "100100" => sig_max <= 53648 ; --a5# b5b
+			when "100101" => sig_max <= 50658 ; --b5 c6b
+			when "100110" => sig_max <= 47778 ; --b6# c6
+			when "100111" => sig_max <= 45126 ; --c6# d6b
+			when "101000" => sig_max <= 42589 ; --d6
+			when "101001" => sig_max <= 40192 ; --d6# e6b
+			when "101010" => sig_max <= 37936 ; --e6 f6b
+			when "101011" => sig_max <= 35816 ; --e6# f6
+			when "101100" => sig_max <= 33806 ; --f6# g6b
+			when "101101" => sig_max <= 31908 ; --g6
+			when "101110" => sig_max <= 30102 ; --g6# a6b
+			when "101111" => sig_max <= 28409 ; --a6
+			when "110000" => sig_max <= 26824 ; --a6# b6b
+			when "110001" => sig_max <= 25316 ; --b6 c7b
 			when others => sig_max <= 0;
 		end case;
 	end process;
