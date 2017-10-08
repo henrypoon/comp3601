@@ -1,0 +1,7 @@
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/dpimref.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/dpimref.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 dpimref.ngc dpimref.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 dpimref.ngc dpimref.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o dpimref_map.ncd dpimref.ngd dpimref.pcf 
+par -w -intstyle ise -ol high -t 1 dpimref_map.ncd dpimref.ncd dpimref.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml dpimref.twx dpimref.ncd -o dpimref.twr dpimref.pcf -ucf board.ucf 
+bitgen -intstyle ise -f dpimref.ut dpimref.ncd 

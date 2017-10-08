@@ -1,217 +1,415 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    14:47:14 09/22/2017 
--- Design Name: 
--- Module Name:    eppctrl - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+----------------------------------------------------------------------------
+--	eppctrl.VHD -- Digilent Parallel Interface Module Reference Design
+----------------------------------------------------------------------------
+-- Author:  Gene Apperson
+--          Copyright 2004 Digilent, Inc.
+----------------------------------------------------------------------------
+-- IMPORTANT NOTE ABOUT BUILDING THIS LOGIC IN ISE
 --
--- Dependencies: 
+-- Before building the eppctrl logic in ISE:
+-- 	1.  	In Project Navigator, right-click on "Synthesize-XST"
+--		(in the Process View Tab) and select "Properties"
+--	2.	Click the "HDL Options" tab
+--	3. 	Set the "FSM Encoding Algorithm" to "None"
+----------------------------------------------------------------------------
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+----------------------------------------------------------------------------
+--	This module contains an example implementation of Digilent Parallel
+--	Interface Module logic. This interface is used in conjunction with the
+--	DPCUTIL DLL and a Digilent Communications Module (USB, EtherNet, Serial)
+--	to exchange data with an application running on a host PC and the logic
+--	implemented in a gate array.
 --
-----------------------------------------------------------------------------------
+--	See the Digilent document, Digilent Parallel Interface Model Reference
+--	Manual (doc # 560-000) for a description of the interface.
+--
+--	This design uses a state machine implementation to respond to transfer
+--	cycles. It implements an address register, 8 internal data registers
+--	that merely hold a value written, and interface registers to communicate
+--	with a Digilent DIO4 board. There is an LED output register whose value 
+--	drives the 8 discrete leds on the DIO4. There are two input registers.
+--	One reads the switches on the DIO4 and the other reads the buttons.
+--
+--	Interface signals used in top level entity port:
+--		mclk		- master clock, generally 50Mhz osc on system board
+--		pdb			- port data bus
+--		astb		- address strobe
+--		dstb		- data strobe
+--		pwr			- data direction (described in reference manual as WRITE)
+--		pwait	- transfer synchronization (described in reference manual
+--						as WAIT)
+--		rgLed		- LED outputs to the DIO4
+--		rgSwt		- switch inputs from the DIO4
+--		ldb			- led gate signal for the DIO4
+--		rgBtn		- button inputs from the DIO4
+--		btn			- button on system board (D2SB or D2FT)
+--		led			- led on the system board
+--		
+----------------------------------------------------------------------------
+-- Revision History:
+--  06/09/2004(GeneA): created
+--	08/10/2004(GeneA): initial public release
+--	04/25/2006(JoshP): comment addition  
+----------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
+--  Uncomment the following lines to use the declarations that are
+--  provided for instantiating Xilinx primitive components.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
 entity eppctrl is
-    Port ( 
-			  --clk	: in std_logic;
-			  sw	: in std_logic;
-			  ctlEppWr  : in  STD_LOGIC; --if wr = 1, then pc reads, if wr = 0, then pc writes
-           ctlEppAstb : in  STD_LOGIC; -- if add
-           ctlEppDwr : in  STD_LOGIC;
-			  data		: inout std_logic_vector(7 downto 0); --data bus
-			  led	: out std_logic_vector(3 downto 0);
-			  pwait : buffer  STD_LOGIC -- wait signal, if = 1, the pc reads, if = 0, the fpga reads
-			  
-			 );
+    Port (
+		mclk 	: in std_logic;
+        pdb		: inout std_logic_vector(7 downto 0);
+        astb 	: in std_logic;
+        dstb 	: in std_logic;
+        pwr 	: in std_logic;
+        pwait 	: out std_logic;
+		rgLed	: out std_logic_vector(7 downto 0); 
+		rgSwt	: in std_logic_vector(7 downto 0);
+		rgBtn	: in std_logic_vector(4 downto 0)
+		--btn		: in std_logic
+		--ldg		: out std_logic;
+		--led		: out std_logic
+	);
 end eppctrl;
 
 architecture Behavioral of eppctrl is
-	signal reg_data_top4 : std_logic_vector(7 downto 0); --data "0000" & (11 downto 8)
-	signal reg_data_bottom8 : std_logic_vector(7 downto 0); --data bits (7 downto 0)
-	signal reg_bram_addr : std_logic_vector(7 downto 0); --bram address data
-	signal busEppData : std_logic_vector(7 downto 0);
-	signal busEppOut : std_logic_vector(7 downto 0);
-	signal busEppIn : std_logic_vector(7 downto 0);
-	signal address_strobe :std_logic;
-	signal data_strobe :std_logic;
-	signal regEppAdr: std_logic_Vector(1 downto 0);
---	signal pwait : std_logic;
-	signal nothing :std_logic;
-	--fsm
-	TYPE State_Type IS (initial, read_addr, wait_r_addr, read_data, wait_r_data, write_addr, wait_w_addr, write_data, wait_w_data); 
-	SIGNAL y : State_Type;
- 
+
+------------------------------------------------------------------------
+-- Component Declarations
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+-- Local Type Declarations
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+--  Constant Declarations
+------------------------------------------------------------------------
+
+	-- The following constants define state codes for the EPP port interface
+	-- state machine. The high order bits of the state number give a unique
+	-- state identifier. The low order bits are the state machine outputs for
+	-- that state. This type of state machine implementation uses no
+	-- combination logic to generate outputs which should produce glitch
+	-- free outputs.
+	constant	stEppReady	: std_logic_vector(7 downto 0) := "0000" & "0000";
+	constant	stEppAwrA	: std_logic_vector(7 downto 0) := "0001" & "0100";
+	constant	stEppAwrB	: std_logic_vector(7 downto 0) := "0010" & "0001";
+	constant	stEppArdA	: std_logic_vector(7 downto 0) := "0011" & "0010";
+	constant	stEppArdB	: std_logic_vector(7 downto 0) := "0100" & "0011";
+	constant	stEppDwrA	: std_logic_vector(7 downto 0) := "0101" & "1000";
+	constant	stEppDwrB	: std_logic_vector(7 downto 0) := "0110" & "0001";
+	constant	stEppDrdA	: std_logic_vector(7 downto 0) := "0111" & "0010";
+	constant	stEppDrdB	: std_logic_vector(7 downto 0) := "1000" & "0011";
+
+------------------------------------------------------------------------
+-- Signal Declarations
+------------------------------------------------------------------------
+
+	-- State machine current state register
+	signal	stEppCur	: std_logic_vector(7 downto 0) := stEppReady;
+
+	signal	stEppNext	: std_logic_vector(7 downto 0);
+
+	signal	clkMain		: std_logic;
+
+	-- Internal control signales
+	signal	ctlEppWait	: std_logic;
+	signal	ctlEppAstb	: std_logic;
+	signal	ctlEppDstb	: std_logic;
+	signal	ctlEppDir	: std_logic;
+	signal	ctlEppWr	: std_logic;
+	signal	ctlEppAwr	: std_logic;
+	signal	ctlEppDwr	: std_logic;
+	signal	busEppOut	: std_logic_vector(7 downto 0);
+	signal	busEppIn	: std_logic_vector(7 downto 0);
+	signal	busEppData	: std_logic_vector(7 downto 0);
+
+	-- Registers
+	signal	regEppAdr	: std_logic_vector(3 downto 0);
+	signal	regData0	: std_logic_vector(7 downto 0);
+	signal	regData1	: std_logic_vector(7 downto 0);
+    signal  regData2	: std_logic_vector(7 downto 0);
+    signal  regData3	: std_logic_vector(7 downto 0);
+    signal  regData4	: std_logic_vector(7 downto 0);
+	signal	regData5	: std_logic_vector(7 downto 0);
+	signal	regData6	: std_logic_vector(7 downto 0);
+	signal	regData7	: std_logic_vector(7 downto 0);
+	signal	regLed		: std_logic_vector(7 downto 0);
+
+	signal	cntr		: std_logic_vector(23 downto 0); 
+
+------------------------------------------------------------------------
+-- Module Implementation
+------------------------------------------------------------------------
 
 begin
---
-	led(0) <=  ctlEppWr;
-	led(1) <= pwait;
-	led(2) <= address_strobe;
-	led(3) <= data_strobe;
-	 
-	fsm_transitions: process(sw) --clk)
-	begin
-		if rising_edge(sw) then --clk) then
-			case y is 
-				when initial =>
-					if address_strobe = '0' then
-						if ctlEppWr = '1' then
-							y <= read_addr;
-						elsif ctlEppWr = '0' then
-							y <= write_addr;
-						else 
-							y <= initial;
+
+    ------------------------------------------------------------------------
+	-- Map basic status and control signals
+    ------------------------------------------------------------------------
+
+	clkMain <= mclk;
+
+	ctlEppAstb <= astb;
+	ctlEppDstb <= dstb;
+	ctlEppWr   <= pwr;
+	pwait      <= ctlEppWait;	-- drive WAIT from state machine output
+
+	-- Data bus direction control. The internal input data bus always
+	-- gets the port data bus. The port data bus drives the internal
+	-- output data bus onto the pins when the interface says we are doing
+	-- a read cycle and we are in one of the read cycles states in the
+	-- state machine.
+	busEppIn <= pdb;
+	pdb <= busEppOut when ctlEppWr = '1' and ctlEppDir = '1' else "ZZZZZZZZ";
+
+	-- Select either address or data onto the internal output data bus.
+	busEppOut <= "0000" & regEppAdr when ctlEppAstb = '0' else busEppData;
+
+	rgLed <= regLed;
+	--ldg <= '1';
+
+	-- Decode the address register and select the appropriate data register
+	busEppData <=	regData0 when regEppAdr = "0000" else
+					regData1 when regEppAdr = "0001" else
+					regData2 when regEppAdr = "0010" else
+					regData3 when regEppAdr = "0011" else
+					regData4 when regEppAdr = "0100" else
+					regData5 when regEppAdr = "0101" else
+					regData6 when regEppAdr = "0110" else
+					regData7 when regEppAdr = "0111" else
+					rgSwt    when regEppAdr = "1000" else
+					"000" & rgBtn when regEppAdr = "1001" else
+					"00000000";
+
+    ------------------------------------------------------------------------
+	-- EPP Interface Control State Machine
+    ------------------------------------------------------------------------
+
+	-- Map control signals from the current state
+	ctlEppWait <= stEppCur(0);
+	ctlEppDir  <= stEppCur(1);
+	ctlEppAwr  <= stEppCur(2);
+	ctlEppDwr  <= stEppCur(3);
+
+	-- This process moves the state machine to the next state
+	-- on each clock cycle
+	process (clkMain)
+		begin
+			if clkMain = '1' and clkMain'Event then
+				stEppCur <= stEppNext;
+			end if;
+		end process;
+
+	-- This process determines the next state machine state based
+	-- on the current state and the state machine inputs.
+	process (stEppCur, stEppNext, ctlEppAstb, ctlEppDstb, ctlEppWr)
+		begin
+			case stEppCur is
+				-- Idle state waiting for the beginning of an EPP cycle
+				when stEppReady =>
+					if ctlEppAstb = '0' then
+						-- Address read or write cycle
+						if ctlEppWr = '0' then
+							stEppNext <= stEppAwrA;
+						else
+							stEppNext <= stEppArdA;
 						end if;
-					elsif data_strobe = '0' then
-						if ctlEppWr = '1' then
-							y <= read_data;
-						elsif ctlEppWr = '0' then
-							y <= write_data;
-						else 
-							y <= initial;
+
+					elsif ctlEppDstb = '0' then
+						-- Data read or write cycle
+						if ctlEppWr = '0' then
+							stEppNext <= stEppDwrA;
+						else
+							stEppNext <= stEppDrdA;
 						end if;
+
 					else
-						y <= initial;
+						-- Remain in ready state
+						stEppNext <= stEppReady;
+					end if;											
+
+				-- Write address register
+				when stEppAwrA =>
+					stEppNext <= stEppAwrB;
+
+				when stEppAwrB =>
+					if ctlEppAstb = '0' then
+						stEppNext <= stEppAwrB;
+					else
+						stEppNext <= stEppReady;
+					end if;		
+
+				-- Read address register
+				when stEppArdA =>
+					stEppNext <= stEppArdB;
+
+				when stEppArdB =>
+					if ctlEppAstb = '0' then
+						stEppNext <= stEppArdB;
+					else
+						stEppNext <= stEppReady;
 					end if;
-				when read_addr =>
-					if (ctlEppWr and address_strobe) = '1' then  
-						y <= wait_r_addr;
-					else 
-						y <= read_addr;
+
+				-- Write data register
+				when stEppDwrA =>
+					stEppNext <= stEppDwrB;
+
+				when stEppDwrB =>
+					if ctlEppDstb = '0' then
+						stEppNext <= stEppDwrB;
+					else
+ 						stEppNext <= stEppReady;
 					end if;
-				when wait_r_addr => 
-					y <= initial; 
-				when read_data =>
-					if (ctlEppWr and data_strobe) ='1' then  
-						y <= wait_r_data;
-					else 
-						y <= read_data;
+
+				-- Read data register
+				when stEppDrdA =>
+					stEppNext <= stEppDrdB;
+										
+				when stEppDrdB =>
+					if ctlEppDstb = '0' then
+						stEppNext <= stEppDrdB;
+					else
+				  		stEppNext <= stEppReady;
 					end if;
-				when wait_r_data => 
-					y <= initial;
-				when write_addr =>
-					if (ctlEppWr and address_strobe) = '1' then 
-						y <= wait_w_addr;
-					else 
-						y <= write_addr;
-					end if;
-				when wait_w_addr =>	
-					y <= initial;
-				when write_data =>
-					if (ctlEppWr and data_strobe) = '1' then  
-						y <= wait_w_data;
-					else 
-						y <= write_data;
-					end if;
-				when wait_w_data =>
-					y <= initial;
+
+				-- Some unknown state				
+				when others =>
+					stEppNext <= stEppReady;
+
 			end case;
-		end if;
-	end process;
+		end process;
+		
+    ------------------------------------------------------------------------
+	-- EPP Address register
+    ------------------------------------------------------------------------
 
-	fsm_outputs: process (y)
-	begin
-		case y is 
-			when initial =>
-				pwait <= '0';
-			when read_addr =>		
-				pwait <= '1';
-			when wait_r_addr =>  
-				pwait <= '0';
-			when read_data => 
-				pwait <= '1';
-			when wait_r_data =>
-				pwait <= '0';
-			when write_addr => 
-				pwait <= '1';
-			when wait_w_addr=>
-				pwait <= '0';
-			when write_data=> 
-				pwait <= '1';
-			when wait_w_data =>
-				pwait <= '0';
-			when others =>
-				pwait <='0';
-		end case;
-	end process;
-
-
-	address_strobe <= ctlEppAstb;
-	data_strobe <= ctlEppDwr;
-	
-	busEppData <= reg_data_top4 when regEppAdr = "00" else -- address 0 =>data
-						reg_data_bottom8 when regEppAdr = "01" else -- address 1 => data
-						reg_bram_addr when regEppAdr = "10" else -- address 2 => bram address
-						"00000000";
-
-	-- handle address and data reads	
-	busEppOut <= "000000" & regEppAdr when ctlEppAstb = '0' else busEppData;
-
-	-- data bus gets read data during read, tri-state otherwise
-	data <= busEppOut when ctlEppWr = '1' and pwait = '1' else "ZZZZZZZZ";
-	
-	busEppIn <= data when ctlEppWr = '0' and pwait = '0' else "ZZZZZZZZ";
-	
-	
-	--pwait = '1' when 
-	
-	--done timer
-	-- not sure if we're going to be using this in the final product ???
-	--process (clk, pwait, ctlEppWr, address_strobe, data_strobe)
-	--begin
-	--	if rising_edge(clk) then 
-	--		if (data_strobe and ctlEppWr) = '1' then
-	--			pwait <='1'; 
-	--		elsif  (address_strobe and ctlEppWr) = '1' then
-	--			pwait <='1';
-	--		else
-	--			pwait <='0';
-	--		end if;
-	--	end if;
-	--end process;
-	
-	-- address register
-	process (address_strobe, sw) --clk) -- ctlEppAwr)
-	begin
-		if rising_Edge(sw) then --clk) then
-			if address_strobe = '1' then
-				regEppAdr <= busEppIn(1 downto 0);
+	process (clkMain, ctlEppAwr)
+		begin
+			if clkMain = '1' and clkMain'Event then
+				if ctlEppAwr = '1' then
+					regEppAdr <= busEppIn(3 downto 0);
+				end if;
 			end if;
-		end if;
-	end process;
-	-- data register
-	process (regEppAdr, data_strobe, busEppIn, sw)--clk)
-	begin
-		if rising_edge(sw) then --clk) then
-			--if ctlEppDwr 
-			if data_strobe = '1' then
-				case regEppAdr is
-					when "00" => reg_data_top4 <= busEppIn;
-					when "01" => reg_data_bottom8 <= busEppIn;
-					when "10" => reg_bram_addr <= busEppIn;
-					when others => nothing <= '0' ; 
-				end case;
+		end process;
+
+    ------------------------------------------------------------------------
+	-- EPP Data registers
+    ------------------------------------------------------------------------
+ 	-- The following processes implement the interface registers. These
+	-- registers just hold the value written so that it can be read back.
+	-- In a real design, the contents of these registers would drive additional
+	-- logic.
+	-- The ctlEppDwr signal is an output from the state machine that says
+	-- we are in a 'write data register' state. This is combined with the
+	-- address in the address register to determine which register to write.
+
+	process (clkMain, regEppAdr, ctlEppDwr, busEppIn)
+		begin
+			if clkMain = '1' and clkMain'Event then
+				if ctlEppDwr = '1' and regEppAdr = "0000" then
+					regData0 <= busEppIn;
+				end if;
 			end if;
-		end if;
-	end process;
-	
+		end process;
+
+	process (clkMain, regEppAdr, ctlEppDwr, busEppIn)
+		begin
+			if clkMain = '1' and clkMain'Event then
+				if ctlEppDwr = '1' and regEppAdr = "0001" then
+					regData1 <= busEppIn;
+				end if;
+			end if;
+		end process;
+
+	process (clkMain, regEppAdr, ctlEppDwr, busEppIn)
+		begin
+			if clkMain = '1' and clkMain'Event then
+				if ctlEppDwr = '1' and regEppAdr = "0010" then
+					regData2 <= busEppIn;
+				end if;
+			end if;
+		end process;
+
+	process (clkMain, regEppAdr, ctlEppDwr, busEppIn)
+		begin
+			if clkMain = '1' and clkMain'Event then
+				if ctlEppDwr = '1' and regEppAdr = "0011" then
+					regData3 <= busEppIn;
+				end if;
+			end if;
+		end process;
+
+	process (clkMain, regEppAdr, ctlEppDwr, busEppIn)
+		begin
+			if clkMain = '1' and clkMain'Event then
+				if ctlEppDwr = '1' and regEppAdr = "0100" then
+					regData4 <= busEppIn;
+				end if;
+			end if;
+		end process;
+
+	process (clkMain, regEppAdr, ctlEppDwr, busEppIn)
+		begin
+			if clkMain = '1' and clkMain'Event then
+				if ctlEppDwr = '1' and regEppAdr = "0101" then
+					regData5 <= busEppIn;
+				end if;
+			end if;
+		end process;
+
+	process (clkMain, regEppAdr, ctlEppDwr, busEppIn)
+		begin
+			if clkMain = '1' and clkMain'Event then
+				if ctlEppDwr = '1' and regEppAdr = "0110" then
+					regData6 <= busEppIn;
+				end if;
+			end if;
+		end process;
+
+	process (clkMain, regEppAdr, ctlEppDwr, busEppIn)
+		begin
+			if clkMain = '1' and clkMain'Event then
+				if ctlEppDwr = '1' and regEppAdr = "0111" then
+					regData7 <= busEppIn;
+				end if;
+			end if;
+		end process;
+
+	process (clkMain, regEppAdr, ctlEppDwr, busEppIn)
+		begin
+			if clkMain = '1' and clkMain'Event then
+				if ctlEppDwr = '1' and regEppAdr = "1010" then
+					regLed <= busEppIn;
+				end if;
+			end if;
+		end process;
+
+
+	------------------------------------------------------------------------
+    -- Gate array configuration verification logic
+	------------------------------------------------------------------------
+	-- This logic will flash the led on the gate array. This is to verify
+	-- that the gate array is properly configured for the test. This is a
+	-- simple way to verify that the gate array actually got configured.
+
+ 	--led <= btn or cntr(23);
+
+	process (clkMain)
+		begin
+			if clkMain = '1' and clkMain'Event then
+				cntr <= cntr + 1;
+			end if;
+		end process;
+
+----------------------------------------------------------------------------
+
 end Behavioral;
-

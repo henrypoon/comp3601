@@ -1,0 +1,41 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Sat Oct 07 08:59:39 2017
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "pdb<2>" LOCATE = SITE "N11" LEVEL 1;
+COMP "rgSwt<3>" LOCATE = SITE "K15" LEVEL 1;
+COMP "pdb<3>" LOCATE = SITE "P11" LEVEL 1;
+COMP "rgSwt<4>" LOCATE = SITE "L15" LEVEL 1;
+COMP "pdb<4>" LOCATE = SITE "N10" LEVEL 1;
+COMP "rgSwt<5>" LOCATE = SITE "M16" LEVEL 1;
+COMP "pdb<5>" LOCATE = SITE "P10" LEVEL 1;
+COMP "rgSwt<6>" LOCATE = SITE "M15" LEVEL 1;
+COMP "pdb<6>" LOCATE = SITE "M10" LEVEL 1;
+COMP "rgSwt<7>" LOCATE = SITE "N16" LEVEL 1;
+COMP "pdb<7>" LOCATE = SITE "R10" LEVEL 1;
+COMP "pwait" LOCATE = SITE "N5" LEVEL 1;
+COMP "astb" LOCATE = SITE "N8" LEVEL 1;
+COMP "rgLed<0>" LOCATE = SITE "L14" LEVEL 1;
+COMP "rgBtn<0>" LOCATE = SITE "J13" LEVEL 1;
+COMP "rgLed<1>" LOCATE = SITE "L13" LEVEL 1;
+COMP "rgBtn<1>" LOCATE = SITE "K14" LEVEL 1;
+COMP "rgLed<2>" LOCATE = SITE "M14" LEVEL 1;
+COMP "rgBtn<2>" LOCATE = SITE "K13" LEVEL 1;
+COMP "rgLed<3>" LOCATE = SITE "L12" LEVEL 1;
+COMP "rgBtn<3>" LOCATE = SITE "K12" LEVEL 1;
+COMP "dstb" LOCATE = SITE "P7" LEVEL 1;
+COMP "mclk" LOCATE = SITE "A8" LEVEL 1;
+COMP "rgLed<4>" LOCATE = SITE "N14" LEVEL 1;
+COMP "rgLed<5>" LOCATE = SITE "M13" LEVEL 1;
+COMP "rgLed<6>" LOCATE = SITE "P14" LEVEL 1;
+COMP "rgLed<7>" LOCATE = SITE "R16" LEVEL 1;
+COMP "pwr" LOCATE = SITE "N7" LEVEL 1;
+NET "mclk_BUFGP/IBUFG" BEL "mclk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+COMP "rgSwt<0>" LOCATE = SITE "N15" LEVEL 1;
+COMP "pdb<0>" LOCATE = SITE "N12" LEVEL 1;
+COMP "rgSwt<1>" LOCATE = SITE "J16" LEVEL 1;
+COMP "pdb<1>" LOCATE = SITE "P12" LEVEL 1;
+COMP "rgSwt<2>" LOCATE = SITE "K16" LEVEL 1;
+SCHEMATIC END;
+

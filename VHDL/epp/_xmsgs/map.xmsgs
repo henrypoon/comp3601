@@ -11,7 +11,5 @@
 <msg type="info" file="LIT" num="244" delta="old" >All of the single ended outputs in this design are using slew rate limited output drivers. The delay on speed critical single ended outputs can be dramatically reduced by designating them as fast outputs.
 </msg>
 
-<msg type="fatal" file="MapHelpers" num="0" delta="new" srcfile="../s/basmpreport.c" srcline="214" srcrcs="1.18" >Not able to add errors to file &apos;<arg fmt="%s" index="1">eppctrl_map.mrp</arg>&apos;.
-</msg>
-
 </messages>
+

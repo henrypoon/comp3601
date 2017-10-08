@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=Y:\Desktop\Study\COMP3601\comp3601\VHDL\epp\eppctrl.ncd
+OUTFILE=Y:\Desktop\Study\COMP3601\comp3601\VHDL\epp\eppctrl.bit
+FAMILY=Spartan3
+PART=xc3s400-5ft256
+WORKINGDIR=Y:\Desktop\Study\COMP3601\comp3601\VHDL\epp
+LICENSE=WebPack
+USER_INFO=211224107_0_0_211
