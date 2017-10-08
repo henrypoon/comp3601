@@ -1,0 +1,11 @@
+NET "speaker" LOC = "T14";
+NET "clk" LOC = "A8";
+NET "reset" LOC = "J13";
+NET "play" LOC = "N15"; # sw(0)
+NET "tempo_mode" LOC = "J16";
+NET "tempo_val(0)" LOC = "K16";
+NET "tempo_val(1)" LOC = "K15";
+NET "tempo_val(2)" LOC = "L15";
+NET "tempo_val(3)" LOC = "M16";
+NET "tempo_val(4)" LOC = "M15";
+NET "tempo_val(5)" LOC = "N16";
