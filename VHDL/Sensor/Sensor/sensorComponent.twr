@@ -45,7 +45,16 @@ Setup/Hold to clock clk
             |Max Setup to|Max Hold to |                  | Clock  |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------------+--------+
-timerSwitch |    3.486(R)|   -0.015(R)|clk_BUFGP         |   0.000|
+pulse       |    5.173(R)|    0.493(R)|clk_BUFGP         |   0.000|
+timerSwitch |    3.091(R)|   -0.223(R)|clk_BUFGP         |   0.000|
+------------+------------+------------+------------------+--------+
+
+Setup/Hold to clock rst
+------------+------------+------------+------------------+--------+
+            |Max Setup to|Max Hold to |                  | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+------------+------------+------------+------------------+--------+
+timerSwitch |   -1.170(R)|    4.977(R)|rst_IBUF          |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Clock clk to Pad
@@ -53,35 +62,50 @@ Clock clk to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-trig        |   12.979(R)|clk_BUFGP         |   0.000|
+trig        |    9.411(R)|clk_BUFGP         |   0.000|
 ------------+------------+------------------+--------+
+
+Clock rst to Pad
+-------------+------------+------------------+--------+
+             | clk (edge) |                  | Clock  |
+Destination  |   to PAD   |Internal Clock(s) | Phase  |
+-------------+------------+------------------+--------+
+swingValue<0>|   12.839(R)|rst_IBUF          |   0.000|
+swingValue<1>|   13.120(R)|rst_IBUF          |   0.000|
+swingValue<2>|   13.016(R)|rst_IBUF          |   0.000|
+swingValue<3>|   12.725(R)|rst_IBUF          |   0.000|
+swingValue<4>|   13.069(R)|rst_IBUF          |   0.000|
+swingValue<5>|   12.834(R)|rst_IBUF          |   0.000|
+swingValue<6>|   12.973(R)|rst_IBUF          |   0.000|
+swingValue<7>|   13.406(R)|rst_IBUF          |   0.000|
+-------------+------------+------------------+--------+
 
 Clock to Setup on destination clock clk
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    4.236|         |         |         |
-pulse          |    2.786|    2.786|         |         |
+clk            |    8.511|         |         |         |
 ---------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock pulse
+Clock to Setup on destination clock rst
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    8.592|         |         |         |
+clk            |    6.640|         |         |         |
+rst            |    3.957|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Mon Sep 25 18:10:01 2017 
+Analysis completed Wed Oct 11 18:56:07 2017 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 162 MB
+Peak Memory Usage: 146 MB
 
 
 

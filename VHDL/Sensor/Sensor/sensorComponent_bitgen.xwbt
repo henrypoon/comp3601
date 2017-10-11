@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=C:\Users\Akmal\Desktop\Uni Stuff\COMP3601\Sensor\sensorComponent.ncd
-OUTFILE=C:\Users\Akmal\Desktop\Uni Stuff\COMP3601\Sensor\sensorComponent.bit
+INFILE=Z:\COMP3601\Sensor\sensorComponent.ncd
+OUTFILE=Z:\COMP3601\Sensor\sensorComponent.bit
 FAMILY=Spartan3
 PART=xc3s400-5ft256
-WORKINGDIR=C:\Users\Akmal\Desktop\Uni Stuff\COMP3601\Sensor
-LICENSE=WebPack
-USER_INFO=211379948_0_0_976
+WORKINGDIR=Z:\COMP3601\Sensor
+LICENSE=ISE
+USER_INFO=176080079_176910363_210559698_406

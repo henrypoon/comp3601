@@ -1,7 +1,7 @@
 Release 14.7 - par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Mon Sep 25 18:09:56 2017
+Wed Oct 11 18:55:55 2017
 
 
 # NOTE: This file is designed to be imported into a spreadsheet program
@@ -159,7 +159,7 @@ J9|||GND||||||||||||
 J10|||GND||||||||||||
 J11|||VCCO_3|||3|||||2.50||||
 J12|||VCCO_3|||3|||||2.50||||
-J13||DIFFM|IO_L39P_3|UNUSED||3|||||||||
+J13|rst|IOB|IO_L39P_3|INPUT|LVCMOS25*|3||||NONE||LOCATED|NO|NONE|
 J14||DIFFS|IO_L39N_3|UNUSED||3|||||||||
 J15|||GND||||||||||||
 J16||DIFFS|IO_L40N_3/VREF_3|UNUSED||3|||||||||

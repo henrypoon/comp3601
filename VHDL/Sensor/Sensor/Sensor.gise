@@ -39,6 +39,9 @@
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="multiplier.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="multiplier.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="multiplier.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="nBitCounter.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="nBitCounter.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="nBitCounter.xst"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="sensoModule.bld"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="sensoModule.cmd_log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="sensoModule.lso"/>
@@ -108,9 +111,15 @@
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="swingCounter.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="swingCounter.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="swingCounter.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="swingmodule.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="swingmodule.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="swingmodule.xst"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="timer.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="timer.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="timer.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="timerMod.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="timerMod.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="timerMod.xst"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="usage_statistics_webtalk.html"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="webtalk.log"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
@@ -147,7 +156,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1506326972" xil_pn:in_ck="-8971900883295356035" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="144179175147534957" xil_pn:start_ts="1506326962">
+    <transform xil_pn:end_ts="1507708517" xil_pn:in_ck="-6301707026995735082" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="144179175147534957" xil_pn:start_ts="1507708503">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -155,7 +164,6 @@
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name=".lso"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="sensoModule.ngr"/>
       <outfile xil_pn:name="sensorComponent.lso"/>
       <outfile xil_pn:name="sensorComponent.ngc"/>
       <outfile xil_pn:name="sensorComponent.ngr"/>
@@ -168,11 +176,11 @@
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1506324008" xil_pn:in_ck="172657005732451353" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-1413754680810927483" xil_pn:start_ts="1506324008">
+    <transform xil_pn:end_ts="1507707226" xil_pn:in_ck="172657005732451353" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-1413754680810927483" xil_pn:start_ts="1507707226">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1506326981" xil_pn:in_ck="2240571959515286144" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="8083583115221348011" xil_pn:start_ts="1506326972">
+    <transform xil_pn:end_ts="1507708528" xil_pn:in_ck="2240571959515286144" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="8083583115221348011" xil_pn:start_ts="1507708517">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_ngo"/>
@@ -181,7 +189,7 @@
       <outfile xil_pn:name="sensorComponent.ngd"/>
       <outfile xil_pn:name="sensorComponent_ngdbuild.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1506326988" xil_pn:in_ck="-3474285433485838110" xil_pn:name="TRANEXT_map_spartan3" xil_pn:prop_ck="-6988143391655263493" xil_pn:start_ts="1506326981">
+    <transform xil_pn:end_ts="1507708540" xil_pn:in_ck="-3474285433485838110" xil_pn:name="TRANEXT_map_spartan3" xil_pn:prop_ck="-6988143391655263493" xil_pn:start_ts="1507708528">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -197,7 +205,7 @@
       <outfile xil_pn:name="sensorComponent_summary.xml"/>
       <outfile xil_pn:name="sensorComponent_usage.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1506327003" xil_pn:in_ck="-318373171826984204" xil_pn:name="TRANEXT_par_spartan3" xil_pn:prop_ck="8251173951899154272" xil_pn:start_ts="1506326988">
+    <transform xil_pn:end_ts="1507708568" xil_pn:in_ck="-318373171826984204" xil_pn:name="TRANEXT_par_spartan3" xil_pn:prop_ck="8251173951899154272" xil_pn:start_ts="1507708540">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -212,9 +220,8 @@
       <outfile xil_pn:name="sensorComponent_pad.txt"/>
       <outfile xil_pn:name="sensorComponent_par.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1506327031" xil_pn:in_ck="-5591025831118607359" xil_pn:name="TRANEXT_bitFile_spartan3" xil_pn:prop_ck="-2672950586390118423" xil_pn:start_ts="1506327020">
+    <transform xil_pn:end_ts="1507708582" xil_pn:in_ck="-5591025831118607359" xil_pn:name="TRANEXT_bitFile_spartan3" xil_pn:prop_ck="-2672950586390118423" xil_pn:start_ts="1507708568">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
       <outfile xil_pn:name="sensorComponent.ut"/>
@@ -225,7 +232,7 @@
       <outfile xil_pn:name="webtalk.log"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1506327003" xil_pn:in_ck="-5429616579429052838" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416187" xil_pn:start_ts="1506326998">
+    <transform xil_pn:end_ts="1507708568" xil_pn:in_ck="-5429616579429052838" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416187" xil_pn:start_ts="1507708562">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>

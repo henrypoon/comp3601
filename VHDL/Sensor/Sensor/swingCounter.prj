@@ -1,2 +1,2 @@
-vhdl work "countr.vhd"
+vhdl work "nBitCounter.vhd"
 vhdl work "swingCounter.vhd"
