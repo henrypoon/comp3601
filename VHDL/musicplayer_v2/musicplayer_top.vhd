@@ -28,6 +28,8 @@ entity musicplayer_top is
 			play		  : in std_logic;
 			tempo_mode:	in std_logic; -- switches between tempo in file to dynaimic tempo
 			tempo_val	: in std_logic_vector (5 downto 0); --used for testing
+			segments: out std_logic_vector(7 downto 0);
+			displayOut: out std_logic_vector(3 downto 0);
 			speaker : out std_logic
 			);
 
@@ -98,6 +100,15 @@ architecture Behavioral of musicplayer_top is
 	);
 	end component;
 
+
+	component sevenSeg is
+	port( CLKK: in std_logic;
+			number : in std_logic_vector(7 downto 0);
+			segments: out std_logic_vector(7 downto 0);
+			displayOut: out std_logic_vector(3 downto 0)
+    );
+	 end component;
+	
 --signals
 	signal sig_music_counter_en: std_logic;
 	signal sig_next_addr	: std_logic_vector(15 downto 0);
@@ -203,6 +214,14 @@ begin
 		data => sig_tempo_mux_out
 	);
 	
+	
+	seg: sevenSeg 
+	port map( 
+			CLKK => clk,
+			number => sig_tempo_mux_out(9 downto 2),
+			segments => segments,
+			displayOut=> displayOut
+    );
 	
 	sound_gen: sound_generator
 	port map (
