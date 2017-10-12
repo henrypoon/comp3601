@@ -27,7 +27,9 @@ entity musicplayer_top is
 			reset	  : in std_logic;
 			play		  : in std_logic; --sw0
 			tempo_mode:	in std_logic; -- sw1, switches between tempo in file to dynaimic tempo
-			tempo_val	: in std_logic_vector (5 downto 0); --sw2 to 8 used for testing
+			--tempo_val	: in std_logic_vector (5 downto 0); --sw2 to 8 used for testing
+			pulse : in  STD_LOGIC;
+			trig : out  STD_LOGIC;
 			segments : out std_logic_vector(7 downto 0);
 			displayOut : out std_logic_vector(3 downto 0);
 			speaker : out std_logic
@@ -109,6 +111,15 @@ architecture Behavioral of musicplayer_top is
 	);
 
   end component;
+	
+	component sensorComponent is
+    Port ( clk : in  STD_LOGIC;
+           pulse : in  STD_LOGIC;
+           timerSwitch : in  STD_LOGIC;
+           trig : out  STD_LOGIC;
+			  rst: in std_logic;
+           swingValue : out  STD_LOGIC_VECTOR (7 downto 0));
+  end component;
 
 --signals
 	signal sig_music_counter_en: std_logic;
@@ -119,6 +130,8 @@ architecture Behavioral of musicplayer_top is
 	signal sig_add_en	: std_logic; -- control signal, enables music counter incrementer when = '1'
 	signal sig_add_in	: std_logic_vector(15 downto 0);
 	signal sig_add_carry: std_logic;
+	
+	signal tempo_val : std_logic_vector(7 downto 0);
 	--memory signals
 	signal sig_write_en	: std_logic; --need filereader
 	signal sig_write_data : std_logic_vector(11 downto 0); -- need filereader
@@ -206,7 +219,19 @@ begin
 		data_out => sig_tempo_data
 	);
 	
-	sig_tempo_mux_b <= "00" & tempo_val & "0000";
+	--added in sensor
+	sense: sensorComponent
+   port map ( 
+		clk => clk,
+      pulse => pulse,
+      timerSwitch => tempo_mode,
+      trig => trig,
+		rst => reset,
+      swingValue => tempo_val  
+	);
+	
+	
+	sig_tempo_mux_b <= "00" & tempo_val & "00";
 	tempo_mux :	mux2to1_12b 
 	port map (
 		data_a => sig_tempo_data,
