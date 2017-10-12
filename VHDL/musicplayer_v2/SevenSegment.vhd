@@ -23,9 +23,9 @@ begin
 		when "0101" => SEGMENTS <= X"92";
 		when "0110" => SEGMENTS <= X"82";
 		when "0111" => SEGMENTS <= X"f8";
-		when "1000" => SEGMENTS <= X"f8";
-		when "1001" => SEGMENTS <= X"f8";
-		when others =>
+		when "1000" => SEGMENTS <= X"80";
+		when "1001" => SEGMENTS <= X"98";
+		when others => SEGMENTS <= X"00";
 		end case;
 end process;
 
