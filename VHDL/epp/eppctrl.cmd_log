@@ -432,3 +432,179 @@ map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_
 par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
 trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
 bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc board.ucf -p xc3s400-ft256-5 eppctrl.ngc eppctrl.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o eppctrl_map.ncd eppctrl.ngd eppctrl.pcf 
+par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml eppctrl.twx eppctrl.ncd -o eppctrl.twr eppctrl.pcf -ucf board.ucf 
+bitgen -intstyle ise -f eppctrl.ut eppctrl.ncd 

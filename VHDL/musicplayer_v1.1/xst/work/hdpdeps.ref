@@ -1,0 +1,74 @@
+V3 39
+FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/adder_16b.vhd 2017/09/24.12:35:21 P.20131013
+EN work/adder_16b 1507510671 \
+      FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/adder_16b.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/adder_16b/behavioural 1507510672 \
+      FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/adder_16b.vhd \
+      EN work/adder_16b 1507510671
+FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/clock_divider.vhd 2017/10/09.10:39:06 P.20131013
+EN work/clock_divider 1507510663 \
+      FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/clock_divider.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
+AR work/clock_divider/Behavioral 1507510664 \
+      FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/clock_divider.vhd \
+      EN work/clock_divider 1507510663
+FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/memory.vhd 2017/10/09.10:39:06 P.20131013
+EN work/memory 1507510673 \
+      FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/memory.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/memory/behavioral 1507510674 \
+      FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/memory.vhd \
+      EN work/memory 1507510673
+FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/musicplayer_top.vhd 2017/09/24.12:35:21 P.20131013
+EN work/musicplayer_top 1507510681 \
+      FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/musicplayer_top.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
+AR work/musicplayer_top/Behavioral 1507510682 \
+      FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/musicplayer_top.vhd \
+      EN work/musicplayer_top 1507510681 CP register_16b CP mux2to1_16b \
+      CP adder_16b CP memory CP register_12b CP mux2to1_12b CP sound_generator
+FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/mux2to1_12b.vhd 2017/09/24.12:35:21 P.20131013
+EN work/mux2to1_12b 1507510677 \
+      FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/mux2to1_12b.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/mux2to1_12b/Behavioral 1507510678 \
+      FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/mux2to1_12b.vhd \
+      EN work/mux2to1_12b 1507510677
+FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/mux2to1_16b.vhd 2017/09/24.12:35:21 P.20131013
+EN work/mux2to1_16b 1507510669 \
+      FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/mux2to1_16b.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/mux2to1_16b/Behavioral 1507510670 \
+      FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/mux2to1_16b.vhd \
+      EN work/mux2to1_16b 1507510669
+FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/note_timer.vhd 2017/09/24.12:35:21 P.20131013
+EN work/note_timer 1507510665 \
+      FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/note_timer.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
+AR work/note_timer/Behavioral 1507510666 \
+      FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/note_timer.vhd \
+      EN work/note_timer 1507510665
+FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/register_12b.vhd 2017/09/24.12:35:21 P.20131013
+EN work/register_12b 1507510675 \
+      FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/register_12b.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/register_12b/Behavioral 1507510676 \
+      FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/register_12b.vhd \
+      EN work/register_12b 1507510675
+FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/register_16b.vhd 2017/09/24.12:35:21 P.20131013
+EN work/register_16b 1507510667 \
+      FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/register_16b.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/register_16b/Behavioral 1507510668 \
+      FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/register_16b.vhd \
+      EN work/register_16b 1507510667
+FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/sound_generator.vhd 2017/09/24.12:35:21 P.20131013
+EN work/sound_generator 1507510679 \
+      FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/sound_generator.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/sound_generator/Behavioral 1507510680 \
+      FL //mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/sound_generator.vhd \
+      EN work/sound_generator 1507510679 CP clock_divider CP note_timer

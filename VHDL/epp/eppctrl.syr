@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 1.19 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.22 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 1.24 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.23 secs
  
 --> Reading design: eppctrl.prj
 
@@ -129,6 +129,15 @@ Performing bidirectional port resolution...
 
 Synthesizing Unit <eppctrl>.
     Related source file is "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.vhd".
+WARNING:Xst:1306 - Output <enble> is never assigned.
+WARNING:Xst:646 - Signal <regLed> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <regData7> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <regData6> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <regData5> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <regData4> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <regData3> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <enable> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <dataOut> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found finite state machine <FSM_0> for signal <stEppCur>.
     -----------------------------------------------------------------------
     | States             | 9                                              |
@@ -140,22 +149,20 @@ Synthesizing Unit <eppctrl>.
     | Encoding           | automatic                                      |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
+WARNING:Xst:737 - Found 12-bit latch for signal <dataToBram>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
     Found 8-bit tristate buffer for signal <pdb>.
     Found 24-bit up counter for signal <cntr>.
+    Found 8-bit register for signal <counter>.
+    Found 8-bit adder for signal <counter$addsub0000> created at line 339.
     Found 8-bit register for signal <regData0>.
     Found 8-bit register for signal <regData1>.
     Found 8-bit register for signal <regData2>.
-    Found 8-bit register for signal <regData3>.
-    Found 8-bit register for signal <regData4>.
-    Found 8-bit register for signal <regData5>.
-    Found 8-bit register for signal <regData6>.
-    Found 8-bit register for signal <regData7>.
     Found 4-bit register for signal <regEppAdr>.
-    Found 8-bit register for signal <regLed>.
     Summary:
 	inferred   1 Finite State Machine(s).
 	inferred   1 Counter(s).
-	inferred  76 D-type flip-flop(s).
+	inferred  36 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
 	inferred   8 Tristate(s).
 Unit <eppctrl> synthesized.
 
@@ -164,9 +171,13 @@ Unit <eppctrl> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Registers                                            : 10
+# Adders/Subtractors                                   : 1
+ 8-bit adder                                           : 1
+# Registers                                            : 5
  4-bit register                                        : 1
- 8-bit register                                        : 9
+ 8-bit register                                        : 4
+# Latches                                              : 1
+ 12-bit latch                                          : 1
 # Tristates                                            : 1
  8-bit tristate buffer                                 : 1
 
@@ -197,8 +208,12 @@ Advanced HDL Synthesis Report
 
 Macro Statistics
 # FSMs                                                 : 1
-# Registers                                            : 76
- Flip-Flops                                            : 76
+# Adders/Subtractors                                   : 1
+ 8-bit adder                                           : 1
+# Registers                                            : 36
+ Flip-Flops                                            : 36
+# Latches                                              : 1
+ 12-bit latch                                          : 1
 
 =========================================================================
 
@@ -212,7 +227,8 @@ Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block eppctrl, actual ratio is 1.
 FlipFlop regEppAdr_0 has been replicated 1 time(s)
-FlipFlop regEppAdr_1 has been replicated 1 time(s)
+FlipFlop regEppAdr_1 has been replicated 2 time(s)
+FlipFlop regEppAdr_3 has been replicated 2 time(s)
 
 Final Macro Processing ...
 
@@ -220,8 +236,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 82
- Flip-Flops                                            : 82
+# Registers                                            : 45
+ Flip-Flops                                            : 45
 
 =========================================================================
 
@@ -247,27 +263,29 @@ Optimization Goal                  : Speed
 Keep Hierarchy                     : No
 
 Design Statistics
-# IOs                              : 34
+# IOs                              : 56
 
 Cell Usage :
-# BELS                             : 96
-#      LUT2                        : 2
-#      LUT2_L                      : 1
-#      LUT3                        : 5
-#      LUT4                        : 70
-#      LUT4_D                      : 8
-#      LUT4_L                      : 3
-#      MUXF5                       : 7
-# FlipFlops/Latches                : 82
+# BELS                             : 86
+#      LUT2                        : 10
+#      LUT2_L                      : 3
+#      LUT3                        : 9
+#      LUT3_L                      : 1
+#      LUT4                        : 41
+#      LUT4_D                      : 1
+#      LUT4_L                      : 5
+#      MUXF5                       : 16
+# FlipFlops/Latches                : 57
 #      FD                          : 3
-#      FDE                         : 78
+#      FDE                         : 41
 #      FDS                         : 1
+#      LD                          : 12
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 33
+# IO Buffers                       : 54
 #      IBUF                        : 16
 #      IOBUF                       : 8
-#      OBUF                        : 9
+#      OBUF                        : 30
 =========================================================================
 
 Device utilization summary:
@@ -275,11 +293,12 @@ Device utilization summary:
 
 Selected Device : 3s400ft256-5 
 
- Number of Slices:                       65  out of   3584     1%  
- Number of Slice Flip Flops:             82  out of   7168     1%  
- Number of 4 input LUTs:                 89  out of   7168     1%  
- Number of IOs:                          34
- Number of bonded IOBs:                  34  out of    173    19%  
+ Number of Slices:                       49  out of   3584     1%  
+ Number of Slice Flip Flops:             45  out of   7168     0%  
+ Number of 4 input LUTs:                 70  out of   7168     0%  
+ Number of IOs:                          56
+ Number of bonded IOBs:                  55  out of    173    31%  
+    IOB Flip Flops:                      12
  Number of GCLKs:                         1  out of      8    12%  
 
 ---------------------------
@@ -300,11 +319,16 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
------------------------------------+------------------------+-------+
-Clock Signal                       | Clock buffer(FF name)  | Load  |
------------------------------------+------------------------+-------+
-mclk                               | BUFGP                  | 82    |
------------------------------------+------------------------+-------+
+-----------------------------------------------+------------------------+-------+
+Clock Signal                                   | Clock buffer(FF name)  | Load  |
+-----------------------------------------------+------------------------+-------+
+mclk                                           | BUFGP                  | 45    |
+dataToBram_cmp_eq0000(dataToBram_cmp_eq00001:O)| NONE(*)(dataToBram_0)  | 12    |
+-----------------------------------------------+------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
 ----------------------------------------
@@ -314,10 +338,10 @@ Timing Summary:
 ---------------
 Speed Grade: -5
 
-   Minimum period: 4.456ns (Maximum Frequency: 224.399MHz)
-   Minimum input arrival time before clock: 3.931ns
-   Maximum output required time after clock: 13.141ns
-   Maximum combinational path delay: 11.308ns
+   Minimum period: 5.024ns (Maximum Frequency: 199.027MHz)
+   Minimum input arrival time before clock: 3.887ns
+   Maximum output required time after clock: 11.247ns
+   Maximum combinational path delay: 10.350ns
 
 Timing Detail:
 --------------
@@ -325,32 +349,32 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'mclk'
-  Clock period: 4.456ns (frequency: 224.399MHz)
-  Total number of paths / destination ports: 539 / 83
+  Clock period: 5.024ns (frequency: 199.027MHz)
+  Total number of paths / destination ports: 336 / 54
 -------------------------------------------------------------------------
-Delay:               4.456ns (Levels of Logic = 2)
-  Source:            regEppAdr_2 (FF)
-  Destination:       regLed_0 (FF)
+Delay:               5.024ns (Levels of Logic = 2)
+  Source:            regEppAdr_0 (FF)
+  Destination:       regData2_0 (FF)
   Source Clock:      mclk rising
   Destination Clock: mclk rising
 
-  Data Path: regEppAdr_2 to regLed_0
+  Data Path: regEppAdr_0 to regData2_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q             15   0.626   1.305  regEppAdr_2 (regEppAdr_2)
-     LUT4_D:I0->LO         1   0.479   0.123  busEppData_cmp_eq00031 (N74)
-     LUT4:I3->O            8   0.479   0.921  regData3_and00001 (regData3_and0000)
-     FDE:CE                    0.524          regData3_0
+     FDE:C->Q             18   0.626   1.227  regEppAdr_0 (regEppAdr_0)
+     LUT4:I3->O            2   0.479   0.768  finish_cmp_eq00001 (done_OBUF)
+     LUT4:I3->O            8   0.479   0.921  regData2_not00011 (regData2_not0001)
+     FDE:CE                    0.524          regData2_0
     ----------------------------------------
-    Total                      4.456ns (2.108ns logic, 2.348ns route)
-                                       (47.3% logic, 52.7% route)
+    Total                      5.024ns (2.108ns logic, 2.916ns route)
+                                       (42.0% logic, 58.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'mclk'
-  Total number of paths / destination ports: 88 / 83
+  Total number of paths / destination ports: 43 / 38
 -------------------------------------------------------------------------
-Offset:              3.931ns (Levels of Logic = 2)
+Offset:              3.887ns (Levels of Logic = 2)
   Source:            astb (PAD)
   Destination:       stEppCur_FSM_FFd2 (FF)
   Destination Clock: mclk rising
@@ -359,70 +383,88 @@ Offset:              3.931ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            13   0.715   1.164  astb_IBUF (astb_IBUF)
+     IBUF:I->O            12   0.715   1.120  astb_IBUF (astb_IBUF)
      LUT4:I1->O            1   0.479   0.681  stEppCur_FSM_FFd2-In15 (stEppCur_FSM_FFd2-In15)
      FDS:S                     0.892          stEppCur_FSM_FFd2
     ----------------------------------------
-    Total                      3.931ns (2.086ns logic, 1.845ns route)
-                                       (53.1% logic, 46.9% route)
+    Total                      3.887ns (2.086ns logic, 1.801ns route)
+                                       (53.7% logic, 46.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'mclk'
-  Total number of paths / destination ports: 414 / 17
+  Total number of paths / destination ports: 189 / 26
 -------------------------------------------------------------------------
-Offset:              13.141ns (Levels of Logic = 6)
+Offset:              11.247ns (Levels of Logic = 5)
   Source:            regEppAdr_3 (FF)
-  Destination:       pdb<3> (PAD)
+  Destination:       pdb<0> (PAD)
   Source Clock:      mclk rising
 
-  Data Path: regEppAdr_3 to pdb<3>
+  Data Path: regEppAdr_3 to pdb<0>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q             15   0.626   1.305  regEppAdr_3 (regEppAdr_3)
-     LUT4_D:I0->O          5   0.479   1.078  busEppData_cmp_eq00062 (busEppData_cmp_eq0006)
-     LUT4:I0->O            1   0.479   0.740  busEppOut<3>42 (busEppOut<3>42)
-     LUT4:I2->O            1   0.479   0.704  busEppOut<3>44 (busEppOut<3>44)
-     LUT4:I3->O            1   0.479   0.704  busEppOut<3>79_SW0 (N50)
-     LUT4:I3->O            1   0.479   0.681  busEppOut<3>79 (busEppOut<3>)
-     IOBUF:I->IO               4.909          pdb_3_IOBUF (pdb<3>)
+     FDE:C->Q             25   0.626   1.836  regEppAdr_3 (regEppAdr_3)
+     LUT3:I0->O            1   0.479   0.704  busEppOut<0>60_SW0 (N60)
+     LUT4:I3->O            1   0.479   0.000  busEppOut<0>95_SW0_F (N84)
+     MUXF5:I0->O           1   0.314   0.740  busEppOut<0>95_SW0 (N74)
+     LUT4:I2->O            1   0.479   0.681  busEppOut<0>95 (busEppOut<0>)
+     IOBUF:I->IO               4.909          pdb_0_IOBUF (pdb<0>)
     ----------------------------------------
-    Total                     13.141ns (7.930ns logic, 5.211ns route)
-                                       (60.3% logic, 39.7% route)
+    Total                     11.247ns (7.286ns logic, 3.961ns route)
+                                       (64.8% logic, 35.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'dataToBram_cmp_eq0000'
+  Total number of paths / destination ports: 12 / 12
+-------------------------------------------------------------------------
+Offset:              6.141ns (Levels of Logic = 1)
+  Source:            dataToBram_11 (LATCH)
+  Destination:       dataToBram<11> (PAD)
+  Source Clock:      dataToBram_cmp_eq0000 falling
+
+  Data Path: dataToBram_11 to dataToBram<11>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               1   0.551   0.681  dataToBram_11 (dataToBram_11)
+     OBUF:I->O                 4.909          dataToBram_11_OBUF (dataToBram<11>)
+    ----------------------------------------
+    Total                      6.141ns (5.460ns logic, 0.681ns route)
+                                       (88.9% logic, 11.1% route)
 
 =========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 40 / 8
+  Total number of paths / destination ports: 47 / 8
 -------------------------------------------------------------------------
-Delay:               11.308ns (Levels of Logic = 6)
-  Source:            rgBtn<3> (PAD)
-  Destination:       pdb<3> (PAD)
+Delay:               10.350ns (Levels of Logic = 6)
+  Source:            rgSwt<0> (PAD)
+  Destination:       pdb<0> (PAD)
 
-  Data Path: rgBtn<3> to pdb<3>
+  Data Path: rgSwt<0> to pdb<0>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             1   0.715   0.976  rgBtn_3_IBUF (rgBtn_3_IBUF)
-     LUT4:I0->O            1   0.479   0.704  busEppOut<3>44_SW0 (N58)
-     LUT4:I3->O            1   0.479   0.704  busEppOut<3>44 (busEppOut<3>44)
-     LUT4:I3->O            1   0.479   0.704  busEppOut<3>79_SW0 (N50)
-     LUT4:I3->O            1   0.479   0.681  busEppOut<3>79 (busEppOut<3>)
-     IOBUF:I->IO               4.909          pdb_3_IOBUF (pdb<3>)
+     IBUF:I->O             1   0.715   0.851  rgSwt_0_IBUF (rgSwt_0_IBUF)
+     LUT3:I1->O            1   0.479   0.704  busEppOut<0>60_SW0 (N60)
+     LUT4:I3->O            1   0.479   0.000  busEppOut<0>95_SW0_F (N84)
+     MUXF5:I0->O           1   0.314   0.740  busEppOut<0>95_SW0 (N74)
+     LUT4:I2->O            1   0.479   0.681  busEppOut<0>95 (busEppOut<0>)
+     IOBUF:I->IO               4.909          pdb_0_IOBUF (pdb<0>)
     ----------------------------------------
-    Total                     11.308ns (7.540ns logic, 3.768ns route)
-                                       (66.7% logic, 33.3% route)
+    Total                     10.350ns (7.375ns logic, 2.975ns route)
+                                       (71.3% logic, 28.7% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 16.00 secs
-Total CPU time to Xst completion: 15.70 secs
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.97 secs
  
 --> 
 
-Total memory usage is 250956 kilobytes
+Total memory usage is 252052 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    0 (   0 filtered)
-Number of infos    :    0 (   0 filtered)
+Number of warnings :   10 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
 

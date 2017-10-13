@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=Y:\Desktop\Study\COMP3601\comp3601\VHDL\musicplayer_v1.1\musicplayer_top.ncd
+OUTFILE=Y:\Desktop\Study\COMP3601\comp3601\VHDL\musicplayer_v1.1\musicplayer_top.bit
+FAMILY=Spartan3
+PART=xc3s400-5ft256
+WORKINGDIR=Y:\Desktop\Study\COMP3601\comp3601\VHDL\musicplayer_v1.1
+LICENSE=WebPack
+USER_INFO=211224107_0_0_211

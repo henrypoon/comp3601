@@ -1,0 +1,27 @@
+Release 14.7 - ngc2edif P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design musicplayer_top.ngc ...
+WARNING:NetListWriters:298 - No output is written to musicplayer_top.xncf,
+   ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+WARNING:NetListWriters:306 - Signal bus buffer_reg/data_out<9 : 3> on block
+   musicplayer_top is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus rest_max<24 : 0> on block
+   musicplayer_top is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus sig_mem_out<9 : 2> on block
+   musicplayer_top is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus sig_tempo_mux_out<9 : 2> on block
+   musicplayer_top is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus tempo_reg/data_out<9 : 3> on block
+   musicplayer_top is not reconstructed, because there are some missing bus
+   signals.
+  finished :Prep
+Writing EDIF netlist file musicplayer_top.edif ...
+ngc2edif: Total memory usage is 84688 kilobytes
+

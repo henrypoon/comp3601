@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pn" timeStamp="Sat Oct 07 09:40:43 2017">
+<application name="pn" timeStamp="Fri Oct 13 12:25:11 2017">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="B0E860C6ED4243D0A99D27DE911BA050" type="project"/>
-<property name="ProjectIteration" value="72" type="project"/>
+<property name="ProjectIteration" value="97" type="project"/>
 <property name="ProjectFile" value="Y:/Desktop/Study/COMP3601/comp3601/VHDL/epp/eppctrl.xise" type="project"/>
 <property name="ProjectCreationTimestamp" value="2017-09-22T14:42:55" type="project"/>
 </section>
@@ -25,7 +25,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PROP_UserConstraintEditorPreference" value="Text Editor" type="process"/>
 <property name="PROP_intProjectCreationTimestamp" value="2017-09-22T14:42:55" type="design"/>
 <property name="PROP_intWbtProjectID" value="B0E860C6ED4243D0A99D27DE911BA050" type="design"/>
-<property name="PROP_intWbtProjectIteration" value="72" type="process"/>
+<property name="PROP_intWbtProjectIteration" value="97" type="process"/>
 <property name="PROP_intWorkingDirLocWRTProjDir" value="Same" type="design"/>
 <property name="PROP_intWorkingDirUsed" value="No" type="design"/>
 <property name="PROP_lockPinsUcfFile" value="changed" type="process"/>

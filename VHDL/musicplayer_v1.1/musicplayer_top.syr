@@ -1,0 +1,830 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.16 secs
+ 
+--> Reading design: musicplayer_top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "musicplayer_top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "musicplayer_top"
+Output Format                      : NGC
+Target Device                      : xc3s400-5-ft256
+
+---- Source Options
+Top Module Name                    : musicplayer_top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/clock_divider.vhd" in Library work.
+Architecture behavioral of Entity clock_divider is up to date.
+Compiling vhdl file "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/note_timer.vhd" in Library work.
+Architecture behavioral of Entity note_timer is up to date.
+Compiling vhdl file "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/register_16b.vhd" in Library work.
+Architecture behavioral of Entity register_16b is up to date.
+Compiling vhdl file "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/mux2to1_16b.vhd" in Library work.
+Architecture behavioral of Entity mux2to1_16b is up to date.
+Compiling vhdl file "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/adder_16b.vhd" in Library work.
+Architecture behavioural of Entity adder_16b is up to date.
+Compiling vhdl file "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/memory.vhd" in Library work.
+Architecture behavioral of Entity memory is up to date.
+Compiling vhdl file "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/register_12b.vhd" in Library work.
+Architecture behavioral of Entity register_12b is up to date.
+Compiling vhdl file "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/mux2to1_12b.vhd" in Library work.
+Architecture behavioral of Entity mux2to1_12b is up to date.
+Compiling vhdl file "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/sound_generator.vhd" in Library work.
+Architecture behavioral of Entity sound_generator is up to date.
+Compiling vhdl file "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/musicplayer_top.vhd" in Library work.
+Architecture behavioral of Entity musicplayer_top is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <musicplayer_top> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <register_16b> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <mux2to1_16b> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <adder_16b> in library <work> (architecture <behavioural>).
+
+Analyzing hierarchy for entity <memory> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <register_12b> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <mux2to1_12b> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <sound_generator> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <clock_divider> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <note_timer> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <musicplayer_top> in library <work> (Architecture <behavioral>).
+WARNING:Xst:819 - "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/musicplayer_top.vhd" line 302: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <sig_curr_addr>, <sig_sound_gen_out>
+Entity <musicplayer_top> analyzed. Unit <musicplayer_top> generated.
+
+Analyzing Entity <register_16b> in library <work> (Architecture <behavioral>).
+Entity <register_16b> analyzed. Unit <register_16b> generated.
+
+Analyzing Entity <mux2to1_16b> in library <work> (Architecture <behavioral>).
+Entity <mux2to1_16b> analyzed. Unit <mux2to1_16b> generated.
+
+Analyzing Entity <adder_16b> in library <work> (Architecture <behavioural>).
+Entity <adder_16b> analyzed. Unit <adder_16b> generated.
+
+Analyzing Entity <memory> in library <work> (Architecture <behavioral>).
+WARNING:Xst:790 - "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/memory.vhd" line 60: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/memory.vhd" line 64: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:819 - "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/memory.vhd" line 17: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <reset>
+Entity <memory> analyzed. Unit <memory> generated.
+
+Analyzing Entity <register_12b> in library <work> (Architecture <behavioral>).
+Entity <register_12b> analyzed. Unit <register_12b> generated.
+
+Analyzing Entity <mux2to1_12b> in library <work> (Architecture <behavioral>).
+Entity <mux2to1_12b> analyzed. Unit <mux2to1_12b> generated.
+
+Analyzing Entity <sound_generator> in library <work> (Architecture <behavioral>).
+Entity <sound_generator> analyzed. Unit <sound_generator> generated.
+
+Analyzing Entity <clock_divider> in library <work> (Architecture <behavioral>).
+Entity <clock_divider> analyzed. Unit <clock_divider> generated.
+
+Analyzing Entity <note_timer> in library <work> (Architecture <behavioral>).
+Entity <note_timer> analyzed. Unit <note_timer> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <register_16b>.
+    Related source file is "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/register_16b.vhd".
+    Found 16-bit register for signal <data_out>.
+    Summary:
+	inferred  16 D-type flip-flop(s).
+Unit <register_16b> synthesized.
+
+
+Synthesizing Unit <mux2to1_16b>.
+    Related source file is "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/mux2to1_16b.vhd".
+Unit <mux2to1_16b> synthesized.
+
+
+Synthesizing Unit <adder_16b>.
+    Related source file is "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/adder_16b.vhd".
+    Found 17-bit adder for signal <sig_result>.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <adder_16b> synthesized.
+
+
+Synthesizing Unit <memory>.
+    Related source file is "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/memory.vhd".
+WARNING:Xst:646 - Signal <sig_data_mem> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Register <var_data_mem<15>> equivalent to <var_data_mem<10>> has been removed
+    Register <var_data_mem<17>> equivalent to <var_data_mem<10>> has been removed
+    Register <var_data_mem<22>> equivalent to <var_data_mem<10>> has been removed
+    Register <var_data_mem<23>> equivalent to <var_data_mem<10>> has been removed
+    Register <var_data_mem<25>> equivalent to <var_data_mem<10>> has been removed
+    Register <var_data_mem<2>> equivalent to <var_data_mem<10>> has been removed
+    Register <var_data_mem<4>> equivalent to <var_data_mem<10>> has been removed
+    Register <var_data_mem<8>> equivalent to <var_data_mem<10>> has been removed
+    Register <var_data_mem<9>> equivalent to <var_data_mem<10>> has been removed
+    Register <var_data_mem<14>> equivalent to <var_data_mem<11>> has been removed
+    Register <var_data_mem<18>> equivalent to <var_data_mem<11>> has been removed
+    Register <var_data_mem<19>> equivalent to <var_data_mem<11>> has been removed
+    Register <var_data_mem<1>> equivalent to <var_data_mem<11>> has been removed
+    Register <var_data_mem<20>> equivalent to <var_data_mem<11>> has been removed
+    Register <var_data_mem<21>> equivalent to <var_data_mem<11>> has been removed
+    Register <var_data_mem<24>> equivalent to <var_data_mem<11>> has been removed
+    Register <var_data_mem<5>> equivalent to <var_data_mem<11>> has been removed
+    Register <var_data_mem<6>> equivalent to <var_data_mem<11>> has been removed
+    Register <var_data_mem<7>> equivalent to <var_data_mem<11>> has been removed
+    Register <var_data_mem<13>> equivalent to <var_data_mem<12>> has been removed
+    Register <var_data_mem<26>> equivalent to <var_data_mem<16>> has been removed
+    Register <var_data_mem<3>> equivalent to <var_data_mem<16>> has been removed
+    Register <var_data_mem<28>> equivalent to <var_data_mem<27>> has been removed
+    Register <var_data_mem<29>> equivalent to <var_data_mem<27>> has been removed
+    Register <var_data_mem<30>> equivalent to <var_data_mem<27>> has been removed
+    Register <var_data_mem<31>> equivalent to <var_data_mem<27>> has been removed
+    Found 12-bit 32-to-1 multiplexer for signal <data_out>.
+    Found 12-bit register for signal <var_data_mem<0>>.
+    Found 36-bit register for signal <var_data_mem<10:12>>.
+    Found 12-bit register for signal <var_data_mem<16>>.
+    Found 12-bit register for signal <var_data_mem<27>>.
+    Summary:
+	inferred  12 D-type flip-flop(s).
+	inferred  12 Multiplexer(s).
+Unit <memory> synthesized.
+
+
+Synthesizing Unit <register_12b>.
+    Related source file is "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/register_12b.vhd".
+    Found 12-bit register for signal <data_out>.
+    Found 1-bit register for signal <done>.
+    Summary:
+	inferred  13 D-type flip-flop(s).
+Unit <register_12b> synthesized.
+
+
+Synthesizing Unit <mux2to1_12b>.
+    Related source file is "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/mux2to1_12b.vhd".
+Unit <mux2to1_12b> synthesized.
+
+
+Synthesizing Unit <clock_divider>.
+    Related source file is "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/clock_divider.vhd".
+    Found 16x19-bit ROM for signal <sig_max$mux0000>.
+    Found 19-bit register for signal <count>.
+    Found 19-bit adder for signal <count$addsub0000> created at line 95.
+    Found 19-bit comparator greater for signal <count$cmp_gt0000> created at line 90.
+    Found 1-bit register for signal <temp>.
+    Found 19-bit comparator lessequal for signal <temp$cmp_le0000> created at line 90.
+    Summary:
+	inferred   1 ROM(s).
+	inferred  20 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+Unit <clock_divider> synthesized.
+
+
+Synthesizing Unit <note_timer>.
+    Related source file is "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/note_timer.vhd".
+    Found 256x26-bit ROM for signal <sig_base>.
+    Found 1-bit register for signal <timeout>.
+    Found 28-bit register for signal <counter>.
+    Found 28-bit adder for signal <counter$addsub0000> created at line 90.
+    Found 28-bit comparator less for signal <counter$cmp_lt0000> created at line 88.
+    Found 26-bit adder carry out for signal <sig_1_1_2$addsub0000> created at line 62.
+    Found 24-bit adder carry out for signal <sig_1_3$addsub0000> created at line 58.
+    Found 26-bit adder carry out for signal <sig_3$addsub0000> created at line 64.
+    Found 25-bit adder carry out for signal <sig_3_4$addsub0000> created at line 60.
+    Summary:
+	inferred   1 ROM(s).
+	inferred  29 D-type flip-flop(s).
+	inferred   5 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+Unit <note_timer> synthesized.
+
+
+Synthesizing Unit <sound_generator>.
+    Related source file is "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/sound_generator.vhd".
+WARNING:Xst:646 - Signal <sig_timing> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sig_temp_extra> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sig_note_extra> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <sound_generator> synthesized.
+
+
+Synthesizing Unit <musicplayer_top>.
+    Related source file is "//mac/home/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/musicplayer_top.vhd".
+WARNING:Xst:653 - Signal <sig_write_data> is used but never assigned. This sourceless signal will be automatically connected to value 000000000000.
+WARNING:Xst:646 - Signal <sig_tempo_reg_done> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <sig_music_counter_en> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sig_buffer_reg_done> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sig_add_carry> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Register <sig_sound_en> equivalent to <sig_load_done> has been removed
+    Found finite state machine <FSM_0> for signal <y>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 5                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 3                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | sig_play                  (negative)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | idle                                           |
+    | Power Up State     | idle                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+WARNING:Xst:737 - Found 1-bit latch for signal <sig_load_timer>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 27-bit up counter for signal <rest_counter>.
+    Found 26-bit 4-to-1 multiplexer for signal <rest_max>.
+    Found 1-bit register for signal <sig_load_done>.
+    Found 27-bit comparator less for signal <sig_load_done$cmp_lt0000> created at line 250.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred  26 Multiplexer(s).
+Unit <musicplayer_top> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 2
+ 16x19-bit ROM                                         : 1
+ 256x26-bit ROM                                        : 1
+# Adders/Subtractors                                   : 7
+ 17-bit adder                                          : 1
+ 19-bit adder                                          : 1
+ 24-bit adder carry out                                : 1
+ 25-bit adder carry out                                : 1
+ 26-bit adder carry out                                : 2
+ 28-bit adder                                          : 1
+# Counters                                             : 1
+ 27-bit up counter                                     : 1
+# Registers                                            : 16
+ 1-bit register                                        : 5
+ 12-bit register                                       : 8
+ 16-bit register                                       : 1
+ 19-bit register                                       : 1
+ 28-bit register                                       : 1
+# Latches                                              : 1
+ 1-bit latch                                           : 1
+# Comparators                                          : 4
+ 19-bit comparator greater                             : 1
+ 19-bit comparator lessequal                           : 1
+ 27-bit comparator less                                : 1
+ 28-bit comparator less                                : 1
+# Multiplexers                                         : 2
+ 12-bit 32-to-1 multiplexer                            : 1
+ 26-bit 4-to-1 multiplexer                             : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <y/FSM> on signal <y[1:2]> with gray encoding.
+-----------------------
+ State     | Encoding
+-----------------------
+ idle      | 00
+ read_note | 01
+ play_note | 11
+-----------------------
+INFO:Xst:2261 - The FF/Latch <var_data_mem_27_0> in Unit <mem> is equivalent to the following 11 FFs/Latches, which will be removed : <var_data_mem_27_1> <var_data_mem_27_2> <var_data_mem_27_3> <var_data_mem_27_4> <var_data_mem_27_5> <var_data_mem_27_6> <var_data_mem_27_7> <var_data_mem_27_8> <var_data_mem_27_9> <var_data_mem_27_10> <var_data_mem_27_11> 
+WARNING:Xst:1710 - FF/Latch <6> (without init value) has a constant value of 1 in block <var_data_mem_11>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <7> (without init value) has a constant value of 1 in block <var_data_mem_11>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <11> (without init value) has a constant value of 0 in block <var_data_mem_11>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <9> (without init value) has a constant value of 0 in block <var_data_mem_11>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <10> (without init value) has a constant value of 0 in block <var_data_mem_11>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <2> (without init value) has a constant value of 0 in block <var_data_mem_12>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <var_data_mem_12>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <1> (without init value) has a constant value of 0 in block <var_data_mem_12>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <5> (without init value) has a constant value of 0 in block <var_data_mem_12>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <3> (without init value) has a constant value of 0 in block <var_data_mem_12>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <4> (without init value) has a constant value of 1 in block <var_data_mem_12>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <8> (without init value) has a constant value of 0 in block <var_data_mem_12>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <6> (without init value) has a constant value of 1 in block <var_data_mem_12>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <7> (without init value) has a constant value of 0 in block <var_data_mem_12>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <11> (without init value) has a constant value of 0 in block <var_data_mem_12>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <9> (without init value) has a constant value of 1 in block <var_data_mem_12>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <10> (without init value) has a constant value of 0 in block <var_data_mem_12>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <2> (without init value) has a constant value of 1 in block <var_data_mem_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <var_data_mem_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <1> (without init value) has a constant value of 0 in block <var_data_mem_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <5> (without init value) has a constant value of 0 in block <var_data_mem_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <3> (without init value) has a constant value of 1 in block <var_data_mem_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <4> (without init value) has a constant value of 0 in block <var_data_mem_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <8> (without init value) has a constant value of 0 in block <var_data_mem_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <6> (without init value) has a constant value of 1 in block <var_data_mem_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <7> (without init value) has a constant value of 0 in block <var_data_mem_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <11> (without init value) has a constant value of 0 in block <var_data_mem_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <9> (without init value) has a constant value of 1 in block <var_data_mem_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <10> (without init value) has a constant value of 0 in block <var_data_mem_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <var_data_mem_27_0> (without init value) has a constant value of 0 in block <mem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <2> (without init value) has a constant value of 0 in block <var_data_mem_16>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <var_data_mem_16>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <1> (without init value) has a constant value of 0 in block <var_data_mem_16>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <5> (without init value) has a constant value of 0 in block <var_data_mem_16>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <3> (without init value) has a constant value of 0 in block <var_data_mem_16>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <4> (without init value) has a constant value of 1 in block <var_data_mem_16>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <8> (without init value) has a constant value of 0 in block <var_data_mem_16>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <6> (without init value) has a constant value of 0 in block <var_data_mem_16>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <7> (without init value) has a constant value of 1 in block <var_data_mem_16>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <11> (without init value) has a constant value of 0 in block <var_data_mem_16>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <9> (without init value) has a constant value of 0 in block <var_data_mem_16>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <10> (without init value) has a constant value of 0 in block <var_data_mem_16>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <2> (without init value) has a constant value of 0 in block <var_data_mem_10>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <var_data_mem_10>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <1> (without init value) has a constant value of 0 in block <var_data_mem_10>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <5> (without init value) has a constant value of 0 in block <var_data_mem_10>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <3> (without init value) has a constant value of 0 in block <var_data_mem_10>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <4> (without init value) has a constant value of 1 in block <var_data_mem_10>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <8> (without init value) has a constant value of 1 in block <var_data_mem_10>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <6> (without init value) has a constant value of 0 in block <var_data_mem_10>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <7> (without init value) has a constant value of 0 in block <var_data_mem_10>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <11> (without init value) has a constant value of 0 in block <var_data_mem_10>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <9> (without init value) has a constant value of 0 in block <var_data_mem_10>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <10> (without init value) has a constant value of 0 in block <var_data_mem_10>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <2> (without init value) has a constant value of 0 in block <var_data_mem_11>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <var_data_mem_11>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <1> (without init value) has a constant value of 0 in block <var_data_mem_11>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <5> (without init value) has a constant value of 0 in block <var_data_mem_11>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <3> (without init value) has a constant value of 0 in block <var_data_mem_11>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <4> (without init value) has a constant value of 1 in block <var_data_mem_11>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <8> (without init value) has a constant value of 1 in block <var_data_mem_11>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <data_out_0> of sequential type is unconnected in block <buffer_reg>.
+WARNING:Xst:2677 - Node <data_out_1> of sequential type is unconnected in block <buffer_reg>.
+WARNING:Xst:2677 - Node <data_out_0> of sequential type is unconnected in block <tempo_reg>.
+WARNING:Xst:2677 - Node <data_out_1> of sequential type is unconnected in block <tempo_reg>.
+WARNING:Xst:2404 -  FFs/Latches <var_data_mem_27<11:0>> (without init value) have a constant value of 0 in block <memory>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# ROMs                                                 : 2
+ 16x19-bit ROM                                         : 1
+ 256x26-bit ROM                                        : 1
+# Adders/Subtractors                                   : 7
+ 17-bit adder                                          : 1
+ 19-bit adder                                          : 1
+ 24-bit adder carry out                                : 1
+ 25-bit adder carry out                                : 1
+ 26-bit adder carry out                                : 2
+ 28-bit adder                                          : 1
+# Counters                                             : 1
+ 27-bit up counter                                     : 1
+# Registers                                            : 152
+ Flip-Flops                                            : 152
+# Latches                                              : 1
+ 1-bit latch                                           : 1
+# Comparators                                          : 4
+ 19-bit comparator greater                             : 1
+ 19-bit comparator lessequal                           : 1
+ 27-bit comparator less                                : 1
+ 28-bit comparator less                                : 1
+# Multiplexers                                         : 2
+ 12-bit 32-to-1 multiplexer                            : 1
+ 26-bit 4-to-1 multiplexer                             : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <0> in Unit <LPM_DFF_9> is equivalent to the following 7 FFs/Latches, which will be removed : <1> <5> <4> <8> <7> <11> <10> 
+INFO:Xst:2261 - The FF/Latch <2> in Unit <LPM_DFF_9> is equivalent to the following 3 FFs/Latches, which will be removed : <3> <6> <9> 
+INFO:Xst:2261 - The FF/Latch <2> in Unit <LPM_DFF_8> is equivalent to the following 8 FFs/Latches, which will be removed : <0> <1> <5> <3> <8> <7> <11> <10> 
+INFO:Xst:2261 - The FF/Latch <4> in Unit <LPM_DFF_8> is equivalent to the following 2 FFs/Latches, which will be removed : <6> <9> 
+INFO:Xst:2261 - The FF/Latch <2> in Unit <LPM_DFF_7> is equivalent to the following 7 FFs/Latches, which will be removed : <0> <1> <5> <3> <11> <9> <10> 
+INFO:Xst:2261 - The FF/Latch <4> in Unit <LPM_DFF_7> is equivalent to the following 3 FFs/Latches, which will be removed : <8> <6> <7> 
+INFO:Xst:2261 - The FF/Latch <2> in Unit <LPM_DFF_6> is equivalent to the following 9 FFs/Latches, which will be removed : <0> <1> <5> <3> <6> <7> <11> <9> <10> 
+INFO:Xst:2261 - The FF/Latch <4> in Unit <LPM_DFF_6> is equivalent to the following FF/Latch, which will be removed : <8> 
+INFO:Xst:2261 - The FF/Latch <2> in Unit <LPM_DFF_2> is equivalent to the following 9 FFs/Latches, which will be removed : <0> <1> <5> <3> <8> <6> <11> <9> <10> 
+INFO:Xst:2261 - The FF/Latch <4> in Unit <LPM_DFF_2> is equivalent to the following FF/Latch, which will be removed : <7> 
+WARNING:Xst:1710 - FF/Latch <2> (without init value) has a constant value of 1 in block <LPM_DFF_9>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <0> (without init value) has a constant value of 0 in block <LPM_DFF_9>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <2> (without init value) has a constant value of 0 in block <LPM_DFF_8>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <4> (without init value) has a constant value of 1 in block <LPM_DFF_8>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <2> (without init value) has a constant value of 0 in block <LPM_DFF_7>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <4> (without init value) has a constant value of 1 in block <LPM_DFF_7>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <2> (without init value) has a constant value of 0 in block <LPM_DFF_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <4> (without init value) has a constant value of 1 in block <LPM_DFF_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <2> (without init value) has a constant value of 0 in block <LPM_DFF_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <4> (without init value) has a constant value of 1 in block <LPM_DFF_2>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <musicplayer_top> ...
+
+Optimizing unit <register_16b> ...
+
+Optimizing unit <register_12b> ...
+
+Optimizing unit <clock_divider> ...
+
+Optimizing unit <note_timer> ...
+WARNING:Xst:1710 - FF/Latch <tempo_reg/data_out_11> (without init value) has a constant value of 0 in block <musicplayer_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tempo_reg/data_out_10> (without init value) has a constant value of 0 in block <musicplayer_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tempo_reg/data_out_5> (without init value) has a constant value of 0 in block <musicplayer_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <buffer_reg/data_out_11> (without init value) has a constant value of 0 in block <musicplayer_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <buffer_reg/data_out_10> (without init value) has a constant value of 0 in block <musicplayer_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <buffer_reg/data_out_5> (without init value) has a constant value of 0 in block <musicplayer_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <tempo_reg/done> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <tempo_reg/data_out_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <tempo_reg/data_out_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <buffer_reg/done> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <buffer_reg/data_out_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <buffer_reg/data_out_0> of sequential type is unconnected in block <musicplayer_top>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block musicplayer_top, actual ratio is 15.
+INFO:Xst:2261 - The FF/Latch <buffer_reg/data_out_3> in Unit <musicplayer_top> is equivalent to the following FF/Latch, which will be removed : <buffer_reg/data_out_2> 
+INFO:Xst:2261 - The FF/Latch <tempo_reg/data_out_3> in Unit <musicplayer_top> is equivalent to the following FF/Latch, which will be removed : <tempo_reg/data_out_2> 
+FlipFlop tempo_reg/data_out_4 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 108
+ Flip-Flops                                            : 108
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : musicplayer_top.ngr
+Top Level Output File Name         : musicplayer_top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 11
+
+Cell Usage :
+# BELS                             : 1230
+#      GND                         : 1
+#      INV                         : 19
+#      LUT1                        : 65
+#      LUT2                        : 132
+#      LUT2_D                      : 6
+#      LUT2_L                      : 3
+#      LUT3                        : 196
+#      LUT3_D                      : 5
+#      LUT3_L                      : 2
+#      LUT4                        : 308
+#      LUT4_D                      : 11
+#      LUT4_L                      : 2
+#      MUXCY                       : 213
+#      MUXF5                       : 120
+#      MUXF6                       : 4
+#      VCC                         : 1
+#      XORCY                       : 142
+# FlipFlops/Latches                : 109
+#      FDC                         : 2
+#      FDC_1                       : 1
+#      FDCE                        : 77
+#      FDCE_1                      : 28
+#      LDP                         : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 10
+#      IBUF                        : 9
+#      OBUF                        : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s400ft256-5 
+
+ Number of Slices:                      396  out of   3584    11%  
+ Number of Slice Flip Flops:            109  out of   7168     1%  
+ Number of 4 input LUTs:                749  out of   7168    10%  
+ Number of IOs:                          11
+ Number of bonded IOBs:                  11  out of    173     6%  
+ Number of GCLKs:                         1  out of      8    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 108   |
+sig_load_done                      | NONE(sig_load_timer)   | 1     |
+-----------------------------------+------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+------------------------------------------------------+------------------------+-------+
+Control Signal                                        | Buffer(FF name)        | Load  |
+------------------------------------------------------+------------------------+-------+
+reset                                                 | IBUF                   | 78    |
+play_inv(play_inv1_INV_0:O)                           | NONE(rest_counter_0)   | 30    |
+sound_gen/n_timer/timeout(sound_gen/n_timer/timeout:Q)| NONE(sig_load_timer)   | 1     |
+------------------------------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 37.443ns (Maximum Frequency: 26.707MHz)
+   Minimum input arrival time before clock: 21.469ns
+   Maximum output required time after clock: 7.769ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 37.443ns (frequency: 26.707MHz)
+  Total number of paths / destination ports: 2340801 / 184
+-------------------------------------------------------------------------
+Delay:               18.722ns (Levels of Logic = 37)
+  Source:            tempo_reg/data_out_3 (FF)
+  Destination:       sound_gen/n_timer/counter_27 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk falling
+
+  Data Path: tempo_reg/data_out_3 to sound_gen/n_timer/counter_27
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q           113   0.626   2.140  tempo_reg/data_out_3 (tempo_reg/data_out_3)
+     LUT2:I1->O           24   0.479   1.550  tempo_mux/data<3>1 (sig_tempo_mux_out<2>)
+     LUT4:I3->O            1   0.479   0.704  sound_gen/n_timer/Mrom_sig_base4611 (sound_gen/n_timer/Mrom_sig_base46)
+     LUT4:I3->O            1   0.479   0.000  sound_gen/n_timer/Mrom_sig_base541_8_f5_F (N478)
+     MUXF5:I0->O           5   0.314   0.806  sound_gen/n_timer/Mrom_sig_base541_8_f5 (sound_gen/n_timer/Mrom_sig_base541_8_f5)
+     LUT4:I3->O            6   0.479   0.912  sound_gen/n_timer/Madd_sig_1_3_addsub0000_lut<2>_SW0 (N369)
+     LUT4:I2->O            1   0.479   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_lut<1> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_lut<1>)
+     MUXCY:S->O            1   0.435   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<1> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<1>)
+     MUXCY:CI->O           0   0.056   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<2> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<2>)
+     XORCY:CI->O           1   0.786   0.851  sound_gen/n_timer/Madd_sig_1_3_addsub0000_xor<3> (sound_gen/n_timer/sig_1_3<3>)
+     LUT4:I1->O            1   0.479   0.740  sound_gen/n_timer/sig_duration<3>67 (sound_gen/n_timer/sig_duration<3>67)
+     LUT4:I2->O            1   0.479   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<3> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<3>)
+     MUXCY:S->O            1   0.435   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<3> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<3>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<4> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<4>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<5> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<5>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<6> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<6>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<7> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<7>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<8> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<8>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<9> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<9>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<10> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<10>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<11> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<11>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<12> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<12>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<13> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<13>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<14> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<14>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<16> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<16>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<18> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<18>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<20> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<20>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<22> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<22>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<24> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<24>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<26> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<26>)
+     MUXCY:CI->O           2   0.265   0.915  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>)
+     LUT2:I1->O           28   0.479   1.556  sound_gen/n_timer/counter_not00011 (sound_gen/n_timer/counter_not0001)
+     FDCE_1:CE                 0.524          sound_gen/n_timer/counter_0
+    ----------------------------------------
+    Total                     18.722ns (8.548ns logic, 10.173ns route)
+                                       (45.7% logic, 54.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 4032914 / 57
+-------------------------------------------------------------------------
+Offset:              21.469ns (Levels of Logic = 40)
+  Source:            tempo_mode (PAD)
+  Destination:       sound_gen/n_timer/counter_27 (FF)
+  Destination Clock: clk falling
+
+  Data Path: tempo_mode to sound_gen/n_timer/counter_27
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           186   0.715   2.620  tempo_mode_IBUF (tempo_mode_IBUF)
+     LUT2:I0->O           63   0.479   2.021  tempo_mux/data<5>1 (sig_tempo_mux_out<5>)
+     LUT3:I0->O            1   0.479   0.704  sound_gen/n_timer/Mrom_sig_base431_8_F_SW01 (N608)
+     LUT4:I3->O            1   0.479   0.000  sound_gen/n_timer/Mrom_sig_base431_8_F (N506)
+     MUXF5:I0->O           4   0.314   0.779  sound_gen/n_timer/Mrom_sig_base431_8 (sound_gen/n_timer/Mrom_sig_base431_8)
+     MUXF5:S->O            2   0.540   0.768  sound_gen/n_timer/Mrom_sig_base431_3_SW0 (N164)
+     LUT4:I3->O            1   0.479   0.000  sound_gen/n_timer/Mrom_sig_base431_2_f5_F (N524)
+     MUXF5:I0->O           6   0.314   1.023  sound_gen/n_timer/Mrom_sig_base431_2_f5 (sound_gen/n_timer/sig_base<3>1)
+     LUT4:I1->O            1   0.479   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_lut<1> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_lut<1>)
+     MUXCY:S->O            1   0.435   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<1> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<1>)
+     MUXCY:CI->O           0   0.056   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<2> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<2>)
+     XORCY:CI->O           1   0.786   0.851  sound_gen/n_timer/Madd_sig_1_3_addsub0000_xor<3> (sound_gen/n_timer/sig_1_3<3>)
+     LUT4:I1->O            1   0.479   0.740  sound_gen/n_timer/sig_duration<3>67 (sound_gen/n_timer/sig_duration<3>67)
+     LUT4:I2->O            1   0.479   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<3> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<3>)
+     MUXCY:S->O            1   0.435   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<3> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<3>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<4> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<4>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<5> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<5>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<6> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<6>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<7> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<7>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<8> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<8>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<9> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<9>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<10> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<10>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<11> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<11>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<12> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<12>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<13> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<13>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<14> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<14>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<16> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<16>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<18> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<18>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<20> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<20>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<22> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<22>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<24> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<24>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<26> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<26>)
+     MUXCY:CI->O           2   0.265   0.915  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>)
+     LUT2:I1->O           28   0.479   1.556  sound_gen/n_timer/counter_not00011 (sound_gen/n_timer/counter_not0001)
+     FDCE_1:CE                 0.524          sound_gen/n_timer/counter_0
+    ----------------------------------------
+    Total                     21.469ns (9.492ns logic, 11.977ns route)
+                                       (44.2% logic, 55.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 2 / 1
+-------------------------------------------------------------------------
+Offset:              7.769ns (Levels of Logic = 2)
+  Source:            y_FSM_FFd1 (FF)
+  Destination:       speaker (PAD)
+  Source Clock:      clk rising
+
+  Data Path: y_FSM_FFd1 to speaker
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              4   0.626   1.074  y_FSM_FFd1 (y_FSM_FFd1)
+     LUT2:I0->O            1   0.479   0.681  speaker1 (speaker_OBUF)
+     OBUF:I->O                 4.909          speaker_OBUF (speaker)
+    ----------------------------------------
+    Total                      7.769ns (6.014ns logic, 1.755ns route)
+                                       (77.4% logic, 22.6% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 16.00 secs
+Total CPU time to Xst completion: 15.63 secs
+ 
+--> 
+
+Total memory usage is 266700 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  102 (   0 filtered)
+Number of infos    :   14 (   0 filtered)
+

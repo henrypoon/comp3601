@@ -9,28 +9,29 @@ Target Device  : xc3s400
 Target Package : ft256
 Target Speed   : -5
 Mapper Version : spartan3 -- $Revision: 1.55 $
-Mapped Date    : Sat Oct 07 09:40:34 2017
+Mapped Date    : Fri Oct 13 12:25:08 2017
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    0
+Number of warnings:    1
 Logic Utilization:
-  Number of Slice Flip Flops:            82 out of   7,168    1%
-  Number of 4 input LUTs:                89 out of   7,168    1%
+  Number of Slice Flip Flops:            45 out of   7,168    1%
+  Number of 4 input LUTs:                70 out of   7,168    1%
 Logic Distribution:
-  Number of occupied Slices:             87 out of   3,584    2%
-    Number of Slices containing only related logic:      87 out of      87 100%
-    Number of Slices containing unrelated logic:          0 out of      87   0%
+  Number of occupied Slices:             55 out of   3,584    1%
+    Number of Slices containing only related logic:      55 out of      55 100%
+    Number of Slices containing unrelated logic:          0 out of      55   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:          89 out of   7,168    1%
-  Number of bonded IOBs:                 34 out of     173   19%
+  Total Number of 4 input LUTs:          70 out of   7,168    1%
+  Number of bonded IOBs:                 55 out of     173   31%
+    IOB Latches:                         12
   Number of BUFGMUXs:                     1 out of       8   12%
 
-Average Fanout of Non-Clock Nets:                2.90
+Average Fanout of Non-Clock Nets:                3.39
 
-Peak Memory Usage:  227 MB
-Total REAL time to MAP completion:  5 secs 
+Peak Memory Usage:  218 MB
+Total REAL time to MAP completion:  1 secs 
 Total CPU time to MAP completion:   1 secs 
 
 NOTES:
@@ -72,9 +73,13 @@ Section 1 - Errors
 
 Section 2 - Warnings
 --------------------
+WARNING:PhysDesignRules:372 - Gated clock. Clock net dataToBram_cmp_eq0000 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
 
 Section 3 - Informational
 -------------------------
+INFO:LIT:243 - Logical network enble has no load.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:LIT:244 - All of the single ended outputs in this design are using slew
    rate limited output drivers. The delay on speed critical single ended outputs
@@ -96,7 +101,28 @@ Section 6 - IOB Properties
 | IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
 |                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| addressToBram<0>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| addressToBram<1>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| addressToBram<2>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| addressToBram<3>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| addressToBram<4>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| addressToBram<5>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| addressToBram<6>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| addressToBram<7>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | astb                               | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dataToBram<0>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OLATCH1      |          |          |
+| dataToBram<1>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OLATCH1      |          |          |
+| dataToBram<2>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OLATCH1      |          |          |
+| dataToBram<3>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OLATCH1      |          |          |
+| dataToBram<4>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OLATCH1      |          |          |
+| dataToBram<5>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OLATCH1      |          |          |
+| dataToBram<6>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OLATCH1      |          |          |
+| dataToBram<7>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OLATCH1      |          |          |
+| dataToBram<8>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OLATCH1      |          |          |
+| dataToBram<9>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OLATCH1      |          |          |
+| dataToBram<10>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OLATCH1      |          |          |
+| dataToBram<11>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OLATCH1      |          |          |
+| done                               | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | dstb                               | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | mclk                               | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | pdb<0>                             | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              |          |          |

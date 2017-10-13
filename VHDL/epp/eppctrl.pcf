@@ -1,15 +1,8 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Sat Oct 07 09:40:39 2017
+// Written by: Map P.20131013 on Fri Oct 13 12:25:09 2017
 //! **************************************************************************
 
 SCHEMATIC START;
-COMP "pdb<2>" LOCATE = SITE "N11" LEVEL 1;
-COMP "rgSwt<3>" LOCATE = SITE "K15" LEVEL 1;
-COMP "pdb<3>" LOCATE = SITE "P11" LEVEL 1;
-COMP "rgSwt<4>" LOCATE = SITE "L15" LEVEL 1;
-COMP "pdb<4>" LOCATE = SITE "N10" LEVEL 1;
-COMP "rgSwt<5>" LOCATE = SITE "M16" LEVEL 1;
-COMP "pdb<5>" LOCATE = SITE "P10" LEVEL 1;
 COMP "rgSwt<6>" LOCATE = SITE "M15" LEVEL 1;
 COMP "pdb<6>" LOCATE = SITE "M10" LEVEL 1;
 COMP "rgSwt<7>" LOCATE = SITE "N16" LEVEL 1;
@@ -37,5 +30,12 @@ COMP "pdb<0>" LOCATE = SITE "N12" LEVEL 1;
 COMP "rgSwt<1>" LOCATE = SITE "J16" LEVEL 1;
 COMP "pdb<1>" LOCATE = SITE "P12" LEVEL 1;
 COMP "rgSwt<2>" LOCATE = SITE "K16" LEVEL 1;
+COMP "pdb<2>" LOCATE = SITE "N11" LEVEL 1;
+COMP "rgSwt<3>" LOCATE = SITE "K15" LEVEL 1;
+COMP "pdb<3>" LOCATE = SITE "P11" LEVEL 1;
+COMP "rgSwt<4>" LOCATE = SITE "L15" LEVEL 1;
+COMP "pdb<4>" LOCATE = SITE "N10" LEVEL 1;
+COMP "rgSwt<5>" LOCATE = SITE "M16" LEVEL 1;
+COMP "pdb<5>" LOCATE = SITE "P10" LEVEL 1;
 SCHEMATIC END;
 

@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-HENRYPANC585::  Sat Oct 07 09:40:45 2017
+HENRYPANC585::  Fri Oct 13 12:25:11 2017
 
 par -w -intstyle ise -ol high -t 1 eppctrl_map.ncd eppctrl.ncd eppctrl.pcf 
 
@@ -25,10 +25,10 @@ Device speed data version:  "PRODUCTION 1.39 2013-10-13".
 Device Utilization Summary:
 
    Number of BUFGMUXs                        1 out of 8      12%
-   Number of External IOBs                  34 out of 173    19%
-      Number of LOCed IOBs                  33 out of 34     97%
+   Number of External IOBs                  55 out of 173    31%
+      Number of LOCed IOBs                  33 out of 55     60%
 
-   Number of Slices                         87 out of 3584    2%
+   Number of Slices                         55 out of 3584    1%
       Number of SLICEMs                      0 out of 1792    0%
 
 
@@ -38,58 +38,58 @@ Placer effort level (-pl):    High
 Placer cost table entry (-t): 1
 Router effort level (-rl):    High 
 
-Starting initial Timing Analysis.  REAL time: 2 secs 
-Finished initial Timing Analysis.  REAL time: 2 secs 
+Starting initial Timing Analysis.  REAL time: 0 secs 
+Finished initial Timing Analysis.  REAL time: 0 secs 
 
 
 Starting Placer
-Total REAL time at the beginning of Placer: 2 secs 
-Total CPU  time at the beginning of Placer: 1 secs 
+Total REAL time at the beginning of Placer: 1 secs 
+Total CPU  time at the beginning of Placer: 0 secs 
 
 Phase 1.1  Initial Placement Analysis
-Phase 1.1  Initial Placement Analysis (Checksum:22f45460) REAL time: 3 secs 
+Phase 1.1  Initial Placement Analysis (Checksum:f3879d9a) REAL time: 1 secs 
 
 Phase 2.7  Design Feasibility Check
 WARNING:Place:837 - Partially locked IO Bus is found. 
     Following components of the bus are not locked: 
    	 Comp: rgBtn<4>
 
-INFO:Place:834 - Only a subset of IOs are locked. Out of 34 IOs, 33 are locked and 1 are not locked. If you would like
+INFO:Place:834 - Only a subset of IOs are locked. Out of 55 IOs, 33 are locked and 22 are not locked. If you would like
    to print the names of these IOs, please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
-Phase 2.7  Design Feasibility Check (Checksum:22f45460) REAL time: 3 secs 
+Phase 2.7  Design Feasibility Check (Checksum:f3879d9a) REAL time: 1 secs 
 
 Phase 3.31  Local Placement Optimization
-Phase 3.31  Local Placement Optimization (Checksum:22f45460) REAL time: 3 secs 
+Phase 3.31  Local Placement Optimization (Checksum:f3879d9a) REAL time: 1 secs 
 
 Phase 4.2  Initial Clock and IO Placement
-...
-Phase 4.2  Initial Clock and IO Placement (Checksum:347a6143) REAL time: 3 secs 
+......
+Phase 4.2  Initial Clock and IO Placement (Checksum:d83586f) REAL time: 1 secs 
 
 Phase 5.36  Local Placement Optimization
-Phase 5.36  Local Placement Optimization (Checksum:347a6143) REAL time: 3 secs 
+Phase 5.36  Local Placement Optimization (Checksum:d83586f) REAL time: 1 secs 
 
 Phase 6.3  Local Placement Optimization
-...
-Phase 6.3  Local Placement Optimization (Checksum:6cdbf48b) REAL time: 3 secs 
+....
+Phase 6.3  Local Placement Optimization (Checksum:8f769b8b) REAL time: 1 secs 
 
 Phase 7.5  Local Placement Optimization
-Phase 7.5  Local Placement Optimization (Checksum:6cdbf48b) REAL time: 3 secs 
+Phase 7.5  Local Placement Optimization (Checksum:8f769b8b) REAL time: 1 secs 
 
 Phase 8.8  Global Placement
-...
-Phase 8.8  Global Placement (Checksum:7da46d24) REAL time: 5 secs 
+..
+Phase 8.8  Global Placement (Checksum:ba8ff952) REAL time: 2 secs 
 
 Phase 9.5  Local Placement Optimization
-Phase 9.5  Local Placement Optimization (Checksum:7da46d24) REAL time: 6 secs 
+Phase 9.5  Local Placement Optimization (Checksum:ba8ff952) REAL time: 2 secs 
 
 Phase 10.18  Placement Optimization
-Phase 10.18  Placement Optimization (Checksum:2bbfb43) REAL time: 6 secs 
+Phase 10.18  Placement Optimization (Checksum:bfe9eab2) REAL time: 3 secs 
 
 Phase 11.5  Local Placement Optimization
-Phase 11.5  Local Placement Optimization (Checksum:2bbfb43) REAL time: 6 secs 
+Phase 11.5  Local Placement Optimization (Checksum:bfe9eab2) REAL time: 3 secs 
 
-Total REAL time to Placer completion: 6 secs 
-Total CPU  time to Placer completion: 3 secs 
+Total REAL time to Placer completion: 3 secs 
+Total CPU  time to Placer completion: 2 secs 
 Writing design to file eppctrl.ncd
 
 
@@ -97,30 +97,32 @@ Writing design to file eppctrl.ncd
 Starting Router
 
 
-Phase  1  : 542 unrouted;      REAL time: 7 secs 
+Phase  1  : 410 unrouted;      REAL time: 3 secs 
 
-Phase  2  : 497 unrouted;      REAL time: 7 secs 
+Phase  2  : 367 unrouted;      REAL time: 3 secs 
 
-Phase  3  : 215 unrouted;      REAL time: 7 secs 
+Phase  3  : 131 unrouted;      REAL time: 3 secs 
 
-Phase  4  : 257 unrouted; (Par is working to improve performance)     REAL time: 8 secs 
+Phase  4  : 141 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
 
-Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 9 secs 
+Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
 
 Updating file: eppctrl.ncd with current fully routed design.
 
-Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 9 secs 
+Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 3 secs 
 
-Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 15 secs 
+Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
 
-Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 15 secs 
+Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
 
-Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 15 secs 
+Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
 
-Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 15 secs 
+Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
+WARNING:Route:455 - CLK Net:dataToBram_cmp_eq0000 may have excessive skew because 
+      0 CLK pins and 8 NON_CLK pins failed to route using a CLK template.
 
-Total REAL time to Router completion: 15 secs 
-Total CPU time to Router completion: 8 secs 
+Total REAL time to Router completion: 4 secs 
+Total CPU time to Router completion: 3 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -138,7 +140,10 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|          mclk_BUFGP |      BUFGMUX6| No   |   44 |  0.000     |  0.901      |
+|          mclk_BUFGP |      BUFGMUX6| No   |   30 |  0.000     |  0.901      |
++---------------------+--------------+------+------+------------+-------------+
+|dataToBram_cmp_eq000 |              |      |      |            |             |
+|                   0 |         Local|      |   20 |  0.214     |  2.590      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -158,8 +163,8 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net mcl | SETUP       |         N/A|     4.979ns|     N/A|           0
-  k_BUFGP                                   | HOLD        |     0.897ns|            |       0|           0
+  Autotimespec constraint for clock net mcl | SETUP       |         N/A|     4.611ns|     N/A|           0
+  k_BUFGP                                   | HOLD        |     0.855ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -175,16 +180,16 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 20 secs 
-Total CPU time to PAR completion: 9 secs 
+Total REAL time to PAR completion: 5 secs 
+Total CPU time to PAR completion: 4 secs 
 
-Peak Memory Usage:  223 MB
+Peak Memory Usage:  226 MB
 
 Placement: Completed - No errors found.
 Routing: Completed - No errors found.
 
 Number of error messages: 0
-Number of warning messages: 1
+Number of warning messages: 2
 Number of info messages: 2
 
 Writing design to file eppctrl.ncd

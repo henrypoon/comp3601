@@ -1,0 +1,19 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Mon Oct 09 11:58:33 2017
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "clk" LOCATE = SITE "A8" LEVEL 1;
+COMP "play" LOCATE = SITE "N15" LEVEL 1;
+COMP "tempo_val<0>" LOCATE = SITE "K16" LEVEL 1;
+COMP "tempo_val<1>" LOCATE = SITE "K15" LEVEL 1;
+COMP "tempo_val<2>" LOCATE = SITE "L15" LEVEL 1;
+COMP "tempo_val<3>" LOCATE = SITE "M16" LEVEL 1;
+COMP "tempo_val<4>" LOCATE = SITE "M15" LEVEL 1;
+COMP "tempo_val<5>" LOCATE = SITE "N16" LEVEL 1;
+COMP "tempo_mode" LOCATE = SITE "J16" LEVEL 1;
+COMP "reset" LOCATE = SITE "J13" LEVEL 1;
+COMP "speaker" LOCATE = SITE "T14" LEVEL 1;
+NET "clk_BUFGP/IBUFG" BEL "clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+SCHEMATIC END;
+

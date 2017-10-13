@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Mon Oct 09 11:24:10 2017
+# Process ID: 5548
+# Log file: Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/planAhead_run_1/planAhead.log
+# Journal file: Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/pa.fromNetlist.tcl

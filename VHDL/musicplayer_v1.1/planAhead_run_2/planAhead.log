@@ -1,0 +1,26 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Mon Oct 09 11:24:21 2017
+# Process ID: 1808
+# Log file: Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/planAhead_run_2/planAhead.log
+# Journal file: Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/planAhead_run_2/planAhead.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Device 21-36] Loading parts and site information from C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/pa.fromNetlist.tcl
+# create_project -name musicplayer_v1.1 -dir "Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/planAhead_run_2" -part xc3s400ft256-5
+ERROR: [Common 17-53] User Exception: Project already exists on disk, please use '-force' option to overwrite: 
+     Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/planAhead_run_2/musicplayer_v1.1.ppr
+     Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/planAhead_run_2/musicplayer_v1.1.data
+
+    while executing
+"create_project -name musicplayer_v1.1 -dir "Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/planAhead_run_2" -part xc3s400ft256-5"
+    (file "Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v1.1/pa.fromNetlist.tcl" line 4)
+exit
+INFO: [Common 17-206] Exiting PlanAhead at Mon Oct 09 11:25:04 2017...
+INFO: [Common 17-83] Releasing license: PlanAhead

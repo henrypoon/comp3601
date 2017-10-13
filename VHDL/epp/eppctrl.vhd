@@ -56,6 +56,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.numeric_std.all;
 
 --  Uncomment the following lines to use the declarations that are
 --  provided for instantiating Xilinx primitive components.
@@ -72,7 +73,12 @@ entity eppctrl is
         pwait 	: out std_logic;
 		rgLed	: out std_logic_vector(7 downto 0); 
 		rgSwt	: in std_logic_vector(7 downto 0);
-		rgBtn	: in std_logic_vector(4 downto 0)
+		rgBtn	: in std_logic_vector(4 downto 0);
+		enble : out std_logic;
+		done : out std_logic;
+		dataToBram: out std_logic_vector(11 downto 0);
+		addressToBram: out std_logic_vector(7 downto 0)
+		
 		--btn		: in std_logic
 		--ldg		: out std_logic;
 		--led		: out std_logic
@@ -145,6 +151,13 @@ architecture Behavioral of eppctrl is
 	signal	regLed		: std_logic_vector(7 downto 0);
 
 	signal	cntr		: std_logic_vector(23 downto 0); 
+	
+	signal enable : std_logic := '0';
+	signal dataOut : std_logic_vector(7 downto 0);
+	
+	signal counter : std_logic_vector(7 downto 0) := (others => '0');
+	signal finish: std_logic := '0';
+
 
 ------------------------------------------------------------------------
 -- Module Implementation
@@ -173,23 +186,26 @@ begin
 
 	-- Select either address or data onto the internal output data bus.
 	busEppOut <= "0000" & regEppAdr when ctlEppAstb = '0' else busEppData;
+	
+	finish <= '1' when regEppAdr = "0010" else '0';		-- finish transfer 
+	done <= finish;
+	rgLed <= counter;
+	
+	enable <= '1' when regEppAdr = "0001" else '0';		-- enable to transfer data to bram
+	dataOut <= regData1(7 downto 4)& regData0 (3 downto 0) when regEppAdr = "0001"; 
+	dataToBram <= regData1(3 downto 0) & regData0 (7 downto 0) when regEppAdr = "0001";
 
-	rgLed <= regLed;
-	--ldg <= '1';
+	addressToBram <= counter;
+
 
 	-- Decode the address register and select the appropriate data register
 	busEppData <=	regData0 when regEppAdr = "0000" else
 					regData1 when regEppAdr = "0001" else
 					regData2 when regEppAdr = "0010" else
-					regData3 when regEppAdr = "0011" else
-					regData4 when regEppAdr = "0100" else
-					regData5 when regEppAdr = "0101" else
-					regData6 when regEppAdr = "0110" else
-					regData7 when regEppAdr = "0111" else
 					rgSwt    when regEppAdr = "1000" else
 					"000" & rgBtn when regEppAdr = "1001" else
 					"00000000";
-
+					
     ------------------------------------------------------------------------
 	-- EPP Interface Control State Machine
     ------------------------------------------------------------------------
@@ -223,7 +239,7 @@ begin
 						else
 							stEppNext <= stEppArdA;
 						end if;
-
+						
 					elsif ctlEppDstb = '0' then
 						-- Data read or write cycle
 						if ctlEppWr = '0' then
@@ -312,83 +328,21 @@ begin
 	-- we are in a 'write data register' state. This is combined with the
 	-- address in the address register to determine which register to write.
 
-	process (clkMain, regEppAdr, ctlEppDwr, busEppIn)
+	process (clkMain, regEppAdr, ctlEppDwr, busEppIn, counter)
 		begin
 			if clkMain = '1' and clkMain'Event then
-				if ctlEppDwr = '1' and regEppAdr = "0000" then
-					regData0 <= busEppIn;
-				end if;
-			end if;
-		end process;
-
-	process (clkMain, regEppAdr, ctlEppDwr, busEppIn)
-		begin
-			if clkMain = '1' and clkMain'Event then
-				if ctlEppDwr = '1' and regEppAdr = "0001" then
-					regData1 <= busEppIn;
-				end if;
-			end if;
-		end process;
-
-	process (clkMain, regEppAdr, ctlEppDwr, busEppIn)
-		begin
-			if clkMain = '1' and clkMain'Event then
-				if ctlEppDwr = '1' and regEppAdr = "0010" then
-					regData2 <= busEppIn;
-				end if;
-			end if;
-		end process;
-
-	process (clkMain, regEppAdr, ctlEppDwr, busEppIn)
-		begin
-			if clkMain = '1' and clkMain'Event then
-				if ctlEppDwr = '1' and regEppAdr = "0011" then
-					regData3 <= busEppIn;
-				end if;
-			end if;
-		end process;
-
-	process (clkMain, regEppAdr, ctlEppDwr, busEppIn)
-		begin
-			if clkMain = '1' and clkMain'Event then
-				if ctlEppDwr = '1' and regEppAdr = "0100" then
-					regData4 <= busEppIn;
-				end if;
-			end if;
-		end process;
-
-	process (clkMain, regEppAdr, ctlEppDwr, busEppIn)
-		begin
-			if clkMain = '1' and clkMain'Event then
-				if ctlEppDwr = '1' and regEppAdr = "0101" then
-					regData5 <= busEppIn;
-				end if;
-			end if;
-		end process;
-
-	process (clkMain, regEppAdr, ctlEppDwr, busEppIn)
-		begin
-			if clkMain = '1' and clkMain'Event then
-				if ctlEppDwr = '1' and regEppAdr = "0110" then
-					regData6 <= busEppIn;
-				end if;
-			end if;
-		end process;
-
-	process (clkMain, regEppAdr, ctlEppDwr, busEppIn)
-		begin
-			if clkMain = '1' and clkMain'Event then
-				if ctlEppDwr = '1' and regEppAdr = "0111" then
-					regData7 <= busEppIn;
-				end if;
-			end if;
-		end process;
-
-	process (clkMain, regEppAdr, ctlEppDwr, busEppIn)
-		begin
-			if clkMain = '1' and clkMain'Event then
-				if ctlEppDwr = '1' and regEppAdr = "1010" then
-					regLed <= busEppIn;
+				if ctlEppDwr = '1' then
+					if regEppAdr = "0000" then
+						regData0 <= busEppIn;
+					elsif regEppAdr = "0001" then
+						regData1 <= busEppIn;
+						counter <= counter + 1;
+					elsif regEppAdr = "0010" then
+						regData2 <= busEppIn;
+						counter <= "00000000";
+					elsif regEppAdr = "1010" then
+						regLed <= busEppIn;
+					end if;
 				end if;
 			end if;
 		end process;

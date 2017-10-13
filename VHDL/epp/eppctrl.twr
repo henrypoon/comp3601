@@ -45,95 +45,104 @@ Setup/Hold to clock mclk
             |Max Setup to|Max Hold to |                  | Clock  |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------------+--------+
-astb        |    1.749(R)|    0.711(R)|mclk_BUFGP        |   0.000|
-dstb        |    2.260(R)|    0.614(R)|mclk_BUFGP        |   0.000|
-pdb<0>      |    1.872(R)|    1.000(R)|mclk_BUFGP        |   0.000|
-pdb<1>      |    2.033(R)|    0.820(R)|mclk_BUFGP        |   0.000|
-pdb<2>      |    1.481(R)|    0.999(R)|mclk_BUFGP        |   0.000|
-pdb<3>      |    1.921(R)|    0.814(R)|mclk_BUFGP        |   0.000|
-pdb<4>      |    1.819(R)|    0.779(R)|mclk_BUFGP        |   0.000|
-pdb<5>      |    2.997(R)|    0.841(R)|mclk_BUFGP        |   0.000|
-pdb<6>      |    1.827(R)|    0.769(R)|mclk_BUFGP        |   0.000|
-pdb<7>      |    1.882(R)|    0.719(R)|mclk_BUFGP        |   0.000|
-pwr         |    1.440(R)|    0.132(R)|mclk_BUFGP        |   0.000|
+astb        |    3.245(R)|    0.269(R)|mclk_BUFGP        |   0.000|
+dstb        |    2.168(R)|    0.190(R)|mclk_BUFGP        |   0.000|
+pdb<0>      |    1.507(R)|    0.776(R)|mclk_BUFGP        |   0.000|
+pdb<1>      |    1.395(R)|    0.638(R)|mclk_BUFGP        |   0.000|
+pdb<2>      |    0.942(R)|    0.679(R)|mclk_BUFGP        |   0.000|
+pdb<3>      |    1.457(R)|    0.572(R)|mclk_BUFGP        |   0.000|
+pdb<4>      |    0.644(R)|    1.007(R)|mclk_BUFGP        |   0.000|
+pdb<5>      |    0.904(R)|    0.800(R)|mclk_BUFGP        |   0.000|
+pdb<6>      |    0.660(R)|    0.789(R)|mclk_BUFGP        |   0.000|
+pdb<7>      |    0.839(R)|    0.712(R)|mclk_BUFGP        |   0.000|
+pwr         |    1.936(R)|   -0.052(R)|mclk_BUFGP        |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Clock mclk to Pad
-------------+------------+------------------+--------+
-            | clk (edge) |                  | Clock  |
-Destination |   to PAD   |Internal Clock(s) | Phase  |
-------------+------------+------------------+--------+
-pdb<0>      |   14.282(R)|mclk_BUFGP        |   0.000|
-pdb<1>      |   13.816(R)|mclk_BUFGP        |   0.000|
-pdb<2>      |   14.500(R)|mclk_BUFGP        |   0.000|
-pdb<3>      |   14.975(R)|mclk_BUFGP        |   0.000|
-pdb<4>      |   13.935(R)|mclk_BUFGP        |   0.000|
-pdb<5>      |   13.371(R)|mclk_BUFGP        |   0.000|
-pdb<6>      |   13.188(R)|mclk_BUFGP        |   0.000|
-pdb<7>      |   14.318(R)|mclk_BUFGP        |   0.000|
-pwait       |    9.409(R)|mclk_BUFGP        |   0.000|
-rgLed<0>    |    9.018(R)|mclk_BUFGP        |   0.000|
-rgLed<1>    |    9.055(R)|mclk_BUFGP        |   0.000|
-rgLed<2>    |    8.133(R)|mclk_BUFGP        |   0.000|
-rgLed<3>    |    8.451(R)|mclk_BUFGP        |   0.000|
-rgLed<4>    |    8.010(R)|mclk_BUFGP        |   0.000|
-rgLed<5>    |    8.388(R)|mclk_BUFGP        |   0.000|
-rgLed<6>    |    8.010(R)|mclk_BUFGP        |   0.000|
-rgLed<7>    |    8.696(R)|mclk_BUFGP        |   0.000|
-------------+------------+------------------+--------+
+----------------+------------+------------------+--------+
+                | clk (edge) |                  | Clock  |
+Destination     |   to PAD   |Internal Clock(s) | Phase  |
+----------------+------------+------------------+--------+
+addressToBram<0>|    9.740(R)|mclk_BUFGP        |   0.000|
+addressToBram<1>|    9.289(R)|mclk_BUFGP        |   0.000|
+addressToBram<2>|    8.602(R)|mclk_BUFGP        |   0.000|
+addressToBram<3>|    8.552(R)|mclk_BUFGP        |   0.000|
+addressToBram<4>|    9.506(R)|mclk_BUFGP        |   0.000|
+addressToBram<5>|    8.705(R)|mclk_BUFGP        |   0.000|
+addressToBram<6>|    8.848(R)|mclk_BUFGP        |   0.000|
+addressToBram<7>|    9.008(R)|mclk_BUFGP        |   0.000|
+done            |    8.802(R)|mclk_BUFGP        |   0.000|
+pdb<0>          |   11.508(R)|mclk_BUFGP        |   0.000|
+pdb<1>          |   11.667(R)|mclk_BUFGP        |   0.000|
+pdb<2>          |   11.738(R)|mclk_BUFGP        |   0.000|
+pdb<3>          |   11.905(R)|mclk_BUFGP        |   0.000|
+pdb<4>          |   10.830(R)|mclk_BUFGP        |   0.000|
+pdb<5>          |   11.943(R)|mclk_BUFGP        |   0.000|
+pdb<6>          |   10.575(R)|mclk_BUFGP        |   0.000|
+pdb<7>          |   11.143(R)|mclk_BUFGP        |   0.000|
+pwait           |    9.937(R)|mclk_BUFGP        |   0.000|
+rgLed<0>        |    8.978(R)|mclk_BUFGP        |   0.000|
+rgLed<1>        |    9.580(R)|mclk_BUFGP        |   0.000|
+rgLed<2>        |    9.306(R)|mclk_BUFGP        |   0.000|
+rgLed<3>        |    9.627(R)|mclk_BUFGP        |   0.000|
+rgLed<4>        |    9.789(R)|mclk_BUFGP        |   0.000|
+rgLed<5>        |    9.933(R)|mclk_BUFGP        |   0.000|
+rgLed<6>        |    8.546(R)|mclk_BUFGP        |   0.000|
+rgLed<7>        |    9.636(R)|mclk_BUFGP        |   0.000|
+----------------+------------+------------------+--------+
 
 Clock to Setup on destination clock mclk
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-mclk           |    4.979|         |         |         |
+mclk           |    4.611|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Pad to Pad
 ---------------+---------------+---------+
 Source Pad     |Destination Pad|  Delay  |
 ---------------+---------------+---------+
-astb           |pdb<0>         |    8.349|
-astb           |pdb<1>         |    8.726|
-astb           |pdb<2>         |    8.358|
-astb           |pdb<3>         |    9.295|
-astb           |pdb<4>         |    8.472|
-astb           |pdb<5>         |    9.125|
-astb           |pdb<6>         |    8.818|
-astb           |pdb<7>         |    9.381|
-pwr            |pdb<0>         |    8.426|
-pwr            |pdb<1>         |    9.059|
-pwr            |pdb<2>         |    8.439|
-pwr            |pdb<3>         |    8.759|
-pwr            |pdb<4>         |    8.752|
-pwr            |pdb<5>         |    9.058|
-pwr            |pdb<6>         |    9.058|
-pwr            |pdb<7>         |    8.753|
-rgBtn<0>       |pdb<0>         |   11.834|
-rgBtn<1>       |pdb<1>         |   10.407|
-rgBtn<2>       |pdb<2>         |   10.695|
-rgBtn<3>       |pdb<3>         |   11.735|
-rgBtn<4>       |pdb<4>         |   10.525|
-rgSwt<0>       |pdb<0>         |   10.494|
-rgSwt<1>       |pdb<1>         |   11.581|
-rgSwt<2>       |pdb<2>         |   11.025|
-rgSwt<3>       |pdb<3>         |   11.977|
-rgSwt<4>       |pdb<4>         |   11.085|
-rgSwt<5>       |pdb<5>         |    9.834|
-rgSwt<6>       |pdb<6>         |    9.800|
-rgSwt<7>       |pdb<7>         |   10.444|
+astb           |pdb<0>         |    7.841|
+astb           |pdb<1>         |    8.752|
+astb           |pdb<2>         |    8.021|
+astb           |pdb<3>         |    8.996|
+astb           |pdb<4>         |    9.318|
+astb           |pdb<5>         |   10.411|
+astb           |pdb<6>         |    9.291|
+astb           |pdb<7>         |    9.819|
+pwr            |pdb<0>         |    8.693|
+pwr            |pdb<1>         |    9.007|
+pwr            |pdb<2>         |    9.020|
+pwr            |pdb<3>         |    8.837|
+pwr            |pdb<4>         |    9.320|
+pwr            |pdb<5>         |    8.536|
+pwr            |pdb<6>         |    8.537|
+pwr            |pdb<7>         |    8.216|
+rgBtn<0>       |pdb<0>         |    9.312|
+rgBtn<1>       |pdb<1>         |   10.196|
+rgBtn<2>       |pdb<2>         |   10.139|
+rgBtn<3>       |pdb<3>         |   10.215|
+rgBtn<4>       |pdb<4>         |    8.712|
+rgSwt<0>       |pdb<0>         |    9.308|
+rgSwt<1>       |pdb<1>         |   10.519|
+rgSwt<2>       |pdb<2>         |   10.391|
+rgSwt<3>       |pdb<3>         |   10.331|
+rgSwt<4>       |pdb<4>         |    9.232|
+rgSwt<5>       |pdb<5>         |   10.302|
+rgSwt<6>       |pdb<6>         |    9.508|
+rgSwt<7>       |pdb<7>         |    9.616|
 ---------------+---------------+---------+
 
 
-Analysis completed Sat Oct 07 09:41:19 2017 
+Analysis completed Fri Oct 13 12:25:20 2017 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 123 MB
+Peak Memory Usage: 122 MB
 
 
 
