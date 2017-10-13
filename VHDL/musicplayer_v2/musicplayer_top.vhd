@@ -30,6 +30,16 @@ entity musicplayer_top is
 			--tempo_val	: in std_logic_vector (5 downto 0); --sw2 to 8 used for testing
 			pulse : in  STD_LOGIC;
 			trig : out  STD_LOGIC;
+         --epp ports
+			pdb		: inout std_logic_vector(7 downto 0);
+         astb 	: in std_logic;
+			dstb 	: in std_logic;
+			pwr 	: in std_logic;
+			pwait 	: out std_logic;
+			loaddone: out std_logic;
+			memoryWrite: out std_logic;
+			led: out std_logic_vector(5 downto 0);
+			--7seg ports
 			segments : out std_logic_vector(7 downto 0);
 			displayOut : out std_logic_vector(3 downto 0);
 			speaker : out std_logic
@@ -44,16 +54,17 @@ architecture Behavioral of musicplayer_top is
                    clk : in std_logic;
           write_enable : in std_logic;
             write_data : in std_logic_vector(11 downto 0);
-               addr_in : in std_logic_vector(15 downto 0);
+               addr_in : in std_logic_vector(7 downto 0);
               data_out : out std_logic_vector(11 downto 0));
   end component;
   
-	component register_16b is	
-		port(clk :in std_logic;
+	component register_8b is	
+		port(
+			clk :in std_logic;
 			reset: in std_logic;
 			enable: in std_logic;
-			data_in: in std_logic_vector(15 downto 0);
-			data_out:	 out std_logic_vector(15 downto 0)
+			data_in: in std_logic_vector(7 downto 0);
+			data_out:	 out std_logic_vector(7 downto 0)
 			);
 	end component;
 	
@@ -67,18 +78,18 @@ architecture Behavioral of musicplayer_top is
 		);
 	end component;
 	
-  component adder_16b is
-    port ( src_a : in std_logic_vector(15 downto 0);
-        src_b : in std_logic_vector(15 downto 0);
-        sum : out std_logic_vector(15 downto 0);
+  component adder_8b is
+    port ( src_a : in std_logic_vector(7 downto 0);
+        src_b : in std_logic_vector(7 downto 0);
+        sum : out std_logic_vector(7 downto 0);
         carry_out : out std_logic );
   end component;
   
-  component mux2to1_16b is
-		port (data_a : in std_logic_vector(15 downto 0);
-			data_b : in std_logic_vector(15 downto 0);
+  component mux2to1_8b is
+		port (data_a : in std_logic_vector(7 downto 0);
+			data_b : in std_logic_vector(7 downto 0);
 			sel	 : in std_logic;
-			data	 : out std_logic_vector(15 downto 0)
+			data	 : out std_logic_vector(7 downto 0)
 	);
 	end component;
 
@@ -121,14 +132,32 @@ architecture Behavioral of musicplayer_top is
            swingValue : out  STD_LOGIC_VECTOR (7 downto 0));
   end component;
 
+
+	component eppctrl is
+    Port (
+			mclk 	: in std_logic;
+         pdb		: inout std_logic_vector(7 downto 0);
+         astb 	: in std_logic;
+         dstb 	: in std_logic;
+         pwr 	: in std_logic;
+         pwait 	: out std_logic;
+		--rgLed	: out std_logic_vector(7 downto 0); 
+		--rgSwt	: in std_logic_vector(7 downto 0);
+		--rgBtn	: in std_logic_vector(4 downto 0);
+			enable : out std_logic;
+			done : out std_logic;
+			dataToBram: out std_logic_vector(11 downto 0);
+			addressToBram: out std_logic_vector(7 downto 0)
+		);
+	end component;	
 --signals
 	signal sig_music_counter_en: std_logic;
-	signal sig_next_addr	: std_logic_vector(15 downto 0);
-	signal sig_curr_addr	: std_logic_vector(15 downto 0);
-	signal sig_one		: std_logic_vector(15 downto 0); --three?
-	signal sig_zero	: std_logic_vector(15 downto 0);
+	signal sig_next_addr	: std_logic_vector(7 downto 0);
+	signal sig_curr_addr	: std_logic_vector(7 downto 0);
+	signal sig_one		: std_logic_vector(7 downto 0); --three?
+	signal sig_zero	: std_logic_vector(7 downto 0);
 	signal sig_add_en	: std_logic; -- control signal, enables music counter incrementer when = '1'
-	signal sig_add_in	: std_logic_vector(15 downto 0);
+	signal sig_add_in	: std_logic_vector(7 downto 0);
 	signal sig_add_carry: std_logic;
 	
 	signal tempo_val : std_logic_vector(7 downto 0);
@@ -136,7 +165,13 @@ architecture Behavioral of musicplayer_top is
 	signal sig_write_en	: std_logic; --need filereader
 	signal sig_write_data : std_logic_vector(11 downto 0); -- need filereader
 	signal sig_mem_out: std_logic_vector(11 downto 0);
+	signal sig_mem_addr : std_logic_vector(7 downto 0);
 
+	signal sig_epp_done: std_logic;
+	signal sig_epp_addr: std_logic_vector(7 downto 0);
+	signal sig_epp_data: std_logic_vector(12 downto 0);
+	signal sig_epp_write_en : std_logic;
+	
 	signal sig_buffer_reg_en: std_logic; -- control signal
 	signal sig_buffer_reg_done: std_logic;
 	signal sig_note_data: std_logic_vector(11 downto 0);
@@ -160,7 +195,7 @@ architecture Behavioral of musicplayer_top is
 	signal sig_load_done: std_logic;
 	
 begin
-	music_counter: register_16b 
+	music_counter: register_8b 
 	port map(
 		clk => clk,
 		reset => reset, --will need to alter later for restarts
@@ -170,10 +205,10 @@ begin
 		data_out => sig_curr_addr
 	); 
 	
-	sig_one <= "0000000000000001"; --? might need to change this value to make mem work properly
-	sig_zero <= "0000000000000000";
+	sig_one <= "00000001"; --? might need to change this value to make mem work properly
+	sig_zero <= "00000000";
 	
-	add_en: mux2to1_16b
+	add_en: mux2to1_8b
 	port map(
 		data_a => sig_zero,
 		data_b => sig_one,
@@ -181,12 +216,37 @@ begin
 		data => sig_add_in
 	);
 	
-	increment_music_counter: adder_16b
+	increment_music_counter: adder_8b
 	port map(
 		src_a => sig_curr_addr,
 		src_b => sig_add_in,
 		sum => sig_next_addr,
 		carry_out => sig_add_carry
+	);
+	
+	epp: eppctrl 
+   port map(
+		mclk 	=> clk,
+      pdb	=> pdb,
+      astb =>astb,
+      dstb => dstb,
+      pwr =>	pwr,
+      pwait => pwait,
+		enable => sig_epp_write_en,
+		done => sig_epp_done,
+		dataToBram => sig_write_data,
+		addressToBram => sig_epp_addr
+	);
+	
+	memoryWrite <= sig_epp_write_en;
+	loaddone <= sig_epp_done;
+	
+	load_or_play_addr: mux2to1_8b
+	port map (
+		data_a => sig_epp_addr,
+		data_b => sig_curr_addr, 
+		sel => sig_epp_done,
+		data => sig_mem_addr
 	);
 	
 	mem: memory
@@ -195,9 +255,12 @@ begin
 		clk => clk,
 		write_enable => sig_write_en,
 		write_data => sig_write_data,
-		addr_in => sig_curr_addr,
+		addr_in => sig_mem_addr,
 		data_out => sig_mem_out
 	);
+	
+	led <= sig_mem_out(5 downto 0);
+	
 	
 	buffer_reg: register_12b
 	port map (
@@ -326,7 +389,9 @@ begin
 			case y is 
 				when idle =>
 					if sig_play = '1' then 
-						y <= read_note;
+						--if sig_epp_done = '1' then
+							y <= read_note;
+						--end if;
 					else 
 						y <= idle;
 					end if;
@@ -351,8 +416,10 @@ begin
 	--initalise the control signals 
 	sig_write_en <= '0'; sig_buffer_reg_en <= '0'; sig_tempo_reg_en <= '0';-- sig_sound_en <= '0';
 		case y is
+
+				
 			when idle =>
-				sig_write_en <= '0'; 	
+				sig_write_en <= sig_epp_write_en; 	
 				sig_buffer_reg_en <= '0'; 
 				sig_tempo_reg_en <= '0'; 
 				--sig_sound_en <= '0';
