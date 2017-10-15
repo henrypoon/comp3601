@@ -36,9 +36,10 @@ entity musicplayer_top is
 			dstb 	: in std_logic;
 			pwr 	: in std_logic;
 			pwait 	: out std_logic;
-			loaddone: out std_logic;
-			memoryWrite: out std_logic;
-			led: out std_logic_vector(5 downto 0);
+		--	loaddone: out std_logic;
+		--	memoryWrite: out std_logic;
+			led: out std_logic_vector(7 downto 0);
+			
 			--7seg ports
 			segments : out std_logic_vector(7 downto 0);
 			displayOut : out std_logic_vector(3 downto 0);
@@ -190,7 +191,7 @@ architecture Behavioral of musicplayer_top is
 	signal sig_tempo_mux_out : std_logic_vector (11 downto 0);
 	signal sig_tempo_mux_b : std_logic_vector (11 downto 0);
 	--fsm
-	TYPE State_Type IS (idle, read_note, play_note); ---added handshake state
+	TYPE State_Type IS (load, idle, read_note, play_note); ---added handshake state
 	SIGNAL y : State_Type;
 	signal sig_load_done: std_logic;
 	
@@ -238,8 +239,11 @@ begin
 		addressToBram => sig_epp_addr
 	);
 	
-	memoryWrite <= sig_epp_write_en;
-	loaddone <= sig_epp_done;
+	--memoryWrite <= sig_epp_write_en;
+	--loaddone <= sig_epp_done;
+	
+	--sig_epp_done <= '1'; --testing signal
+	led <= sig_mem_out(9 downto 2);
 	
 	load_or_play_addr: mux2to1_8b
 	port map (
@@ -259,7 +263,7 @@ begin
 		data_out => sig_mem_out
 	);
 	
-	led <= sig_mem_out(5 downto 0);
+	
 	
 	
 	buffer_reg: register_12b
@@ -294,20 +298,23 @@ begin
 	);
 	
 	
-	sig_tempo_mux_b <= "00" & tempo_val & "00";
-	tempo_mux :	mux2to1_12b 
+	--sig_tempo_mux_b <= "00" & tempo_val & "00";
+	tempo_mux :	mux2to1_8b 
 	port map (
-		data_a => sig_tempo_data,
-		data_b => sig_tempo_mux_b,
+		data_a => sig_tempo_data(9 downto 2),
+		data_b => tempo_val, --sig_tempo_mux_b,
 		sel => tempo_mode,
-		data => sig_tempo_mux_out
+		data => sig_tempo_mux_out(9 downto 2)
 	);
+	
 	
 	---added in display
 	
 	dsplay: sevenSeg2 
 	port map (
 		CLKK => clk,
+		--number => sig_write_data(9 downto 2), --this here for testing, use line below for actual
+		--number => sig_tempo_data(9 downto 2), --this here for testing, use line below for actual
 		number => sig_tempo_mux_out(9 downto 2),
 		segments => segments,
 		displayOut => displayOut	
@@ -381,12 +388,18 @@ begin
 	end process;
 	
 	
-	fsm_transitions: process (clk, sig_play, sig_load_done, sig_sound_done)
+	fsm_transitions: process (clk, sig_play, sig_load_done, sig_sound_done, reset, sig_epp_done)
 	begin
-		if sig_play = '0' then
-			y <= idle;
+		if reset = '1' then
+			y <= load;
 		elsif rising_edge(clk) then
-			case y is 
+			case y is
+				when load =>
+					if sig_epp_done = '1' then 
+						y <= idle;
+					else 
+						y <= load;
+					end if;
 				when idle =>
 					if sig_play = '1' then 
 						--if sig_epp_done = '1' then
@@ -411,19 +424,29 @@ begin
 		end if;
 	end process;
 	
-	fsm_outputs: process(y)
+	fsm_outputs: process(y, sig_curr_addr)
 	begin
 	--initalise the control signals 
 	sig_write_en <= '0'; sig_buffer_reg_en <= '0'; sig_tempo_reg_en <= '0';-- sig_sound_en <= '0';
 		case y is
-
-				
+			when load => 
+				sig_write_en <= sig_epp_write_en; 
+				sig_buffer_reg_en <= '0'; 
+				sig_tempo_reg_en <= '0';
+--				if sig_curr_addr = sig_zero then 
+--					sig_buffer_reg_en <= '0';
+--					sig_tempo_reg_en <= '0';
+--				else
+--					sig_buffer_reg_en <= '0';
+--					sig_tempo_reg_en <= '0';
+--				end if;
+				speaker <= '0';
 			when idle =>
-				sig_write_en <= sig_epp_write_en; 	
+				--	
 				sig_buffer_reg_en <= '0'; 
 				sig_tempo_reg_en <= '0'; 
 				--sig_sound_en <= '0';
-				speaker <= '0';
+				
 			when read_note =>
 				speaker <= '0';
 				
