@@ -35,7 +35,7 @@ def generateNoteHash():
             if letter == 'e' or letter == 'b':
                 count -= 1
 
-            if letter == 'g':
+            if letter == 'b':
                 octave += 1
 
 def generateDurationHash():
@@ -120,6 +120,7 @@ generateNoteHash()
 generateDurationHash()
 lines = readFile(fin)
 result = conversion(lines)
-print(result)
+# print(result)
+print(noteHash)
 fin.close()
 fout.close()

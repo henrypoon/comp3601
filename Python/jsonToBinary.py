@@ -34,7 +34,7 @@ def generateNoteHash():
             if letter == 'e' or letter == 'b':
                 count -= 1
 
-            if letter == 'g':
+            if letter == 'b':
                 octave += 1
 
 def generateDurationHash():
