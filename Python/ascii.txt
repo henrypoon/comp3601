@@ -1,4 +1,38 @@
+100
 normal
-180
-d5# sq
-g5# m
+c4 c
+c4 c
+g4 c
+g4 c
+a4 c
+a4 c
+g4 c
+f4 c
+f4 c
+e4 c
+e4 c
+d4 c
+d4 c
+c4 c
+g4 c
+g4 c
+f4 c
+f4 c
+f4 c
+e4 c
+e4 c
+d4 c
+c4 c
+c4 c
+g4 c
+g4 c
+a4 c
+a4 c
+g4 c
+f4 c
+f4 c
+e4 c
+e4 c
+d4 c
+d4 c
+c4 c

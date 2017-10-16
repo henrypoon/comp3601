@@ -16,12 +16,13 @@ import ListDetails from './ListDetails';
 class List extends React.Component {
 
 	componentDidMount() {
+    console.log(this.props);
 		this.props.setData();
 	}
 
 	renderDetails() {
     const rendering = this.props.data.map((song) => 
-      <ListDetails key={song.id} song={song.attributes} playMusic={this.props.playMusic} i={song.id} />
+      <ListDetails key={song.id} song={song.attributes} playMusic={this.props.playMusic} loadSong={this.props.loadSong} i={song.id} />
     );
 		return rendering;
 	}

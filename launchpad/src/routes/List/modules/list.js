@@ -2,11 +2,13 @@ import update from 'react-addons-update';
 import axios from 'axios';
 import constants from './actionConstants';
 
+var url = 'http://10.211.55.4:3000/';
+
 const { SET_DATA, PLAY_MUSIC } = constants;
 
 export function setData() {
 	return (dispatch) => {
-		axios.get('http://192.168.0.4:3000/songs')
+		axios.get(url+'songs')
 		.then((response) => {
 			dispatch({
 				type: SET_DATA,
@@ -21,7 +23,7 @@ export function setData() {
 
 export function playMusic(payload) {
 	console.log('play');
-	const api = 'http://192.168.0.4:3000/songs/play/' + payload.toString();
+	const api = url + 'songs/play/' + payload.toString();
 	console.log(api);
 	axios.post(api)
 		.then((response) => {
@@ -36,6 +38,7 @@ export function playMusic(payload) {
 	};
 }
 
+
 function handleSetData(state, action) {
 	return update(state, {
 		data: {
@@ -45,7 +48,7 @@ function handleSetData(state, action) {
 }
 
 const ACTION_HANDLERS = {
-	SET_DATA: handleSetData
+	SET_DATA: handleSetData,
 };
 
 const initialState = {

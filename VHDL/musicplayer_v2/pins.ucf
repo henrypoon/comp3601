@@ -15,18 +15,18 @@ NET "tempo_mode" CLOCK_DEDICATED_ROUTE = FALSE;
 #NET "tempo_val(5)" LOC = "N16";
 
 
-#NET "loaddone" LOC = "L14"; #led0
-#NET "memoryWrite" LOC = "L13"; #led1
-NET "led(0)" LOC = "L14"; #led0
-NET "led(1)" LOC = "L13"; #led1
+NET "loaddone" LOC = "L14"; #led0
+NET "memoryWrite" LOC = "L13"; #led1
+#NET "led(0)" LOC = "L14"; #led0
+#NET "led(1)" LOC = "L13"; #led1
 
 ##led2-7 used fir testing
-NET "led(2)" LOC = "M14";
-NET "led(3)" LOC = "L12";
-NET "led(4)" LOC = "N14";
-NET "led(5)" LOC = "M13";
-NET "led(6)" LOC = "P14";
-NET "led(7)" LOC = "R16";
+#NET "led(2)" LOC = "M14";
+#NET "led(3)" LOC = "L12";
+#NET "led(4)" LOC = "N14";
+#NET "led(5)" LOC = "M13";
+#NET "led(6)" LOC = "P14";
+#NET "led(7)" LOC = "R16";
 
 #seven seg pins
 NET "displayOut(0)" LOC="G14";

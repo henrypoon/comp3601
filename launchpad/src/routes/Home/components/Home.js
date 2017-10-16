@@ -22,7 +22,11 @@ class Home extends React.Component {
 				<StatusBar hidden />
 				<View style={{ flex: 0.07 }}>
 					<Header>
-						<Left style={{ flex: 0.2, top: -15 }} />
+						<Left style={{ flex: 0.2, top: -15 }} >
+							<Button transparent onPress={() => Actions.setting()}>
+								<Icon name='align-justify' />
+							</Button>
+						</Left>
 						<Body style={{ top: -15 }}>
 							<Title>MUSIC EDITOR</Title>
 						</Body>
@@ -38,6 +42,7 @@ class Home extends React.Component {
 						song={this.props.song} 
 						setSelected={this.props.setSelected} 
 						selected={this.props.selected} 
+						mode={this.props.mode}
 					/>
 					<SliderBar
 						setSlider={this.props.setOctave}

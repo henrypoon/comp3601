@@ -3,6 +3,8 @@ import axios from 'axios';
 import constants from './actionConstants';
 import { AlertIOS } from 'react-native';
 
+var url = 'http://10.211.55.4:3000/';
+
 const { 
 	SET_OCTAVE, 
 	SET_DURATION, 
@@ -12,7 +14,8 @@ const {
 	DELETE_NOTE, 
 	SAVE_MUSIC,
 	SET_SELECTED,
-	SET_SIGN
+	SET_SIGN,
+	LOAD_SONG
 } = constants;
 
 export function setSign() {
@@ -37,7 +40,7 @@ export function setSign() {
 
 export function playMusic() {
 	console.log('play');
-	axios.post('http://192.168.0.4:3000/songs/play/1')
+	axios.post(url + 'songs/play/1')
 		.then((response) => {
 			console.log(response);
 		})
@@ -56,7 +59,7 @@ export function saveMusic() {
 		let song = '';
 		let length = 0;
 		store().home.song.map((e) => {
-			song = song + e.notes + '|';
+			song = song + e.notes + '|' + e.duration + '|';
 			length += e.duration;
 		});
 		song = song.slice(0, song.length - 1);
@@ -68,11 +71,12 @@ export function saveMusic() {
 			length: length/1000,
 			bpm: 20
 		};
+		console.log(jsonToSend);
 
-		axios.post('http://192.168.0.4:3000/songs', jsonToSend)
+		axios.post(url + 'songs', jsonToSend)
 			.then((response) => {
 				console.log(response);
-				AlertIOS.alert('Save Successfully!');
+				// AlertIOS.alert('Save Successfully!');
 			})
 			.catch((error) => {
 				console.log(error);
@@ -158,6 +162,38 @@ export function setSelected(payload) {
 	};
 }
 
+export function loadSong(payload) {
+	return (dispatch) => {
+		console.log('load');
+		const link = url + 'songs/' + payload + '.json';
+		console.log(link);
+		axios.get(link)
+		.then((response) => {
+			var arr = [];
+			response.data.data.attributes.notes.split('|').map((i) => {
+				arr.push(i);
+			});
+			console.log(arr);
+			dispatch({
+				type: LOAD_SONG,
+				payload: response.data.data
+			});
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+	};
+}
+
+function handleLoadSong(state, action) {
+	// return update(state, {
+	// 	song: {
+	// 		$set: action.payload
+	// 	}
+	// });
+	console.log(action.payload);
+}
+
 function handleSetCurrentNote(state, action) {
 	return update(state, {
 		currentNote: {
@@ -221,7 +257,8 @@ const ACTION_HANDLERS = {
 	ADD_TO_SONG: handleAddToSong,
 	DELETE_NOTE: handleDeteleNote,
 	SET_SELECTED: handleSetSelected,
-	SET_SIGN: handleSetSign
+	SET_SIGN: handleSetSign,
+	LOAD_SONG: handleLoadSong
 };
 
 const initialState = {
@@ -230,7 +267,9 @@ const initialState = {
 	octave: 0,
 	duration: 0,
 	sign: '',
-	selected: 0
+	selected: 0,
+	mode: 'new',
+	songid: '-1'
 };
 
 export function HomeReducer(state = initialState, action) {

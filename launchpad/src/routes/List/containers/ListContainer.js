@@ -3,16 +3,22 @@ import List from '../components/List';
 
 import {
 	setData,
-	playMusic
+	playMusic,
 } from '../modules/list';
 
+import {
+	loadSong
+} from '../../Home/modules/home';
+
 const mapStateToProps = (state) => ({
-	data: state.list.data
+	data: state.list.data,
+	song: state.home.song
 });
 
 const mapActionCreators = {
 	setData,
-	playMusic
+	playMusic,
+	loadSong,
 };
 
 export default connect(mapStateToProps, mapActionCreators)(List);

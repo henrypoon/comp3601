@@ -14,7 +14,7 @@ import {
 import { Button } from 'native-base';
 import Icon from 'react-native-vector-icons/Feather';
 
-export const ListDetails = ({ i, song, playMusic }) => {
+export const ListDetails = ({ i, song, playMusic, loadSong }) => {
   console.log(song['created-at']);
   let d = song['created-at'];
   let date = d.split('T')[0];
@@ -45,7 +45,7 @@ export const ListDetails = ({ i, song, playMusic }) => {
         <RkText rkType='compactCardText'>{song.description}</RkText>
       </View>
       <View rkCardFooter>
-        <RkButton rkType='clear link'>
+        <RkButton rkType='clear link' onPress={() => loadSong(i)}>
           <Icon name="edit" style={likeStyle} />
           <RkText rkType='accent'>Edit</RkText>
         </RkButton>
