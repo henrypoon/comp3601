@@ -9,7 +9,8 @@ import {
 	addToSong,
 	deleteNote,
 	setSelected,
-	setSign
+	setSign,
+	loadSong,
 } from '../modules/home';
 
 const mapStateToProps = (state) => ({
@@ -17,7 +18,9 @@ const mapStateToProps = (state) => ({
 	duration: state.home.duration,
 	setCurrentNote: state.home.setCurrentNote,
 	song: state.home.song,
-	selected: state.home.selected
+	selected: state.home.selected,
+	mode: state.home.mode,
+	songid: state.home.songid
 });
 
 const mapActionCreators = {
@@ -29,6 +32,7 @@ const mapActionCreators = {
 	addToSong,
 	deleteNote,
 	setSelected,
-	setSign
+	setSign,
+	loadSong
 };
 export default connect(mapStateToProps, mapActionCreators)(Home);
