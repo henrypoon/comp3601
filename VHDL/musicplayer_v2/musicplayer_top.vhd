@@ -36,9 +36,9 @@ entity musicplayer_top is
 			dstb 	: in std_logic;
 			pwr 	: in std_logic;
 			pwait 	: out std_logic;
-		--	loaddone: out std_logic;
-		--	memoryWrite: out std_logic;
-			led: out std_logic_vector(7 downto 0);
+			loaddone: out std_logic;
+			memoryWrite: out std_logic;
+			--led: out std_logic_vector(7 downto 0);
 			
 			--7seg ports
 			segments : out std_logic_vector(7 downto 0);
@@ -173,6 +173,7 @@ architecture Behavioral of musicplayer_top is
 	signal sig_epp_data: std_logic_vector(12 downto 0);
 	signal sig_epp_write_en : std_logic;
 	
+	signal sig_buffer_reg_in : std_logic_vector(11 downto 0);
 	signal sig_buffer_reg_en: std_logic; -- control signal
 	signal sig_buffer_reg_done: std_logic;
 	signal sig_note_data: std_logic_vector(11 downto 0);
@@ -239,11 +240,11 @@ begin
 		addressToBram => sig_epp_addr
 	);
 	
-	--memoryWrite <= sig_epp_write_en;
-	--loaddone <= sig_epp_done;
+	memoryWrite <= sig_epp_write_en;
+	loaddone <= sig_epp_done;
 	
 	--sig_epp_done <= '1'; --testing signal
-	led <= sig_mem_out(9 downto 2);
+	--led <= sig_mem_out(9 downto 2);
 	
 	load_or_play_addr: mux2to1_8b
 	port map (
@@ -264,7 +265,14 @@ begin
 	);
 	
 	
-	
+	process(sig_mem_addr, sig_mem_out)
+	begin
+		if sig_mem_addr = X"00" then
+			sig_buffer_reg_in <= X"000";
+		else 
+			sig_buffer_reg_in <= sig_mem_out;
+		end if;
+	end process;
 	
 	buffer_reg: register_12b
 	port map (
@@ -272,7 +280,7 @@ begin
 		reset => reset,
 		enable => sig_buffer_reg_en,
 		done => sig_buffer_reg_done,
-		data_in => sig_mem_out,
+		data_in => sig_buffer_reg_in, --sig_mem_out,
 		data_out => sig_note_data
 	);
 	
