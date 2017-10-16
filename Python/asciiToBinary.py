@@ -103,6 +103,8 @@ def conversion(lines):
             timing = 1
         elif line == "staccato":
             timing = 2
+        elif line == "normal":
+            pass
         # convert notes to binary
         elif count == 0:
             # convert note
@@ -120,6 +122,7 @@ generateNoteHash()
 generateDurationHash()
 lines = readFile(fin)
 result = conversion(lines)
-print(result)
+# print(result)
+fout.write(result)
 fin.close()
 fout.close()

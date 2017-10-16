@@ -1,4 +1,4 @@
-100
+bpm 100
 normal
 c4 c
 c4 c
