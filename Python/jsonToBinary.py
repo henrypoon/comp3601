@@ -86,10 +86,12 @@ generateNoteHash()
 generateDurationHash()
 
 for line in fin:
-    jsonLine += line.strip()
+    jsonLine += line.strip().lower()
 parsedJson = json.loads(jsonLine)
 
 outputString = conversion()
+
+print(noteHash)
 
 fout.write(outputString)
 

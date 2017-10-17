@@ -1,5 +1,6 @@
 bpm 100
 normal
+%test
 c4 c
 c4 c
 g4 c

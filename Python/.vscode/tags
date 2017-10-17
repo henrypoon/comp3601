@@ -1,0 +1,43 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ASCIItoBinaryDuration	../asciiToBinary.py	/^def ASCIItoBinaryDuration(durationASCII):$/;"	kind:function	line:84
+ASCIItoBinaryNote	../asciiToBinary.py	/^def ASCIItoBinaryNote(noteASCII):$/;"	kind:function	line:81
+ASCIItoBinaryNote	../jsonToBinary.py	/^def ASCIItoBinaryNote(noteASCII):$/;"	kind:function	line:52
+FractiontoBinaryDuration	../jsonToBinary.py	/^def FractiontoBinaryDuration(durationFraction):$/;"	kind:function	line:55
+asciiToBinary.py	../asciiToBinary.py	1;"	kind:file	line:1
+conversion	../asciiToBinary.py	/^def conversion(lines):$/;"	kind:function	line:87
+conversion	../jsonToBinary.py	/^def conversion():$/;"	kind:function	line:58
+durationHash	../asciiToBinary.py	/^durationHash = {}$/;"	kind:variable	line:7
+durationHash	../jsonToAscii.py	/^durationHash = {}$/;"	kind:variable	line:22
+durationHash	../jsonToBinary.py	/^durationHash = {}$/;"	kind:variable	line:84
+fin	../asciiToBinary.py	/^fin = open('music.txt', 'r')$/;"	kind:variable	line:3
+fin	../jsonToAscii.py	/^fin = open('input.json', 'r')$/;"	kind:variable	line:5
+fin	../jsonToBinary.py	/^fin = open('input.json', 'r')$/;"	kind:variable	line:5
+fout	../asciiToBinary.py	/^fout = open('binary.txt', 'w')$/;"	kind:variable	line:4
+fout	../jsonToAscii.py	/^fout = open('ascii.txt', 'w')$/;"	kind:variable	line:6
+fout	../jsonToBinary.py	/^fout = open('binary.txt', 'w')$/;"	kind:variable	line:6
+generateDurationHash	../asciiToBinary.py	/^def generateDurationHash():$/;"	kind:function	line:41
+generateDurationHash	../jsonToAscii.py	/^def generateDurationHash():$/;"	kind:function	line:8
+generateDurationHash	../jsonToBinary.py	/^def generateDurationHash():$/;"	kind:function	line:40
+generateNoteHash	../asciiToBinary.py	/^def generateNoteHash():$/;"	kind:function	line:9
+generateNoteHash	../jsonToBinary.py	/^def generateNoteHash():$/;"	kind:function	line:8
+jsonLine	../jsonToAscii.py	/^jsonLine = ""$/;"	kind:variable	line:20
+jsonLine	../jsonToBinary.py	/^jsonLine = ""$/;"	kind:variable	line:81
+jsonToAscii.py	../jsonToAscii.py	1;"	kind:file	line:1
+jsonToBinary.py	../jsonToBinary.py	1;"	kind:file	line:1
+lines	../asciiToBinary.py	/^lines = readFile(fin)$/;"	kind:variable	line:123
+noteHash	../asciiToBinary.py	/^noteHash = {}$/;"	kind:variable	line:6
+noteHash	../jsonToBinary.py	/^noteHash = {}$/;"	kind:variable	line:83
+notes	../jsonToAscii.py	/^notes = parsedJson["song"].split("|")$/;"	kind:variable	line:32
+outputString	../jsonToAscii.py	/^outputString = ""$/;"	kind:variable	line:21
+outputString	../jsonToBinary.py	/^outputString = ""$/;"	kind:variable	line:82
+outputString	../jsonToBinary.py	/^outputString = conversion()$/;"	kind:variable	line:92
+parsedJson	../jsonToAscii.py	/^parsedJson = json.loads(jsonLine)$/;"	kind:variable	line:27
+parsedJson	../jsonToBinary.py	/^parsedJson = json.loads(jsonLine)$/;"	kind:variable	line:90
+readFile	../asciiToBinary.py	/^def readFile(fileName):$/;"	kind:function	line:53
+removeComments	../asciiToBinary.py	/^def removeComments(line):$/;"	kind:function	line:69
+result	../asciiToBinary.py	/^result = conversion(lines)$/;"	kind:variable	line:124
