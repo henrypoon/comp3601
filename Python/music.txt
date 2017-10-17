@@ -37,3 +37,4 @@ e4 c
 d4 c
 d4 c
 c4 c
+C4 C

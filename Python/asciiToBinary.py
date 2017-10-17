@@ -91,6 +91,7 @@ def conversion(lines):
     count = 0
     converted = ''
     for line in lines:
+        line = line.lower()
         # set bpm
         if line == "bpm":
             bpmFlag = 1
