@@ -14,8 +14,10 @@ import {
 import { Button } from 'native-base';
 import Icon from 'react-native-vector-icons/Feather';
 
-export const ListDetails = ({ i, song, playMusic, loadSong }) => {
+export const ListDetails = ({ i, song, playMusic, loadSong, deleteSong }) => {
   console.log(song['created-at']);
+  let length = song.length ? song.length.toString() : '0';
+  let bpm = song.bpm ? song.bpm.toString() : '0';
   let d = song['created-at'];
   let date = d.split('T')[0];
   let time = d.split('T')[1].split('Z')[0].slice(0, -7);
@@ -36,8 +38,8 @@ export const ListDetails = ({ i, song, playMusic, loadSong }) => {
 
       <View rkCardHeader style={{ paddingBottom: 2.5 }}>
         <View>
-          <RkText rkType='subtitle'>Length: {song.length.toString()}s</RkText>
-          <RkText rkType='subtitle'>BPM: {song.bpm.toString()}</RkText>
+          <RkText rkType='subtitle'>Length: {length}s</RkText>
+          <RkText rkType='subtitle'>BPM: {bpm}</RkText>
           <RkText rkType='subtitle'>Create At: {s}</RkText>
         </View>
       </View>
@@ -49,7 +51,7 @@ export const ListDetails = ({ i, song, playMusic, loadSong }) => {
           <Icon name="edit" style={likeStyle} />
           <RkText rkType='accent'>Edit</RkText>
         </RkButton>
-        <RkButton rkType='clear link'>
+        <RkButton rkType='clear link' onPress={() => deleteSong(i)}>
           <Icon name="delete" style={iconButton} />
           <RkText rkType='hint'>Remove</RkText>
         </RkButton>

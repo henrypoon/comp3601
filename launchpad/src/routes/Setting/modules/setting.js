@@ -2,7 +2,7 @@ import update from 'react-addons-update';
 import constants from './actionConstants';
 import { Actions } from 'react-native-router-flux';
 
-const { CHANGE_MODE, SELECT_MODE } = constants;
+const { CHANGE_MODE, SELECT_MODE, SET_BPM } = constants;
 
 export function changeMode(payload) {
 	return ({
@@ -22,6 +22,21 @@ export function selectMode() {
 	};
 }
 
+export function setBpm(payload) {
+	return {
+		type: SET_BPM,
+		payload
+	};
+}
+
+function handleSetBpm(state, action) {
+	return update(state, {
+		bpm: {
+			$set: action.payload
+		}
+	});
+}
+
 function handleChangeMode(state, action) {
 	return update(state, {
 		selected_mode: {
@@ -31,7 +46,6 @@ function handleChangeMode(state, action) {
 }
 
 function handleSelectMode(state, action) {
-	console.log('duudududud')
 	return update(state, {
 		mode: {
 			$set: action.payload
@@ -41,12 +55,14 @@ function handleSelectMode(state, action) {
 
 const ACTION_HANDLERS = {
 	CHANGE_MODE: handleChangeMode,
-	SELECT_MODE: handleSelectMode
+	SELECT_MODE: handleSelectMode,
+	SET_BPM: handleSetBpm
 };
 
 const initialState = {
 	mode: 'normal',
 	selected_mode: 'normal',
+	bpm: 100
 };
 
 export function SettingReducer(state = initialState, action) {

@@ -19,7 +19,6 @@ export default class Launchpad extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(this.props.octave + 'dddddd');
   }
 
   render() {

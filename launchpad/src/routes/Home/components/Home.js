@@ -7,20 +7,43 @@ import { Actions } from 'react-native-router-flux';
 import SliderBar from './SliderBar';
 import Launchpad from './Launchpad';
 import ProcessBar from './ProcessBar';
+import { Dropdown } from 'react-native-material-dropdown';
+import { AlertIOS } from 'react-native';
 
 class Home extends React.Component {
 
 	componentWillMount() {
 		this.props.setOctave(3);
-		this.props.setDuraction(0);
+		this.props.setDuraction('1/4');
 		this.props.setSelected(-1);
 	}
 
 	render() {
+		let duractionList = [{
+			value: '1/4',
+		}, {
+			value: '1/3',
+		}, {
+			value: '1/2',
+		}, {
+			value: '3/4',
+		}, {
+			value: '1',
+		}, {
+			value: '1 1/2',
+		}, {
+			value: '2',
+		}, {
+			value: '3',
+		}, {
+			value: '4',
+		}, {
+			value: '8',
+		}];
 		return (
 			<View style={{ flex: 1 }}>
 				<StatusBar hidden />
-				<View style={{ flex: 0.07 }}>
+				<View style={{ flex: 0.1 }}>
 					<Header>
 						<Left style={{ flex: 0.2, top: -15 }} >
 							<Button transparent onPress={() => Actions.setting()}>
@@ -37,7 +60,8 @@ class Home extends React.Component {
 						</Right>
 					</Header>
 				</View>
-				<View style={{ flex: 1, alignItems: 'center', backgroundColor: 'black' }}>
+
+				<View style={{ flex: 1, alignItems: 'center' }}>
 					<ProcessBar 
 						song={this.props.song} 
 						setSelected={this.props.setSelected} 
@@ -50,13 +74,14 @@ class Home extends React.Component {
 						min={3} 
 						max={6}
 					/>
-					<SliderBar
-						setSlider={this.props.setDuraction}
-						value={this.props.duration}
-						min={0} 
-						max={1000}
-						opt={'ms'}
-					/>
+					<View style={{ height: 65, width: 300 }}>
+						<Dropdown
+							value='1/4'
+							label='Duraction'
+							data={duractionList}
+							onChangeText={(e) => this.props.setDuraction(e)}
+						/>
+					</View>
 					<View style={{ flexDirection: 'row' }}>
 						<RkButton rkType='success rounded' onPress={this.props.addToSong}>Add</RkButton>
 						<RkButton rkType='danger rounded' onPress={this.props.deleteNote}>Delete</RkButton>
@@ -64,7 +89,13 @@ class Home extends React.Component {
 					<Launchpad setCurrentNote={this.props.setCurrentNote} setSign={this.props.setSign} octave={this.props.octave} />
 					<View style={{ flexDirection: 'row' }}>
 						<RkButton rkType='success rounded' onPress={this.props.playMusic}>Play</RkButton>
-						<RkButton rkType='danger rounded' onPress={this.props.saveMusic}>Save</RkButton>
+						<RkButton rkType='danger rounded' onPress={() => {
+							AlertIOS.prompt(
+							  'Enter a value',
+							  null,
+							  text => console.log("You entered "+text)
+							);
+						}}>Save</RkButton>
 						<RkButton rkType='warning rounded' onPress={() => Actions.list()}>Album</RkButton>
 					</View>
 				</View>

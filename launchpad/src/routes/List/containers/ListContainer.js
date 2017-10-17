@@ -4,6 +4,7 @@ import List from '../components/List';
 import {
 	setData,
 	playMusic,
+	deleteSong
 } from '../modules/list';
 
 import {
@@ -19,6 +20,7 @@ const mapActionCreators = {
 	setData,
 	playMusic,
 	loadSong,
+	deleteSong
 };
 
 export default connect(mapStateToProps, mapActionCreators)(List);

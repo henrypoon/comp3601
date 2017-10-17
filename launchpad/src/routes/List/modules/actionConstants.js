@@ -1,4 +1,5 @@
 export default {
 	SET_DATA: 'SET_DATA',
 	PLAY_MUSIC: 'PLAY_MUSIC',
+	DELETE_SONG: 'DELETE_SONG'
 };

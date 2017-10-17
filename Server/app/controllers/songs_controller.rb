@@ -32,9 +32,24 @@ class SongsController < ApplicationController
 	end
 
 	def play
-		exec('C:\Users\henrypan\source\repos\FPGA\Debug\FPGA.exe')
+		@song = Song.find(params[:id])
+		puts @song.id
+		saveJson @song
+		# exec('C:\Users\henrypan\source\repos\FPGA\Debug\FPGA.exe')
+		# exec('C:\Users\henrypan\source\repos\FPGA\Debug\FPGA.exe')
 		render json: {status: 'ok'}
 	end
+
+	def saveJson(song)
+		record_json = {
+			"song" => song.notes,
+			"mode" => song.mode,
+			"bpm" => song.bpm.to_s
+		} 
+		File.open("#{Rails.root}/input.json", "w") do |f|
+        	f.write(JSON.generate(record_json))
+    	end 
+    end
 
 	private
 	def song_params
