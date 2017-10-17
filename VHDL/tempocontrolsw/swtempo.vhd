@@ -67,7 +67,7 @@ architecture Behavioral of swtempo is
 	signal counter : integer range 0 to 60000000;
 	signal tempo_val_int : integer range 0 to 200;
 	signal slowclk : std_logic := '0';
---	signal tempo_reg_int : integer range 0 to 200;
+	--signal tempo_reg_int : integer range 0 to 200;
 --	--signal tempo_reg	:std_logic_Vector(7 downto 0);
 --	
 --	signal lower_limit : integer range 0 to 200;
@@ -75,13 +75,13 @@ architecture Behavioral of swtempo is
 --	signal counter_en : std_logic;
 --	signal tempo_counter : integer range 0 to 200;
 --	signal tempo_counter_vector : std_logic_vector(7 downto 0); 
---	signal tempo_out_int: integer range 0 to 200;
+	signal tempo_out_int: integer range 0 to 200;
 --	signal lessthan200: std_logic;
 --	signal morethan60: std_logic;
 	
 	TYPE State_Type IS (first, idle, decrement, increment);
 	SIGNAL y : State_Type;
-	
+	--signal tempo_out_int : integer range 0 to 200;
 	signal tempo_reg_in : std_logic_vector(7 downto 0);
 	signal tempo_reg_out : std_logic_vector(7 downto 0);
 	signal sig_one : std_logic_vector(7 downto 0);
@@ -91,57 +91,78 @@ architecture Behavioral of swtempo is
 	--signal sub_en : std_logic;
 	signal reg_init: std_logic;
 	signal alu_en: std_logic;	
-
+	signal tempo_reset: std_logic;
 begin
 
-	fsm_transistions: process(tempo_val, tempo_mode, tempo_up, tempo_down, reset)
+	fsm_transistions: process(tempo_val, tempo_mode, tempo_up, tempo_down, reset, tempo_out_int)
 	begin
 		if reset = '1' then
 			y <= first;
 		elsif rising_edge(clk) then
 			if tempo_mode = '1' then  
-				case y is
+			case y is
 				when first =>
 					y<= idle;
+				
 				when idle =>
-					if tempo_up = '1' then 
-						if tempo_down = '0' then 
+				if tempo_up = '1' then 
+					if tempo_down = '0' then
+						if tempo_out_int < 200 then
 							y <= increment;
 						end if;
-					elsif tempo_down = '1' then 
-						if tempo_up = '0' then
+					end if;
+				elsif tempo_down = '1' then 
+					if tempo_up = '0' then
+						if tempo_out_int >60 then 
 							y <= decrement;
 						end if;
 					else 
 						y <= idle;
-					end if;	
+					end if;
+				end if;
 				when increment =>
 					if tempo_up = '1' then 
-						if tempo_down = '0' then 
-							y <= increment;
+						if tempo_down = '0' then
+							if tempo_out_int <200 then 
+								y <= increment;
+							else 
+								y<= idle;
+							end if;
 						end if;
 					elsif tempo_down = '1' then 
 						if tempo_up = '0' then
-							y <= decrement;
+							if tempo_out_int >60 then 
+								y <= decrement;
+							end if;
 						end if;
+					elsif tempo_out_int > 199 then 
+								y <= idle;
 					else 
 						y <= idle;
 					end if;
 				when decrement =>
 					if tempo_up = '1' then 
-						if tempo_down = '0' then 
-							y <= increment;
+						if tempo_down = '0' then
+							if tempo_out_int <200 then 
+								y <= increment;
+							end if;
 						end if;
 					elsif tempo_down = '1' then 
 						if tempo_up = '0' then
-							y <= decrement;
+							if tempo_out_int >60 then 
+								y <= decrement;
+							else
+								y<= idle;
+							end if;
 						end if;
+					elsif tempo_out_int < 61 then 
+								y <= idle;
 					else 
 						y <= idle;
 					end if;
 				when others =>
 					y<= idle;
-				end case;
+			end case;
 			end if;
 		end if;
 	end process;
@@ -181,11 +202,11 @@ begin
 		end case;
 	end process;
 	
-
+	tempo_reset <= reset OR NOT tempo_mode;
 	reg: tempo_reg 
 	port map(
 		clk => slowclk,
-		reset => reset,
+		reset => tempo_reset,
 		en =>reg_write_en,
 		tempo_val => tempo_val,
 		data_in => tempo_reg_in,
@@ -207,6 +228,7 @@ begin
 	
 	tempo_out <= tempo_reg_out;
 
+	tempo_out_int <= to_integer(unsigned(tempo_reg_out));
 --	tempo_val_int <= to_integer(unsigned(tempo_val));
 --	lower_limit <= tempo_val_int - 60;
 --	upper_limit <= 200 - tempo_val_int;

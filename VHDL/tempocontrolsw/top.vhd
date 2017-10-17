@@ -65,7 +65,9 @@ architecture Behavioral of top is
 	signal sig_tempo_val: std_logic_vector(7 downto 0);
 	signal sig_tempo_out: std_logic_vector(7 downto 0);
 begin
-	sig_tempo_val <= "01111000"; --120
+	--sig_tempo_val <= "01111000"; --120
+	--sig_tempo_val <= "10111110"; --190
+	sig_tempo_val <="01000001"; --165
 	
 	switches: swtempo 
 	port map (
