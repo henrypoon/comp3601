@@ -1,7 +1,9 @@
 NET "speaker" LOC = "T14";
 NET "clk" LOC = "A8";
 NET "reset" LOC = "J13";
-NET "reset" CLOCK_DEDICATED_ROUTE = FALSE;
+NET "reset_mem" LOC = "K14";
+NET "reset_sense" LOC = "K13";
+NET "reset_sense" CLOCK_DEDICATED_ROUTE = FALSE;
 NET "play" LOC = "N15"; # sw(0)
 NET "tempo_mode" LOC = "J16";
 NET "tempo_mode" CLOCK_DEDICATED_ROUTE = FALSE;

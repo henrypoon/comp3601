@@ -27,34 +27,34 @@ begin
 		--first line(timing and bpm) = TTBBBBBBBB00
 		--other LINES(note and dura) = NNNNNNDDDD00
 		--------------------------------------------
---		sig_data_mem(0)  <= "010111100000";--timing = slurred, bpm = 120		
+		sig_data_mem(0)  <= "010111100000";--timing = slurred, bpm = 120		
 --		--mary had a little lamb
---		sig_data_mem(1)  <= "000111010000";
---		sig_data_mem(2)  <= "000100010000";
---		sig_data_mem(3)  <= "000010010000";
---		sig_data_mem(4)  <= "000100010000";
---		sig_data_mem(5)  <= "000111010000";
---		sig_data_mem(6)  <= "000111010000";
---		sig_data_mem(7)  <= "000111010000";
---		sig_data_mem(8)  <= "000100010000";
---		sig_data_mem(9)  <= "000100010000";
---		sig_data_mem(10) <= "000100010000";
---		sig_data_mem(11) <= "000111010000";
---		sig_data_mem(12) <= "001001010000";
---		sig_data_mem(13) <= "001001010000";
---		sig_data_mem(14) <= "000111010000";
---		sig_data_mem(15) <= "000100010000";
---		sig_data_mem(16) <= "000010010000";
---		sig_data_mem(17) <= "000100010000";
---		sig_data_mem(18) <= "000111010000";
---		sig_data_mem(19) <= "000111010000";
---		sig_data_mem(20) <= "000111010000";
---		sig_data_mem(21) <= "000111010000";
---		sig_data_mem(22) <= "000100010000";
---		sig_data_mem(23) <= "000100010000";
---		sig_data_mem(24) <= "000111010000";
---		sig_data_mem(25) <= "000100010000";
---		sig_data_mem(26) <= "000010010000";
+		sig_data_mem(1)  <= "000111010000";
+		sig_data_mem(2)  <= "000100010000";
+		sig_data_mem(3)  <= "000010010000";
+		sig_data_mem(4)  <= "000100010000";
+		sig_data_mem(5)  <= "000111010000";
+		sig_data_mem(6)  <= "000111010000";
+		sig_data_mem(7)  <= "000111010000";
+		sig_data_mem(8)  <= "000100010000";
+		sig_data_mem(9)  <= "000100010000";
+		sig_data_mem(10) <= "000100010000";
+		sig_data_mem(11) <= "000111010000";
+		sig_data_mem(12) <= "001001010000";
+		sig_data_mem(13) <= "001001010000";
+		sig_data_mem(14) <= "000111010000";
+		sig_data_mem(15) <= "000100010000";
+		sig_data_mem(16) <= "000010010000";
+		sig_data_mem(17) <= "000100010000";
+		sig_data_mem(18) <= "000111010000";
+		sig_data_mem(19) <= "000111010000";
+		sig_data_mem(20) <= "000111010000";
+		sig_data_mem(21) <= "000111010000";
+		sig_data_mem(22) <= "000100010000";
+		sig_data_mem(23) <= "000100010000";
+		sig_data_mem(24) <= "000111010000";
+		sig_data_mem(25) <= "000100010000";
+		sig_data_mem(26) <= "000010010000";
     elsif falling_edge(clk) then
 		
       if write_enable = '1' then

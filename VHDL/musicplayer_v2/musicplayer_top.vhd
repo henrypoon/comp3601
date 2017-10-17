@@ -24,7 +24,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 USE ieee.numeric_std.ALL;
 entity musicplayer_top is
 	port (clk 	  : in std_logic;
-			reset	  : in std_logic;
+			reset	  : in std_logic; -- everything except memory button 0
+			reset_mem : in std_logic; -- memory reset button 1
+			reset_sense: in std_logic; --sensor reset button 2
 			play		  : in std_logic; --sw0
 			tempo_mode:	in std_logic; -- sw1, switches between tempo in file to dynaimic tempo
 			--tempo_val	: in std_logic_vector (5 downto 0); --sw2 to 8 used for testing
@@ -191,16 +193,23 @@ architecture Behavioral of musicplayer_top is
 	signal sig_play : std_logic;
 	signal sig_tempo_mux_out : std_logic_vector (11 downto 0);
 	signal sig_tempo_mux_b : std_logic_vector (11 downto 0);
+	signal sig_music_counter_reset: std_logic;
+	--signal sig_note_timer_en: std_logic;
+	
+	
 	--fsm
-	TYPE State_Type IS (load, idle, read_note, play_note); ---added handshake state
+	TYPE State_Type IS (load, idle, read_note, play_note);--, pause1, pause2); ---added handshake state
 	SIGNAL y : State_Type;
 	signal sig_load_done: std_logic;
 	
 begin
+
+	sig_music_counter_reset <= reset OR NOT sig_play;
+
 	music_counter: register_8b 
 	port map(
 		clk => clk,
-		reset => reset, --will need to alter later for restarts
+		reset => sig_music_counter_reset, --will need to alter later for restarts
 		--enable => sig_music_counter_en,
 		enable => sig_add_en,
 		data_in => sig_next_addr,
@@ -256,7 +265,7 @@ begin
 	
 	mem: memory
 	port map (
-		reset => reset,
+		reset => reset_mem,
 		clk => clk,
 		write_enable => sig_write_en,
 		write_data => sig_write_data,
@@ -301,7 +310,7 @@ begin
       pulse => pulse,
       timerSwitch => tempo_mode,
       trig => trig,
-		rst => reset,
+		rst => reset_sense,
       swingValue => tempo_val  
 	);
 	
@@ -344,45 +353,55 @@ begin
 	sig_play <= play;
 	sig_add_en <= sig_sound_done;
 	
-	--control
+	--note silence
 	--takes in the done signal from the sound generator and counts to 2500000(? aka 1/20 of a second) 
 	--before outputing the sig_load_done output as high
-	save_done_sig:process(sig_sound_done, sig_sound_en)
+	save_done_sig:process(sig_sound_done, sig_sound_en)--, sig_note_timer_en)
 	--signal sig_load_timer : std_logic;
 	begin
-		if sig_sound_done = '1' then
-			sig_load_timer <= '1';
-		elsif sig_sound_en = '1' then
-			sig_load_timer <= '0';
-		end if;
+--		if sig_note_timer_en ='1' then 
+			if sig_sound_done = '1' then
+				sig_load_timer <= '1';
+			elsif sig_sound_en = '1' then
+				sig_load_timer <= '0';
+		--else
+		--elsif rising_edge(sig_play) then 
+			--sig_load_timer <= '1';
+			end if;
+	--	end if;
 	end process;
 	
 	rest_time: process(clk, sig_play, sig_load_timer)
 	--signal rest_counter: integer
 	begin
-		if sig_play = '0' then
-			rest_counter <= 0;
-			sig_sound_en <= '0';
-			--speaker <= '0';
-			sig_load_done <= '0';
-		elsif rising_edge(clk) and sig_load_timer = '1' then
-			--if rest_counter < 1000000 then --slurred?
-			--if rest_counter < 500000 then
-			--if rest_counter < 30000000 then --normal?
-			--if sig_tempo_data(11 downto 10) = "00" then
-
-			
-			if rest_counter < rest_max then 
-				rest_counter <= rest_counter +1;
-				sig_sound_en <= '0';
-				sig_load_done <= '0';
-				--speaker <= '0';
-			else
-				sig_sound_en <= '1';
+		--if sig_note_timer_en = '1' then
+			if sig_play = '0' then
 				rest_counter <= 0;
-				sig_load_done <= '1';
+				sig_sound_en <= '0';
+				--speaker <= '0';
+				sig_load_done <= '0';
+			elsif rising_edge(clk) then
+		
+				if sig_load_timer = '1' then
+					--if rest_counter < 1000000 then --slurred?
+					--if rest_counter < 500000 then
+					--if rest_counter < 30000000 then --normal?
+					--if sig_tempo_data(11 downto 10) = "00" then
+					if rest_counter < rest_max then 
+						rest_counter <= rest_counter +1;
+						sig_sound_en <= '0';
+						sig_load_done <= '0';
+				--speaker <= '0';
+					else
+						sig_sound_en <= '1';
+						rest_counter <= 0;
+						sig_load_done <= '1';
+					end if;
 				--speaker <= sig_sound_gen_out;
-			end if;
+			--else 
+				--sig_sound_done <= '1';
+				end if;	
+		--	end if;
 		end if;
 	end process;
 	
@@ -395,7 +414,7 @@ begin
 		end case;
 	end process;
 	
-	
+--	control
 	fsm_transitions: process (clk, sig_play, sig_load_done, sig_sound_done, reset, sig_epp_done)
 	begin
 		if reset = '1' then
@@ -419,15 +438,31 @@ begin
 				when read_note =>
 					if sig_load_done = '1' then
 						y <= play_note;
+					elsif sig_play = '0' then
+						y <= idle; -- pause1;
 					else
 						y <= read_note;
 					end if;
+			--	when pause1 =>
+			--		if sig_play = '1' then 
+			--			y <= read_note;
+			--		else 
+			--			y <= pause1;
+			--		end if;
 				when play_note => 
 					if sig_sound_done = '1' then
 						y <= read_note;
+					elsif sig_play = '0' then
+						y <= idle;-- pause2;
 					else
 						y <= play_note;
 					end if;
+			--	when pause2 => 
+			--		if sig_play = '1' then 
+			--			y <= read_note;
+			--		else 
+			--			y <= pause1;
+			--		end if;
 			end case;
 		end if;
 	end process;
@@ -454,10 +489,10 @@ begin
 				sig_buffer_reg_en <= '0'; 
 				sig_tempo_reg_en <= '0'; 
 				--sig_sound_en <= '0';
-				
+--				sig_note_timer_en <= '0';
 			when read_note =>
 				speaker <= '0';
-				
+			--	sig_note_timer_en <= '1';
 				if sig_curr_addr = sig_zero then 
 					sig_buffer_reg_en <= '0';
 					sig_tempo_reg_en <= '1';
@@ -465,11 +500,20 @@ begin
 					sig_buffer_reg_en <= '1';
 					sig_tempo_reg_en <= '0';
 				end if;
+				
+			--when pause1 =>
+			--sig_note_timer_en <= '0'; 
+			
 			when play_note =>
 			--	sig_sound_en <= '1';
+			--sig_note_timer_en <= '1';
 				sig_buffer_reg_en <= '0';
 				sig_tempo_reg_en <= '0';
 				speaker <= sig_sound_gen_out; 
+				
+			--when pause2 =>
+			--	speaker <= '0';
+			--	sig_note_timer_en <= '0';
 		end case;
 	end process;
 		
