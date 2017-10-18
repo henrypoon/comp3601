@@ -19,6 +19,19 @@ import Svg,{
 const pinkIMG = require('../../../../assets/img/Grid/pink.png');
 
 export const ProcessBar = ({ song, setSelected, selected, mode }) => {
+  const displayRect = (i, random) => {
+    if (i === selected) {
+      return(
+        <Rect x="0" y="0" width="50" stroke='#ff0a3b' height="50" strokeWidth="5" fill={random} />
+      );
+    } else {
+      return(
+        <Rect x="0" y="0" width="50" height="50" strokeWidth="5" fill={random} /> 
+      );
+    }
+  };
+
+
   return (
     <View style={{ flex: 1 }}>
       <ScrollView
@@ -38,9 +51,9 @@ export const ProcessBar = ({ song, setSelected, selected, mode }) => {
                   <Svg height="70" width="55">
                     <Text style={{ color: 'white', left: x, top: 7 }}>{e.notes} </Text>
                     <Text style={{ color: 'white', left: x, top: 15 }}>{e.duration} </Text>
-                    <Rect x="0" y="0" width="50" stroke={stroke} height="50" strokeWidth="5" fill={random} />
+                    {displayRect(i, random)}
                   </Svg>
-                </TouchableOpacity>;
+                </TouchableOpacity>
       })}
       </ScrollView>
     </View>

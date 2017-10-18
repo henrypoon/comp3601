@@ -4,7 +4,7 @@ import constants from './actionConstants';
 import { AlertIOS } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-var url = 'http://192.168.0.4:3000/';
+var url = 'http://192.168.43.63:3000/';
 
 const { 
 	SET_OCTAVE, 

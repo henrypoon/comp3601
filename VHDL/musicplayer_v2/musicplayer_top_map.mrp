@@ -9,37 +9,40 @@ Target Device  : xc3s400
 Target Package : ft256
 Target Speed   : -5
 Mapper Version : spartan3 -- $Revision: 1.55 $
-Mapped Date    : Sun Oct 08 22:03:54 2017
+Mapped Date    : Wed Oct 18 16:59:07 2017
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    1
+Number of warnings:    3
 Logic Utilization:
-  Total Number Slice Registers:         141 out of   7,168    1%
-    Number used as Flip Flops:          140
-    Number used as Latches:               1
-  Number of 4 input LUTs:             1,455 out of   7,168   20%
+  Total Number Slice Registers:       2,938 out of   7,168   40%
+    Number used as Flip Flops:        2,903
+    Number used as Latches:              35
+  Number of 4 input LUTs:             3,791 out of   7,168   52%
 Logic Distribution:
-  Number of occupied Slices:            846 out of   3,584   23%
-    Number of Slices containing only related logic:     846 out of     846 100%
-    Number of Slices containing unrelated logic:          0 out of     846   0%
+  Number of occupied Slices:          3,370 out of   3,584   94%
+    Number of Slices containing only related logic:   3,370 out of   3,370 100%
+    Number of Slices containing unrelated logic:          0 out of   3,370   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:       1,586 out of   7,168   22%
-    Number used as logic:             1,455
-    Number used as a route-thru:        131
+  Total Number of 4 input LUTs:       3,987 out of   7,168   55%
+    Number used as logic:             3,790
+    Number used as a route-thru:        196
+    Number used as Shift registers:       1
 
   The Slice Logic Distribution report is not meaningful if the design is
   over-mapped for a non-slice resource or if Placement fails.
 
-  Number of bonded IOBs:                 11 out of     173    6%
-  Number of BUFGMUXs:                     1 out of       8   12%
+  Number of bonded IOBs:                 35 out of     173   20%
+    IOB Latches:                          1
+  Number of MULT18X18s:                   1 out of      16    6%
+  Number of BUFGMUXs:                     2 out of       8   25%
 
-Average Fanout of Non-Clock Nets:                3.45
+Average Fanout of Non-Clock Nets:                3.67
 
-Peak Memory Usage:  234 MB
-Total REAL time to MAP completion:  3 secs 
-Total CPU time to MAP completion:   2 secs 
+Peak Memory Usage:  249 MB
+Total REAL time to MAP completion:  6 secs 
+Total CPU time to MAP completion:   6 secs 
 
 NOTES:
 
@@ -84,6 +87,12 @@ WARNING:Pack:249 - The following adjacent carry multiplexers occupy different
    slice components.  The resulting carry chain will have suboptimal timing.
    	Mcompar_sig_load_done_cmp_lt0000_cy<26>
    	Mcount_rest_counter_cy<0>
+WARNING:PhysDesignRules:372 - Gated clock. Clock net memoryWrite_OBUF is sourced
+   by a combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net y_cmp_eq0001 is sourced by
+   a combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
 
 Section 3 - Informational
 -------------------------
@@ -94,7 +103,7 @@ INFO:LIT:244 - All of the single ended outputs in this design are using slew
 
 Section 4 - Removed Logic Summary
 ---------------------------------
-   2 block(s) optimized away
+   3 block(s) optimized away
 
 Section 5 - Removed Logic
 -------------------------
@@ -114,17 +123,41 @@ Section 6 - IOB Properties
 | IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
 |                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| astb                               | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | clk                                | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| displayOut<0>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| displayOut<1>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| displayOut<2>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| displayOut<3>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| dstb                               | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| loaddone                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| memoryWrite                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pdb<0>                             | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pdb<1>                             | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pdb<2>                             | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pdb<3>                             | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pdb<4>                             | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pdb<5>                             | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pdb<6>                             | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pdb<7>                             | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | play                               | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| pulse                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| pwait                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pwr                                | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | reset                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| speaker                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| reset_mem                          | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| reset_sense                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| segments<0>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| segments<1>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| segments<2>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| segments<3>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| segments<4>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| segments<5>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| segments<6>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| segments<7>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| speaker                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OLATCH1      |          |          |
 | tempo_mode                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| tempo_val<0>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| tempo_val<1>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| tempo_val<2>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| tempo_val<3>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| tempo_val<4>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| tempo_val<5>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| trig                               | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Section 7 - RPMs

@@ -5,3 +5,16 @@ par -w -intstyle ise -ol high -t 1 musicplayer_top_map.ncd musicplayer_top.ncd m
 trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf 
 bitgen -intstyle ise -f musicplayer_top.ut musicplayer_top.ncd 
 bitgen -intstyle ise -f musicplayer_top.ut musicplayer_top.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/musicplayer_top.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/musicplayer_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-5 musicplayer_top.ngc musicplayer_top.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
+par -w -intstyle ise -ol high -t 1 musicplayer_top_map.ncd musicplayer_top.ncd musicplayer_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf 
+bitgen -intstyle ise -f musicplayer_top.ut musicplayer_top.ncd 
+bitgen -intstyle ise -f musicplayer_top.ut musicplayer_top.ncd 
+xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/musicplayer_top.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/musicplayer_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-5 musicplayer_top.ngc musicplayer_top.ngd  
+map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
+par -w -intstyle ise -ol high -t 1 musicplayer_top_map.ncd musicplayer_top.ncd musicplayer_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf 
+bitgen -intstyle ise -f musicplayer_top.ut musicplayer_top.ncd 

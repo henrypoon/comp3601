@@ -4,7 +4,7 @@ import FadeInView from 'react-native-fade-in-view';
 import { connect } from 'react-redux';
 
 const pink = require('../../../../assets/img/Grid/pink_num.png');
-const blue = require('../../../../assets/img/Grid/blue.png');
+const blue = require('../../../../assets/img/Grid/blue_n.png');
 const blue_s = require('../../../../assets/img/Grid/blue_s.png');
 const blue_b = require('../../../../assets/img/Grid/blue_b.png');
 const orange = require('../../../../assets/img/Grid/orange_num.png');

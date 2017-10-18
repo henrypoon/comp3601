@@ -4,7 +4,7 @@ import constants from './actionConstants';
 import { Actions } from 'react-native-router-flux';
 import { AlertIOS } from 'react-native';
 
-var url = 'http://192.168.0.4:3000/';
+var url = 'http://192.168.43.63:3000/';
 
 const { SET_DATA, PLAY_MUSIC, DELETE_SONG } = constants;
 

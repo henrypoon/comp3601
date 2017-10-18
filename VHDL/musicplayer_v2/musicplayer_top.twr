@@ -45,21 +45,31 @@ Setup/Hold to clock clk
             |Max Setup to|Max Hold to |                  | Clock  |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------------+--------+
-reset       |    4.137(R)|   -2.001(R)|clk_BUFGP         |   0.000|
-tempo_mode  |   17.591(R)|   -4.698(R)|clk_BUFGP         |   0.000|
-            |   14.508(F)|   -4.182(F)|clk_BUFGP         |   0.000|
-tempo_val<0>|   16.656(R)|   -5.104(R)|clk_BUFGP         |   0.000|
-            |   13.402(F)|   -4.172(F)|clk_BUFGP         |   0.000|
-tempo_val<1>|   16.451(R)|   -4.952(R)|clk_BUFGP         |   0.000|
-            |   13.337(F)|   -4.481(F)|clk_BUFGP         |   0.000|
-tempo_val<2>|   15.717(R)|   -4.787(R)|clk_BUFGP         |   0.000|
-            |   12.172(F)|   -3.954(F)|clk_BUFGP         |   0.000|
-tempo_val<3>|   16.118(R)|   -4.651(R)|clk_BUFGP         |   0.000|
-            |   13.418(F)|   -3.380(F)|clk_BUFGP         |   0.000|
-tempo_val<4>|   14.326(R)|   -4.397(R)|clk_BUFGP         |   0.000|
-            |   11.999(F)|   -3.750(F)|clk_BUFGP         |   0.000|
-tempo_val<5>|   14.203(R)|   -5.023(R)|clk_BUFGP         |   0.000|
-            |   10.772(F)|   -4.250(F)|clk_BUFGP         |   0.000|
+astb        |    2.656(R)|    0.711(R)|clk_BUFGP         |   0.000|
+dstb        |    1.696(R)|    0.392(R)|clk_BUFGP         |   0.000|
+pdb<0>      |    2.081(R)|    0.342(R)|clk_BUFGP         |   0.000|
+pdb<1>      |    1.808(R)|    0.562(R)|clk_BUFGP         |   0.000|
+pdb<2>      |    1.254(R)|    0.529(R)|clk_BUFGP         |   0.000|
+pdb<3>      |    1.785(R)|    0.815(R)|clk_BUFGP         |   0.000|
+pdb<4>      |    0.656(R)|    0.770(R)|clk_BUFGP         |   0.000|
+pdb<5>      |    0.861(R)|    1.056(R)|clk_BUFGP         |   0.000|
+pdb<6>      |    0.990(R)|    0.534(R)|clk_BUFGP         |   0.000|
+pdb<7>      |    0.909(R)|    0.818(R)|clk_BUFGP         |   0.000|
+play        |    3.065(R)|   -0.868(R)|clk_BUFGP         |   0.000|
+pulse       |    4.467(R)|    0.701(R)|clk_BUFGP         |   0.000|
+pwr         |    2.325(R)|    0.358(R)|clk_BUFGP         |   0.000|
+reset       |    2.680(R)|   -0.835(R)|clk_BUFGP         |   0.000|
+reset_mem   |    3.821(F)|   -0.598(F)|clk_BUFGP         |   0.000|
+tempo_mode  |   19.151(R)|   -3.490(R)|clk_BUFGP         |   0.000|
+            |   19.545(F)|   -4.546(F)|clk_BUFGP         |   0.000|
+------------+------------+------------+------------------+--------+
+
+Setup/Hold to clock reset_sense
+------------+------------+------------+------------------+--------+
+            |Max Setup to|Max Hold to |                  | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+------------+------------+------------+------------------+--------+
+tempo_mode  |    4.008(R)|    1.952(R)|reset_sense_IBUF  |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Clock clk to Pad
@@ -67,7 +77,18 @@ Clock clk to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-speaker     |   11.428(R)|clk_BUFGP         |   0.000|
+loaddone    |   11.860(R)|clk_BUFGP         |   0.000|
+memoryWrite |   11.236(R)|clk_BUFGP         |   0.000|
+pdb<0>      |   13.603(R)|clk_BUFGP         |   0.000|
+pdb<1>      |   12.220(R)|clk_BUFGP         |   0.000|
+pdb<2>      |   10.569(R)|clk_BUFGP         |   0.000|
+pdb<3>      |   11.994(R)|clk_BUFGP         |   0.000|
+pdb<4>      |   10.698(R)|clk_BUFGP         |   0.000|
+pdb<5>      |   10.111(R)|clk_BUFGP         |   0.000|
+pdb<6>      |   10.216(R)|clk_BUFGP         |   0.000|
+pdb<7>      |   10.997(R)|clk_BUFGP         |   0.000|
+pwait       |    9.171(R)|clk_BUFGP         |   0.000|
+trig        |    8.040(R)|clk_BUFGP         |   0.000|
 ------------+------------+------------------+--------+
 
 Clock to Setup on destination clock clk
@@ -75,18 +96,50 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |   22.931|    4.702|   12.103|    7.397|
+clk            |   33.586|    6.927|   18.379|    8.369|
+reset_sense    |   24.780|         |   24.601|         |
 ---------------+---------+---------+---------+---------+
 
+Clock to Setup on destination clock reset_sense
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    9.258|         |         |         |
+reset_sense    |    4.238|         |         |         |
+---------------+---------+---------+---------+---------+
 
-Analysis completed Sun Oct 08 22:04:21 2017 
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+astb           |pdb<0>         |   10.423|
+astb           |pdb<1>         |   10.130|
+astb           |pdb<2>         |    8.278|
+astb           |pdb<3>         |    8.260|
+astb           |pdb<4>         |    8.611|
+astb           |pdb<5>         |    8.628|
+astb           |pdb<6>         |    8.943|
+astb           |pdb<7>         |    9.531|
+pwr            |pdb<0>         |    8.147|
+pwr            |pdb<1>         |    8.151|
+pwr            |pdb<2>         |    8.706|
+pwr            |pdb<3>         |    8.451|
+pwr            |pdb<4>         |    9.024|
+pwr            |pdb<5>         |    7.805|
+pwr            |pdb<6>         |    8.105|
+pwr            |pdb<7>         |    9.323|
+---------------+---------------+---------+
+
+
+Analysis completed Wed Oct 18 17:00:45 2017 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 134 MB
+Peak Memory Usage: 166 MB
 
 
 
