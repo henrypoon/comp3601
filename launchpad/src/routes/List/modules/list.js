@@ -2,6 +2,7 @@ import update from 'react-addons-update';
 import axios from 'axios';
 import constants from './actionConstants';
 import { Actions } from 'react-native-router-flux';
+import { AlertIOS } from 'react-native';
 
 var url = 'http://192.168.0.4:3000/';
 
@@ -26,6 +27,7 @@ export function playMusic(payload) {
 	const api = url + 'songs/play/' + payload;
 	axios.post(api)
 		.then((response) => {
+			AlertIOS.alert('Song has been transferred to FPGA borad!');
 			console.log(response);
 		})
 		.catch((error) => {

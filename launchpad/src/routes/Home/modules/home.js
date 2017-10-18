@@ -16,7 +16,8 @@ const {
 	SAVE_MUSIC,
 	SET_SELECTED,
 	SET_SIGN,
-	LOAD_SONG
+	LOAD_SONG,
+	SET_SONGID
 } = constants;
 
 export function setSign() {
@@ -81,63 +82,66 @@ export function playMusic() {
 	};
 }
 
-export function saveMusic() {
+export function saveMusic(filename) {
 	return (dispatch, store) => {
 		console.log(store().home.song);
 		let song = '';
 		let length = 0;
+		const mode = store().setting.mode;
 		const bpm = store().setting.bpm;
-
-		// var mapping = (duration) => {
-		// 	case '1/4':
-
-		// 	case '1/3':
-
-		// 	case '1/2':
-
-		// 	case '3/4':
-
-		// 	case '1':
-
-		// 	case '1 1/2':
-
-		// 	case '2'
-
-		// 	case '3':
-
-		// 	case '4':
-
-		// 	case '8' 
-		// };
-
 		store().home.song.map((e) => {
 			song = song + e.notes + '|' + e.duration + '|';
 			length += e.duration;
 		});
 		console.log(length);
 		song = song.slice(0, song.length - 1);
-		const jsonToSend = {
-			notes: song,
-			mode: 'normal',
-			name: 'test',
-			description: 'heeeee',
-			length: length/1000,
-			bpm: bpm
-		};
-		console.log(jsonToSend);
 
-		axios.post(url + 'songs', jsonToSend)
-			.then((response) => {
-				console.log(response);
-				// AlertIOS.alert('Save Successfully!');
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-		dispatch({
-			type: SAVE_MUSIC,
-			payload: null
-		});
+		if (store().home.mode === 'new') {
+			const jsonToSend = {
+				notes: song,
+				mode,
+				name: filename,
+				length: length/1000,
+				bpm
+			};
+			console.log(jsonToSend);
+
+			axios.post(url + 'songs', jsonToSend)
+				.then((response) => {
+					console.log(response);
+					const id = response.data.data.id;
+					AlertIOS.alert('Save Successfully!');
+					dispatch({
+						type: SAVE_MUSIC,
+						payload: 'edit'
+					});
+					dispatch({
+						type: SET_SONGID,
+						payload: id
+					});
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		} else {
+			const jsonToSend = {
+				notes: song,
+				mode,
+				length: length/1000,
+				bpm
+			};
+			// console.log(jsonToSend);
+			const songid = store().home.songid;
+			console.log(songid);
+			axios.put(url + 'songs/' + songid, jsonToSend)
+				.then((response) => {
+					console.log(response);
+					// AlertIOS.alert('Save Successfully!');
+				})
+				.catch((error) => {
+					console.log(error);
+				});			
+		}
 	};
 }
 
@@ -231,11 +235,12 @@ export function loadSong(payload) {
 					song.push(element);
 				}
 			});
-			console.log(song);
-
+			const id = response.data.data.id;
+			// console.log(id);
 			dispatch({
 				type: LOAD_SONG,
-				payload: song
+				song,
+				id
 			});
 			Actions.home();
 		})
@@ -245,10 +250,24 @@ export function loadSong(payload) {
 	};
 }
 
+function handleSaveMusic(state, action) {
+	return update(state, {
+		mode: {
+			$set: action.payload
+		}
+	});
+}
+
 function handleLoadSong(state, action) {
 	return update(state, {
 		song: {
-			$set: action.payload
+			$set: action.song
+		},
+		songid: {
+			$set: action.id
+		},
+		mode: {
+			$set: 'edit'
 		}
 	});
 }
@@ -309,6 +328,14 @@ function handleSetSign(state, action) {
 	});
 }
 
+function handleSetSongId(state, action) {
+	return update(state, {
+		songid: {
+			$set: action.payload
+		}
+	});
+}
+
 const ACTION_HANDLERS = {
 	SET_OCTAVE: handleSetOctave,
 	SET_DURATION: handleSetDuration,
@@ -317,7 +344,9 @@ const ACTION_HANDLERS = {
 	DELETE_NOTE: handleDeteleNote,
 	SET_SELECTED: handleSetSelected,
 	SET_SIGN: handleSetSign,
-	LOAD_SONG: handleLoadSong
+	LOAD_SONG: handleLoadSong,
+	SAVE_MUSIC: handleSaveMusic,
+	SET_SONGID: handleSetSongId
 };
 
 const initialState = {

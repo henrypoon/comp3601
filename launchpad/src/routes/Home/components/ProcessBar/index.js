@@ -19,7 +19,6 @@ import Svg,{
 const pinkIMG = require('../../../../assets/img/Grid/pink.png');
 
 export const ProcessBar = ({ song, setSelected, selected, mode }) => {
-  console.log(song);
   return (
     <View style={{ flex: 1 }}>
       <ScrollView

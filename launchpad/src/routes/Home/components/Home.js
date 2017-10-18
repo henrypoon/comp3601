@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StatusBar } from 'react-native';
+import { View, Text, StatusBar, AlertIOS } from 'react-native';
 import { RkButton } from 'react-native-ui-kitten';
 import { Header, Left, Body, Right, Button, Title } from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -8,7 +8,6 @@ import SliderBar from './SliderBar';
 import Launchpad from './Launchpad';
 import ProcessBar from './ProcessBar';
 import { Dropdown } from 'react-native-material-dropdown';
-import { AlertIOS } from 'react-native';
 
 class Home extends React.Component {
 
@@ -18,7 +17,26 @@ class Home extends React.Component {
 		this.props.setSelected(-1);
 	}
 
+
+
 	render() {
+		const renderSaveButton = () => {
+			if (this.props.mode === 'new') {
+				return (
+					<RkButton rkType='danger rounded' onPress={() => {
+						AlertIOS.prompt(
+							'Enter a song name',
+							null,
+							text => this.props.saveMusic(text)
+						);
+					}}>Save</RkButton>
+				);
+			}
+			return (
+				<RkButton rkType='danger rounded' onPress={this.props.saveMusic}>Save</RkButton>
+			);
+		};
+
 		let duractionList = [{
 			value: '1/4',
 		}, {
@@ -89,13 +107,7 @@ class Home extends React.Component {
 					<Launchpad setCurrentNote={this.props.setCurrentNote} setSign={this.props.setSign} octave={this.props.octave} />
 					<View style={{ flexDirection: 'row' }}>
 						<RkButton rkType='success rounded' onPress={this.props.playMusic}>Play</RkButton>
-						<RkButton rkType='danger rounded' onPress={() => {
-							AlertIOS.prompt(
-							  'Enter a value',
-							  null,
-							  text => console.log("You entered "+text)
-							);
-						}}>Save</RkButton>
+						{renderSaveButton()}
 						<RkButton rkType='warning rounded' onPress={() => Actions.list()}>Album</RkButton>
 					</View>
 				</View>
