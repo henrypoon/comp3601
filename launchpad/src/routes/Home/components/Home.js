@@ -104,7 +104,7 @@ class Home extends React.Component {
 						<RkButton rkType='success rounded' onPress={this.props.addToSong}>Add</RkButton>
 						<RkButton rkType='danger rounded' onPress={this.props.deleteNote}>Delete</RkButton>
 					</View>
-					<Launchpad setCurrentNote={this.props.setCurrentNote} setSign={this.props.setSign} octave={this.props.octave} />
+					<Launchpad setCurrentNote={this.props.setCurrentNote} setSign={this.props.setSign} octave={this.props.octave} sign={this.props.sign} />
 					<View style={{ flexDirection: 'row' }}>
 						<RkButton rkType='success rounded' onPress={this.props.playMusic}>Play</RkButton>
 						{renderSaveButton()}
