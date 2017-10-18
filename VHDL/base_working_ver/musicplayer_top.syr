@@ -1,0 +1,1847 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> Reading design: musicplayer_top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "musicplayer_top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "musicplayer_top"
+Output Format                      : NGC
+Target Device                      : xc3s400-5-ft256
+
+---- Source Options
+Top Module Name                    : musicplayer_top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/clock_divider.vhd" in Library work.
+Architecture behavioral of Entity clock_divider is up to date.
+Compiling vhdl file "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/note_timer.vhd" in Library work.
+Architecture behavioral of Entity note_timer is up to date.
+Compiling vhdl file "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/SevenSegment.vhd" in Library work.
+Architecture my_sseg of Entity sevensegment is up to date.
+Compiling vhdl file "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/bin2bcd.vhd" in Library work.
+Architecture behavioral of Entity bin2bcd is up to date.
+Compiling vhdl file "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/trySense.vhd" in Library work.
+Architecture behavioral of Entity trysense is up to date.
+Compiling vhdl file "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/timer.vhd" in Library work.
+Architecture behavioral of Entity timermod is up to date.
+Compiling vhdl file "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/swingCounter.vhd" in Library work.
+Architecture behavioral of Entity swingmodule is up to date.
+Compiling vhdl file "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/register_8b.vhd" in Library work.
+Architecture behavioral of Entity register_8b is up to date.
+Compiling vhdl file "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/mux2to1_8b.vhd" in Library work.
+Architecture behavioral of Entity mux2to1_8b is up to date.
+Compiling vhdl file "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/adder_8b.vhd" in Library work.
+Architecture behavioural of Entity adder_8b is up to date.
+Compiling vhdl file "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/eppctrl.vhd" in Library work.
+Architecture behavioral of Entity eppctrl is up to date.
+Compiling vhdl file "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/memory.vhd" in Library work.
+Architecture behavioral of Entity memory is up to date.
+Compiling vhdl file "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/register_12b.vhd" in Library work.
+Architecture behavioral of Entity register_12b is up to date.
+Compiling vhdl file "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/sensorComponent.vhd" in Library work.
+Architecture behavioral of Entity sensorcomponent is up to date.
+Compiling vhdl file "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/sevenSeg2.vhd" in Library work.
+Architecture behavioral of Entity sevenseg2 is up to date.
+Compiling vhdl file "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/sound_generator.vhd" in Library work.
+Architecture behavioral of Entity sound_generator is up to date.
+Compiling vhdl file "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/musicplayer_top.vhd" in Library work.
+Entity <musicplayer_top> compiled.
+Entity <musicplayer_top> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <musicplayer_top> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <register_8b> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <mux2to1_8b> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <adder_8b> in library <work> (architecture <behavioural>).
+
+Analyzing hierarchy for entity <eppctrl> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <memory> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <register_12b> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <sensorComponent> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <sevenSeg2> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <sound_generator> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <trySense> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <timerMod> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <swingmodule> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <SevenSegment> in library <work> (architecture <my_sseg>).
+
+Analyzing hierarchy for entity <bin2bcd> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <clock_divider> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <note_timer> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <musicplayer_top> in library <work> (Architecture <behavioral>).
+WARNING:Xst:819 - "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/musicplayer_top.vhd" line 427: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <sig_epp_write_en>, <sig_sound_gen_out>
+Entity <musicplayer_top> analyzed. Unit <musicplayer_top> generated.
+
+Analyzing Entity <register_8b> in library <work> (Architecture <behavioral>).
+Entity <register_8b> analyzed. Unit <register_8b> generated.
+
+Analyzing Entity <mux2to1_8b> in library <work> (Architecture <behavioral>).
+Entity <mux2to1_8b> analyzed. Unit <mux2to1_8b> generated.
+
+Analyzing Entity <adder_8b> in library <work> (Architecture <behavioural>).
+Entity <adder_8b> analyzed. Unit <adder_8b> generated.
+
+Analyzing Entity <eppctrl> in library <work> (Architecture <behavioral>).
+Entity <eppctrl> analyzed. Unit <eppctrl> generated.
+
+Analyzing Entity <memory> in library <work> (Architecture <behavioral>).
+Entity <memory> analyzed. Unit <memory> generated.
+
+Analyzing Entity <register_12b> in library <work> (Architecture <behavioral>).
+Entity <register_12b> analyzed. Unit <register_12b> generated.
+
+Analyzing Entity <sensorComponent> in library <work> (Architecture <behavioral>).
+Entity <sensorComponent> analyzed. Unit <sensorComponent> generated.
+
+Analyzing Entity <trySense> in library <work> (Architecture <behavioral>).
+Entity <trySense> analyzed. Unit <trySense> generated.
+
+Analyzing Entity <timerMod> in library <work> (Architecture <behavioral>).
+Entity <timerMod> analyzed. Unit <timerMod> generated.
+
+Analyzing Entity <swingmodule> in library <work> (Architecture <behavioral>).
+WARNING:Xst:1610 - "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/swingCounter.vhd" line 61: Width mismatch. <tomult> has a width of 8 bits but assigned expression is 12-bit wide.
+Entity <swingmodule> analyzed. Unit <swingmodule> generated.
+
+Analyzing Entity <sevenSeg2> in library <work> (Architecture <behavioral>).
+Entity <sevenSeg2> analyzed. Unit <sevenSeg2> generated.
+
+Analyzing Entity <SevenSegment> in library <work> (Architecture <my_sseg>).
+Entity <SevenSegment> analyzed. Unit <SevenSegment> generated.
+
+Analyzing Entity <bin2bcd> in library <work> (Architecture <behavioral>).
+Entity <bin2bcd> analyzed. Unit <bin2bcd> generated.
+
+Analyzing Entity <sound_generator> in library <work> (Architecture <behavioral>).
+Entity <sound_generator> analyzed. Unit <sound_generator> generated.
+
+Analyzing Entity <clock_divider> in library <work> (Architecture <behavioral>).
+Entity <clock_divider> analyzed. Unit <clock_divider> generated.
+
+Analyzing Entity <note_timer> in library <work> (Architecture <behavioral>).
+Entity <note_timer> analyzed. Unit <note_timer> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <register_8b>.
+    Related source file is "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/register_8b.vhd".
+    Found 8-bit register for signal <data_out>.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+Unit <register_8b> synthesized.
+
+
+Synthesizing Unit <mux2to1_8b>.
+    Related source file is "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/mux2to1_8b.vhd".
+Unit <mux2to1_8b> synthesized.
+
+
+Synthesizing Unit <adder_8b>.
+    Related source file is "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/adder_8b.vhd".
+    Found 9-bit adder for signal <sig_result>.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <adder_8b> synthesized.
+
+
+Synthesizing Unit <eppctrl>.
+    Related source file is "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/eppctrl.vhd".
+WARNING:Xst:1780 - Signal <regLed> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <regData7> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <regData6> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <regData5> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <regData4> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <regData3> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found finite state machine <FSM_0> for signal <stEppCur>.
+    -----------------------------------------------------------------------
+    | States             | 9                                              |
+    | Transitions        | 17                                             |
+    | Inputs             | 3                                              |
+    | Outputs            | 8                                              |
+    | Clock              | clkMain                   (rising_edge)        |
+    | Power Up State     | 00000000                                       |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+WARNING:Xst:737 - Found 12-bit latch for signal <dataToBram>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 8-bit tristate buffer for signal <pdb>.
+    Found 24-bit up counter for signal <cntr>.
+    Found 8-bit register for signal <counter>.
+    Found 8-bit adder for signal <counter$addsub0000> created at line 336.
+    Found 8-bit register for signal <regData0>.
+    Found 8-bit register for signal <regData1>.
+    Found 8-bit register for signal <regData2>.
+    Found 4-bit register for signal <regEppAdr>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred  36 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   8 Tristate(s).
+Unit <eppctrl> synthesized.
+
+
+Synthesizing Unit <memory>.
+    Related source file is "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/memory.vhd".
+WARNING:Xst:1780 - Signal <sig_addr> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found 12-bit register for signal <data_out>.
+    Found 12-bit 256-to-1 multiplexer for signal <$varindex0000> created at line 64.
+    Found 3072-bit register for signal <sig_data_mem>.
+INFO:Xst:738 - HDL ADVISOR - 3072 flip-flops were inferred for signal <sig_data_mem>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
+    Summary:
+	inferred 3084 D-type flip-flop(s).
+	inferred  12 Multiplexer(s).
+Unit <memory> synthesized.
+
+
+Synthesizing Unit <register_12b>.
+    Related source file is "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/register_12b.vhd".
+    Found 12-bit register for signal <data_out>.
+    Found 1-bit register for signal <done>.
+    Summary:
+	inferred  13 D-type flip-flop(s).
+Unit <register_12b> synthesized.
+
+
+Synthesizing Unit <trySense>.
+    Related source file is "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/trySense.vhd".
+    Found 1-bit register for signal <trig>.
+    Found 1-bit register for signal <myOut>.
+    Found 32-bit register for signal <c1>.
+    Found 32-bit adder for signal <c1$add0000> created at line 62.
+    Found 32-bit up counter for signal <c2>.
+    Found 32-bit register for signal <echo_time>.
+    Found 32-bit comparator less for signal <myOut$cmp_lt0000> created at line 72.
+    Found 1-bit register for signal <y>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred  67 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+Unit <trySense> synthesized.
+
+
+Synthesizing Unit <timerMod>.
+    Related source file is "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/timer.vhd".
+    Found 32-bit comparator greater for signal <done$cmp_gt0000> created at line 62.
+    Found 32-bit comparator less for signal <done$cmp_lt0000> created at line 62.
+    Found 32-bit up counter for signal <timerCounter>.
+    Found 32-bit comparator less for signal <timerCounter$cmp_lt0000> created at line 54.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   3 Comparator(s).
+Unit <timerMod> synthesized.
+
+
+Synthesizing Unit <swingmodule>.
+    Related source file is "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/swingCounter.vhd".
+WARNING:Xst:737 - Found 8-bit latch for signal <swingout>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 8-bit latch for signal <totalSwing>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 8-bit latch for signal <tomult>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:643 - "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/swingCounter.vhd" line 61: The result of a 8x4-bit multiplication is partially used. Only the 8 least significant bits are used. If you are doing this on purpose, you may safely ignore this warning. Otherwise, make sure you are not losing information, leading to unexpected circuit behavior.
+    Found 8-bit up counter for signal <swingCount>.
+    Found 8x4-bit multiplier for signal <tomult$mult0001> created at line 61.
+    Found 8-bit comparator greater for signal <totalSwing$cmp_gt0000> created at line 64.
+    Found 8-bit comparator less for signal <totalSwing$cmp_lt0000> created at line 63.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 Multiplier(s).
+	inferred   2 Comparator(s).
+Unit <swingmodule> synthesized.
+
+
+Synthesizing Unit <SevenSegment>.
+    Related source file is "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/SevenSegment.vhd".
+    Found 16x8-bit ROM for signal <SEGMENTS>.
+    Summary:
+	inferred   1 ROM(s).
+Unit <SevenSegment> synthesized.
+
+
+Synthesizing Unit <bin2bcd>.
+    Related source file is "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/bin2bcd.vhd".
+    Found 4-bit comparator greater for signal <bcd_3$cmp_gt0000> created at line 65.
+    Found 4-bit comparator greater for signal <bcd_3$cmp_gt0001> created at line 65.
+    Found 4-bit comparator greater for signal <bcd_3$cmp_gt0002> created at line 65.
+    Found 4-bit comparator greater for signal <bcd_3$cmp_gt0003> created at line 65.
+    Found 4-bit comparator greater for signal <bcd_3$cmp_gt0004> created at line 65.
+    Found 4-bit adder for signal <bcd_3_0$add0000> created at line 66.
+    Found 4-bit adder for signal <bcd_3_0$add0001> created at line 66.
+    Found 4-bit adder for signal <bcd_3_0$add0002> created at line 66.
+    Found 4-bit adder for signal <bcd_3_0$add0003> created at line 66.
+    Found 4-bit adder for signal <bcd_3_0$add0004> created at line 66.
+    Found 4-bit comparator greater for signal <bcd_7$cmp_gt0000> created at line 69.
+    Found 4-bit comparator greater for signal <bcd_7$cmp_gt0001> created at line 69.
+    Found 4-bit adder for signal <bcd_7_4$add0000> created at line 70.
+    Found 4-bit adder for signal <bcd_7_4$add0001> created at line 70.
+    Summary:
+	inferred   7 Adder/Subtractor(s).
+	inferred   7 Comparator(s).
+Unit <bin2bcd> synthesized.
+
+
+Synthesizing Unit <clock_divider>.
+    Related source file is "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/clock_divider.vhd".
+WARNING:Xst:646 - Signal <sig_segment_vector<1:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sig_max_vector<0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sig_37_5segment> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sig_100segment> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 64x19-bit ROM for signal <sig_max>.
+    Found 19-bit up counter for signal <count>.
+    Found 19-bit comparator greater for signal <count$cmp_gt0000> created at line 134.
+    Found 19-bit up counter for signal <segment_counter>.
+    Found 1-bit register for signal <segment_counter_reset>.
+    Found 19-bit comparator equal for signal <segment_counter_reset$cmp_eq0001> created at line 172.
+    Found 19-bit comparator equal for signal <segment_counter_reset$cmp_eq0002> created at line 182.
+    Found 19-bit comparator equal for signal <segment_counter_reset$cmp_eq0003> created at line 192.
+    Found 19-bit comparator equal for signal <segment_counter_reset$cmp_eq0004> created at line 198.
+    Found 19-bit comparator equal for signal <segment_counter_reset$cmp_eq0005> created at line 207.
+    Found 19-bit comparator equal for signal <segment_counter_reset$cmp_eq0006> created at line 217.
+    Found 19-bit comparator equal for signal <segment_counter_reset$cmp_eq0007> created at line 227.
+    Found 19-bit comparator equal for signal <segment_counter_reset$cmp_eq0008> created at line 237.
+    Found 19-bit comparator equal for signal <segment_counter_reset$cmp_eq0009> created at line 248.
+    Found 19-bit comparator equal for signal <segment_counter_reset$cmp_eq0010> created at line 258.
+    Found 19-bit comparator equal for signal <segment_counter_reset$cmp_eq0011> created at line 268.
+    Found 19-bit comparator equal for signal <segment_counter_reset$cmp_eq0012> created at line 274.
+    Found 19-bit comparator equal for signal <segment_counter_reset$cmp_eq0013> created at line 283.
+    Found 19-bit comparator equal for signal <segment_counter_reset$cmp_eq0014> created at line 293.
+    Found 19-bit comparator equal for signal <segment_counter_reset$cmp_eq0015> created at line 303.
+    Found 19-bit comparator greatequal for signal <segment_counter_reset$cmp_ge0000> created at line 306.
+    Found 19-bit comparator greatequal for signal <segment_counter_reset$cmp_ge0001> created at line 296.
+    Found 19-bit comparator greatequal for signal <segment_counter_reset$cmp_ge0002> created at line 286.
+    Found 19-bit comparator greatequal for signal <segment_counter_reset$cmp_ge0003> created at line 276.
+    Found 19-bit comparator greatequal for signal <segment_counter_reset$cmp_ge0004> created at line 261.
+    Found 19-bit comparator greatequal for signal <segment_counter_reset$cmp_ge0005> created at line 251.
+    Found 19-bit comparator greatequal for signal <segment_counter_reset$cmp_ge0006> created at line 240.
+    Found 19-bit comparator greatequal for signal <segment_counter_reset$cmp_ge0007> created at line 230.
+    Found 19-bit comparator greatequal for signal <segment_counter_reset$cmp_ge0008> created at line 220.
+    Found 19-bit comparator greatequal for signal <segment_counter_reset$cmp_ge0009> created at line 210.
+    Found 19-bit comparator greatequal for signal <segment_counter_reset$cmp_ge0010> created at line 200.
+    Found 19-bit comparator greatequal for signal <segment_counter_reset$cmp_ge0011> created at line 185.
+    Found 19-bit comparator greatequal for signal <segment_counter_reset$cmp_ge0012> created at line 175.
+    Found 19-bit comparator greatequal for signal <segment_counter_reset$cmp_ge0013> created at line 166.
+    Found 19-bit comparator less for signal <segment_counter_reset$cmp_lt0000> created at line 195.
+    Found 19-bit comparator less for signal <segment_counter_reset$cmp_lt0001> created at line 271.
+    Found 19-bit comparator less for signal <segment_counter_reset$cmp_lt0002> created at line 166.
+    Found 19-bit comparator less for signal <segment_counter_reset$cmp_lt0003> created at line 175.
+    Found 19-bit comparator less for signal <segment_counter_reset$cmp_lt0004> created at line 185.
+    Found 19-bit comparator less for signal <segment_counter_reset$cmp_lt0005> created at line 200.
+    Found 19-bit comparator less for signal <segment_counter_reset$cmp_lt0006> created at line 210.
+    Found 19-bit comparator less for signal <segment_counter_reset$cmp_lt0007> created at line 220.
+    Found 19-bit comparator less for signal <segment_counter_reset$cmp_lt0008> created at line 230.
+    Found 19-bit comparator less for signal <segment_counter_reset$cmp_lt0009> created at line 240.
+    Found 19-bit comparator less for signal <segment_counter_reset$cmp_lt0010> created at line 251.
+    Found 19-bit comparator less for signal <segment_counter_reset$cmp_lt0011> created at line 261.
+    Found 19-bit comparator less for signal <segment_counter_reset$cmp_lt0012> created at line 276.
+    Found 19-bit comparator less for signal <segment_counter_reset$cmp_lt0013> created at line 286.
+    Found 19-bit comparator less for signal <segment_counter_reset$cmp_lt0014> created at line 296.
+    Found 19-bit comparator less for signal <segment_counter_reset$cmp_lt0015> created at line 306.
+    Found 19-bit comparator not equal for signal <segment_counter_reset$cmp_ne0000> created at line 313.
+    Found 19-bit comparator not equal for signal <segment_counter_reset$cmp_ne0001> created at line 303.
+    Found 19-bit comparator not equal for signal <segment_counter_reset$cmp_ne0002> created at line 293.
+    Found 19-bit comparator not equal for signal <segment_counter_reset$cmp_ne0003> created at line 283.
+    Found 19-bit comparator not equal for signal <segment_counter_reset$cmp_ne0004> created at line 274.
+    Found 19-bit comparator not equal for signal <segment_counter_reset$cmp_ne0005> created at line 268.
+    Found 19-bit comparator not equal for signal <segment_counter_reset$cmp_ne0006> created at line 258.
+    Found 19-bit comparator not equal for signal <segment_counter_reset$cmp_ne0007> created at line 248.
+    Found 19-bit comparator not equal for signal <segment_counter_reset$cmp_ne0008> created at line 237.
+    Found 19-bit comparator not equal for signal <segment_counter_reset$cmp_ne0009> created at line 227.
+    Found 19-bit comparator not equal for signal <segment_counter_reset$cmp_ne0010> created at line 217.
+    Found 19-bit comparator not equal for signal <segment_counter_reset$cmp_ne0011> created at line 207.
+    Found 19-bit comparator not equal for signal <segment_counter_reset$cmp_ne0012> created at line 198.
+    Found 19-bit comparator not equal for signal <segment_counter_reset$cmp_ne0013> created at line 192.
+    Found 19-bit comparator not equal for signal <segment_counter_reset$cmp_ne0014> created at line 182.
+    Found 19-bit comparator not equal for signal <segment_counter_reset$cmp_ne0015> created at line 172.
+    Found 19-bit adder for signal <sig_11_16>.
+    Found 19-bit adder for signal <sig_13_16>.
+    Found 16-bit adder carry out for signal <sig_14_0625segment$addsub0000> created at line 126.
+    Found 19-bit adder for signal <sig_15_16>.
+    Found 18-bit adder for signal <sig_29_6875segment>.
+    Found 17-bit adder carry out for signal <sig_29_6875segment$addsub0001> created at line 124.
+    Found 19-bit adder for signal <sig_3_16>.
+    Found 19-bit adder for signal <sig_3_4>.
+    Found 18-bit adder carry out for signal <sig_3_8$addsub0000> created at line 94.
+    Found 19-bit adder for signal <sig_5_8>.
+    Found 18-bit adder carry out for signal <sig_62_5segment$addsub0000> created at line 116.
+    Found 19-bit adder for signal <sig_68_75segment>.
+    Found 18-bit adder carry out for signal <sig_75segment$addsub0000> created at line 117.
+    Found 19-bit adder for signal <sig_7_16>.
+    Found 19-bit adder for signal <sig_7_8>.
+    Found 19-bit adder for signal <sig_85_9375segment>.
+    Found 19-bit adder for signal <sig_85_9375segment$addsub0000> created at line 125.
+    Found 19-bit adder for signal <sig_85_9375segment$addsub0001> created at line 125.
+    Found 19-bit adder for signal <sig_87_5segment>.
+    Found 19-bit adder for signal <sig_96_875segment>.
+    Found 19-bit adder for signal <sig_96_875segment$addsub0000> created at line 123.
+    Found 19-bit adder for signal <sig_9_16>.
+    Found 1-bit register for signal <temp>.
+    Found 19-bit comparator equal for signal <temp$cmp_eq0000> created at line 182.
+    Found 19-bit comparator equal for signal <temp$cmp_eq0001> created at line 198.
+    Found 19-bit comparator greatequal for signal <temp$cmp_ge0000> created at line 271.
+    Found 19-bit comparator greatequal for signal <temp$cmp_ge0001> created at line 195.
+    Found 19-bit comparator less for signal <temp$cmp_lt0000> created at line 224.
+    Found 19-bit comparator less for signal <temp$cmp_lt0001> created at line 214.
+    Found 19-bit comparator less for signal <temp$cmp_lt0002> created at line 204.
+    Found 19-bit comparator less for signal <temp$cmp_lt0003> created at line 310.
+    Found 19-bit comparator less for signal <temp$cmp_lt0004> created at line 300.
+    Found 19-bit comparator less for signal <temp$cmp_lt0005> created at line 290.
+    Found 19-bit comparator less for signal <temp$cmp_lt0006> created at line 280.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   2 Counter(s).
+	inferred   2 D-type flip-flop(s).
+	inferred  22 Adder/Subtractor(s).
+	inferred  73 Comparator(s).
+Unit <clock_divider> synthesized.
+
+
+Synthesizing Unit <note_timer>.
+    Related source file is "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/note_timer.vhd".
+    Found 256x26-bit ROM for signal <sig_base>.
+    Found 1-bit register for signal <timeout>.
+    Found 28-bit register for signal <counter>.
+    Found 28-bit adder for signal <counter$addsub0000> created at line 90.
+    Found 28-bit comparator less for signal <counter$cmp_lt0000> created at line 88.
+    Found 26-bit adder carry out for signal <sig_1_1_2$addsub0000> created at line 62.
+    Found 24-bit adder carry out for signal <sig_1_3$addsub0000> created at line 58.
+    Found 26-bit adder carry out for signal <sig_3$addsub0000> created at line 64.
+    Found 25-bit adder carry out for signal <sig_3_4$addsub0000> created at line 60.
+    Summary:
+	inferred   1 ROM(s).
+	inferred  29 D-type flip-flop(s).
+	inferred   5 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+Unit <note_timer> synthesized.
+
+
+Synthesizing Unit <sensorComponent>.
+    Related source file is "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/sensorComponent.vhd".
+Unit <sensorComponent> synthesized.
+
+
+Synthesizing Unit <sevenSeg2>.
+    Related source file is "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/sevenSeg2.vhd".
+WARNING:Xst:1780 - Signal <segmentin> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found finite state machine <FSM_1> for signal <counter>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 4                                              |
+    | Inputs             | 0                                              |
+    | Outputs            | 7                                              |
+    | Clock              | SLWCLK                    (rising_edge)        |
+    | Power Up State     | 000                                            |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 4-bit register for signal <BCD>.
+    Found 4-bit register for signal <display>.
+    Found 1-bit register for signal <SLWCLK>.
+    Found 19-bit up counter for signal <slwclkcounter>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred   9 D-type flip-flop(s).
+Unit <sevenSeg2> synthesized.
+
+
+Synthesizing Unit <sound_generator>.
+    Related source file is "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/sound_generator.vhd".
+WARNING:Xst:646 - Signal <sig_timing> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sig_temp_extra> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sig_note_extra> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <sound_generator> synthesized.
+
+
+Synthesizing Unit <musicplayer_top>.
+    Related source file is "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/musicplayer_top.vhd".
+WARNING:Xst:646 - Signal <sig_tempo_reg_done> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <sig_tempo_mux_out<11:10>> is used but never assigned. This sourceless signal will be automatically connected to value 00.
+WARNING:Xst:653 - Signal <sig_tempo_mux_out<1:0>> is used but never assigned. This sourceless signal will be automatically connected to value 00.
+WARNING:Xst:1780 - Signal <sig_tempo_mux_b> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sig_tempo_data<1:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <sig_music_counter_en> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sig_buffer_reg_done> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sig_add_carry> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Register <sig_sound_en> equivalent to <sig_load_done> has been removed
+    Found finite state machine <FSM_2> for signal <y>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 8                                              |
+    | Inputs             | 4                                              |
+    | Outputs            | 4                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | reset                     (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | load                                           |
+    | Power Up State     | load                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+WARNING:Xst:737 - Found 1-bit latch for signal <sig_load_timer>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <speaker>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 27-bit up counter for signal <rest_counter>.
+    Found 26-bit 4-to-1 multiplexer for signal <rest_max>.
+    Found 1-bit register for signal <sig_load_done>.
+    Found 27-bit comparator less for signal <sig_load_done$cmp_lt0000> created at line 367.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred  26 Multiplexer(s).
+Unit <musicplayer_top> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 3
+ 16x8-bit ROM                                          : 1
+ 256x26-bit ROM                                        : 1
+ 64x19-bit ROM                                         : 1
+# Multipliers                                          : 1
+ 8x4-bit multiplier                                    : 1
+# Adders/Subtractors                                   : 37
+ 16-bit adder carry out                                : 1
+ 17-bit adder carry out                                : 1
+ 18-bit adder                                          : 1
+ 18-bit adder carry out                                : 3
+ 19-bit adder                                          : 16
+ 24-bit adder carry out                                : 1
+ 25-bit adder carry out                                : 1
+ 26-bit adder carry out                                : 2
+ 28-bit adder                                          : 1
+ 32-bit adder                                          : 1
+ 4-bit adder                                           : 7
+ 8-bit adder                                           : 1
+ 9-bit adder                                           : 1
+# Counters                                             : 7
+ 19-bit up counter                                     : 3
+ 27-bit up counter                                     : 1
+ 32-bit up counter                                     : 2
+ 8-bit up counter                                      : 1
+# Registers                                            : 280
+ 1-bit register                                        : 10
+ 12-bit register                                       : 259
+ 28-bit register                                       : 1
+ 32-bit register                                       : 2
+ 4-bit register                                        : 3
+ 8-bit register                                        : 5
+# Latches                                              : 6
+ 1-bit latch                                           : 2
+ 12-bit latch                                          : 1
+ 8-bit latch                                           : 3
+# Comparators                                          : 88
+ 19-bit comparator equal                               : 17
+ 19-bit comparator greatequal                          : 16
+ 19-bit comparator greater                             : 1
+ 19-bit comparator less                                : 23
+ 19-bit comparator not equal                           : 16
+ 27-bit comparator less                                : 1
+ 28-bit comparator less                                : 1
+ 32-bit comparator greater                             : 1
+ 32-bit comparator less                                : 3
+ 4-bit comparator greater                              : 7
+ 8-bit comparator greater                              : 1
+ 8-bit comparator less                                 : 1
+# Multiplexers                                         : 2
+ 12-bit 256-to-1 multiplexer                           : 1
+ 26-bit 4-to-1 multiplexer                             : 1
+# Tristates                                            : 1
+ 8-bit tristate buffer                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_2> for best encoding.
+Optimizing FSM <y/FSM> on signal <y[1:2]> with gray encoding.
+-----------------------
+ State     | Encoding
+-----------------------
+ load      | 00
+ idle      | 01
+ read_note | 11
+ play_note | 10
+-----------------------
+Analyzing FSM <FSM_1> for best encoding.
+Optimizing FSM <dsplay/counter/FSM> on signal <counter[1:4]> with one-hot encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 0001
+ 001   | 0010
+ 010   | 0100
+ 011   | 1000
+-------------------
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <epp/stEppCur/FSM> on signal <stEppCur[1:4]> with gray encoding.
+----------------------
+ State    | Encoding
+----------------------
+ 00000000 | 0000
+ 00010100 | 0001
+ 00110010 | 0011
+ 01011000 | 0010
+ 01110010 | 0110
+ 00100001 | 0111
+ 01000011 | 0101
+ 01100001 | 0100
+ 10000011 | 1100
+----------------------
+WARNING:Xst:1710 - FF/Latch <display_3> (without init value) has a constant value of 1 in block <dsplay>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <data_out_0> of sequential type is unconnected in block <mem>.
+WARNING:Xst:2677 - Node <data_out_1> of sequential type is unconnected in block <mem>.
+WARNING:Xst:2677 - Node <data_out_0> of sequential type is unconnected in block <buffer_reg>.
+WARNING:Xst:2677 - Node <data_out_1> of sequential type is unconnected in block <buffer_reg>.
+WARNING:Xst:2677 - Node <data_out_0> of sequential type is unconnected in block <tempo_reg>.
+WARNING:Xst:2677 - Node <data_out_1> of sequential type is unconnected in block <tempo_reg>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 3
+# ROMs                                                 : 3
+ 16x8-bit ROM                                          : 1
+ 256x26-bit ROM                                        : 1
+ 64x19-bit ROM                                         : 1
+# Multipliers                                          : 1
+ 8x4-bit multiplier                                    : 1
+# Adders/Subtractors                                   : 37
+ 16-bit adder carry out                                : 1
+ 17-bit adder carry out                                : 1
+ 18-bit adder                                          : 1
+ 18-bit adder carry out                                : 3
+ 19-bit adder                                          : 16
+ 24-bit adder carry out                                : 1
+ 25-bit adder carry out                                : 1
+ 26-bit adder carry out                                : 2
+ 28-bit adder                                          : 1
+ 32-bit adder                                          : 1
+ 4-bit adder                                           : 7
+ 8-bit adder                                           : 1
+ 9-bit adder                                           : 1
+# Counters                                             : 7
+ 19-bit up counter                                     : 3
+ 27-bit up counter                                     : 1
+ 32-bit up counter                                     : 2
+ 8-bit up counter                                      : 1
+# Registers                                            : 3262
+ Flip-Flops                                            : 3262
+# Latches                                              : 6
+ 1-bit latch                                           : 2
+ 12-bit latch                                          : 1
+ 8-bit latch                                           : 3
+# Comparators                                          : 88
+ 19-bit comparator equal                               : 17
+ 19-bit comparator greatequal                          : 16
+ 19-bit comparator greater                             : 1
+ 19-bit comparator less                                : 23
+ 19-bit comparator not equal                           : 16
+ 27-bit comparator less                                : 1
+ 28-bit comparator less                                : 1
+ 32-bit comparator greater                             : 1
+ 32-bit comparator less                                : 3
+ 4-bit comparator greater                              : 7
+ 8-bit comparator greater                              : 1
+ 8-bit comparator less                                 : 1
+# Multiplexers                                         : 2
+ 12-bit 256-to-1 multiplexer                           : 1
+ 26-bit 4-to-1 multiplexer                             : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <display_3> (without init value) has a constant value of 1 in block <sevenSeg2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <echo_time_0> of sequential type is unconnected in block <trySense>.
+WARNING:Xst:2677 - Node <echo_time_1> of sequential type is unconnected in block <trySense>.
+WARNING:Xst:2677 - Node <echo_time_2> of sequential type is unconnected in block <trySense>.
+WARNING:Xst:2677 - Node <echo_time_3> of sequential type is unconnected in block <trySense>.
+WARNING:Xst:2677 - Node <echo_time_4> of sequential type is unconnected in block <trySense>.
+
+Optimizing unit <musicplayer_top> ...
+
+Optimizing unit <register_8b> ...
+
+Optimizing unit <memory> ...
+
+Optimizing unit <register_12b> ...
+
+Optimizing unit <trySense> ...
+
+Optimizing unit <bin2bcd> ...
+
+Optimizing unit <clock_divider> ...
+
+Optimizing unit <note_timer> ...
+
+Optimizing unit <swingmodule> ...
+
+Optimizing unit <sevenSeg2> ...
+WARNING:Xst:2677 - Node <epp/dataToBram_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <epp/dataToBram_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/data_out_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/data_out_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_4_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_4_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_49_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_49_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_54_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_54_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_247_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_247_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_252_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_252_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_197_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_197_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_3_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_3_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_48_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_48_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_53_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_53_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_246_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_246_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_251_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_251_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_196_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_196_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_2_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_2_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_47_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_47_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_52_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_52_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_245_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_245_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_250_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_250_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_195_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_195_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_1_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_1_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_46_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_46_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_51_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_51_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_194_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_194_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_239_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_239_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_244_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_244_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_189_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_189_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_0_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_0_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_45_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_45_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_50_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_50_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_193_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_193_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_238_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_238_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_243_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_243_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_188_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_188_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_39_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_39_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_44_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_44_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_187_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_187_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_237_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_237_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_242_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_242_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_192_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_192_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_38_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_38_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_43_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_43_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_186_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_186_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_236_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_236_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_241_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_241_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_191_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_191_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_37_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_37_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_42_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_42_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_185_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_185_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_235_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_235_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_240_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_240_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_190_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_190_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_36_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_36_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_41_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_41_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_179_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_179_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_229_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_229_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_234_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_234_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_184_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_184_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_35_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_35_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_40_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_40_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_178_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_178_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_228_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_228_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_233_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_233_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_183_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_183_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_29_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_29_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_34_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_34_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_177_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_177_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_227_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_227_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_232_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_232_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_182_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_182_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_28_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_28_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_33_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_33_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_176_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_176_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_226_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_226_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_231_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_231_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_181_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_181_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_27_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_27_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_32_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_32_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_175_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_175_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_225_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_225_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_230_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_230_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_180_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_180_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_26_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_26_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_31_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_31_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_169_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_169_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_219_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_219_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_224_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_224_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_174_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_174_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_25_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_25_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_30_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_30_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_168_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_168_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_218_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_218_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_223_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_223_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_173_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_173_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_19_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_19_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_24_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_24_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_167_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_167_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_217_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_217_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_222_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_222_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_172_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_172_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_18_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_18_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_23_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_23_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_166_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_166_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_216_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_216_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_221_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_221_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_171_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_171_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_17_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_17_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_22_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_22_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_165_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_165_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_215_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_215_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_220_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_220_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_170_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_170_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_16_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_16_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_21_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_21_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_159_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_159_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_209_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_209_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_214_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_214_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_164_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_164_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_15_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_15_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_20_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_20_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_158_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_158_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_208_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_208_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_213_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_213_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_163_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_163_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_14_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_14_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_157_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_157_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_212_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_212_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_162_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_162_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_207_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_207_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_13_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_13_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_156_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_156_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_206_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_206_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_211_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_211_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_161_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_161_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_12_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_12_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_155_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_155_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_205_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_205_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_210_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_210_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_160_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_160_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_11_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_11_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_149_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_149_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_204_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_204_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_154_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_154_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_10_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_10_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_148_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_148_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_203_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_203_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_153_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_153_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_147_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_147_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_202_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_202_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_152_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_152_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_146_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_146_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_201_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_201_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_151_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_151_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_145_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_145_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_200_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_200_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_150_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_150_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_139_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_139_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_144_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_144_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_138_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_138_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_143_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_143_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_137_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_137_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_142_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_142_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_136_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_136_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_141_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_141_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_135_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_135_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_140_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_140_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_129_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_129_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_134_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_134_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_128_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_128_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_133_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_133_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_127_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_127_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_132_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_132_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_126_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_126_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_131_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_131_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_125_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_125_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_130_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_130_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_119_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_119_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_124_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_124_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_118_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_118_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_123_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_123_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_117_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_117_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_122_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_122_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_116_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_116_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_121_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_121_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_115_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_115_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_120_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_120_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_109_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_109_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_114_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_114_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_108_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_108_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_113_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_113_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_107_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_107_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_112_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_112_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_106_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_106_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_111_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_111_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_105_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_105_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_110_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_110_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_104_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_104_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_103_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_103_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_102_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_102_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_101_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_101_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_100_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_100_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_99_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_99_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_98_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_98_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_97_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_97_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_96_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_96_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_95_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_95_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_89_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_89_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_94_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_94_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_88_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_88_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_93_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_93_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_87_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_87_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_92_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_92_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_86_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_86_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_91_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_91_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_85_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_85_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_90_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_90_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_79_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_79_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_84_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_84_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_78_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_78_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_83_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_83_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_77_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_77_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_82_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_82_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_76_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_76_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_81_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_81_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_75_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_75_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_80_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_80_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_69_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_69_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_74_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_74_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_68_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_68_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_73_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_73_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_67_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_67_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_72_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_72_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_66_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_66_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_71_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_71_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_65_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_65_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_70_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_70_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_9_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_9_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_59_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_59_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_64_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_64_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_8_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_8_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_58_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_58_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_63_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_63_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_7_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_7_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_57_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_57_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_62_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_62_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_255_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_255_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_6_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_6_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_56_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_56_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_61_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_61_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_249_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_249_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_254_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_254_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_199_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_199_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_5_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_5_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_55_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_55_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_60_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_60_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_253_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_253_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_198_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_198_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_248_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <mem/sig_data_mem_248_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <tempo_reg/done> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <tempo_reg/data_out_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <tempo_reg/data_out_0> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <buffer_reg/done> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <buffer_reg/data_out_1> of sequential type is unconnected in block <musicplayer_top>.
+WARNING:Xst:2677 - Node <buffer_reg/data_out_0> of sequential type is unconnected in block <musicplayer_top>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block musicplayer_top, actual ratio is 91.
+
+Final Macro Processing ...
+
+Processing Unit <musicplayer_top> :
+	Found 2-bit shift register for signal <dsplay/counter_FSM_FFd4>.
+Unit <musicplayer_top> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 2900
+ Flip-Flops                                            : 2900
+# Shift Registers                                      : 1
+ 2-bit shift register                                  : 1
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : musicplayer_top.ngr
+Top Level Output File Name         : musicplayer_top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 39
+
+Cell Usage :
+# BELS                             : 7368
+#      GND                         : 1
+#      INV                         : 40
+#      LUT1                        : 195
+#      LUT2                        : 845
+#      LUT2_L                      : 2
+#      LUT3                        : 1658
+#      LUT3_D                      : 8
+#      LUT3_L                      : 11
+#      LUT4                        : 1133
+#      LUT4_D                      : 50
+#      LUT4_L                      : 36
+#      MULT_AND                    : 3
+#      MUXCY                       : 1295
+#      MUXF5                       : 872
+#      MUXF6                       : 347
+#      MUXF7                       : 160
+#      MUXF8                       : 80
+#      VCC                         : 1
+#      XORCY                       : 631
+# FlipFlops/Latches                : 2937
+#      FD                          : 38
+#      FDC                         : 40
+#      FDC_1                       : 1
+#      FDCE                        : 97
+#      FDCE_1                      : 2588
+#      FDE                         : 66
+#      FDE_1                       : 10
+#      FDR                         : 23
+#      FDRE                        : 32
+#      FDS                         : 5
+#      FDSE                        : 1
+#      LD                          : 10
+#      LD_1                        : 1
+#      LDE_1                       : 24
+#      LDP                         : 1
+# Shift Registers                  : 1
+#      SRL16                       : 1
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 38
+#      IBUF                        : 7
+#      IOBUF                       : 8
+#      OBUF                        : 23
+# MULTs                            : 1
+#      MULT18X18                   : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s400ft256-5 
+
+ Number of Slices:                     3285  out of   3584    91%  
+ Number of Slice Flip Flops:           2936  out of   7168    40%  
+ Number of 4 input LUTs:               3979  out of   7168    55%  
+    Number used as logic:              3978
+    Number used as Shift registers:       1
+ Number of IOs:                          39
+ Number of bonded IOBs:                  39  out of    173    22%  
+    IOB Flip Flops:                       1
+ Number of MULT18X18s:                    1  out of     16     6%  
+ Number of GCLKs:                         2  out of      8    25%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+--------------------------------------+-----------------------------------+-------+
+Clock Signal                          | Clock buffer(FF name)             | Load  |
+--------------------------------------+-----------------------------------+-------+
+clk                                   | BUFGP                             | 2883  |
+y_cmp_eq0001(y_FSM_Out11:O)           | NONE(*)(speaker)                  | 1     |
+sig_load_done                         | NONE(sig_load_timer)              | 1     |
+sig_epp_write_en(epp/busEppOut<0>19:O)| NONE(*)(epp/dataToBram_11)        | 10    |
+reset                                 | IBUF+BUFG                         | 24    |
+sense/sensor/myOut                    | NONE(sense/swingComp/swingCount_7)| 8     |
+dsplay/SLWCLK                         | NONE(dsplay/counter_FSM_FFd2)     | 11    |
+--------------------------------------+-----------------------------------+-------+
+(*) These 2 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+------------------------------------------------------+------------------------+-------+
+Control Signal                                        | Buffer(FF name)        | Load  |
+------------------------------------------------------+------------------------+-------+
+reset                                                 | IBUF                   | 2698  |
+play_inv(play_inv1_INV_0:O)                           | NONE(rest_counter_0)   | 28    |
+sound_gen/n_timer/timeout(sound_gen/n_timer/timeout:Q)| NONE(sig_load_timer)   | 1     |
+------------------------------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 41.777ns (Maximum Frequency: 23.937MHz)
+   Minimum input arrival time before clock: 21.545ns
+   Maximum output required time after clock: 11.570ns
+   Maximum combinational path delay: 9.377ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 41.777ns (frequency: 23.937MHz)
+  Total number of paths / destination ports: 19868561 / 3064
+-------------------------------------------------------------------------
+Delay:               20.889ns (Levels of Logic = 32)
+  Source:            tempo_reg/data_out_4 (FF)
+  Destination:       sound_gen/n_timer/counter_27 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk falling
+
+  Data Path: tempo_reg/data_out_4 to sound_gen/n_timer/counter_27
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q            70   0.626   1.819  tempo_reg/data_out_4 (tempo_reg/data_out_4)
+     LUT3:I2->O          134   0.479   2.242  tempo_mux/data<2>1 (sig_tempo_mux_out<4>)
+     LUT3:I1->O            1   0.479   0.740  sound_gen/n_timer/Mrom_sig_base11831 (sound_gen/n_timer/Mrom_sig_base118_bdd0)
+     LUT3:I2->O            1   0.479   0.000  sound_gen/n_timer/Mrom_sig_base1311_10_F (N499)
+     MUXF5:I0->O           1   0.314   0.740  sound_gen/n_timer/Mrom_sig_base1311_10 (sound_gen/n_timer/Mrom_sig_base1311_10)
+     LUT3:I2->O            1   0.479   0.740  sound_gen/n_timer/Mrom_sig_base1311_2_f5_F_SW0 (N699)
+     LUT3:I2->O            1   0.479   0.000  sound_gen/n_timer/Mrom_sig_base1311_2_f5_F (N493)
+     MUXF5:I0->O          17   0.314   1.143  sound_gen/n_timer/Mrom_sig_base1311_2_f5 (sound_gen/n_timer/sig_base<11>1)
+     INV:I->O              0   0.479   0.000  sound_gen/n_timer/sig_base<11>_inv1_INV_0 (sig_base<11>)
+     MUXCY:DI->O           1   0.774   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<8> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<8>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<9> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<9>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<10> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<10>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<11> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<11>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<12> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<12>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<13> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<13>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<14> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<14>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<15> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<15>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<16> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<16>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<17> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<17>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<18> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<18>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<19> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<19>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<20> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<20>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<21> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<21>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<22> (sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<22>)
+     XORCY:CI->O           1   0.786   0.851  sound_gen/n_timer/Madd_sig_1_3_addsub0000_xor<23> (sound_gen/n_timer/sig_1_3<23>)
+     LUT2:I1->O            1   0.479   0.851  sound_gen/n_timer/sig_duration<23>57 (sound_gen/n_timer/sig_duration<23>57)
+     LUT4:I1->O            1   0.479   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<23> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<23>)
+     MUXCY:S->O            1   0.435   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<24> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<24>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<26> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<26>)
+     MUXCY:CI->O           2   0.265   0.915  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>)
+     LUT2:I1->O           28   0.479   1.556  sound_gen/n_timer/counter_not00011 (sound_gen/n_timer/counter_not0001)
+     FDCE_1:CE                 0.524          sound_gen/n_timer/counter_0
+    ----------------------------------------
+    Total                     20.889ns (9.292ns logic, 11.597ns route)
+                                       (44.5% logic, 55.5% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'reset'
+  Clock period: 6.568ns (frequency: 152.243MHz)
+  Total number of paths / destination ports: 106 / 24
+-------------------------------------------------------------------------
+Delay:               6.568ns (Levels of Logic = 4)
+  Source:            sense/swingComp/tomult_7 (LATCH)
+  Destination:       sense/swingComp/totalSwing_1 (LATCH)
+  Source Clock:      reset rising
+  Destination Clock: reset rising
+
+  Data Path: sense/swingComp/tomult_7 to sense/swingComp/totalSwing_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDE_1:G->Q            7   0.551   1.201  sense/swingComp/tomult_7 (sense/swingComp/tomult_7)
+     LUT2:I0->O            2   0.479   0.915  sense/swingComp/totalSwing_cmp_gt0000112 (sense/swingComp/totalSwing_cmp_gt0000112)
+     LUT4:I1->O            2   0.479   1.040  sense/swingComp/totalSwing_cmp_gt0000114 (sense/swingComp/totalSwing_cmp_gt0000)
+     LUT4:I0->O            2   0.479   0.768  sense/swingComp/totalSwing_mux0004<6>11 (sense/swingComp/N6)
+     LUT4:I3->O            1   0.479   0.000  sense/swingComp/totalSwing_mux0004<7>1 (sense/swingComp/totalSwing_mux0004<7>)
+     LDE_1:D                   0.176          sense/swingComp/totalSwing_0
+    ----------------------------------------
+    Total                      6.568ns (2.643ns logic, 3.925ns route)
+                                       (40.2% logic, 59.8% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'sense/sensor/myOut'
+  Clock period: 3.820ns (frequency: 261.784MHz)
+  Total number of paths / destination ports: 36 / 8
+-------------------------------------------------------------------------
+Delay:               3.820ns (Levels of Logic = 8)
+  Source:            sense/swingComp/swingCount_1 (FF)
+  Destination:       sense/swingComp/swingCount_7 (FF)
+  Source Clock:      sense/sensor/myOut rising
+  Destination Clock: sense/sensor/myOut rising
+
+  Data Path: sense/swingComp/swingCount_1 to sense/swingComp/swingCount_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             2   0.626   1.040  sense/swingComp/swingCount_1 (sense/swingComp/swingCount_1)
+     LUT1:I0->O            1   0.479   0.000  sense/swingComp/Mcount_swingCount_cy<1>_rt (sense/swingComp/Mcount_swingCount_cy<1>_rt)
+     MUXCY:S->O            1   0.435   0.000  sense/swingComp/Mcount_swingCount_cy<1> (sense/swingComp/Mcount_swingCount_cy<1>)
+     MUXCY:CI->O           1   0.056   0.000  sense/swingComp/Mcount_swingCount_cy<2> (sense/swingComp/Mcount_swingCount_cy<2>)
+     MUXCY:CI->O           1   0.056   0.000  sense/swingComp/Mcount_swingCount_cy<3> (sense/swingComp/Mcount_swingCount_cy<3>)
+     MUXCY:CI->O           1   0.056   0.000  sense/swingComp/Mcount_swingCount_cy<4> (sense/swingComp/Mcount_swingCount_cy<4>)
+     MUXCY:CI->O           1   0.056   0.000  sense/swingComp/Mcount_swingCount_cy<5> (sense/swingComp/Mcount_swingCount_cy<5>)
+     MUXCY:CI->O           0   0.056   0.000  sense/swingComp/Mcount_swingCount_cy<6> (sense/swingComp/Mcount_swingCount_cy<6>)
+     XORCY:CI->O           1   0.786   0.000  sense/swingComp/Mcount_swingCount_xor<7> (sense/swingComp/Result<7>)
+     FDCE:D                    0.176          sense/swingComp/swingCount_7
+    ----------------------------------------
+    Total                      3.820ns (2.780ns logic, 1.040ns route)
+                                       (72.8% logic, 27.2% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'dsplay/SLWCLK'
+  Clock period: 5.507ns (frequency: 181.597MHz)
+  Total number of paths / destination ports: 32 / 15
+-------------------------------------------------------------------------
+Delay:               5.507ns (Levels of Logic = 3)
+  Source:            dsplay/counter_FSM_FFd3 (FF)
+  Destination:       dsplay/BCD_0 (FF)
+  Source Clock:      dsplay/SLWCLK rising
+  Destination Clock: dsplay/SLWCLK rising
+
+  Data Path: dsplay/counter_FSM_FFd3 to dsplay/BCD_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q              11   0.626   1.267  dsplay/counter_FSM_FFd3 (dsplay/counter_FSM_FFd3)
+     LUT4:I0->O            2   0.479   0.768  dsplay/BCD_mux0000<0>111 (dsplay/BCD_mux0000<0>111)
+     LUT4:I3->O            1   0.479   0.000  dsplay/BCD_mux0000<0>121_F (N783)
+     MUXF5:I0->O           1   0.314   0.681  dsplay/BCD_mux0000<0>121 (dsplay/BCD_mux0000<0>121)
+     FDS:S                     0.892          dsplay/BCD_0
+    ----------------------------------------
+    Total                      5.507ns (2.790ns logic, 2.717ns route)
+                                       (50.7% logic, 49.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 6941267 / 227
+-------------------------------------------------------------------------
+Offset:              21.545ns (Levels of Logic = 41)
+  Source:            tempo_mode (PAD)
+  Destination:       sound_gen/n_timer/counter_27 (FF)
+  Destination Clock: clk falling
+
+  Data Path: tempo_mode to sound_gen/n_timer/counter_27
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           134   0.715   2.242  tempo_mode_IBUF (tempo_mode_IBUF)
+     LUT3:I1->O          136   0.479   2.252  tempo_mux/data<4>1 (sig_tempo_mux_out<6>)
+     LUT4:I1->O           14   0.479   1.032  sound_gen/n_timer/tempo<5>12121 (sound_gen/n_timer/tempo<5>121_bdd0)
+     LUT4:I3->O            1   0.479   0.000  sound_gen/n_timer/Mrom_sig_base101_8_f5_SW0_F (N611)
+     MUXF5:I0->O           1   0.314   0.851  sound_gen/n_timer/Mrom_sig_base101_8_f5_SW0 (N1911)
+     LUT3:I1->O            1   0.479   0.000  sound_gen/n_timer/Mrom_sig_base101_2_f5_F (N495)
+     MUXF5:I0->O           6   0.314   0.853  sound_gen/n_timer/Mrom_sig_base101_2_f5 (sound_gen/n_timer/sig_base<0>1)
+     INV:I->O              2   0.479   0.915  sound_gen/n_timer/sig_base<0>_inv1_INV_0 (sig_base<0>)
+     LUT2:I1->O            1   0.479   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_lut<0> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_lut<0>)
+     MUXCY:S->O            1   0.435   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<0> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<0>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<1> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<1>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<2> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<2>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<3> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<3>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<4> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<4>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<5> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<5>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<6> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<6>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<7> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<7>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<8> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<8>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<9> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<9>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<10> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<10>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<11> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<11>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<12> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<12>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<13> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<13>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<14> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<14>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<15> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<15>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<16> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<16>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<17> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<17>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<18> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<18>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<19> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<19>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<20> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<20>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<21> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<21>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<22> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<22>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<23> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<23>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<24> (sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<24>)
+     XORCY:CI->O           1   0.786   0.704  sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_xor<25> (sound_gen/n_timer/sig_1_1_2<25>)
+     LUT4:I3->O            1   0.479   0.740  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<25>_SW0 (N223)
+     LUT3:I2->O            1   0.479   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<25> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<25>)
+     MUXCY:S->O            1   0.435   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>)
+     MUXCY:CI->O           1   0.056   0.000  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<26> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<26>)
+     MUXCY:CI->O           2   0.265   0.915  sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27> (sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>)
+     LUT2:I1->O           28   0.479   1.556  sound_gen/n_timer/counter_not00011 (sound_gen/n_timer/counter_not0001)
+     FDCE_1:CE                 0.524          sound_gen/n_timer/counter_0
+    ----------------------------------------
+    Total                     21.545ns (9.486ns logic, 12.059ns route)
+                                       (44.0% logic, 56.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'reset'
+  Total number of paths / destination ports: 24 / 24
+-------------------------------------------------------------------------
+Offset:              3.311ns (Levels of Logic = 1)
+  Source:            tempo_mode (PAD)
+  Destination:       sense/swingComp/swingout_7 (LATCH)
+  Destination Clock: reset rising
+
+  Data Path: tempo_mode to sense/swingComp/swingout_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           134   0.715   2.072  tempo_mode_IBUF (tempo_mode_IBUF)
+     LDE_1:GE                  0.524          sense/swingComp/tomult_7
+    ----------------------------------------
+    Total                      3.311ns (1.239ns logic, 2.072ns route)
+                                       (37.4% logic, 62.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'sense/sensor/myOut'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              3.311ns (Levels of Logic = 1)
+  Source:            tempo_mode (PAD)
+  Destination:       sense/swingComp/swingCount_7 (FF)
+  Destination Clock: sense/sensor/myOut rising
+
+  Data Path: tempo_mode to sense/swingComp/swingCount_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           134   0.715   2.072  tempo_mode_IBUF (tempo_mode_IBUF)
+     FDCE:CE                   0.524          sense/swingComp/swingCount_0
+    ----------------------------------------
+    Total                      3.311ns (1.239ns logic, 2.072ns route)
+                                       (37.4% logic, 62.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'dsplay/SLWCLK'
+  Total number of paths / destination ports: 1024 / 8
+-------------------------------------------------------------------------
+Offset:              14.270ns (Levels of Logic = 9)
+  Source:            tempo_mode (PAD)
+  Destination:       dsplay/BCD_1 (FF)
+  Destination Clock: dsplay/SLWCLK rising
+
+  Data Path: tempo_mode to dsplay/BCD_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           134   0.715   2.242  tempo_mode_IBUF (tempo_mode_IBUF)
+     LUT3:I1->O          188   0.479   2.505  tempo_mux/data<3>1 (sig_tempo_mux_out<5>)
+     LUT4:I1->O            1   0.479   0.000  dsplay/conv/bcd_3_cmp_gt0002_G (N764)
+     MUXF5:I1->O           4   0.314   0.838  dsplay/conv/bcd_3_cmp_gt0002 (dsplay/conv/bcd_3_cmp_gt0002)
+     LUT4:I2->O            8   0.479   0.944  dsplay/conv/bcd_2_mux000411 (dsplay/conv/N0)
+     LUT4:I3->O            1   0.479   0.976  dsplay/BCD_mux0000<1>37_SW0 (N705)
+     LUT4:I0->O            1   0.479   0.976  dsplay/BCD_mux0000<1>37 (dsplay/BCD_mux0000<1>37)
+     LUT4:I0->O            1   0.479   0.000  dsplay/BCD_mux0000<1>121_G (N782)
+     MUXF5:I1->O           1   0.314   0.681  dsplay/BCD_mux0000<1>121 (dsplay/BCD_mux0000<1>121)
+     FDS:S                     0.892          dsplay/BCD_1
+    ----------------------------------------
+    Total                     14.270ns (5.109ns logic, 9.161ns route)
+                                       (35.8% logic, 64.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 125 / 18
+-------------------------------------------------------------------------
+Offset:              11.570ns (Levels of Logic = 4)
+  Source:            epp/regEppAdr_0 (FF)
+  Destination:       pdb<1> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: epp/regEppAdr_0 to pdb<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q             20   0.626   1.608  epp/regEppAdr_0 (epp/regEppAdr_0)
+     LUT4:I0->O           21   0.479   1.458  epp/busEppOut<0>19 (sig_epp_write_en)
+     LUT4:I1->O            1   0.479   0.851  epp/busEppOut<1>15 (epp/busEppOut<1>15)
+     LUT3:I1->O            1   0.479   0.681  epp/busEppOut<1>21 (epp/busEppOut<1>)
+     IOBUF:I->IO               4.909          pdb_1_IOBUF (pdb<1>)
+    ----------------------------------------
+    Total                     11.570ns (6.972ns logic, 4.598ns route)
+                                       (60.3% logic, 39.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'y_cmp_eq0001'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              6.141ns (Levels of Logic = 1)
+  Source:            speaker (LATCH)
+  Destination:       speaker (PAD)
+  Source Clock:      y_cmp_eq0001 rising
+
+  Data Path: speaker to speaker
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD_1:G->Q             1   0.551   0.681  speaker (speaker_OBUF)
+     OBUF:I->O                 4.909          speaker_OBUF (speaker)
+    ----------------------------------------
+    Total                      6.141ns (5.460ns logic, 0.681ns route)
+                                       (88.9% logic, 11.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'dsplay/SLWCLK'
+  Total number of paths / destination ports: 34 / 11
+-------------------------------------------------------------------------
+Offset:              7.945ns (Levels of Logic = 2)
+  Source:            dsplay/BCD_3 (FF)
+  Destination:       segments<7> (PAD)
+  Source Clock:      dsplay/SLWCLK rising
+
+  Data Path: dsplay/BCD_3 to segments<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDS:C->Q              9   0.626   1.250  dsplay/BCD_3 (dsplay/BCD_3)
+     LUT3:I0->O            1   0.479   0.681  dsplay/segments<7>1 (segments_7_OBUF)
+     OBUF:I->O                 4.909          segments_7_OBUF (segments<7>)
+    ----------------------------------------
+    Total                      7.945ns (6.014ns logic, 1.931ns route)
+                                       (75.7% logic, 24.3% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 22 / 8
+-------------------------------------------------------------------------
+Delay:               9.377ns (Levels of Logic = 4)
+  Source:            astb (PAD)
+  Destination:       pdb<7> (PAD)
+
+  Data Path: astb to pdb<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            18   0.715   1.374  astb_IBUF (astb_IBUF)
+     LUT3:I1->O            1   0.479   0.740  epp/busEppOut<7>_SW1 (N6)
+     LUT4:I2->O            1   0.479   0.681  epp/busEppOut<7> (epp/busEppOut<7>)
+     IOBUF:I->IO               4.909          pdb_7_IOBUF (pdb<7>)
+    ----------------------------------------
+    Total                      9.377ns (6.582ns logic, 2.795ns route)
+                                       (70.2% logic, 29.8% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 33.00 secs
+Total CPU time to Xst completion: 32.87 secs
+ 
+--> 
+
+Total memory usage is 388104 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  567 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
+

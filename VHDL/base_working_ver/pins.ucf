@@ -1,0 +1,61 @@
+NET "speaker" LOC = "T14";
+NET "clk" LOC = "A8";
+NET "reset" LOC = "J13";
+NET "reset" CLOCK_DEDICATED_ROUTE = FALSE;
+NET "play" LOC = "N15"; # sw(0)
+NET "tempo_mode" LOC = "J16";
+NET "tempo_mode" CLOCK_DEDICATED_ROUTE = FALSE;
+
+# switches used in testing
+#NET "tempo_val(0)" LOC = "K16";
+#NET "tempo_val(1)" LOC = "K15";
+#NET "tempo_val(2)" LOC = "L15";
+#NET "tempo_val(3)" LOC = "M16";
+#NET "tempo_val(4)" LOC = "M15";
+#NET "tempo_val(5)" LOC = "N16";
+
+
+#NET "loaddone" LOC = "L14"; #led0
+#NET "memoryWrite" LOC = "L13"; #led1
+NET "led(0)" LOC = "L14"; #led0
+NET "led(1)" LOC = "L13"; #led1
+
+##led2-7 used fir testing
+NET "led(2)" LOC = "M14";
+NET "led(3)" LOC = "L12";
+NET "led(4)" LOC = "N14";
+NET "led(5)" LOC = "M13";
+NET "led(6)" LOC = "P14";
+NET "led(7)" LOC = "R16";
+
+#seven seg pins
+NET "displayOut(0)" LOC="G14";
+NET "displayOut(1)" LOC="G12";
+NET "displayOut(2)" LOC="G13";
+NET "displayOut(3)" LOC="F12";
+NET "segments(0)" LOC="F13";
+NET "segments(1)" LOC="E13";
+NET "segments(2)" LOC="G15";
+NET "segments(3)" LOC="H13";
+NET "segments(4)" LOC="J14";
+NET "segments(5)" LOC="E14";
+NET "segments(6)" LOC="G16";
+NET "segments(7)" LOC="H14";
+
+#sensor pins
+NET "trig" LOC = "R11";
+NET "pulse" LOC = "P8";
+
+#epp pins
+NET "astb" LOC = "N8";
+NET "dstb" LOC = "P7";
+NET "pwr" LOC = "N7";
+NET "pwait" LOC = "N5";
+NET "pdb(0)" LOC = "N12";
+NET "pdb(1)" LOC = "P12";
+NET "pdb(2)" LOC = "N11";
+NET "pdb(3)" LOC = "P11";
+NET "pdb(4)" LOC = "N10";
+NET "pdb(5)" LOC = "P10";
+NET "pdb(6)" LOC = "M10";
+NET "pdb(7)" LOC = "R10";
