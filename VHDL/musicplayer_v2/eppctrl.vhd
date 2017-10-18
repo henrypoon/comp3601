@@ -184,16 +184,28 @@ begin
 	-- Select either address or data onto the internal output data bus.
 	busEppOut <= "0000" & regEppAdr when ctlEppAstb = '0' else busEppData;
 	
-	finish <= '1' when regEppAdr = "0010" else '0';		-- finish transfer 
-	done <= finish;
+
 	--rgLed <= counter;
 	
-	enable <= '1' when regEppAdr = "0001" else '0';		-- enable to transfer data to bram
+	--enable <= '1' when regEppAdr = "0001" else '0';		-- enable to transfer data to bram
 	--dataOut <= regData1(7 downto 4)& regData0 (3 downto 0) when regEppAdr = "0001"; 
-	dataToBram <= regData1(3 downto 0) & regData0 (7 downto 0) when regEppAdr = "0001";
-
-	addressToBram <= counter;
-
+	
+	process(clkMain, regEppAdr)
+	begin
+		if rising_edge(clkMain) then
+			if regEppAdr = "0001" then 
+				dataToBram <= regData1(3 downto 0) & regData0 (7 downto 0);
+				addressToBram <= counter;
+				enable <= '1';
+			end if;
+			if regEppAdr = "0010" then
+				done <= '1'; 
+			else 
+				done <= '0';
+			end if; -- finish transfer 
+	--done <= finish;
+		end if;
+	end process;
 
 	-- Decode the address register and select the appropriate data register
 	busEppData <=	regData0 when regEppAdr = "0000" else
@@ -217,7 +229,7 @@ begin
 	-- on each clock cycle
 	process (clkMain)
 		begin
-			if clkMain = '1' and clkMain'Event then
+			if rising_edge(clkMain) then
 				stEppCur <= stEppNext;
 			end if;
 		end process;
@@ -307,7 +319,7 @@ begin
 
 	process (clkMain, ctlEppAwr)
 		begin
-			if clkMain = '1' and clkMain'Event then
+			if rising_edge(clkMain) then
 				if ctlEppAwr = '1' then
 					regEppAdr <= busEppIn(3 downto 0);
 				end if;
@@ -327,7 +339,7 @@ begin
 
 	process (clkMain, regEppAdr, ctlEppDwr, busEppIn, counter)
 		begin
-			if clkMain = '1' and clkMain'Event then
+			if rising_edge(clkMain) then
 				if ctlEppDwr = '1' then
 					if regEppAdr = "0000" then
 						regData0 <= busEppIn;
