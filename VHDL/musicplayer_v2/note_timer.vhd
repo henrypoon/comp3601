@@ -81,7 +81,7 @@ begin
 	note_timer:process (reset, clk)
 	begin
 		if reset = '1' then 
-			timeout <= '0';
+			timeout <= '1';
 			counter <= 0;
 		elsif falling_edge(clk) then -- falling edge since input signals sent on rising edge
 			if en = '1' then
