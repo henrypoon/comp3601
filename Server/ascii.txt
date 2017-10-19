@@ -1,4 +1,0 @@
-normal
-180
-d5# sq
-g5# m

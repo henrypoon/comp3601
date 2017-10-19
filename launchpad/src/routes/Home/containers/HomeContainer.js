@@ -21,7 +21,8 @@ const mapStateToProps = (state) => ({
 	selected: state.home.selected,
 	mode: state.home.mode,
 	songid: state.home.songid,
-	sign: state.home.sign
+	sign: state.home.sign,
+	bpm: state.setting.bpm
 });
 
 const mapActionCreators = {

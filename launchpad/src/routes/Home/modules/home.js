@@ -42,9 +42,10 @@ export function setSign() {
 
 export function playMusic() {
 	return (dispatch, store) => {
-		console.log(store().home.song);
 		let song = '';
 		let length = 0;
+		const bpm = store().setting.bpm;
+		const mode = store().setting.mode;
 		store().home.song.map((e) => {
 			song = song + e.notes + '|' + e.duration + '|';
 			length += e.duration;
@@ -52,29 +53,15 @@ export function playMusic() {
 		song = song.slice(0, song.length - 1);
 		const jsonToSend = {
 			notes: song,
-			mode: 'normal',
-			name: 'test',
-			description: 'heeeee',
-			length: length/1000,
-			bpm: 20
+			mode: mode,
+			bpm: bpm
 		};
 		console.log(jsonToSend);
 
-		axios.post(url + 'songs', jsonToSend)
+		axios.post(url + 'songs/playCurrent', jsonToSend)
 			.then((response) => {
-				console.log(response.data.data.id);
-					axios.post(url + 'songs/play/' + response.data.data.id)
-						.then((response) => {
-							AlertIOS.alert('Song has been transferred to FPGA borad!');
-							console.log(response);
-						})
-						.catch((error) => {
-							console.log(error);
-						});
-					return {
-						type: PLAY_MUSIC,
-						payload: null
-					};
+				AlertIOS.alert('Song has been transferred to FPGA borad!');
+				console.log(response);
 			})
 			.catch((error) => {
 				console.log(error);
@@ -84,7 +71,6 @@ export function playMusic() {
 
 export function saveMusic(filename) {
 	return (dispatch, store) => {
-		console.log(store().home.song);
 		let song = '';
 		let length = 0;
 		const mode = store().setting.mode;
@@ -93,7 +79,6 @@ export function saveMusic(filename) {
 			song = song + e.notes + '|' + e.duration + '|';
 			length += e.duration;
 		});
-		console.log(length);
 		song = song.slice(0, song.length - 1);
 
 		if (store().home.mode === 'new') {
@@ -236,7 +221,8 @@ export function loadSong(payload) {
 				}
 			});
 			const id = response.data.data.id;
-			// console.log(id);
+			const bpm = response.data.data.bpm;
+			const mode = response.data.data.mode;
 			dispatch({
 				type: LOAD_SONG,
 				song,

@@ -17,7 +17,7 @@ export default class Setting extends React.Component {
 						selectedValue={this.props.selected_mode}
 						onValueChange={(itemValue) => this.props.changeMode(itemValue)} >
 						<Picker.Item label="Normal" value="normal" />
-						<Picker.Item label="staccato" value="staccato" />
+						<Picker.Item label="Staccato" value="staccato" />
 						<Picker.Item label="Slurred" value="slurred" />
 					</Picker>
 				<View style={{ alignItems: 'center', flex: 0.2 }}>

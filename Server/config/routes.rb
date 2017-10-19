@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   	collection do
   		post '/play/:id', to: "songs#play"
   		post '/upload', to: "songs#upload"
+  		post '/playCurrent', to: "songs#playCurrent"
   	end
   end
 end

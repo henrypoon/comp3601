@@ -38,44 +38,49 @@ class SongsController < ApplicationController
 		@song = Song.find(params[:id])
 		puts @song.id
 		saveJson @song
-		session = GoogleDrive::Session.from_config("config.json")
-
-		# session.files.each do |file|
-		#   puts file.title
-		# end
-		file = session.file_by_title("ascii.txt")
-		file.download_to_file("#{Rails.root}/ascii.txt")
+		system('python ./Store/jsonToBinary.py')
 
 		# exec('/c/Users/henrypan/source/repos/dll/Debug/dll.exe')
 		render json: {status: 'ok'}
 	end
+
+	def playCurrent
+		record_json = {
+			"notes" => params[:notes],
+			"mode" => params[:mode],
+			"bpm" => params[:bpm].to_s
+		}
+		File.open("#{Rails.root}/Store/input.json", "w") do |f|
+        	f.write(JSON.generate(record_json))
+    	end
+    	system('python ./Store/jsonToBinary.py')
+    	render json: {status: 'ok'}
+	end
+
 
 	def upload
 		# puts params[:filename]
 		puts params[:filename]
 		session = GoogleDrive::Session.from_config("config.json")
 		file = session.file_by_title(params[:filename])
-		file.download_to_file("#{Rails.root}/ascii.txt")
-
+		file.download_to_file("#{Rails.root}/Store/music.txt")
+		system('python ./Store/asciiToBinary.py')
 		# exec('/c/Users/henrypan/source/repos/dll/Debug/dll.exe')
 		render json: {status: 'ok'}
 	end
 
 	def saveJson(song)
 		record_json = {
-			"song" => song.notes,
+			"notes" => song.notes,
 			"mode" => song.mode,
 			"bpm" => song.bpm.to_s
 		} 
-		File.open("#{Rails.root}/input.json", "w") do |f|
+		File.open("#{Rails.root}/Store/input.json", "w") do |f|
         	f.write(JSON.generate(record_json))
     	end 
     end
 
 	private
-	def file_params
-		params.permit(:filename)
-	end
 
 	def song_params
 		params.permit(:notes, :mode, :bpm, :name, :description, :length, :created_at)
