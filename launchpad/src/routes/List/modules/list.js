@@ -3,8 +3,8 @@ import axios from 'axios';
 import constants from './actionConstants';
 import { Actions } from 'react-native-router-flux';
 import { AlertIOS } from 'react-native';
-
-var url = 'http://192.168.43.63:3000/';
+import urlConst from '../../url';
+const { url } = urlConst;
 
 const { SET_DATA, PLAY_MUSIC, DELETE_SONG } = constants;
 
@@ -49,6 +49,7 @@ export function deleteSong(payload) {
 					type: DELETE_SONG,
 					payload: null
 				});
+				setData()
 				Actions.home();
 			})
 			.catch((error) => {

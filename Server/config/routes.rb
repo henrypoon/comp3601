@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :songs, only: [:index, :create, :show, :update, :destroy] do
   	collection do
   		post '/play/:id', to: "songs#play"
+  		post '/upload', to: "songs#upload"
   	end
   end
 end

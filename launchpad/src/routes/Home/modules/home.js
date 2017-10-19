@@ -3,8 +3,8 @@ import axios from 'axios';
 import constants from './actionConstants';
 import { AlertIOS } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-
-var url = 'http://192.168.43.63:3000/';
+import urlConst from '../../url';
+const { url } = urlConst;
 
 const { 
 	SET_OCTAVE, 

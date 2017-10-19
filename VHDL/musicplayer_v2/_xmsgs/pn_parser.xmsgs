@@ -8,7 +8,67 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/SevenSegment.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/adder_16b.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/adder_8b.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/bin2bcd.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/clock_divider.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/eppctrl.vhd&quot; into library work</arg>
+</msg>
+
 <msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/memory.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/musicplayer_top.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/mux2to1_12b.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/mux2to1_16b.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/mux2to1_8b.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/note_timer.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/register_12b.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/register_16b.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/register_8b.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/sensorComponent.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/sevenSeg2.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/sound_generator.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/swingCounter.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/timer.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/trySense.vhd&quot; into library work</arg>
 </msg>
 
 </messages>

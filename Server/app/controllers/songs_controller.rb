@@ -1,3 +1,6 @@
+require "google_drive"
+session = GoogleDrive::Session.from_config("config.json")
+
 class SongsController < ApplicationController
 	def show
 		@song = Song.find(params[:id])
@@ -35,8 +38,26 @@ class SongsController < ApplicationController
 		@song = Song.find(params[:id])
 		puts @song.id
 		saveJson @song
-		# exec('C:\Users\henrypan\source\repos\FPGA\Debug\FPGA.exe')
-		# exec('C:\Users\henrypan\source\repos\FPGA\Debug\FPGA.exe')
+		session = GoogleDrive::Session.from_config("config.json")
+
+		# session.files.each do |file|
+		#   puts file.title
+		# end
+		file = session.file_by_title("ascii.txt")
+		file.download_to_file("#{Rails.root}/ascii.txt")
+
+		# exec('/c/Users/henrypan/source/repos/dll/Debug/dll.exe')
+		render json: {status: 'ok'}
+	end
+
+	def upload
+		# puts params[:filename]
+		puts params[:filename]
+		session = GoogleDrive::Session.from_config("config.json")
+		file = session.file_by_title(params[:filename])
+		file.download_to_file("#{Rails.root}/ascii.txt")
+
+		# exec('/c/Users/henrypan/source/repos/dll/Debug/dll.exe')
 		render json: {status: 'ok'}
 	end
 
@@ -52,6 +73,10 @@ class SongsController < ApplicationController
     end
 
 	private
+	def file_params
+		params.permit(:filename)
+	end
+
 	def song_params
 		params.permit(:notes, :mode, :bpm, :name, :description, :length, :created_at)
 	end

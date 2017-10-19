@@ -17,8 +17,6 @@ class Home extends React.Component {
 		this.props.setSelected(-1);
 	}
 
-
-
 	render() {
 		const renderSaveButton = () => {
 			if (this.props.mode === 'new') {
@@ -37,7 +35,7 @@ class Home extends React.Component {
 			);
 		};
 
-		let duractionList = [{
+		const duractionList = [{
 			value: '1/4',
 		}, {
 			value: '1/3',
@@ -64,7 +62,7 @@ class Home extends React.Component {
 				<View style={{ flex: 0.1 }}>
 					<Header>
 						<Left style={{ flex: 0.2, top: -15 }} >
-							<Button transparent onPress={() => Actions.setting()}>
+							<Button transparent onPress={() => Actions.uploader()}>
 								<Icon name='align-justify' />
 							</Button>
 						</Left>

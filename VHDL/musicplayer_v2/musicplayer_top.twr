@@ -45,23 +45,22 @@ Setup/Hold to clock clk
             |Max Setup to|Max Hold to |                  | Clock  |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------------+--------+
-astb        |    2.656(R)|    0.711(R)|clk_BUFGP         |   0.000|
-dstb        |    1.696(R)|    0.392(R)|clk_BUFGP         |   0.000|
-pdb<0>      |    2.081(R)|    0.342(R)|clk_BUFGP         |   0.000|
-pdb<1>      |    1.808(R)|    0.562(R)|clk_BUFGP         |   0.000|
-pdb<2>      |    1.254(R)|    0.529(R)|clk_BUFGP         |   0.000|
-pdb<3>      |    1.785(R)|    0.815(R)|clk_BUFGP         |   0.000|
-pdb<4>      |    0.656(R)|    0.770(R)|clk_BUFGP         |   0.000|
-pdb<5>      |    0.861(R)|    1.056(R)|clk_BUFGP         |   0.000|
-pdb<6>      |    0.990(R)|    0.534(R)|clk_BUFGP         |   0.000|
-pdb<7>      |    0.909(R)|    0.818(R)|clk_BUFGP         |   0.000|
-play        |    3.065(R)|   -0.868(R)|clk_BUFGP         |   0.000|
-pulse       |    4.467(R)|    0.701(R)|clk_BUFGP         |   0.000|
-pwr         |    2.325(R)|    0.358(R)|clk_BUFGP         |   0.000|
-reset       |    2.680(R)|   -0.835(R)|clk_BUFGP         |   0.000|
-reset_mem   |    3.821(F)|   -0.598(F)|clk_BUFGP         |   0.000|
-tempo_mode  |   19.151(R)|   -3.490(R)|clk_BUFGP         |   0.000|
-            |   19.545(F)|   -4.546(F)|clk_BUFGP         |   0.000|
+astb        |    3.260(R)|    0.435(R)|clk_BUFGP         |   0.000|
+dstb        |    1.001(R)|    0.653(R)|clk_BUFGP         |   0.000|
+pdb<0>      |    1.259(R)|    0.525(R)|clk_BUFGP         |   0.000|
+pdb<1>      |    0.598(R)|    0.815(R)|clk_BUFGP         |   0.000|
+pdb<2>      |    0.931(R)|    1.016(R)|clk_BUFGP         |   0.000|
+pdb<3>      |    0.854(R)|    1.076(R)|clk_BUFGP         |   0.000|
+pdb<4>      |    0.752(R)|    0.770(R)|clk_BUFGP         |   0.000|
+pdb<5>      |    0.856(R)|    1.076(R)|clk_BUFGP         |   0.000|
+pdb<6>      |    0.970(R)|    0.769(R)|clk_BUFGP         |   0.000|
+pdb<7>      |    0.930(R)|    1.059(R)|clk_BUFGP         |   0.000|
+play        |    3.369(R)|   -1.287(R)|clk_BUFGP         |   0.000|
+pulse       |    4.686(R)|    0.171(R)|clk_BUFGP         |   0.000|
+pwr         |    2.076(R)|    0.491(R)|clk_BUFGP         |   0.000|
+reset       |    3.237(R)|   -1.281(R)|clk_BUFGP         |   0.000|
+tempo_mode  |   18.915(R)|   -2.424(R)|clk_BUFGP         |   0.000|
+            |   18.901(F)|   -6.166(F)|clk_BUFGP         |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Setup/Hold to clock reset_sense
@@ -69,7 +68,7 @@ Setup/Hold to clock reset_sense
             |Max Setup to|Max Hold to |                  | Clock  |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------------+--------+
-tempo_mode  |    4.008(R)|    1.952(R)|reset_sense_IBUF  |   0.000|
+tempo_mode  |    1.500(R)|    3.220(R)|reset_sense_IBUF  |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Clock clk to Pad
@@ -77,18 +76,17 @@ Clock clk to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-loaddone    |   11.860(R)|clk_BUFGP         |   0.000|
-memoryWrite |   11.236(R)|clk_BUFGP         |   0.000|
-pdb<0>      |   13.603(R)|clk_BUFGP         |   0.000|
-pdb<1>      |   12.220(R)|clk_BUFGP         |   0.000|
-pdb<2>      |   10.569(R)|clk_BUFGP         |   0.000|
-pdb<3>      |   11.994(R)|clk_BUFGP         |   0.000|
-pdb<4>      |   10.698(R)|clk_BUFGP         |   0.000|
-pdb<5>      |   10.111(R)|clk_BUFGP         |   0.000|
-pdb<6>      |   10.216(R)|clk_BUFGP         |   0.000|
-pdb<7>      |   10.997(R)|clk_BUFGP         |   0.000|
-pwait       |    9.171(R)|clk_BUFGP         |   0.000|
-trig        |    8.040(R)|clk_BUFGP         |   0.000|
+loaddone    |    9.071(R)|clk_BUFGP         |   0.000|
+pdb<0>      |   10.870(R)|clk_BUFGP         |   0.000|
+pdb<1>      |   11.191(R)|clk_BUFGP         |   0.000|
+pdb<2>      |   10.544(R)|clk_BUFGP         |   0.000|
+pdb<3>      |   10.861(R)|clk_BUFGP         |   0.000|
+pdb<4>      |   10.546(R)|clk_BUFGP         |   0.000|
+pdb<5>      |   11.057(R)|clk_BUFGP         |   0.000|
+pdb<6>      |   10.940(R)|clk_BUFGP         |   0.000|
+pdb<7>      |   10.822(R)|clk_BUFGP         |   0.000|
+pwait       |    9.072(R)|clk_BUFGP         |   0.000|
+trig        |    8.727(R)|clk_BUFGP         |   0.000|
 ------------+------------+------------------+--------+
 
 Clock to Setup on destination clock clk
@@ -96,8 +94,8 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |   33.586|    6.927|   18.379|    8.369|
-reset_sense    |   24.780|         |   24.601|         |
+clk            |   26.996|    5.316|   17.701|    7.785|
+reset_sense    |   24.036|         |   24.156|         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock reset_sense
@@ -105,41 +103,41 @@ Clock to Setup on destination clock reset_sense
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    9.258|         |         |         |
-reset_sense    |    4.238|         |         |         |
+clk            |    6.431|         |         |         |
+reset_sense    |    3.983|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Pad to Pad
 ---------------+---------------+---------+
 Source Pad     |Destination Pad|  Delay  |
 ---------------+---------------+---------+
-astb           |pdb<0>         |   10.423|
-astb           |pdb<1>         |   10.130|
-astb           |pdb<2>         |    8.278|
-astb           |pdb<3>         |    8.260|
-astb           |pdb<4>         |    8.611|
-astb           |pdb<5>         |    8.628|
-astb           |pdb<6>         |    8.943|
-astb           |pdb<7>         |    9.531|
-pwr            |pdb<0>         |    8.147|
-pwr            |pdb<1>         |    8.151|
-pwr            |pdb<2>         |    8.706|
-pwr            |pdb<3>         |    8.451|
-pwr            |pdb<4>         |    9.024|
-pwr            |pdb<5>         |    7.805|
-pwr            |pdb<6>         |    8.105|
-pwr            |pdb<7>         |    9.323|
+astb           |pdb<0>         |   10.378|
+astb           |pdb<1>         |    9.493|
+astb           |pdb<2>         |    8.140|
+astb           |pdb<3>         |    8.366|
+astb           |pdb<4>         |   10.054|
+astb           |pdb<5>         |   10.565|
+astb           |pdb<6>         |   10.448|
+astb           |pdb<7>         |   10.330|
+pwr            |pdb<0>         |    7.928|
+pwr            |pdb<1>         |    8.858|
+pwr            |pdb<2>         |    8.541|
+pwr            |pdb<3>         |    8.858|
+pwr            |pdb<4>         |    7.825|
+pwr            |pdb<5>         |    8.138|
+pwr            |pdb<6>         |    8.437|
+pwr            |pdb<7>         |    7.793|
 ---------------+---------------+---------+
 
 
-Analysis completed Wed Oct 18 17:00:45 2017 
+Analysis completed Thu Oct 19 09:50:24 2017 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 166 MB
+Peak Memory Usage: 145 MB
 
 
 
