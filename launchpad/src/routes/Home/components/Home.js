@@ -56,7 +56,7 @@ class Home extends React.Component {
 		}, {
 			value: '8',
 		}];
-		
+
 		return (
 			<View style={{ flex: 1 }}>
 				<StatusBar hidden />
@@ -83,7 +83,6 @@ class Home extends React.Component {
 						song={this.props.song} 
 						setSelected={this.props.setSelected} 
 						selected={this.props.selected} 
-						mode={this.props.mode}
 					/>
 					<SliderBar
 						setSlider={this.props.setOctave}

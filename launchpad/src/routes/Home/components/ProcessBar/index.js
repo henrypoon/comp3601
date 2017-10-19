@@ -1,31 +1,15 @@
 import React from 'react';
 import { Text, View, ScrollView, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import Svg,{
-    Circle,
-    Ellipse,
-    G,
-    LinearGradient,
-    RadialGradient,
-    Line,
-    Path,
-    Polygon,
-    Polyline,
-    Rect,
-    Symbol,
-    Use,
-    Defs,
-    Stop
-} from 'react-native-svg';
-const pinkIMG = require('../../../../assets/img/Grid/pink.png');
+import { Rect, Svg } from 'react-native-svg';
 
-export const ProcessBar = ({ song, setSelected, selected, mode }) => {
+export const ProcessBar = ({ song, setSelected, selected }) => {
   const displayRect = (i, random) => {
     if (i === selected) {
-      return(
+      return (
         <Rect x="0" y="0" width="50" stroke='#ff0a3b' height="50" strokeWidth="5" fill={random} />
       );
     } else {
-      return(
+      return (
         <Rect x="0" y="0" width="50" height="50" strokeWidth="5" fill={random} /> 
       );
     }
