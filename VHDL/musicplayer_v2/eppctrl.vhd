@@ -155,7 +155,7 @@ architecture Behavioral of eppctrl is
 	signal counter : std_logic_vector(7 downto 0) := (others => '0');
 	signal finish: std_logic := '0';
 
-
+	signal sig_enable : std_logic;
 ------------------------------------------------------------------------
 -- Module Implementation
 ------------------------------------------------------------------------
@@ -194,9 +194,9 @@ begin
 	begin
 		if rising_edge(clkMain) then
 			if regEppAdr = "0001" then 
-				dataToBram <= regData1(3 downto 0) & regData0 (7 downto 0);
-				addressToBram <= counter;
-				enable <= '1';
+				sig_enable <= '1';
+			else 
+				sig_enable <= '0';
 			end if;
 			if regEppAdr = "0010" then
 				done <= '1'; 
@@ -206,14 +206,43 @@ begin
 	--done <= finish;
 		end if;
 	end process;
-
+	
+	enable <= sig_enable;
+	
+	process(clkMain, sig_enable)
+	begin
+	
+	if rising_edge(clkMain) then
+		if sig_enable = '1' then
+			dataToBram <= regData1(3 downto 0) & regData0 (7 downto 0);
+			addressToBram <= counter;
+		end if;
+	end if;
+	end process;
 	-- Decode the address register and select the appropriate data register
-	busEppData <=	regData0 when regEppAdr = "0000" else
-					regData1 when regEppAdr = "0001" else
-					regData2 when regEppAdr = "0010" else
-					--rgSwt    when regEppAdr = "1000" else
-					--"000" & rgBtn when regEppAdr = "1001" else
-					"00000000";
+	process(clkMain, regEppAdr)
+	begin
+		if rising_edge(clkMain) then
+			if regEppAdr = "0000" then
+				busEppData <=	regData0;
+			--	enable <= '0';
+			elsif regEppAdr = "0001" then
+				busEppData <=	regData1;
+				
+			elsif regEppAdr = "0010" then
+				busEppData <=	regData2;
+			else 
+				busEppData <=	X"00";
+			end if;
+		end if;
+		
+	end process;
+--	busEppData <=	regData0 when regEppAdr = "0000" else
+--					regData1 when regEppAdr = "0001" else
+--					regData2 when regEppAdr = "0010" else
+--					--rgSwt    when regEppAdr = "1000" else
+--					--"000" & rgBtn when regEppAdr = "1001" else
+--					"00000000";
 					
     ------------------------------------------------------------------------
 	-- EPP Interface Control State Machine
