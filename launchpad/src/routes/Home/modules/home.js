@@ -4,12 +4,12 @@ import constants from './actionConstants';
 import { AlertIOS } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import urlConst from '../../url';
+
 const { url } = urlConst;
 
 const { 
 	SET_OCTAVE, 
 	SET_DURATION, 
-	PLAY_MUSIC, 
 	SET_CURRENTNOTE, 
 	ADD_TO_SONG, 
 	DELETE_NOTE, 
@@ -42,19 +42,17 @@ export function setSign() {
 
 export function playMusic() {
 	return (dispatch, store) => {
-		let song = '';
-		let length = 0;
+		let notes = '';
 		const bpm = store().setting.bpm;
 		const mode = store().setting.mode;
 		store().home.song.map((e) => {
-			song = song + e.notes + '|' + e.duration + '|';
-			length += e.duration;
+			notes = notes + e.notes + '|' + e.duration + '|';
 		});
-		song = song.slice(0, song.length - 1);
+		notes = notes.slice(0, notes.length - 1);
 		const jsonToSend = {
-			notes: song,
-			mode: mode,
-			bpm: bpm
+			notes,
+			mode,
+			bpm
 		};
 		console.log(jsonToSend);
 
@@ -166,7 +164,7 @@ export function addToSong() {
 		const duration = store().home.duration;
 		const sign = store().home.sign;
 		const notes = currNote === 'rest' ? 'rest' : currNote + octave + sign;
-		const n = { notes: notes, duration: duration };
+		const n = { notes, duration };
 		const song = store().home.song;
 		const add = song.concat(n);
 		if (store().home.selected !== -1) {

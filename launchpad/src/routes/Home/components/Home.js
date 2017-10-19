@@ -56,6 +56,7 @@ class Home extends React.Component {
 		}, {
 			value: '8',
 		}];
+		
 		return (
 			<View style={{ flex: 1 }}>
 				<StatusBar hidden />
