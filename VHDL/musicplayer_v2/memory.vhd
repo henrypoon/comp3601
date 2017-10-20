@@ -8,7 +8,9 @@ entity memory is
         write_enable : in std_logic;
           write_data : in std_logic_vector(11 downto 0);
              addr_in : in std_logic_vector(7 downto 0);
-            data_out : out std_logic_vector(11 downto 0) );
+				 mem_zero : out std_logic_vector(11 downto 0);
+            data_out : out std_logic_vector(11 downto 0)
+				);
 end memory;
 
 architecture behavioral of memory is
@@ -19,16 +21,16 @@ architecture behavioral of memory is
 begin
   mem_process: process ( clk, reset, write_enable ) is
   begin
---    if (reset = '1') then
+   -- if (reset = '1') then
       -- instantiate all other values to zero
-  --    sig_data_mem <= ((others=> (others=>'0')));
+   --   sig_data_mem <= ((others=> (others=>'0')));
 		-------------------------------------------	
 		--FORMAT
 		--first line(timing and bpm) = TTBBBBBBBB00
 		--other LINES(note and dura) = NNNNNNDDDD00
 		--------------------------------------------
 --		sig_data_mem(0)  <= "010111100000";--timing = slurred, bpm = 120		
---		--mary had a little lamb
+----		--mary had a little lamb
 --		sig_data_mem(1)  <= "000111010000";
 --		sig_data_mem(2)  <= "000100010000";
 --		sig_data_mem(3)  <= "000010010000";
@@ -55,13 +57,14 @@ begin
 --		sig_data_mem(24) <= "000111010000";
 --		sig_data_mem(25) <= "000100010000";
 --		sig_data_mem(26) <= "000010010000";
-    if rising_edge(clk) then
+    if falling_edge(clk) then
 		
       if write_enable = '1' then
 			-- memory writes on the falling clock edge
 			sig_data_mem(to_integer(unsigned(addr_in))) <= X"0" & write_data;
 		end if;
 		data_out <= sig_data_mem(to_integer(unsigned(addr_in)))(11 downto 0);
+		mem_zero <= sig_data_mem(0)(11 downto 0);
     end if;
     
   end process;

@@ -25,10 +25,13 @@ USE ieee.numeric_std.ALL;
 entity musicplayer_top is
 	port (clk 	  : in std_logic;
 			reset	  : in std_logic; -- everything except memory button 0
-			reset_mem : in std_logic; -- memory reset button 1
+			--reset_mem : in std_logic; -- memory reset button 1
 			reset_sense: in std_logic; --sensor reset button 2
 			play		  : in std_logic; --sw0
 			tempo_mode:	in std_logic; -- sw1, switches between tempo in file to dynaimic tempo
+			tempo_sw_en: in std_logic;
+			tempo_sw_up: in std_logic;
+			tempo_sw_down: in std_logic;
 			--tempo_val	: in std_logic_vector (5 downto 0); --sw2 to 8 used for testing
 			pulse : in  STD_LOGIC;
 			trig : out  STD_LOGIC;
@@ -41,7 +44,9 @@ entity musicplayer_top is
 			loaddone: out std_logic;
 			memoryWrite: out std_logic;
 			--led: out std_logic_vector(7 downto 0);
-			
+			tempo_mode2 : in  STD_LOGIC;
+			  tempo_up :in  STD_LOGIC;
+			  tempo_down :in  STD_LOGIC;
 			--7seg ports
 			segments : out std_logic_vector(7 downto 0);
 			displayOut : out std_logic_vector(3 downto 0);
@@ -153,6 +158,17 @@ architecture Behavioral of musicplayer_top is
 			addressToBram: out std_logic_vector(7 downto 0)
 		);
 	end component;	
+	
+	component swtempo is
+    Port ( clk : in std_logic;
+			  reset: in std_logic;
+			  tempo_val : in  STD_LOGIC_VECTOR (7 downto 0);
+           tempo_mode : in  STD_LOGIC;
+			  tempo_up :in  STD_LOGIC;
+			  tempo_down :in  STD_LOGIC;
+           tempo_out : out  STD_LOGIC_vector(7 downto 0));
+	end component;
+
 --signals
 	signal sig_music_counter_en: std_logic;
 	signal sig_next_addr	: std_logic_vector(7 downto 0);
@@ -194,8 +210,9 @@ architecture Behavioral of musicplayer_top is
 	signal sig_tempo_mux_out : std_logic_vector (11 downto 0);
 	signal sig_tempo_mux_b : std_logic_vector (11 downto 0);
 	signal sig_music_counter_reset: std_logic;
+	signal sig_tempo_reg2_out: std_logic_vector(11 downto 0);
 	--signal sig_note_timer_en: std_logic;
-	
+	signal sig_sw_tempo: std_logic_vector(7 downto 0);
 	
 	--fsm
 	TYPE State_Type IS (load, idle, read_note, play_note);--, pause1, pause2); ---added handshake state
@@ -265,7 +282,7 @@ begin
 	
 	mem: memory
 	port map (
-		reset => reset_mem,
+		reset => reset, --reset_mem,
 		clk => clk,
 		write_enable => sig_write_en,
 		write_data => sig_write_data,
@@ -314,16 +331,48 @@ begin
       swingValue => tempo_val  
 	);
 	
-	
+	swcontol: swtempo
+   Port map ( clk => clk,
+			  reset => reset,
+			  tempo_val => sig_tempo_data(9 downto 2),
+           tempo_mode => tempo_mode2,
+			  tempo_up =>tempo_up,
+			  tempo_down => tempo_down,
+           tempo_out => sig_sw_tempo
+			  );
+
+
 	--sig_tempo_mux_b <= "00" & tempo_val & "00";
 	tempo_mux :	mux2to1_8b 
 	port map (
-		data_a => sig_tempo_data(9 downto 2),
+		data_a => sig_sw_tempo,--sig_tempo_data(9 downto 2),
 		data_b => tempo_val, --sig_tempo_mux_b,
 		sel => tempo_mode,
 		data => sig_tempo_mux_out(9 downto 2)
 	);
 	
+--	tempo_reg2: process(sig_tempo_mux_out, clk, tempo_sw_en, tempo_sw_up, tempo_sw_down)
+--	begin
+--		if rising_Edge(clk) then
+--			if tempo_sw_en = '1' then
+--				if tempo_sw_up = '1' then
+--					if tempo_sw_down = '0' then
+--						--increment counter every second
+--						
+--					else 
+--						sig_tempo_reg2_out <= sig_tempo_mux_out;
+--					end if;
+--				elsif tempo_sw_down = '1' then
+--					if tempo_sw_up = '0' then
+--						--decrement counter every second
+--					else 
+--						sig_tempo_reg2_out <= sig_tempo_mux_out;
+--					end if;
+--				end if;
+--			else 
+--				sig_tempo_reg2_out <= sig_tempo_mux_out;
+--	end process;
+--	
 	
 	---added in display
 	
@@ -536,4 +585,3 @@ begin
 	
 	
 end Behavioral;
-

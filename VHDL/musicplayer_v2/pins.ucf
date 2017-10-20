@@ -1,7 +1,9 @@
 NET "speaker" LOC = "T14";
 NET "clk" LOC = "A8";
 NET "reset" LOC = "J13";
-NET "reset_mem" LOC = "K14";
+NET "reset" CLOCK_DEDICATED_ROUTE = FALSE;
+#NET "reset_mem" LOC = "K14";
+#NET "reset_mem" CLOCK_DEDICATED_ROUTE = FALSE;
 NET "reset_sense" LOC = "K13";
 NET "reset_sense" CLOCK_DEDICATED_ROUTE = FALSE;
 NET "play" LOC = "N15"; # sw(0)
@@ -15,7 +17,11 @@ NET "tempo_mode" CLOCK_DEDICATED_ROUTE = FALSE;
 #NET "tempo_val(3)" LOC = "M16";
 #NET "tempo_val(4)" LOC = "M15";
 #NET "tempo_val(5)" LOC = "N16";
-
+#switch tempo control pins 
+NET "tempo_mode2" LOC = "K16"; #sw2
+NET "tempo_mode2" CLOCK_DEDICATED_ROUTE = FALSE;
+NET "tempo_up" LOC = "K15"; #sw3
+NET "tempo_down" LOC = "L15"; #sw4
 
 NET "loaddone" LOC = "L14"; #led0
 NET "memoryWrite" LOC = "L13"; #led1
