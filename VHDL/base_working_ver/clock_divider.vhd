@@ -547,7 +547,7 @@ begin
 			when "001010" => sig_max <= 240789 ; --g3# a4b
 			when "001011" => sig_max <= 113636 ; --a3
 			when "001100" => sig_max <= 107259 ; --a3# b3b
-			when "001101" => sig_max <= 101239 ; --b3 c3b
+			when "001101" => sig_max <= 101239 ; --b3 c4b
 			when "001110" => sig_max <= 191109 ; --b3# c4
 			when "001111" => sig_max <= 180388 ; --c4# d4b
 			when "010000" => sig_max <= 170264 ; --d4
