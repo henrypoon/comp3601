@@ -1,38 +1,72 @@
-xst -intstyle ise -ifn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/musicplayer_top.xst" -ofn "Y:/Desktop/Study/COMP3601/comp3601/VHDL/musicplayer_v2/musicplayer_top.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-5 musicplayer_top.ngc musicplayer_top.ngd  
-map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
+xst -intstyle ise -ifn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.xst" -ofn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-4 musicplayer_top.ngc musicplayer_top.ngd  
+map -intstyle ise -p xc3s400-ft256-4 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
 par -w -intstyle ise -ol high -t 1 musicplayer_top_map.ncd musicplayer_top.ncd musicplayer_top.pcf 
-trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf 
 bitgen -intstyle ise -f musicplayer_top.ut musicplayer_top.ncd 
 bitgen -intstyle ise -f musicplayer_top.ut musicplayer_top.ncd 
-xst -intstyle ise -ifn "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/musicplayer_top.xst" -ofn "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/musicplayer_top.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-5 musicplayer_top.ngc musicplayer_top.ngd  
-map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
+bitgen -intstyle ise -f musicplayer_top.ut musicplayer_top.ncd 
+xst -intstyle ise -ifn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.xst" -ofn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-4 musicplayer_top.ngc musicplayer_top.ngd  
+map -intstyle ise -p xc3s400-ft256-4 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
 par -w -intstyle ise -ol high -t 1 musicplayer_top_map.ncd musicplayer_top.ncd musicplayer_top.pcf 
-trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf 
-bitgen -intstyle ise -f musicplayer_top.ut musicplayer_top.ncd 
-xst -intstyle ise -ifn "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/musicplayer_top.xst" -ofn "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/musicplayer_top.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-5 musicplayer_top.ngc musicplayer_top.ngd  
-map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
+xst -intstyle ise -ifn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.xst" -ofn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-4 musicplayer_top.ngc musicplayer_top.ngd  
+map -intstyle ise -p xc3s400-ft256-4 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
 par -w -intstyle ise -ol high -t 1 musicplayer_top_map.ncd musicplayer_top.ncd musicplayer_top.pcf 
-trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf 
 bitgen -intstyle ise -f musicplayer_top.ut musicplayer_top.ncd 
-bitgen -intstyle ise -f musicplayer_top.ut musicplayer_top.ncd 
-xst -intstyle ise -ifn "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/musicplayer_top.xst" -ofn "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/musicplayer_top.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-5 musicplayer_top.ngc musicplayer_top.ngd  
-map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
+xst -intstyle ise -ifn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.xst" -ofn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-4 musicplayer_top.ngc musicplayer_top.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-4 musicplayer_top.ngc musicplayer_top.ngd  
+map -intstyle ise -p xc3s400-ft256-4 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
 par -w -intstyle ise -ol high -t 1 musicplayer_top_map.ncd musicplayer_top.ncd musicplayer_top.pcf 
-trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf 
-bitgen -intstyle ise -f musicplayer_top.ut musicplayer_top.ncd 
-xst -intstyle ise -ifn "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/musicplayer_top.xst" -ofn "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/musicplayer_top.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-5 musicplayer_top.ngc musicplayer_top.ngd  
-map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
 par -w -intstyle ise -ol high -t 1 musicplayer_top_map.ncd musicplayer_top.ncd musicplayer_top.pcf 
-trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf 
 bitgen -intstyle ise -f musicplayer_top.ut musicplayer_top.ncd 
-xst -intstyle ise -ifn "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/musicplayer_top.xst" -ofn "C:/Users/cse/Downloads/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9/VHDL/musicplayer_v2/musicplayer_top.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-5 musicplayer_top.ngc musicplayer_top.ngd  
-map -intstyle ise -p xc3s400-ft256-5 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
+xst -intstyle ise -ifn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.xst" -ofn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.syr" 
+xst -intstyle ise -ifn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.xst" -ofn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-4 musicplayer_top.ngc musicplayer_top.ngd  
+map -intstyle ise -p xc3s400-ft256-4 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
 par -w -intstyle ise -ol high -t 1 musicplayer_top_map.ncd musicplayer_top.ncd musicplayer_top.pcf 
-trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf 
+bitgen -intstyle ise -f musicplayer_top.ut musicplayer_top.ncd 
+par -w -intstyle ise -ol high -t 1 musicplayer_top_map.ncd musicplayer_top.ncd musicplayer_top.pcf 
+par -w -intstyle ise -ol high -t 1 musicplayer_top_map.ncd musicplayer_top.ncd musicplayer_top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf 
+bitgen -intstyle ise -f musicplayer_top.ut musicplayer_top.ncd 
+xst -intstyle ise -ifn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.xst" -ofn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-4 musicplayer_top.ngc musicplayer_top.ngd  
+map -intstyle ise -p xc3s400-ft256-4 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
+map -intstyle ise -p xc3s400-ft256-4 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
+map -intstyle ise -p xc3s400-ft256-4 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
+par -w -intstyle ise -ol high -t 1 musicplayer_top_map.ncd musicplayer_top.ncd musicplayer_top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf 
+bitgen -intstyle ise -f musicplayer_top.ut musicplayer_top.ncd 
+xst -intstyle ise -ifn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.xst" -ofn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-4 musicplayer_top.ngc musicplayer_top.ngd  
+map -intstyle ise -p xc3s400-ft256-4 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
+par -w -intstyle ise -ol high -t 1 musicplayer_top_map.ncd musicplayer_top.ncd musicplayer_top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf 
+bitgen -intstyle ise -f musicplayer_top.ut musicplayer_top.ncd 
+xst -intstyle ise -ifn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.xst" -ofn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-4 musicplayer_top.ngc musicplayer_top.ngd  
+map -intstyle ise -p xc3s400-ft256-4 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
+par -w -intstyle ise -ol high -t 1 musicplayer_top_map.ncd musicplayer_top.ncd musicplayer_top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf 
+bitgen -intstyle ise -f musicplayer_top.ut musicplayer_top.ncd 
+xst -intstyle ise -ifn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.xst" -ofn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-4 musicplayer_top.ngc musicplayer_top.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-4 musicplayer_top.ngc musicplayer_top.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-4 musicplayer_top.ngc musicplayer_top.ngd  
+map -intstyle ise -p xc3s400-ft256-4 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
+par -w -intstyle ise -ol high -t 1 musicplayer_top_map.ncd musicplayer_top.ncd musicplayer_top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf 
+bitgen -intstyle ise -f musicplayer_top.ut musicplayer_top.ncd 
+xst -intstyle ise -ifn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.xst" -ofn "C:/Users/luong/Documents/4thyr/SEM2/COMP3601/musicplayer_v2.6/musicplayer_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-ft256-4 musicplayer_top.ngc musicplayer_top.ngd  
+map -intstyle ise -p xc3s400-ft256-4 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
+map -intstyle ise -p xc3s400-ft256-4 -cm area -ir off -pr off -c 100 -o musicplayer_top_map.ncd musicplayer_top.ngd musicplayer_top.pcf 
+par -w -intstyle ise -ol high -t 1 musicplayer_top_map.ncd musicplayer_top.ncd musicplayer_top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf 
 bitgen -intstyle ise -f musicplayer_top.ut musicplayer_top.ncd 

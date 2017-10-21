@@ -1,15 +1,21 @@
-Release 14.7 Drc P.20131013 (nt64)
+Release 14.7 Drc P.20131013 (nt)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Wed Oct 18 19:41:40 2017
+Sat Oct 21 21:18:08 2017
 
 drc -z musicplayer_top.ncd musicplayer_top.pcf
 
-WARNING:PhysDesignRules:372 - Gated clock. Clock net sig_epp_write_en is sourced
-   by a combinatorial pin. This is not good design practice. Use the CE pin to
-   control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net y_cmp_eq0001 is sourced by
-   a combinatorial pin. This is not good design practice. Use the CE pin to
-   control the loading of data into the flip-flop.
-DRC detected 0 errors and 2 warnings.  Please see the previously displayed
+WARNING:PhysDesignRules:812 - Dangling pin <DOA0> on
+   block:<mem/Mram_sig_data_mem.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA1> on
+   block:<mem/Mram_sig_data_mem.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA12> on
+   block:<mem/Mram_sig_data_mem.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA13> on
+   block:<mem/Mram_sig_data_mem.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA14> on
+   block:<mem/Mram_sig_data_mem.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA15> on
+   block:<mem/Mram_sig_data_mem.A>:<RAMB16_RAMB16A>.
+DRC detected 0 errors and 6 warnings.  Please see the previously displayed
 individual error or warning messages for more details.

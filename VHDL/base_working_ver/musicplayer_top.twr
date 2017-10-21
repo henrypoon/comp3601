@@ -1,14 +1,14 @@
 --------------------------------------------------------------------------------
-Release 14.7 Trace  (nt64)
+Release 14.7 Trace  (nt)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 5
--n 3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\trce.exe -intstyle ise -v 3 -s 4 -n
+3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o
 musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf
 
 Design file:              musicplayer_top.ncd
 Physical constraint file: musicplayer_top.pcf
-Device,package,speed:     xc3s400,ft256,-5 (PRODUCTION 1.39 2013-10-13)
+Device,package,speed:     xc3s400,ft256,-4 (PRODUCTION 1.39 2013-10-13)
 Report level:             verbose report
 
 Environment Variable      Effect 
@@ -16,7 +16,6 @@ Environment Variable      Effect
 NONE                      No environment variables were set
 --------------------------------------------------------------------------------
 
-INFO:Timing:2698 - No timing constraints found, doing default enumeration.
 INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
 INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
    option. All paths that are not constrained will be reported in the 
@@ -34,116 +33,963 @@ INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and
    SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
    Error.
 
+================================================================================
+Timing constraint: TS_USER_CLOCK_P = PERIOD TIMEGRP "USER_CLOCK_P" 10 ns HIGH 
+50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 11885102 paths analyzed, 1387 endpoints analyzed, 204 failing endpoints
+ 204 timing errors detected. (204 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is  29.920ns.
+--------------------------------------------------------------------------------
+
+Paths for end point sound_gen/sq_wave/temp (SLICE_X42Y20.F4), 2651328 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     -13.104ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               buffer_reg/data_out_6 (FF)
+  Destination:          sound_gen/sq_wave/temp (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      23.104ns (Levels of Logic = 17)(Component delays alone exceeds constraint)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: buffer_reg/data_out_6 to sound_gen/sq_wave/temp
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X43Y20.YQ      Tcko                  0.720   buffer_reg/data_out<7>
+                                                       buffer_reg/data_out_6
+    SLICE_X44Y19.G2      net (fanout=59)       1.519   buffer_reg/data_out<6>
+    SLICE_X44Y19.F5      Tif5                  0.796   sound_gen/sq_wave/Mrom_sig_max6_f51
+                                                       sound_gen/sq_wave/Mrom_sig_max63
+                                                       sound_gen/sq_wave/Mrom_sig_max6_f5_0
+    SLICE_X44Y18.FXINB   net (fanout=1)        0.000   sound_gen/sq_wave/Mrom_sig_max6_f51
+    SLICE_X44Y18.Y       Tif6y                 0.342   sound_gen/sq_wave/Mrom_sig_max6_f6
+                                                       sound_gen/sq_wave/Mrom_sig_max6_f6
+    SLICE_X47Y20.F1      net (fanout=30)       0.603   sound_gen/sq_wave/Mrom_sig_max6_f6
+    SLICE_X47Y20.Y       Topy                  1.605   sound_gen/sq_wave/sig_75segment<0>
+                                                       sound_gen/sq_wave/Madd_sig_75segment_addsub0000_lut<0>
+                                                       sound_gen/sq_wave/Madd_sig_75segment_addsub0000_cy<0>
+                                                       sound_gen/sq_wave/Madd_sig_75segment_addsub0000_xor<1>
+    SLICE_X49Y47.G2      net (fanout=4)        2.357   sound_gen/sq_wave/sig_75segment<1>
+    SLICE_X49Y47.Y       Tilo                  0.551   sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001C
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000C1
+    SLICE_X49Y21.F1      net (fanout=1)        1.800   sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000C
+    SLICE_X49Y21.COUT    Topcyf                1.027   sound_gen/sq_wave/sig_96_875segment_addsub0000<2>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000_Madd_lut<2>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000_Madd_cy<2>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000_Madd_cy<3>
+    SLICE_X49Y22.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000_Madd_cy<3>
+    SLICE_X49Y22.X       Tcinx                 0.904   sound_gen/sq_wave/sig_96_875segment_addsub0000<4>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000_Madd_xor<4>
+    SLICE_X48Y48.F1      net (fanout=1)        1.917   sound_gen/sq_wave/sig_96_875segment_addsub0000<4>
+    SLICE_X48Y48.COUT    Topcyf                1.084   sound_gen/sq_wave/sig_96_875segment<4>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_lut<4>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_cy<4>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_cy<5>
+    SLICE_X48Y49.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_96_875segment_cy<5>
+    SLICE_X48Y49.Y       Tciny                 0.923   sound_gen/sq_wave/sig_96_875segment<6>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_cy<6>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_xor<7>
+    SLICE_X49Y51.G4      net (fanout=1)        0.360   sound_gen/sq_wave/sig_96_875segment<7>
+    SLICE_X49Y51.COUT    Topcyg                1.039   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<7>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_lut<7>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<7>
+    SLICE_X49Y52.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<7>
+    SLICE_X49Y52.COUT    Tbyp                  0.128   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<9>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<8>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<9>
+    SLICE_X49Y53.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<9>
+    SLICE_X49Y53.COUT    Tbyp                  0.128   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<11>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<10>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<11>
+    SLICE_X49Y54.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<11>
+    SLICE_X49Y54.COUT    Tbyp                  0.128   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<13>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<12>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<13>
+    SLICE_X49Y55.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<13>
+    SLICE_X49Y55.COUT    Tbyp                  0.128   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<15>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<14>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<15>
+    SLICE_X49Y56.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<15>
+    SLICE_X49Y56.XB      Tcinxb                0.320   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<16>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<16>
+    SLICE_X48Y19.G3      net (fanout=1)        2.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<16>
+    SLICE_X48Y19.Y       Tilo                  0.608   N323
+                                                       sound_gen/sq_wave/temp_mux0007219
+    SLICE_X42Y20.G4      net (fanout=1)        0.804   sound_gen/sq_wave/temp_mux0007219
+    SLICE_X42Y20.Y       Tilo                  0.608   sound_gen/sq_wave/temp
+                                                       sound_gen/sq_wave/temp_mux0007254_SW0
+    SLICE_X42Y20.F4      net (fanout=1)        0.015   sound_gen/sq_wave/temp_mux0007254_SW0/O
+    SLICE_X42Y20.CLK     Tfck                  0.690   sound_gen/sq_wave/temp
+                                                       sound_gen/sq_wave/temp_mux0007289
+                                                       sound_gen/sq_wave/temp
+    -------------------------------------------------  ---------------------------
+    Total                                     23.104ns (11.729ns logic, 11.375ns route)
+                                                       (50.8% logic, 49.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -13.104ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               buffer_reg/data_out_6 (FF)
+  Destination:          sound_gen/sq_wave/temp (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      23.104ns (Levels of Logic = 17)(Component delays alone exceeds constraint)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: buffer_reg/data_out_6 to sound_gen/sq_wave/temp
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X43Y20.YQ      Tcko                  0.720   buffer_reg/data_out<7>
+                                                       buffer_reg/data_out_6
+    SLICE_X44Y18.G2      net (fanout=59)       1.519   buffer_reg/data_out<6>
+    SLICE_X44Y18.F5      Tif5                  0.796   sound_gen/sq_wave/Mrom_sig_max6_f6
+                                                       sound_gen/sq_wave/Mrom_sig_max61
+                                                       sound_gen/sq_wave/Mrom_sig_max6_f5
+    SLICE_X44Y18.FXINA   net (fanout=1)        0.000   sound_gen/sq_wave/Mrom_sig_max6_f5
+    SLICE_X44Y18.Y       Tif6y                 0.342   sound_gen/sq_wave/Mrom_sig_max6_f6
+                                                       sound_gen/sq_wave/Mrom_sig_max6_f6
+    SLICE_X47Y20.F1      net (fanout=30)       0.603   sound_gen/sq_wave/Mrom_sig_max6_f6
+    SLICE_X47Y20.Y       Topy                  1.605   sound_gen/sq_wave/sig_75segment<0>
+                                                       sound_gen/sq_wave/Madd_sig_75segment_addsub0000_lut<0>
+                                                       sound_gen/sq_wave/Madd_sig_75segment_addsub0000_cy<0>
+                                                       sound_gen/sq_wave/Madd_sig_75segment_addsub0000_xor<1>
+    SLICE_X49Y47.G2      net (fanout=4)        2.357   sound_gen/sq_wave/sig_75segment<1>
+    SLICE_X49Y47.Y       Tilo                  0.551   sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001C
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000C1
+    SLICE_X49Y21.F1      net (fanout=1)        1.800   sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000C
+    SLICE_X49Y21.COUT    Topcyf                1.027   sound_gen/sq_wave/sig_96_875segment_addsub0000<2>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000_Madd_lut<2>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000_Madd_cy<2>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000_Madd_cy<3>
+    SLICE_X49Y22.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000_Madd_cy<3>
+    SLICE_X49Y22.X       Tcinx                 0.904   sound_gen/sq_wave/sig_96_875segment_addsub0000<4>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000_Madd_xor<4>
+    SLICE_X48Y48.F1      net (fanout=1)        1.917   sound_gen/sq_wave/sig_96_875segment_addsub0000<4>
+    SLICE_X48Y48.COUT    Topcyf                1.084   sound_gen/sq_wave/sig_96_875segment<4>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_lut<4>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_cy<4>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_cy<5>
+    SLICE_X48Y49.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_96_875segment_cy<5>
+    SLICE_X48Y49.Y       Tciny                 0.923   sound_gen/sq_wave/sig_96_875segment<6>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_cy<6>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_xor<7>
+    SLICE_X49Y51.G4      net (fanout=1)        0.360   sound_gen/sq_wave/sig_96_875segment<7>
+    SLICE_X49Y51.COUT    Topcyg                1.039   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<7>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_lut<7>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<7>
+    SLICE_X49Y52.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<7>
+    SLICE_X49Y52.COUT    Tbyp                  0.128   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<9>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<8>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<9>
+    SLICE_X49Y53.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<9>
+    SLICE_X49Y53.COUT    Tbyp                  0.128   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<11>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<10>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<11>
+    SLICE_X49Y54.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<11>
+    SLICE_X49Y54.COUT    Tbyp                  0.128   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<13>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<12>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<13>
+    SLICE_X49Y55.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<13>
+    SLICE_X49Y55.COUT    Tbyp                  0.128   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<15>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<14>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<15>
+    SLICE_X49Y56.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<15>
+    SLICE_X49Y56.XB      Tcinxb                0.320   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<16>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<16>
+    SLICE_X48Y19.G3      net (fanout=1)        2.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<16>
+    SLICE_X48Y19.Y       Tilo                  0.608   N323
+                                                       sound_gen/sq_wave/temp_mux0007219
+    SLICE_X42Y20.G4      net (fanout=1)        0.804   sound_gen/sq_wave/temp_mux0007219
+    SLICE_X42Y20.Y       Tilo                  0.608   sound_gen/sq_wave/temp
+                                                       sound_gen/sq_wave/temp_mux0007254_SW0
+    SLICE_X42Y20.F4      net (fanout=1)        0.015   sound_gen/sq_wave/temp_mux0007254_SW0/O
+    SLICE_X42Y20.CLK     Tfck                  0.690   sound_gen/sq_wave/temp
+                                                       sound_gen/sq_wave/temp_mux0007289
+                                                       sound_gen/sq_wave/temp
+    -------------------------------------------------  ---------------------------
+    Total                                     23.104ns (11.729ns logic, 11.375ns route)
+                                                       (50.8% logic, 49.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -13.088ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               buffer_reg/data_out_6 (FF)
+  Destination:          sound_gen/sq_wave/temp (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      23.088ns (Levels of Logic = 17)(Component delays alone exceeds constraint)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: buffer_reg/data_out_6 to sound_gen/sq_wave/temp
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X43Y20.YQ      Tcko                  0.720   buffer_reg/data_out<7>
+                                                       buffer_reg/data_out_6
+    SLICE_X44Y18.G2      net (fanout=59)       1.519   buffer_reg/data_out<6>
+    SLICE_X44Y18.F5      Tif5                  0.796   sound_gen/sq_wave/Mrom_sig_max6_f6
+                                                       sound_gen/sq_wave/Mrom_sig_max61
+                                                       sound_gen/sq_wave/Mrom_sig_max6_f5
+    SLICE_X44Y18.FXINA   net (fanout=1)        0.000   sound_gen/sq_wave/Mrom_sig_max6_f5
+    SLICE_X44Y18.Y       Tif6y                 0.342   sound_gen/sq_wave/Mrom_sig_max6_f6
+                                                       sound_gen/sq_wave/Mrom_sig_max6_f6
+    SLICE_X47Y20.F1      net (fanout=30)       0.603   sound_gen/sq_wave/Mrom_sig_max6_f6
+    SLICE_X47Y20.Y       Topy                  1.605   sound_gen/sq_wave/sig_75segment<0>
+                                                       sound_gen/sq_wave/Madd_sig_75segment_addsub0000_lut<0>
+                                                       sound_gen/sq_wave/Madd_sig_75segment_addsub0000_cy<0>
+                                                       sound_gen/sq_wave/Madd_sig_75segment_addsub0000_xor<1>
+    SLICE_X49Y47.G2      net (fanout=4)        2.357   sound_gen/sq_wave/sig_75segment<1>
+    SLICE_X49Y47.Y       Tilo                  0.551   sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001C
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000C1
+    SLICE_X49Y21.F1      net (fanout=1)        1.800   sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000C
+    SLICE_X49Y21.COUT    Topcyf                1.027   sound_gen/sq_wave/sig_96_875segment_addsub0000<2>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000_Madd_lut<2>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000_Madd_cy<2>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000_Madd_cy<3>
+    SLICE_X49Y22.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000_Madd_cy<3>
+    SLICE_X49Y22.X       Tcinx                 0.904   sound_gen/sq_wave/sig_96_875segment_addsub0000<4>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_addsub0000_Madd_xor<4>
+    SLICE_X48Y48.F1      net (fanout=1)        1.917   sound_gen/sq_wave/sig_96_875segment_addsub0000<4>
+    SLICE_X48Y48.COUT    Topcyf                1.084   sound_gen/sq_wave/sig_96_875segment<4>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_lut<4>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_cy<4>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_cy<5>
+    SLICE_X48Y49.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_96_875segment_cy<5>
+    SLICE_X48Y49.COUT    Tbyp                  0.120   sound_gen/sq_wave/sig_96_875segment<6>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_cy<6>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_cy<7>
+    SLICE_X48Y50.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_96_875segment_cy<7>
+    SLICE_X48Y50.COUT    Tbyp                  0.120   sound_gen/sq_wave/sig_96_875segment<8>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_cy<8>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_cy<9>
+    SLICE_X48Y51.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_96_875segment_cy<9>
+    SLICE_X48Y51.Y       Tciny                 0.923   sound_gen/sq_wave/sig_96_875segment<10>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_cy<10>
+                                                       sound_gen/sq_wave/Madd_sig_96_875segment_xor<11>
+    SLICE_X49Y53.G4      net (fanout=1)        0.360   sound_gen/sq_wave/sig_96_875segment<11>
+    SLICE_X49Y53.COUT    Topcyg                1.039   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<11>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_lut<11>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<11>
+    SLICE_X49Y54.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<11>
+    SLICE_X49Y54.COUT    Tbyp                  0.128   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<13>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<12>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<13>
+    SLICE_X49Y55.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<13>
+    SLICE_X49Y55.COUT    Tbyp                  0.128   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<15>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<14>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<15>
+    SLICE_X49Y56.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<15>
+    SLICE_X49Y56.XB      Tcinxb                0.320   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<16>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<16>
+    SLICE_X48Y19.G3      net (fanout=1)        2.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0002_cy<16>
+    SLICE_X48Y19.Y       Tilo                  0.608   N323
+                                                       sound_gen/sq_wave/temp_mux0007219
+    SLICE_X42Y20.G4      net (fanout=1)        0.804   sound_gen/sq_wave/temp_mux0007219
+    SLICE_X42Y20.Y       Tilo                  0.608   sound_gen/sq_wave/temp
+                                                       sound_gen/sq_wave/temp_mux0007254_SW0
+    SLICE_X42Y20.F4      net (fanout=1)        0.015   sound_gen/sq_wave/temp_mux0007254_SW0/O
+    SLICE_X42Y20.CLK     Tfck                  0.690   sound_gen/sq_wave/temp
+                                                       sound_gen/sq_wave/temp_mux0007289
+                                                       sound_gen/sq_wave/temp
+    -------------------------------------------------  ---------------------------
+    Total                                     23.088ns (11.713ns logic, 11.375ns route)
+                                                       (50.7% logic, 49.3% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point sound_gen/sq_wave/segment_counter_reset (SLICE_X30Y28.CE), 2350728 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     -12.682ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               buffer_reg/data_out_6 (FF)
+  Destination:          sound_gen/sq_wave/segment_counter_reset (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      22.682ns (Levels of Logic = 18)(Component delays alone exceeds constraint)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: buffer_reg/data_out_6 to sound_gen/sq_wave/segment_counter_reset
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X43Y20.YQ      Tcko                  0.720   buffer_reg/data_out<7>
+                                                       buffer_reg/data_out_6
+    SLICE_X42Y29.G1      net (fanout=59)       2.716   buffer_reg/data_out<6>
+    SLICE_X42Y29.F5      Tif5                  0.796   sound_gen/sq_wave/Mrom_sig_max1_f51
+                                                       sound_gen/sq_wave/Mrom_sig_max13
+                                                       sound_gen/sq_wave/Mrom_sig_max1_f5_0
+    SLICE_X42Y28.FXINB   net (fanout=1)        0.000   sound_gen/sq_wave/Mrom_sig_max1_f51
+    SLICE_X42Y28.Y       Tif6y                 0.342   sound_gen/sq_wave/Mrom_sig_max1_f6
+                                                       sound_gen/sq_wave/Mrom_sig_max1_f6
+    SLICE_X39Y16.F3      net (fanout=9)        1.317   sound_gen/sq_wave/Mrom_sig_max1_f6
+    SLICE_X39Y16.COUT    Topcyf                1.027   sound_gen/sq_wave/sig_3_4<0>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_lut<0>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<0>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<1>
+    SLICE_X39Y17.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_3_4_cy<1>
+    SLICE_X39Y17.COUT    Tbyp                  0.128   sound_gen/sq_wave/sig_3_4<2>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<2>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<3>
+    SLICE_X39Y18.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_3_4_cy<3>
+    SLICE_X39Y18.COUT    Tbyp                  0.128   sound_gen/sq_wave/sig_3_4<4>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<4>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<5>
+    SLICE_X39Y19.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_3_4_cy<5>
+    SLICE_X39Y19.Y       Tciny                 0.923   sound_gen/sq_wave/sig_3_4<6>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<6>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_xor<7>
+    SLICE_X38Y19.G3      net (fanout=4)        0.373   sound_gen/sq_wave/sig_3_4<7>
+    SLICE_X38Y19.COUT    Topcyg                1.096   sound_gen/sq_wave/sig_7_8<6>
+                                                       sound_gen/sq_wave/Madd_sig_7_8_lut<7>
+                                                       sound_gen/sq_wave/Madd_sig_7_8_cy<7>
+    SLICE_X38Y20.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_7_8_cy<7>
+    SLICE_X38Y20.Y       Tciny                 0.923   sound_gen/sq_wave/sig_7_8<8>
+                                                       sound_gen/sq_wave/Madd_sig_7_8_cy<8>
+                                                       sound_gen/sq_wave/Madd_sig_7_8_xor<9>
+    SLICE_X24Y18.G2      net (fanout=3)        1.485   sound_gen/sq_wave/sig_7_8<9>
+    SLICE_X24Y18.COUT    Topcyg                1.096   sound_gen/sq_wave/sig_15_16<8>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_lut<9>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<9>
+    SLICE_X24Y19.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_15_16_cy<9>
+    SLICE_X24Y19.COUT    Tbyp                  0.120   sound_gen/sq_wave/sig_15_16<10>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<10>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<11>
+    SLICE_X24Y20.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_15_16_cy<11>
+    SLICE_X24Y20.COUT    Tbyp                  0.120   sound_gen/sq_wave/sig_15_16<12>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<12>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<13>
+    SLICE_X24Y21.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_15_16_cy<13>
+    SLICE_X24Y21.COUT    Tbyp                  0.120   sound_gen/sq_wave/sig_15_16<14>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<14>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<15>
+    SLICE_X24Y22.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_15_16_cy<15>
+    SLICE_X24Y22.COUT    Tbyp                  0.120   sound_gen/sq_wave/sig_15_16<16>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<16>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<17>
+    SLICE_X24Y23.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_15_16_cy<17>
+    SLICE_X24Y23.X       Tcinx                 0.904   sound_gen/sq_wave/sig_15_16<18>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_xor<18>
+    SLICE_X31Y22.G4      net (fanout=2)        1.578   sound_gen/sq_wave/sig_15_16<18>
+    SLICE_X31Y22.COUT    Topcyg                1.039   sound_gen/sq_wave/Mcompar_segment_counter_reset_cmp_ne0001_cy<9>
+                                                       sound_gen/sq_wave/Mcompar_segment_counter_reset_cmp_ne0001_lut<9>
+                                                       sound_gen/sq_wave/Mcompar_segment_counter_reset_cmp_ne0001_cy<9>
+    SLICE_X31Y29.F1      net (fanout=3)        1.082   sound_gen/sq_wave/Mcompar_segment_counter_reset_cmp_ne0001_cy<9>
+    SLICE_X31Y29.X       Tilo                  0.551   sound_gen/sq_wave/segment_counter_reset_and0000187
+                                                       sound_gen/sq_wave/segment_counter_reset_and0000187
+    SLICE_X43Y31.G3      net (fanout=1)        0.881   sound_gen/sq_wave/segment_counter_reset_and0000187
+    SLICE_X43Y31.Y       Tilo                  0.551   sound_gen/sq_wave/segment_counter_reset_and0000
+                                                       sound_gen/sq_wave/segment_counter_reset_and0000234
+    SLICE_X43Y31.F4      net (fanout=1)        0.015   sound_gen/sq_wave/segment_counter_reset_and0000234/O
+    SLICE_X43Y31.X       Tilo                  0.551   sound_gen/sq_wave/segment_counter_reset_and0000
+                                                       sound_gen/sq_wave/segment_counter_reset_and0000299
+    SLICE_X30Y28.CE      net (fanout=1)        1.378   sound_gen/sq_wave/segment_counter_reset_and0000
+    SLICE_X30Y28.CLK     Tceck                 0.602   sound_gen/sq_wave/segment_counter_reset
+                                                       sound_gen/sq_wave/segment_counter_reset
+    -------------------------------------------------  ---------------------------
+    Total                                     22.682ns (11.857ns logic, 10.825ns route)
+                                                       (52.3% logic, 47.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -12.681ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               buffer_reg/data_out_6 (FF)
+  Destination:          sound_gen/sq_wave/segment_counter_reset (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      22.681ns (Levels of Logic = 18)(Component delays alone exceeds constraint)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: buffer_reg/data_out_6 to sound_gen/sq_wave/segment_counter_reset
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X43Y20.YQ      Tcko                  0.720   buffer_reg/data_out<7>
+                                                       buffer_reg/data_out_6
+    SLICE_X42Y29.G1      net (fanout=59)       2.716   buffer_reg/data_out<6>
+    SLICE_X42Y29.F5      Tif5                  0.796   sound_gen/sq_wave/Mrom_sig_max1_f51
+                                                       sound_gen/sq_wave/Mrom_sig_max13
+                                                       sound_gen/sq_wave/Mrom_sig_max1_f5_0
+    SLICE_X42Y28.FXINB   net (fanout=1)        0.000   sound_gen/sq_wave/Mrom_sig_max1_f51
+    SLICE_X42Y28.Y       Tif6y                 0.342   sound_gen/sq_wave/Mrom_sig_max1_f6
+                                                       sound_gen/sq_wave/Mrom_sig_max1_f6
+    SLICE_X39Y16.F3      net (fanout=9)        1.317   sound_gen/sq_wave/Mrom_sig_max1_f6
+    SLICE_X39Y16.COUT    Topcyf                1.027   sound_gen/sq_wave/sig_3_4<0>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_lut<0>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<0>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<1>
+    SLICE_X39Y17.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_3_4_cy<1>
+    SLICE_X39Y17.COUT    Tbyp                  0.128   sound_gen/sq_wave/sig_3_4<2>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<2>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<3>
+    SLICE_X39Y18.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_3_4_cy<3>
+    SLICE_X39Y18.COUT    Tbyp                  0.128   sound_gen/sq_wave/sig_3_4<4>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<4>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<5>
+    SLICE_X39Y19.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_3_4_cy<5>
+    SLICE_X39Y19.Y       Tciny                 0.923   sound_gen/sq_wave/sig_3_4<6>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<6>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_xor<7>
+    SLICE_X38Y19.G3      net (fanout=4)        0.373   sound_gen/sq_wave/sig_3_4<7>
+    SLICE_X38Y19.COUT    Topcyg                1.096   sound_gen/sq_wave/sig_7_8<6>
+                                                       sound_gen/sq_wave/Madd_sig_7_8_lut<7>
+                                                       sound_gen/sq_wave/Madd_sig_7_8_cy<7>
+    SLICE_X38Y20.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_7_8_cy<7>
+    SLICE_X38Y20.COUT    Tbyp                  0.120   sound_gen/sq_wave/sig_7_8<8>
+                                                       sound_gen/sq_wave/Madd_sig_7_8_cy<8>
+                                                       sound_gen/sq_wave/Madd_sig_7_8_cy<9>
+    SLICE_X38Y21.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_7_8_cy<9>
+    SLICE_X38Y21.COUT    Tbyp                  0.120   sound_gen/sq_wave/sig_7_8<10>
+                                                       sound_gen/sq_wave/Madd_sig_7_8_cy<10>
+                                                       sound_gen/sq_wave/Madd_sig_7_8_cy<11>
+    SLICE_X38Y22.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_7_8_cy<11>
+    SLICE_X38Y22.Y       Tciny                 0.923   sound_gen/sq_wave/sig_7_8<12>
+                                                       sound_gen/sq_wave/Madd_sig_7_8_cy<12>
+                                                       sound_gen/sq_wave/Madd_sig_7_8_xor<13>
+    SLICE_X24Y20.G2      net (fanout=3)        1.484   sound_gen/sq_wave/sig_7_8<13>
+    SLICE_X24Y20.COUT    Topcyg                1.096   sound_gen/sq_wave/sig_15_16<12>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_lut<13>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<13>
+    SLICE_X24Y21.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_15_16_cy<13>
+    SLICE_X24Y21.COUT    Tbyp                  0.120   sound_gen/sq_wave/sig_15_16<14>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<14>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<15>
+    SLICE_X24Y22.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_15_16_cy<15>
+    SLICE_X24Y22.COUT    Tbyp                  0.120   sound_gen/sq_wave/sig_15_16<16>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<16>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<17>
+    SLICE_X24Y23.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_15_16_cy<17>
+    SLICE_X24Y23.X       Tcinx                 0.904   sound_gen/sq_wave/sig_15_16<18>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_xor<18>
+    SLICE_X31Y22.G4      net (fanout=2)        1.578   sound_gen/sq_wave/sig_15_16<18>
+    SLICE_X31Y22.COUT    Topcyg                1.039   sound_gen/sq_wave/Mcompar_segment_counter_reset_cmp_ne0001_cy<9>
+                                                       sound_gen/sq_wave/Mcompar_segment_counter_reset_cmp_ne0001_lut<9>
+                                                       sound_gen/sq_wave/Mcompar_segment_counter_reset_cmp_ne0001_cy<9>
+    SLICE_X31Y29.F1      net (fanout=3)        1.082   sound_gen/sq_wave/Mcompar_segment_counter_reset_cmp_ne0001_cy<9>
+    SLICE_X31Y29.X       Tilo                  0.551   sound_gen/sq_wave/segment_counter_reset_and0000187
+                                                       sound_gen/sq_wave/segment_counter_reset_and0000187
+    SLICE_X43Y31.G3      net (fanout=1)        0.881   sound_gen/sq_wave/segment_counter_reset_and0000187
+    SLICE_X43Y31.Y       Tilo                  0.551   sound_gen/sq_wave/segment_counter_reset_and0000
+                                                       sound_gen/sq_wave/segment_counter_reset_and0000234
+    SLICE_X43Y31.F4      net (fanout=1)        0.015   sound_gen/sq_wave/segment_counter_reset_and0000234/O
+    SLICE_X43Y31.X       Tilo                  0.551   sound_gen/sq_wave/segment_counter_reset_and0000
+                                                       sound_gen/sq_wave/segment_counter_reset_and0000299
+    SLICE_X30Y28.CE      net (fanout=1)        1.378   sound_gen/sq_wave/segment_counter_reset_and0000
+    SLICE_X30Y28.CLK     Tceck                 0.602   sound_gen/sq_wave/segment_counter_reset
+                                                       sound_gen/sq_wave/segment_counter_reset
+    -------------------------------------------------  ---------------------------
+    Total                                     22.681ns (11.857ns logic, 10.824ns route)
+                                                       (52.3% logic, 47.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -12.667ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               buffer_reg/data_out_6 (FF)
+  Destination:          sound_gen/sq_wave/segment_counter_reset (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      22.667ns (Levels of Logic = 18)(Component delays alone exceeds constraint)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: buffer_reg/data_out_6 to sound_gen/sq_wave/segment_counter_reset
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X43Y20.YQ      Tcko                  0.720   buffer_reg/data_out<7>
+                                                       buffer_reg/data_out_6
+    SLICE_X42Y29.F1      net (fanout=59)       2.701   buffer_reg/data_out<6>
+    SLICE_X42Y29.F5      Tif5                  0.796   sound_gen/sq_wave/Mrom_sig_max1_f51
+                                                       sound_gen/sq_wave/Mrom_sig_max12
+                                                       sound_gen/sq_wave/Mrom_sig_max1_f5_0
+    SLICE_X42Y28.FXINB   net (fanout=1)        0.000   sound_gen/sq_wave/Mrom_sig_max1_f51
+    SLICE_X42Y28.Y       Tif6y                 0.342   sound_gen/sq_wave/Mrom_sig_max1_f6
+                                                       sound_gen/sq_wave/Mrom_sig_max1_f6
+    SLICE_X39Y16.F3      net (fanout=9)        1.317   sound_gen/sq_wave/Mrom_sig_max1_f6
+    SLICE_X39Y16.COUT    Topcyf                1.027   sound_gen/sq_wave/sig_3_4<0>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_lut<0>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<0>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<1>
+    SLICE_X39Y17.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_3_4_cy<1>
+    SLICE_X39Y17.COUT    Tbyp                  0.128   sound_gen/sq_wave/sig_3_4<2>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<2>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<3>
+    SLICE_X39Y18.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_3_4_cy<3>
+    SLICE_X39Y18.COUT    Tbyp                  0.128   sound_gen/sq_wave/sig_3_4<4>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<4>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<5>
+    SLICE_X39Y19.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_3_4_cy<5>
+    SLICE_X39Y19.Y       Tciny                 0.923   sound_gen/sq_wave/sig_3_4<6>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_cy<6>
+                                                       sound_gen/sq_wave/Madd_sig_3_4_xor<7>
+    SLICE_X38Y19.G3      net (fanout=4)        0.373   sound_gen/sq_wave/sig_3_4<7>
+    SLICE_X38Y19.COUT    Topcyg                1.096   sound_gen/sq_wave/sig_7_8<6>
+                                                       sound_gen/sq_wave/Madd_sig_7_8_lut<7>
+                                                       sound_gen/sq_wave/Madd_sig_7_8_cy<7>
+    SLICE_X38Y20.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_7_8_cy<7>
+    SLICE_X38Y20.Y       Tciny                 0.923   sound_gen/sq_wave/sig_7_8<8>
+                                                       sound_gen/sq_wave/Madd_sig_7_8_cy<8>
+                                                       sound_gen/sq_wave/Madd_sig_7_8_xor<9>
+    SLICE_X24Y18.G2      net (fanout=3)        1.485   sound_gen/sq_wave/sig_7_8<9>
+    SLICE_X24Y18.COUT    Topcyg                1.096   sound_gen/sq_wave/sig_15_16<8>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_lut<9>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<9>
+    SLICE_X24Y19.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_15_16_cy<9>
+    SLICE_X24Y19.COUT    Tbyp                  0.120   sound_gen/sq_wave/sig_15_16<10>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<10>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<11>
+    SLICE_X24Y20.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_15_16_cy<11>
+    SLICE_X24Y20.COUT    Tbyp                  0.120   sound_gen/sq_wave/sig_15_16<12>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<12>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<13>
+    SLICE_X24Y21.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_15_16_cy<13>
+    SLICE_X24Y21.COUT    Tbyp                  0.120   sound_gen/sq_wave/sig_15_16<14>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<14>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<15>
+    SLICE_X24Y22.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_15_16_cy<15>
+    SLICE_X24Y22.COUT    Tbyp                  0.120   sound_gen/sq_wave/sig_15_16<16>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<16>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_cy<17>
+    SLICE_X24Y23.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_15_16_cy<17>
+    SLICE_X24Y23.X       Tcinx                 0.904   sound_gen/sq_wave/sig_15_16<18>
+                                                       sound_gen/sq_wave/Madd_sig_15_16_xor<18>
+    SLICE_X31Y22.G4      net (fanout=2)        1.578   sound_gen/sq_wave/sig_15_16<18>
+    SLICE_X31Y22.COUT    Topcyg                1.039   sound_gen/sq_wave/Mcompar_segment_counter_reset_cmp_ne0001_cy<9>
+                                                       sound_gen/sq_wave/Mcompar_segment_counter_reset_cmp_ne0001_lut<9>
+                                                       sound_gen/sq_wave/Mcompar_segment_counter_reset_cmp_ne0001_cy<9>
+    SLICE_X31Y29.F1      net (fanout=3)        1.082   sound_gen/sq_wave/Mcompar_segment_counter_reset_cmp_ne0001_cy<9>
+    SLICE_X31Y29.X       Tilo                  0.551   sound_gen/sq_wave/segment_counter_reset_and0000187
+                                                       sound_gen/sq_wave/segment_counter_reset_and0000187
+    SLICE_X43Y31.G3      net (fanout=1)        0.881   sound_gen/sq_wave/segment_counter_reset_and0000187
+    SLICE_X43Y31.Y       Tilo                  0.551   sound_gen/sq_wave/segment_counter_reset_and0000
+                                                       sound_gen/sq_wave/segment_counter_reset_and0000234
+    SLICE_X43Y31.F4      net (fanout=1)        0.015   sound_gen/sq_wave/segment_counter_reset_and0000234/O
+    SLICE_X43Y31.X       Tilo                  0.551   sound_gen/sq_wave/segment_counter_reset_and0000
+                                                       sound_gen/sq_wave/segment_counter_reset_and0000299
+    SLICE_X30Y28.CE      net (fanout=1)        1.378   sound_gen/sq_wave/segment_counter_reset_and0000
+    SLICE_X30Y28.CLK     Tceck                 0.602   sound_gen/sq_wave/segment_counter_reset
+                                                       sound_gen/sq_wave/segment_counter_reset
+    -------------------------------------------------  ---------------------------
+    Total                                     22.667ns (11.857ns logic, 10.810ns route)
+                                                       (52.3% logic, 47.7% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point sound_gen/sq_wave/temp (SLICE_X42Y20.F3), 676935 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     -12.149ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               buffer_reg/data_out_7 (FF)
+  Destination:          sound_gen/sq_wave/temp (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      22.149ns (Levels of Logic = 17)(Component delays alone exceeds constraint)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: buffer_reg/data_out_7 to sound_gen/sq_wave/temp
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X43Y20.XQ      Tcko                  0.720   buffer_reg/data_out<7>
+                                                       buffer_reg/data_out_7
+    SLICE_X45Y19.G1      net (fanout=63)       1.684   buffer_reg/data_out<7>
+    SLICE_X45Y19.F5      Tif5                  0.739   sound_gen/sq_wave/Mrom_sig_max7_f51
+                                                       sound_gen/sq_wave/Mrom_sig_max73
+                                                       sound_gen/sq_wave/Mrom_sig_max7_f5_0
+    SLICE_X45Y18.FXINB   net (fanout=1)        0.000   sound_gen/sq_wave/Mrom_sig_max7_f51
+    SLICE_X45Y18.Y       Tif6y                 0.342   sound_gen/sq_wave/Mrom_sig_max7_f6
+                                                       sound_gen/sq_wave/Mrom_sig_max7_f6
+    SLICE_X47Y20.G2      net (fanout=32)       0.853   sound_gen/sq_wave/Mrom_sig_max7_f6
+    SLICE_X47Y20.COUT    Topcyg                1.039   sound_gen/sq_wave/sig_75segment<0>
+                                                       sound_gen/sq_wave/Madd_sig_75segment_addsub0000_lut<1>
+                                                       sound_gen/sq_wave/Madd_sig_75segment_addsub0000_cy<1>
+    SLICE_X47Y21.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_75segment_addsub0000_cy<1>
+    SLICE_X47Y21.X       Tcinx                 0.904   sound_gen/sq_wave/sig_75segment<2>
+                                                       sound_gen/sq_wave/Madd_sig_75segment_addsub0000_xor<2>
+    SLICE_X47Y35.F4      net (fanout=4)        2.090   sound_gen/sq_wave/sig_75segment<2>
+    SLICE_X47Y35.X       Tilo                  0.551   sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001C1
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001C11
+    SLICE_X53Y47.G2      net (fanout=1)        1.520   sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001C1
+    SLICE_X53Y47.COUT    Topcyg                1.039   sound_gen/sq_wave/sig_85_9375segment_addsub0001<2>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001_Madd_lut<3>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001_Madd_cy<3>
+    SLICE_X53Y48.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001_Madd_cy<3>
+    SLICE_X53Y48.Y       Tciny                 0.923   sound_gen/sq_wave/sig_85_9375segment_addsub0001<4>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001_Madd_cy<4>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001_Madd_xor<5>
+    SLICE_X53Y56.G2      net (fanout=1)        1.141   sound_gen/sq_wave/sig_85_9375segment_addsub0001<5>
+    SLICE_X53Y56.COUT    Topcyg                1.039   sound_gen/sq_wave/sig_85_9375segment<4>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_lut<5>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_cy<5>
+    SLICE_X53Y57.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_85_9375segment_cy<5>
+    SLICE_X53Y57.COUT    Tbyp                  0.128   sound_gen/sq_wave/sig_85_9375segment<6>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_cy<6>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_cy<7>
+    SLICE_X53Y58.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_85_9375segment_cy<7>
+    SLICE_X53Y58.COUT    Tbyp                  0.128   sound_gen/sq_wave/sig_85_9375segment<8>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_cy<8>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_cy<9>
+    SLICE_X53Y59.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_85_9375segment_cy<9>
+    SLICE_X53Y59.COUT    Tbyp                  0.128   sound_gen/sq_wave/sig_85_9375segment<10>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_cy<10>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_cy<11>
+    SLICE_X53Y60.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_85_9375segment_cy<11>
+    SLICE_X53Y60.Y       Tciny                 0.923   sound_gen/sq_wave/sig_85_9375segment<12>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_cy<12>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_xor<13>
+    SLICE_X52Y60.G2      net (fanout=1)        0.262   sound_gen/sq_wave/sig_85_9375segment<13>
+    SLICE_X52Y60.COUT    Topcyg                1.096   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<13>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_lut<13>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<13>
+    SLICE_X52Y61.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<13>
+    SLICE_X52Y61.COUT    Tbyp                  0.120   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<15>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<14>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<15>
+    SLICE_X52Y62.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<15>
+    SLICE_X52Y62.XB      Tcinxb                0.440   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<16>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<16>
+    SLICE_X43Y47.F3      net (fanout=1)        1.731   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<16>
+    SLICE_X43Y47.X       Tilo                  0.551   sound_gen/sq_wave/temp_mux000714
+                                                       sound_gen/sq_wave/temp_mux000714
+    SLICE_X42Y20.F3      net (fanout=1)        1.368   sound_gen/sq_wave/temp_mux000714
+    SLICE_X42Y20.CLK     Tfck                  0.690   sound_gen/sq_wave/temp
+                                                       sound_gen/sq_wave/temp_mux0007289
+                                                       sound_gen/sq_wave/temp
+    -------------------------------------------------  ---------------------------
+    Total                                     22.149ns (11.500ns logic, 10.649ns route)
+                                                       (51.9% logic, 48.1% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -12.149ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               buffer_reg/data_out_7 (FF)
+  Destination:          sound_gen/sq_wave/temp (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      22.149ns (Levels of Logic = 17)(Component delays alone exceeds constraint)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: buffer_reg/data_out_7 to sound_gen/sq_wave/temp
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X43Y20.XQ      Tcko                  0.720   buffer_reg/data_out<7>
+                                                       buffer_reg/data_out_7
+    SLICE_X45Y18.G1      net (fanout=63)       1.684   buffer_reg/data_out<7>
+    SLICE_X45Y18.F5      Tif5                  0.739   sound_gen/sq_wave/Mrom_sig_max7_f6
+                                                       sound_gen/sq_wave/Mrom_sig_max71
+                                                       sound_gen/sq_wave/Mrom_sig_max7_f5
+    SLICE_X45Y18.FXINA   net (fanout=1)        0.000   sound_gen/sq_wave/Mrom_sig_max7_f5
+    SLICE_X45Y18.Y       Tif6y                 0.342   sound_gen/sq_wave/Mrom_sig_max7_f6
+                                                       sound_gen/sq_wave/Mrom_sig_max7_f6
+    SLICE_X47Y20.G2      net (fanout=32)       0.853   sound_gen/sq_wave/Mrom_sig_max7_f6
+    SLICE_X47Y20.COUT    Topcyg                1.039   sound_gen/sq_wave/sig_75segment<0>
+                                                       sound_gen/sq_wave/Madd_sig_75segment_addsub0000_lut<1>
+                                                       sound_gen/sq_wave/Madd_sig_75segment_addsub0000_cy<1>
+    SLICE_X47Y21.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_75segment_addsub0000_cy<1>
+    SLICE_X47Y21.X       Tcinx                 0.904   sound_gen/sq_wave/sig_75segment<2>
+                                                       sound_gen/sq_wave/Madd_sig_75segment_addsub0000_xor<2>
+    SLICE_X47Y35.F4      net (fanout=4)        2.090   sound_gen/sq_wave/sig_75segment<2>
+    SLICE_X47Y35.X       Tilo                  0.551   sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001C1
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001C11
+    SLICE_X53Y47.G2      net (fanout=1)        1.520   sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001C1
+    SLICE_X53Y47.COUT    Topcyg                1.039   sound_gen/sq_wave/sig_85_9375segment_addsub0001<2>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001_Madd_lut<3>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001_Madd_cy<3>
+    SLICE_X53Y48.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001_Madd_cy<3>
+    SLICE_X53Y48.Y       Tciny                 0.923   sound_gen/sq_wave/sig_85_9375segment_addsub0001<4>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001_Madd_cy<4>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001_Madd_xor<5>
+    SLICE_X53Y56.G2      net (fanout=1)        1.141   sound_gen/sq_wave/sig_85_9375segment_addsub0001<5>
+    SLICE_X53Y56.COUT    Topcyg                1.039   sound_gen/sq_wave/sig_85_9375segment<4>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_lut<5>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_cy<5>
+    SLICE_X53Y57.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_85_9375segment_cy<5>
+    SLICE_X53Y57.COUT    Tbyp                  0.128   sound_gen/sq_wave/sig_85_9375segment<6>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_cy<6>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_cy<7>
+    SLICE_X53Y58.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_85_9375segment_cy<7>
+    SLICE_X53Y58.COUT    Tbyp                  0.128   sound_gen/sq_wave/sig_85_9375segment<8>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_cy<8>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_cy<9>
+    SLICE_X53Y59.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_85_9375segment_cy<9>
+    SLICE_X53Y59.COUT    Tbyp                  0.128   sound_gen/sq_wave/sig_85_9375segment<10>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_cy<10>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_cy<11>
+    SLICE_X53Y60.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_85_9375segment_cy<11>
+    SLICE_X53Y60.Y       Tciny                 0.923   sound_gen/sq_wave/sig_85_9375segment<12>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_cy<12>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_xor<13>
+    SLICE_X52Y60.G2      net (fanout=1)        0.262   sound_gen/sq_wave/sig_85_9375segment<13>
+    SLICE_X52Y60.COUT    Topcyg                1.096   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<13>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_lut<13>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<13>
+    SLICE_X52Y61.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<13>
+    SLICE_X52Y61.COUT    Tbyp                  0.120   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<15>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<14>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<15>
+    SLICE_X52Y62.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<15>
+    SLICE_X52Y62.XB      Tcinxb                0.440   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<16>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<16>
+    SLICE_X43Y47.F3      net (fanout=1)        1.731   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<16>
+    SLICE_X43Y47.X       Tilo                  0.551   sound_gen/sq_wave/temp_mux000714
+                                                       sound_gen/sq_wave/temp_mux000714
+    SLICE_X42Y20.F3      net (fanout=1)        1.368   sound_gen/sq_wave/temp_mux000714
+    SLICE_X42Y20.CLK     Tfck                  0.690   sound_gen/sq_wave/temp
+                                                       sound_gen/sq_wave/temp_mux0007289
+                                                       sound_gen/sq_wave/temp
+    -------------------------------------------------  ---------------------------
+    Total                                     22.149ns (11.500ns logic, 10.649ns route)
+                                                       (51.9% logic, 48.1% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -12.133ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               buffer_reg/data_out_7 (FF)
+  Destination:          sound_gen/sq_wave/temp (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      22.133ns (Levels of Logic = 17)(Component delays alone exceeds constraint)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: buffer_reg/data_out_7 to sound_gen/sq_wave/temp
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X43Y20.XQ      Tcko                  0.720   buffer_reg/data_out<7>
+                                                       buffer_reg/data_out_7
+    SLICE_X45Y18.G1      net (fanout=63)       1.684   buffer_reg/data_out<7>
+    SLICE_X45Y18.F5      Tif5                  0.739   sound_gen/sq_wave/Mrom_sig_max7_f6
+                                                       sound_gen/sq_wave/Mrom_sig_max71
+                                                       sound_gen/sq_wave/Mrom_sig_max7_f5
+    SLICE_X45Y18.FXINA   net (fanout=1)        0.000   sound_gen/sq_wave/Mrom_sig_max7_f5
+    SLICE_X45Y18.Y       Tif6y                 0.342   sound_gen/sq_wave/Mrom_sig_max7_f6
+                                                       sound_gen/sq_wave/Mrom_sig_max7_f6
+    SLICE_X47Y20.G2      net (fanout=32)       0.853   sound_gen/sq_wave/Mrom_sig_max7_f6
+    SLICE_X47Y20.COUT    Topcyg                1.039   sound_gen/sq_wave/sig_75segment<0>
+                                                       sound_gen/sq_wave/Madd_sig_75segment_addsub0000_lut<1>
+                                                       sound_gen/sq_wave/Madd_sig_75segment_addsub0000_cy<1>
+    SLICE_X47Y21.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_75segment_addsub0000_cy<1>
+    SLICE_X47Y21.X       Tcinx                 0.904   sound_gen/sq_wave/sig_75segment<2>
+                                                       sound_gen/sq_wave/Madd_sig_75segment_addsub0000_xor<2>
+    SLICE_X47Y35.F4      net (fanout=4)        2.090   sound_gen/sq_wave/sig_75segment<2>
+    SLICE_X47Y35.X       Tilo                  0.551   sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001C1
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001C11
+    SLICE_X53Y47.G2      net (fanout=1)        1.520   sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001C1
+    SLICE_X53Y47.COUT    Topcyg                1.039   sound_gen/sq_wave/sig_85_9375segment_addsub0001<2>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001_Madd_lut<3>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001_Madd_cy<3>
+    SLICE_X53Y48.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001_Madd_cy<3>
+    SLICE_X53Y48.Y       Tciny                 0.923   sound_gen/sq_wave/sig_85_9375segment_addsub0001<4>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001_Madd_cy<4>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_addsub0001_Madd_xor<5>
+    SLICE_X53Y56.G2      net (fanout=1)        1.141   sound_gen/sq_wave/sig_85_9375segment_addsub0001<5>
+    SLICE_X53Y56.COUT    Topcyg                1.039   sound_gen/sq_wave/sig_85_9375segment<4>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_lut<5>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_cy<5>
+    SLICE_X53Y57.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_85_9375segment_cy<5>
+    SLICE_X53Y57.COUT    Tbyp                  0.128   sound_gen/sq_wave/sig_85_9375segment<6>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_cy<6>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_cy<7>
+    SLICE_X53Y58.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Madd_sig_85_9375segment_cy<7>
+    SLICE_X53Y58.Y       Tciny                 0.923   sound_gen/sq_wave/sig_85_9375segment<8>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_cy<8>
+                                                       sound_gen/sq_wave/Madd_sig_85_9375segment_xor<9>
+    SLICE_X52Y58.G2      net (fanout=1)        0.262   sound_gen/sq_wave/sig_85_9375segment<9>
+    SLICE_X52Y58.COUT    Topcyg                1.096   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<9>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_lut<9>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<9>
+    SLICE_X52Y59.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<9>
+    SLICE_X52Y59.COUT    Tbyp                  0.120   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<11>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<10>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<11>
+    SLICE_X52Y60.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<11>
+    SLICE_X52Y60.COUT    Tbyp                  0.120   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<13>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<12>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<13>
+    SLICE_X52Y61.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<13>
+    SLICE_X52Y61.COUT    Tbyp                  0.120   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<15>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<14>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<15>
+    SLICE_X52Y62.CIN     net (fanout=1)        0.000   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<15>
+    SLICE_X52Y62.XB      Tcinxb                0.440   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<16>
+                                                       sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<16>
+    SLICE_X43Y47.F3      net (fanout=1)        1.731   sound_gen/sq_wave/Mcompar_temp_cmp_lt0001_cy<16>
+    SLICE_X43Y47.X       Tilo                  0.551   sound_gen/sq_wave/temp_mux000714
+                                                       sound_gen/sq_wave/temp_mux000714
+    SLICE_X42Y20.F3      net (fanout=1)        1.368   sound_gen/sq_wave/temp_mux000714
+    SLICE_X42Y20.CLK     Tfck                  0.690   sound_gen/sq_wave/temp
+                                                       sound_gen/sq_wave/temp_mux0007289
+                                                       sound_gen/sq_wave/temp
+    -------------------------------------------------  ---------------------------
+    Total                                     22.133ns (11.484ns logic, 10.649ns route)
+                                                       (51.9% logic, 48.1% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: TS_USER_CLOCK_P = PERIOD TIMEGRP "USER_CLOCK_P" 10 ns HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point epp/addressToBram_7 (SLICE_X45Y11.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.800ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               epp/counter_7 (FF)
+  Destination:          epp/addressToBram_7 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.800ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 10.000ns
+  Destination Clock:    clk_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: epp/counter_7 to epp/addressToBram_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X44Y9.YQ       Tcko                  0.576   epp/counter<6>
+                                                       epp/counter_7
+    SLICE_X45Y11.BX      net (fanout=2)        0.507   epp/counter<7>
+    SLICE_X45Y11.CLK     Tckdi       (-Th)     0.283   epp/addressToBram<7>
+                                                       epp/addressToBram_7
+    -------------------------------------------------  ---------------------------
+    Total                                      0.800ns (0.293ns logic, 0.507ns route)
+                                                       (36.6% logic, 63.4% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point epp/dataToBram_1 (SLICE_X48Y0.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.805ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               epp/buffer_data_1 (FF)
+  Destination:          epp/dataToBram_1 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.806ns (Levels of Logic = 0)
+  Clock Path Skew:      0.001ns (0.141 - 0.140)
+  Source Clock:         clk_BUFGP rising at 10.000ns
+  Destination Clock:    clk_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: epp/buffer_data_1 to epp/dataToBram_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X46Y0.XQ       Tcko                  0.576   epp/buffer_data<1>
+                                                       epp/buffer_data_1
+    SLICE_X48Y0.BX       net (fanout=1)        0.513   epp/buffer_data<1>
+    SLICE_X48Y0.CLK      Tckdi       (-Th)     0.283   sig_write_data<1>
+                                                       epp/dataToBram_1
+    -------------------------------------------------  ---------------------------
+    Total                                      0.806ns (0.293ns logic, 0.513ns route)
+                                                       (36.4% logic, 63.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point epp/Mtridata_pdb_3 (SLICE_X38Y2.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.806ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               epp/busEppOut_3 (FF)
+  Destination:          epp/Mtridata_pdb_3 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.806ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 10.000ns
+  Destination Clock:    clk_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: epp/busEppOut_3 to epp/Mtridata_pdb_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X39Y3.XQ       Tcko                  0.576   epp/busEppOut<3>
+                                                       epp/busEppOut_3
+    SLICE_X38Y2.BX       net (fanout=1)        0.513   epp/busEppOut<3>
+    SLICE_X38Y2.CLK      Tckdi       (-Th)     0.283   epp/Mtridata_pdb<3>
+                                                       epp/Mtridata_pdb_3
+    -------------------------------------------------  ---------------------------
+    Total                                      0.806ns (0.293ns logic, 0.513ns route)
+                                                       (36.4% logic, 63.6% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_USER_CLOCK_P = PERIOD TIMEGRP "USER_CLOCK_P" 10 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 7.268ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 10.000ns
+  Low pulse: 5.000ns
+  Low pulse limit: 1.366ns (Tbpwl)
+  Physical resource: mem/Mram_sig_data_mem/CLKA
+  Logical resource: mem/Mram_sig_data_mem.A/CLKA
+  Location pin: RAMB16_X1Y1.CLKA
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 7.268ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 10.000ns
+  High pulse: 5.000ns
+  High pulse limit: 1.366ns (Tbpwh)
+  Physical resource: mem/Mram_sig_data_mem/CLKA
+  Logical resource: mem/Mram_sig_data_mem.A/CLKA
+  Location pin: RAMB16_X1Y1.CLKA
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 7.268ns (period - min period limit)
+  Period: 10.000ns
+  Min period limit: 2.732ns (366.032MHz) (Tbp)
+  Physical resource: mem/Mram_sig_data_mem/CLKA
+  Logical resource: mem/Mram_sig_data_mem.A/CLKA
+  Location pin: RAMB16_X1Y1.CLKA
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+
+
+1 constraint not met.
 
 
 Data Sheet report:
 -----------------
 All values displayed in nanoseconds (ns)
 
-Setup/Hold to clock clk
-------------+------------+------------+------------------+--------+
-            |Max Setup to|Max Hold to |                  | Clock  |
-Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
-------------+------------+------------+------------------+--------+
-astb        |    1.743(R)|    0.971(R)|clk_BUFGP         |   0.000|
-dstb        |    1.005(R)|    0.729(R)|clk_BUFGP         |   0.000|
-pdb<0>      |    1.603(R)|    0.248(R)|clk_BUFGP         |   0.000|
-pdb<1>      |    1.600(R)|    0.459(R)|clk_BUFGP         |   0.000|
-pdb<2>      |    1.349(R)|    0.683(R)|clk_BUFGP         |   0.000|
-pdb<3>      |    1.200(R)|    0.576(R)|clk_BUFGP         |   0.000|
-pdb<4>      |    1.545(R)|    0.532(R)|clk_BUFGP         |   0.000|
-pdb<5>      |    0.850(R)|    0.810(R)|clk_BUFGP         |   0.000|
-pdb<6>      |    0.742(R)|    0.760(R)|clk_BUFGP         |   0.000|
-pdb<7>      |    0.884(R)|    1.076(R)|clk_BUFGP         |   0.000|
-play        |    2.193(R)|   -0.473(R)|clk_BUFGP         |   0.000|
-pulse       |    5.015(R)|    0.246(R)|clk_BUFGP         |   0.000|
-pwr         |    2.160(R)|    0.641(R)|clk_BUFGP         |   0.000|
-tempo_mode  |   19.438(R)|   -3.724(R)|clk_BUFGP         |   0.000|
-            |   20.067(F)|   -5.269(F)|clk_BUFGP         |   0.000|
-------------+------------+------------+------------------+--------+
-
-Setup/Hold to clock reset
-------------+------------+------------+------------------+--------+
-            |Max Setup to|Max Hold to |                  | Clock  |
-Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
-------------+------------+------------+------------------+--------+
-tempo_mode  |    0.871(R)|    5.151(R)|reset_IBUF        |   0.000|
-------------+------------+------------+------------------+--------+
-
-Clock clk to Pad
-------------+------------+------------------+--------+
-            | clk (edge) |                  | Clock  |
-Destination |   to PAD   |Internal Clock(s) | Phase  |
-------------+------------+------------------+--------+
-led<0>      |    9.796(F)|clk_BUFGP         |   0.000|
-led<1>      |   10.059(F)|clk_BUFGP         |   0.000|
-led<2>      |   13.366(F)|clk_BUFGP         |   0.000|
-led<3>      |   10.240(F)|clk_BUFGP         |   0.000|
-led<4>      |   11.370(F)|clk_BUFGP         |   0.000|
-led<5>      |   10.002(F)|clk_BUFGP         |   0.000|
-led<6>      |   10.644(F)|clk_BUFGP         |   0.000|
-led<7>      |   10.649(F)|clk_BUFGP         |   0.000|
-pdb<0>      |   14.093(R)|clk_BUFGP         |   0.000|
-pdb<1>      |   14.595(R)|clk_BUFGP         |   0.000|
-pdb<2>      |   10.079(R)|clk_BUFGP         |   0.000|
-pdb<3>      |   10.921(R)|clk_BUFGP         |   0.000|
-pdb<4>      |   11.745(R)|clk_BUFGP         |   0.000|
-pdb<5>      |   11.262(R)|clk_BUFGP         |   0.000|
-pdb<6>      |   11.749(R)|clk_BUFGP         |   0.000|
-pdb<7>      |   11.116(R)|clk_BUFGP         |   0.000|
-pwait       |    8.916(R)|clk_BUFGP         |   0.000|
-trig        |    8.029(R)|clk_BUFGP         |   0.000|
-------------+------------+------------------+--------+
-
 Clock to Setup on destination clock clk
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |   29.907|    7.593|   18.849|    9.379|
-reset          |   26.828|    5.173|   27.551|    4.761|
+clk            |   23.104|    7.177|   14.960|   10.178|
 ---------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock reset
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |    9.876|         |         |         |
-reset          |    4.503|         |         |         |
----------------+---------+---------+---------+---------+
 
-Pad to Pad
----------------+---------------+---------+
-Source Pad     |Destination Pad|  Delay  |
----------------+---------------+---------+
-astb           |pdb<0>         |    9.048|
-astb           |pdb<1>         |    9.808|
-astb           |pdb<2>         |    8.375|
-astb           |pdb<3>         |    8.286|
-astb           |pdb<4>         |    9.247|
-astb           |pdb<5>         |    8.937|
-astb           |pdb<6>         |    9.146|
-astb           |pdb<7>         |    8.580|
-pwr            |pdb<0>         |    8.159|
-pwr            |pdb<1>         |    8.899|
-pwr            |pdb<2>         |    7.860|
-pwr            |pdb<3>         |    9.195|
-pwr            |pdb<4>         |    8.131|
-pwr            |pdb<5>         |    8.016|
-pwr            |pdb<6>         |    8.016|
-pwr            |pdb<7>         |    7.832|
----------------+---------------+---------+
+Timing summary:
+---------------
+
+Timing errors: 204  Score: 552810  (Setup/Max: 552810, Hold: 0)
+
+Constraints cover 11885102 paths, 0 nets, and 5382 connections
+
+Design statistics:
+   Minimum period:  29.920ns{1}   (Maximum frequency:  33.422MHz)
 
 
-Analysis completed Wed Oct 18 19:41:29 2017 
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Sat Oct 21 21:18:01 2017 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 226 MB
+Peak Memory Usage: 140 MB
 
 
 

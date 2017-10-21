@@ -153,6 +153,8 @@ architecture Behavioral of eppctrl is
 	signal	cntr		: std_logic_vector(23 downto 0); 
 	
 	signal counter : std_logic_vector(7 downto 0) := (others => '0');
+	signal stallcounter: integer range 0 to 10 := 0;
+	signal buffer_data :std_logic_Vector(11 downto 0);
 	signal finish: std_logic := '0';
 
 	signal sig_enable : std_logic;
@@ -167,58 +169,58 @@ begin
     ------------------------------------------------------------------------
 
 	clkMain <= mclk;
-
-	ctlEppAstb <= astb;
-	ctlEppDstb <= dstb;
-	ctlEppWr   <= pwr;
-	pwait      <= ctlEppWait;	-- drive WAIT from state machine output
-
+	process(mclk)
+	begin
+	if rising_edge(mclk) then
+		ctlEppAstb <= astb;
+		ctlEppDstb <= dstb;
+		ctlEppWr   <= pwr;
+	
+		if ctlEppWr = '1' then
+			if ctlEppDir = '1' then
+				pdb <= busEppOut;
+			else
+				pdb <= "ZZZZZZZZ";
+			end if;
+		else
+			pdb <= "ZZZZZZZZ";
+		end if;
+	end if;
+	end process;
+	
+	process(mclk)
+	begin
+	if rising_edge(mclk) then
+		if ctlEppAstb = '0' then
+			busEppOut <= "0000" & regEppAdr;
+		else
+			busEppOut <= busEppData;
+		end if;
+	end if;
+	end process;
 	-- Data bus direction control. The internal input data bus always
 	-- gets the port data bus. The port data bus drives the internal
 	-- output data bus onto the pins when the interface says we are doing
 	-- a read cycle and we are in one of the read cycles states in the
 	-- state machine.
-	busEppIn <= pdb;
-	pdb <= busEppOut when ctlEppWr = '1' and ctlEppDir = '1' else "ZZZZZZZZ";
+	process(mclk) 
+	begin
+		if rising_Edge(mclk) then 
+			busEppIn <= pdb;
+	--pdb <= busEppOut when ctlEppWr = '1' and ctlEppDir = '1' else "ZZZZZZZZ";
 
 	-- Select either address or data onto the internal output data bus.
-	busEppOut <= "0000" & regEppAdr when ctlEppAstb = '0' else busEppData;
+--	busEppOut <= "0000" & regEppAdr when ctlEppAstb = '0' else busEppData;
 	
-
+			pwait      <= ctlEppWait;	-- drive WAIT from state machine output
+		end if;
+	end process;
+	
 	--rgLed <= counter;
 	
 	--enable <= '1' when regEppAdr = "0001" else '0';		-- enable to transfer data to bram
 	--dataOut <= regData1(7 downto 4)& regData0 (3 downto 0) when regEppAdr = "0001"; 
 	
-	process(clkMain, regEppAdr)
-	begin
-		if rising_edge(clkMain) then
-			if regEppAdr = "0001" then 
-				sig_enable <= '1';
-			else 
-				sig_enable <= '0';
-			end if;
-			if regEppAdr = "0010" then
-				done <= '1'; 
-			else 
-				done <= '0';
-			end if; -- finish transfer 
-	--done <= finish;
-		end if;
-	end process;
-	
-	enable <= sig_enable;
-	
-	process(clkMain, sig_enable)
-	begin
-	
-	if rising_edge(clkMain) then
-		if sig_enable = '1' then
-			dataToBram <= regData1(3 downto 0) & regData0 (7 downto 0);
-			addressToBram <= counter;
-		end if;
-	end if;
-	end process;
 	-- Decode the address register and select the appropriate data register
 	process(clkMain, regEppAdr)
 	begin
@@ -228,7 +230,6 @@ begin
 			--	enable <= '0';
 			elsif regEppAdr = "0001" then
 				busEppData <=	regData1;
-				
 			elsif regEppAdr = "0010" then
 				busEppData <=	regData2;
 			else 
@@ -249,11 +250,16 @@ begin
     ------------------------------------------------------------------------
 
 	-- Map control signals from the current state
+	process(clkMain)
+	begin
+	if rising_edge(clkMain) then
+	
 	ctlEppWait <= stEppCur(0);
 	ctlEppDir  <= stEppCur(1);
 	ctlEppAwr  <= stEppCur(2);
 	ctlEppDwr  <= stEppCur(3);
-
+	end if;
+	end process;
 	-- This process moves the state machine to the next state
 	-- on each clock cycle
 	process (clkMain)
@@ -374,10 +380,11 @@ begin
 						regData0 <= busEppIn;
 					elsif regEppAdr = "0001" then
 						regData1 <= busEppIn;
-						counter <= counter + 1;
+						buffer_data <= busEppIn(3 downto 0) & regData0 (7 downto 0);
+					--	counter <= counter + 1;
 					elsif regEppAdr = "0010" then
 						regData2 <= busEppIn;
-						counter <= "00000000";
+					--	counter <= "00000000";
 					--elsif regEppAdr = "1010" then
 						--regLed <= busEppIn;
 					end if;
@@ -385,7 +392,57 @@ begin
 			end if;
 		end process;
 
-
+	process(clkMain) 
+	begin
+	if rising_edge(clkMain) then
+	if ctlEppDwr = '1' then
+		if regEppAdr = "0001" then
+			counter <= counter + 1;
+	--	elsif regEppAdr = "0010" then
+	--		counter <= X"00";
+		end if;
+	end if;
+	end if;
+	end process;
+	
+	process(clkMain, regEppAdr)
+	begin
+		if rising_edge(clkMain) then
+			if regEppAdr = "0001" then 
+				sig_enable <= '1';
+				dataToBram <= buffer_data;--regData1(3 downto 0) & regData0 (7 downto 0);
+				addressToBram <= counter;
+				enable <= sig_enable;
+--				enable <= sig_enable;
+			else 
+				sig_enable <= '0';
+			end if;
+			
+	--done <= finish;
+		end if;
+	end process;
+	
+	
+	
+	process(clkMain, sig_enable)
+	begin
+	
+	if rising_edge(clkMain) then
+		if sig_enable = '1' then
+--			if stallcounter = 9 then
+			
+				--stallcounter <= 0;
+			--else
+				--stallcounter <= stallcounter +1;
+			--end if;
+		end if;
+		if regEppAdr = "0010" then
+				done <= '1'; 
+			else 
+				done <= '0';
+			end if; -- finish transfer 
+	end if;
+	end process;
 	------------------------------------------------------------------------
     -- Gate array configuration verification logic
 	------------------------------------------------------------------------
@@ -395,12 +452,12 @@ begin
 
  	--led <= btn or cntr(23);
 
-	process (clkMain)
-		begin
-			if clkMain = '1' and clkMain'Event then
-				cntr <= cntr + 1;
-			end if;
-		end process;
+--	process (clkMain)
+--		begin
+--			if clkMain = '1' and clkMain'Event then
+--				cntr <= cntr + 1;
+--			end if;
+--		end process;
 
 ----------------------------------------------------------------------------
 

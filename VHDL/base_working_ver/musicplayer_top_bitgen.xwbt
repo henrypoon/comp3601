@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=C:\Users\cse\Downloads\comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9\comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9\VHDL\musicplayer_v2\musicplayer_top.ncd
-OUTFILE=C:\Users\cse\Downloads\comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9\comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9\VHDL\musicplayer_v2\musicplayer_top.bit
+INFILE=C:\Users\luong\Documents\4thyr\SEM2\COMP3601\musicplayer_v2.6\musicplayer_top.ncd
+OUTFILE=C:\Users\luong\Documents\4thyr\SEM2\COMP3601\musicplayer_v2.6\musicplayer_top.bit
 FAMILY=Spartan3
-PART=xc3s400-5ft256
-WORKINGDIR=C:\Users\cse\Downloads\comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9\comp3601-a943341f3cf54f676a5a0444e665a39e33c4c7a9\VHDL\musicplayer_v2
-LICENSE=ISE
-USER_INFO=176080079_176910363_210559698_406
+PART=xc3s400-4ft256
+WORKINGDIR=C:\Users\luong\Documents\4thyr\SEM2\COMP3601\musicplayer_v2.6
+LICENSE=WebPack
+USER_INFO=211325389_0_0_716

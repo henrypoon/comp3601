@@ -57,14 +57,14 @@ begin
 --		sig_data_mem(24) <= "000111010000";
 --		sig_data_mem(25) <= "000100010000";
 --		sig_data_mem(26) <= "000010010000";
-    if falling_edge(clk) then
+    if rising_edge(clk) then
 		
       if write_enable = '1' then
 			-- memory writes on the falling clock edge
 			sig_data_mem(to_integer(unsigned(addr_in))) <= X"0" & write_data;
 		end if;
 		data_out <= sig_data_mem(to_integer(unsigned(addr_in)))(11 downto 0);
-		mem_zero <= sig_data_mem(0)(11 downto 0);
+	--	mem_zero <= sig_data_mem(0)(11 downto 0);
     end if;
     
   end process;
