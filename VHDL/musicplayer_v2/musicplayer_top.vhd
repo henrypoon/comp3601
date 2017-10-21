@@ -185,12 +185,12 @@ architecture Behavioral of musicplayer_top is
 	signal sig_write_data : std_logic_vector(11 downto 0); -- need filereader
 	signal sig_mem_out: std_logic_vector(11 downto 0);
 	signal sig_mem_addr : std_logic_vector(7 downto 0);
-
+	
 	signal sig_epp_done: std_logic;
 	signal sig_epp_addr: std_logic_vector(7 downto 0);
 	signal sig_epp_data: std_logic_vector(12 downto 0);
 	signal sig_epp_write_en : std_logic;
-	
+	signal sig_tempo_reg_in : std_logic_vector(11 downto 0);
 	signal sig_buffer_reg_in : std_logic_vector(11 downto 0);
 	signal sig_buffer_reg_en: std_logic; -- control signal
 	signal sig_buffer_reg_done: std_logic;
@@ -291,12 +291,19 @@ begin
 	);
 	
 	
-	process(sig_mem_addr, sig_mem_out)
+	process(clk, sig_mem_addr, sig_mem_out)
 	begin
+	if rising_edge(clk) then
 		if sig_mem_addr = X"00" then
 			sig_buffer_reg_in <= X"000";
+			sig_tempo_reg_in <= X"000";
+		
+		elsif sig_mem_addr = X"01" then
+			sig_buffer_reg_in <= X"000";
+			sig_tempo_reg_in <= sig_mem_out;
 		else 
 			sig_buffer_reg_in <= sig_mem_out;
+		end if;
 		end if;
 	end process;
 	
@@ -316,7 +323,7 @@ begin
 		reset => reset,
 		enable => sig_tempo_reg_en,
 		done => sig_tempo_reg_done,
-		data_in => sig_mem_out,
+		data_in => sig_tempo_reg_in,
 		data_out => sig_tempo_data
 	);
 	
@@ -379,7 +386,7 @@ begin
 	dsplay: sevenSeg2 
 	port map (
 		CLKK => clk,
-		--number => sig_write_data(9 downto 2), --this here for testing, use line below for actual
+		--number => sig_mem_out(9 downto 2), --this here for testing, use line below for actual
 		--number => sig_tempo_data(9 downto 2), --this here for testing, use line below for actual
 		number => sig_tempo_mux_out(9 downto 2),
 		segments => segments,
@@ -538,18 +545,19 @@ begin
 				sig_buffer_reg_en <= '0'; 
 				sig_tempo_reg_en <= '0'; 
 				--sig_sound_en <= '0';
---				sig_note_timer_en <= '0';
+--				
+				speaker <= '0';
 			when read_note =>
 				speaker <= '0';
 			--	sig_note_timer_en <= '1';
-				if sig_curr_addr = sig_zero then 
+			--	sig_note_timer_en <= '0';
+				if sig_curr_addr = X"01" then 
 					sig_buffer_reg_en <= '0';
 					sig_tempo_reg_en <= '1';
 				else
 					sig_buffer_reg_en <= '1';
 					sig_tempo_reg_en <= '0';
 				end if;
-				
 			--when pause1 =>
 			--sig_note_timer_en <= '0'; 
 			

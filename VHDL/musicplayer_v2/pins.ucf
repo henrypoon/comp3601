@@ -1,5 +1,7 @@
 NET "speaker" LOC = "T14";
 NET "clk" LOC = "A8";
+NET "clk" TNM_NET = USER_CLOCK_P;
+TIMESPEC  TS_USER_CLOCK_P = PERIOD "USER_CLOCK_P" 10 ns HIGH 50 %;
 NET "reset" LOC = "J13";
 NET "reset" CLOCK_DEDICATED_ROUTE = FALSE;
 #NET "reset_mem" LOC = "K14";
