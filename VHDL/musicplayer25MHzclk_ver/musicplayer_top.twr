@@ -1,0 +1,953 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\trce.exe -intstyle ise -v 3 -s 4 -n
+3 -fastpaths -xml musicplayer_top.twx musicplayer_top.ncd -o
+musicplayer_top.twr musicplayer_top.pcf -ucf pins.ucf
+
+Design file:              musicplayer_top.ncd
+Physical constraint file: musicplayer_top.pcf
+Device,package,speed:     xc3s400,ft256,-4 (PRODUCTION 1.39 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+================================================================================
+Timing constraint: TS_USER_CLOCK_P = PERIOD TIMEGRP "USER_CLOCK_P" 40 ns HIGH 
+50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 16475788 paths analyzed, 1279 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is  39.954ns.
+--------------------------------------------------------------------------------
+
+Paths for end point sound_gen/n_timer/counter_5 (SLICE_X18Y35.CE), 228502 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.023ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               tempo_reg/data_out_4 (FF)
+  Destination:          sound_gen/n_timer/counter_5 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.977ns (Levels of Logic = 14)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP falling at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: tempo_reg/data_out_4 to sound_gen/n_timer/counter_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y18.YQ       Tcko                  0.720   tempo_reg/data_out<5>
+                                                       tempo_reg/data_out_4
+    SLICE_X4Y19.F2       net (fanout=70)       1.084   tempo_reg/data_out<4>
+    SLICE_X4Y19.X        Tilo                  0.608   sound_gen/n_timer/Mrom_sig_base101_bdd4
+                                                       sound_gen/n_timer/Mrom_sig_base10141
+    SLICE_X4Y31.G2       net (fanout=15)       2.232   sound_gen/n_timer/Mrom_sig_base101_bdd4
+    SLICE_X4Y31.Y        Tilo                  0.608   sound_gen/n_timer/Mrom_sig_base162
+                                                       sound_gen/n_timer/Mrom_sig_base10431
+    SLICE_X11Y34.F1      net (fanout=1)        1.688   sound_gen/n_timer/Mrom_sig_base104_bdd1
+    SLICE_X11Y34.X       Tif5x                 0.911   sound_gen/n_timer/Mrom_sig_base1731_10
+                                                       sound_gen/n_timer/Mrom_sig_base1731_10_G
+                                                       sound_gen/n_timer/Mrom_sig_base1731_10
+    SLICE_X11Y33.G1      net (fanout=1)        0.645   sound_gen/n_timer/Mrom_sig_base1731_10
+    SLICE_X11Y33.X       Tif5x                 0.911   sig_base<15>
+                                                       sound_gen/n_timer/Mrom_sig_base1731_2_f5_F
+                                                       sound_gen/n_timer/Mrom_sig_base1731_2_f5
+    SLICE_X12Y29.G1      net (fanout=16)       1.327   sig_base<15>
+    SLICE_X12Y29.COUT    Topcyg                1.096   sound_gen/n_timer/sig_1_1_2<14>
+                                                       sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_lut<15>
+                                                       sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<15>
+    SLICE_X12Y30.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<15>
+    SLICE_X12Y30.X       Tcinx                 0.904   sound_gen/n_timer/sig_1_1_2<16>
+                                                       sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_xor<16>
+    SLICE_X11Y30.G4      net (fanout=1)        0.404   sound_gen/n_timer/sig_1_1_2<16>
+    SLICE_X11Y30.Y       Tilo                  0.551   N272
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<16>_SW0
+    SLICE_X16Y30.F3      net (fanout=1)        1.537   N268
+    SLICE_X16Y30.COUT    Topcyf                1.084   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<16>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<16>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+    SLICE_X16Y31.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+    SLICE_X16Y31.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<18>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+    SLICE_X16Y32.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+    SLICE_X16Y32.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<20>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+    SLICE_X16Y33.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+    SLICE_X16Y33.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<22>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+    SLICE_X16Y34.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+    SLICE_X16Y34.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<24>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+    SLICE_X16Y35.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+    SLICE_X16Y35.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<26>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+    SLICE_X17Y36.F4      net (fanout=2)        0.446   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+    SLICE_X17Y36.X       Tilo                  0.551   sound_gen/n_timer/timeout
+                                                       sound_gen/n_timer/counter_not00011
+    SLICE_X18Y35.CE      net (fanout=14)       1.468   sound_gen/n_timer/counter_not0001
+    SLICE_X18Y35.CLK     Tceck                 0.602   sound_gen/n_timer/counter<5>
+                                                       sound_gen/n_timer/counter_5
+    -------------------------------------------------  ---------------------------
+    Total                                     19.977ns (9.146ns logic, 10.831ns route)
+                                                       (45.8% logic, 54.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.031ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               tempo_reg/data_out_5 (FF)
+  Destination:          sound_gen/n_timer/counter_5 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.969ns (Levels of Logic = 15)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP falling at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: tempo_reg/data_out_5 to sound_gen/n_timer/counter_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y18.XQ       Tcko                  0.720   tempo_reg/data_out<5>
+                                                       tempo_reg/data_out_5
+    SLICE_X6Y21.G4       net (fanout=69)       0.720   tempo_reg/data_out<5>
+    SLICE_X6Y21.Y        Tilo                  0.608   sound_gen/n_timer/Mrom_sig_base72
+                                                       tempo_mux/data<3>1
+    SLICE_X3Y21.G2       net (fanout=137)      1.264   sig_tempo_mux_out<5>
+    SLICE_X3Y21.X        Tif5x                 0.911   sound_gen/n_timer/Mrom_sig_base146
+                                                       sound_gen/n_timer/Mrom_sig_base1461_F
+                                                       sound_gen/n_timer/Mrom_sig_base1461
+    SLICE_X6Y23.G2       net (fanout=1)        1.366   sound_gen/n_timer/Mrom_sig_base146
+    SLICE_X6Y23.X        Tif5x                 0.968   sound_gen/n_timer/Mrom_sig_base1531_8_f5
+                                                       sound_gen/n_timer/Mrom_sig_base1531_8_f5_F
+                                                       sound_gen/n_timer/Mrom_sig_base1531_8_f5
+    SLICE_X7Y29.G1       net (fanout=1)        1.806   sound_gen/n_timer/Mrom_sig_base1531_8_f5
+    SLICE_X7Y29.X        Tif5x                 0.911   sig_base<13>
+                                                       sound_gen/n_timer/Mrom_sig_base1531_2_f5_F
+                                                       sound_gen/n_timer/Mrom_sig_base1531_2_f5
+    SLICE_X13Y28.F2      net (fanout=16)       1.502   sig_base<13>
+    SLICE_X13Y28.COUT    Topcyf                1.027   sound_gen/n_timer/sig_3_4<12>
+                                                       sound_gen/n_timer/Madd_sig_3_4_addsub0000_lut<12>
+                                                       sound_gen/n_timer/Madd_sig_3_4_addsub0000_cy<12>
+                                                       sound_gen/n_timer/Madd_sig_3_4_addsub0000_cy<13>
+    SLICE_X13Y29.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Madd_sig_3_4_addsub0000_cy<13>
+    SLICE_X13Y29.X       Tcinx                 0.904   sound_gen/n_timer/sig_3_4<14>
+                                                       sound_gen/n_timer/Madd_sig_3_4_addsub0000_xor<14>
+    SLICE_X14Y32.F4      net (fanout=1)        0.710   sound_gen/n_timer/sig_3_4<14>
+    SLICE_X14Y32.X       Tilo                  0.608   sound_gen/n_timer/sig_duration<14>73
+                                                       sound_gen/n_timer/sig_duration<14>73
+    SLICE_X16Y29.F3      net (fanout=1)        1.073   sound_gen/n_timer/sig_duration<14>73
+    SLICE_X16Y29.COUT    Topcyf                1.084   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<14>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<14>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15>
+    SLICE_X16Y30.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15>
+    SLICE_X16Y30.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<16>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+    SLICE_X16Y31.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+    SLICE_X16Y31.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<18>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+    SLICE_X16Y32.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+    SLICE_X16Y32.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<20>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+    SLICE_X16Y33.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+    SLICE_X16Y33.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<22>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+    SLICE_X16Y34.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+    SLICE_X16Y34.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<24>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+    SLICE_X16Y35.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+    SLICE_X16Y35.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<26>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+    SLICE_X17Y36.F4      net (fanout=2)        0.446   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+    SLICE_X17Y36.X       Tilo                  0.551   sound_gen/n_timer/timeout
+                                                       sound_gen/n_timer/counter_not00011
+    SLICE_X18Y35.CE      net (fanout=14)       1.468   sound_gen/n_timer/counter_not0001
+    SLICE_X18Y35.CLK     Tceck                 0.602   sound_gen/n_timer/counter<5>
+                                                       sound_gen/n_timer/counter_5
+    -------------------------------------------------  ---------------------------
+    Total                                     19.969ns (9.614ns logic, 10.355ns route)
+                                                       (48.1% logic, 51.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.032ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               tempo_reg/data_out_5 (FF)
+  Destination:          sound_gen/n_timer/counter_5 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.968ns (Levels of Logic = 17)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP falling at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: tempo_reg/data_out_5 to sound_gen/n_timer/counter_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y18.XQ       Tcko                  0.720   tempo_reg/data_out<5>
+                                                       tempo_reg/data_out_5
+    SLICE_X5Y33.G1       net (fanout=69)       3.002   tempo_reg/data_out<5>
+    SLICE_X5Y33.X        Tif5x                 0.911   sound_gen/n_timer/Mrom_sig_base116
+                                                       sound_gen/n_timer/Mrom_sig_base1161_F
+                                                       sound_gen/n_timer/Mrom_sig_base1161
+    SLICE_X4Y30.G4       net (fanout=1)        0.472   sound_gen/n_timer/Mrom_sig_base116
+    SLICE_X4Y30.X        Tif5x                 0.968   sound_gen/n_timer/Mrom_sig_base1201_6_f5
+                                                       sound_gen/n_timer/Mrom_sig_base1201_6_f5_F
+                                                       sound_gen/n_timer/Mrom_sig_base1201_6_f5
+    SLICE_X4Y26.F3       net (fanout=1)        0.674   sound_gen/n_timer/Mrom_sig_base1201_6_f5
+    SLICE_X4Y26.X        Tif5x                 0.968   sig_base<10>
+                                                       sound_gen/n_timer/Mrom_sig_base1201_2_f5_G
+                                                       sound_gen/n_timer/Mrom_sig_base1201_2_f5
+    SLICE_X10Y27.G1      net (fanout=16)       1.909   sig_base<10>
+    SLICE_X10Y27.COUT    Topcyg                1.096   sound_gen/n_timer/sig_1_3<6>
+                                                       sound_gen/n_timer/Madd_sig_1_3_addsub0000_lut<7>
+                                                       sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<7>
+    SLICE_X10Y28.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<7>
+    SLICE_X10Y28.COUT    Tbyp                  0.120   sound_gen/n_timer/sig_1_3<8>
+                                                       sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<8>
+                                                       sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<9>
+    SLICE_X10Y29.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<9>
+    SLICE_X10Y29.X       Tcinx                 0.904   sound_gen/n_timer/sig_1_3<10>
+                                                       sound_gen/n_timer/Madd_sig_1_3_addsub0000_xor<10>
+    SLICE_X13Y35.G1      net (fanout=1)        1.165   sound_gen/n_timer/sig_1_3<10>
+    SLICE_X13Y35.Y       Tilo                  0.551   N290
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<10>_SW0
+    SLICE_X16Y27.F4      net (fanout=1)        1.397   N256
+    SLICE_X16Y27.COUT    Topcyf                1.084   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<11>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<10>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<10>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<11>
+    SLICE_X16Y28.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<11>
+    SLICE_X16Y28.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<13>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<12>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<13>
+    SLICE_X16Y29.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<13>
+    SLICE_X16Y29.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<14>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15>
+    SLICE_X16Y30.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15>
+    SLICE_X16Y30.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<16>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+    SLICE_X16Y31.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+    SLICE_X16Y31.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<18>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+    SLICE_X16Y32.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+    SLICE_X16Y32.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<20>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+    SLICE_X16Y33.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+    SLICE_X16Y33.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<22>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+    SLICE_X16Y34.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+    SLICE_X16Y34.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<24>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+    SLICE_X16Y35.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+    SLICE_X16Y35.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<26>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+    SLICE_X17Y36.F4      net (fanout=2)        0.446   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+    SLICE_X17Y36.X       Tilo                  0.551   sound_gen/n_timer/timeout
+                                                       sound_gen/n_timer/counter_not00011
+    SLICE_X18Y35.CE      net (fanout=14)       1.468   sound_gen/n_timer/counter_not0001
+    SLICE_X18Y35.CLK     Tceck                 0.602   sound_gen/n_timer/counter<5>
+                                                       sound_gen/n_timer/counter_5
+    -------------------------------------------------  ---------------------------
+    Total                                     19.968ns (9.435ns logic, 10.533ns route)
+                                                       (47.3% logic, 52.7% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point sound_gen/n_timer/counter_4 (SLICE_X18Y35.CE), 228502 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.023ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               tempo_reg/data_out_4 (FF)
+  Destination:          sound_gen/n_timer/counter_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.977ns (Levels of Logic = 14)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP falling at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: tempo_reg/data_out_4 to sound_gen/n_timer/counter_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y18.YQ       Tcko                  0.720   tempo_reg/data_out<5>
+                                                       tempo_reg/data_out_4
+    SLICE_X4Y19.F2       net (fanout=70)       1.084   tempo_reg/data_out<4>
+    SLICE_X4Y19.X        Tilo                  0.608   sound_gen/n_timer/Mrom_sig_base101_bdd4
+                                                       sound_gen/n_timer/Mrom_sig_base10141
+    SLICE_X4Y31.G2       net (fanout=15)       2.232   sound_gen/n_timer/Mrom_sig_base101_bdd4
+    SLICE_X4Y31.Y        Tilo                  0.608   sound_gen/n_timer/Mrom_sig_base162
+                                                       sound_gen/n_timer/Mrom_sig_base10431
+    SLICE_X11Y34.F1      net (fanout=1)        1.688   sound_gen/n_timer/Mrom_sig_base104_bdd1
+    SLICE_X11Y34.X       Tif5x                 0.911   sound_gen/n_timer/Mrom_sig_base1731_10
+                                                       sound_gen/n_timer/Mrom_sig_base1731_10_G
+                                                       sound_gen/n_timer/Mrom_sig_base1731_10
+    SLICE_X11Y33.G1      net (fanout=1)        0.645   sound_gen/n_timer/Mrom_sig_base1731_10
+    SLICE_X11Y33.X       Tif5x                 0.911   sig_base<15>
+                                                       sound_gen/n_timer/Mrom_sig_base1731_2_f5_F
+                                                       sound_gen/n_timer/Mrom_sig_base1731_2_f5
+    SLICE_X12Y29.G1      net (fanout=16)       1.327   sig_base<15>
+    SLICE_X12Y29.COUT    Topcyg                1.096   sound_gen/n_timer/sig_1_1_2<14>
+                                                       sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_lut<15>
+                                                       sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<15>
+    SLICE_X12Y30.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<15>
+    SLICE_X12Y30.X       Tcinx                 0.904   sound_gen/n_timer/sig_1_1_2<16>
+                                                       sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_xor<16>
+    SLICE_X11Y30.G4      net (fanout=1)        0.404   sound_gen/n_timer/sig_1_1_2<16>
+    SLICE_X11Y30.Y       Tilo                  0.551   N272
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<16>_SW0
+    SLICE_X16Y30.F3      net (fanout=1)        1.537   N268
+    SLICE_X16Y30.COUT    Topcyf                1.084   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<16>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<16>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+    SLICE_X16Y31.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+    SLICE_X16Y31.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<18>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+    SLICE_X16Y32.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+    SLICE_X16Y32.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<20>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+    SLICE_X16Y33.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+    SLICE_X16Y33.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<22>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+    SLICE_X16Y34.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+    SLICE_X16Y34.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<24>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+    SLICE_X16Y35.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+    SLICE_X16Y35.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<26>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+    SLICE_X17Y36.F4      net (fanout=2)        0.446   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+    SLICE_X17Y36.X       Tilo                  0.551   sound_gen/n_timer/timeout
+                                                       sound_gen/n_timer/counter_not00011
+    SLICE_X18Y35.CE      net (fanout=14)       1.468   sound_gen/n_timer/counter_not0001
+    SLICE_X18Y35.CLK     Tceck                 0.602   sound_gen/n_timer/counter<5>
+                                                       sound_gen/n_timer/counter_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.977ns (9.146ns logic, 10.831ns route)
+                                                       (45.8% logic, 54.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.031ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               tempo_reg/data_out_5 (FF)
+  Destination:          sound_gen/n_timer/counter_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.969ns (Levels of Logic = 15)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP falling at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: tempo_reg/data_out_5 to sound_gen/n_timer/counter_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y18.XQ       Tcko                  0.720   tempo_reg/data_out<5>
+                                                       tempo_reg/data_out_5
+    SLICE_X6Y21.G4       net (fanout=69)       0.720   tempo_reg/data_out<5>
+    SLICE_X6Y21.Y        Tilo                  0.608   sound_gen/n_timer/Mrom_sig_base72
+                                                       tempo_mux/data<3>1
+    SLICE_X3Y21.G2       net (fanout=137)      1.264   sig_tempo_mux_out<5>
+    SLICE_X3Y21.X        Tif5x                 0.911   sound_gen/n_timer/Mrom_sig_base146
+                                                       sound_gen/n_timer/Mrom_sig_base1461_F
+                                                       sound_gen/n_timer/Mrom_sig_base1461
+    SLICE_X6Y23.G2       net (fanout=1)        1.366   sound_gen/n_timer/Mrom_sig_base146
+    SLICE_X6Y23.X        Tif5x                 0.968   sound_gen/n_timer/Mrom_sig_base1531_8_f5
+                                                       sound_gen/n_timer/Mrom_sig_base1531_8_f5_F
+                                                       sound_gen/n_timer/Mrom_sig_base1531_8_f5
+    SLICE_X7Y29.G1       net (fanout=1)        1.806   sound_gen/n_timer/Mrom_sig_base1531_8_f5
+    SLICE_X7Y29.X        Tif5x                 0.911   sig_base<13>
+                                                       sound_gen/n_timer/Mrom_sig_base1531_2_f5_F
+                                                       sound_gen/n_timer/Mrom_sig_base1531_2_f5
+    SLICE_X13Y28.F2      net (fanout=16)       1.502   sig_base<13>
+    SLICE_X13Y28.COUT    Topcyf                1.027   sound_gen/n_timer/sig_3_4<12>
+                                                       sound_gen/n_timer/Madd_sig_3_4_addsub0000_lut<12>
+                                                       sound_gen/n_timer/Madd_sig_3_4_addsub0000_cy<12>
+                                                       sound_gen/n_timer/Madd_sig_3_4_addsub0000_cy<13>
+    SLICE_X13Y29.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Madd_sig_3_4_addsub0000_cy<13>
+    SLICE_X13Y29.X       Tcinx                 0.904   sound_gen/n_timer/sig_3_4<14>
+                                                       sound_gen/n_timer/Madd_sig_3_4_addsub0000_xor<14>
+    SLICE_X14Y32.F4      net (fanout=1)        0.710   sound_gen/n_timer/sig_3_4<14>
+    SLICE_X14Y32.X       Tilo                  0.608   sound_gen/n_timer/sig_duration<14>73
+                                                       sound_gen/n_timer/sig_duration<14>73
+    SLICE_X16Y29.F3      net (fanout=1)        1.073   sound_gen/n_timer/sig_duration<14>73
+    SLICE_X16Y29.COUT    Topcyf                1.084   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<14>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<14>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15>
+    SLICE_X16Y30.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15>
+    SLICE_X16Y30.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<16>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+    SLICE_X16Y31.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+    SLICE_X16Y31.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<18>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+    SLICE_X16Y32.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+    SLICE_X16Y32.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<20>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+    SLICE_X16Y33.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+    SLICE_X16Y33.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<22>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+    SLICE_X16Y34.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+    SLICE_X16Y34.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<24>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+    SLICE_X16Y35.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+    SLICE_X16Y35.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<26>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+    SLICE_X17Y36.F4      net (fanout=2)        0.446   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+    SLICE_X17Y36.X       Tilo                  0.551   sound_gen/n_timer/timeout
+                                                       sound_gen/n_timer/counter_not00011
+    SLICE_X18Y35.CE      net (fanout=14)       1.468   sound_gen/n_timer/counter_not0001
+    SLICE_X18Y35.CLK     Tceck                 0.602   sound_gen/n_timer/counter<5>
+                                                       sound_gen/n_timer/counter_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.969ns (9.614ns logic, 10.355ns route)
+                                                       (48.1% logic, 51.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.032ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               tempo_reg/data_out_5 (FF)
+  Destination:          sound_gen/n_timer/counter_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.968ns (Levels of Logic = 17)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP falling at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: tempo_reg/data_out_5 to sound_gen/n_timer/counter_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y18.XQ       Tcko                  0.720   tempo_reg/data_out<5>
+                                                       tempo_reg/data_out_5
+    SLICE_X5Y33.G1       net (fanout=69)       3.002   tempo_reg/data_out<5>
+    SLICE_X5Y33.X        Tif5x                 0.911   sound_gen/n_timer/Mrom_sig_base116
+                                                       sound_gen/n_timer/Mrom_sig_base1161_F
+                                                       sound_gen/n_timer/Mrom_sig_base1161
+    SLICE_X4Y30.G4       net (fanout=1)        0.472   sound_gen/n_timer/Mrom_sig_base116
+    SLICE_X4Y30.X        Tif5x                 0.968   sound_gen/n_timer/Mrom_sig_base1201_6_f5
+                                                       sound_gen/n_timer/Mrom_sig_base1201_6_f5_F
+                                                       sound_gen/n_timer/Mrom_sig_base1201_6_f5
+    SLICE_X4Y26.F3       net (fanout=1)        0.674   sound_gen/n_timer/Mrom_sig_base1201_6_f5
+    SLICE_X4Y26.X        Tif5x                 0.968   sig_base<10>
+                                                       sound_gen/n_timer/Mrom_sig_base1201_2_f5_G
+                                                       sound_gen/n_timer/Mrom_sig_base1201_2_f5
+    SLICE_X10Y27.G1      net (fanout=16)       1.909   sig_base<10>
+    SLICE_X10Y27.COUT    Topcyg                1.096   sound_gen/n_timer/sig_1_3<6>
+                                                       sound_gen/n_timer/Madd_sig_1_3_addsub0000_lut<7>
+                                                       sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<7>
+    SLICE_X10Y28.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<7>
+    SLICE_X10Y28.COUT    Tbyp                  0.120   sound_gen/n_timer/sig_1_3<8>
+                                                       sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<8>
+                                                       sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<9>
+    SLICE_X10Y29.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<9>
+    SLICE_X10Y29.X       Tcinx                 0.904   sound_gen/n_timer/sig_1_3<10>
+                                                       sound_gen/n_timer/Madd_sig_1_3_addsub0000_xor<10>
+    SLICE_X13Y35.G1      net (fanout=1)        1.165   sound_gen/n_timer/sig_1_3<10>
+    SLICE_X13Y35.Y       Tilo                  0.551   N290
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<10>_SW0
+    SLICE_X16Y27.F4      net (fanout=1)        1.397   N256
+    SLICE_X16Y27.COUT    Topcyf                1.084   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<11>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<10>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<10>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<11>
+    SLICE_X16Y28.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<11>
+    SLICE_X16Y28.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<13>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<12>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<13>
+    SLICE_X16Y29.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<13>
+    SLICE_X16Y29.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<14>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15>
+    SLICE_X16Y30.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15>
+    SLICE_X16Y30.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<16>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+    SLICE_X16Y31.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+    SLICE_X16Y31.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<18>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+    SLICE_X16Y32.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+    SLICE_X16Y32.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<20>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+    SLICE_X16Y33.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+    SLICE_X16Y33.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<22>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+    SLICE_X16Y34.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+    SLICE_X16Y34.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<24>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+    SLICE_X16Y35.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+    SLICE_X16Y35.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<26>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+    SLICE_X17Y36.F4      net (fanout=2)        0.446   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+    SLICE_X17Y36.X       Tilo                  0.551   sound_gen/n_timer/timeout
+                                                       sound_gen/n_timer/counter_not00011
+    SLICE_X18Y35.CE      net (fanout=14)       1.468   sound_gen/n_timer/counter_not0001
+    SLICE_X18Y35.CLK     Tceck                 0.602   sound_gen/n_timer/counter<5>
+                                                       sound_gen/n_timer/counter_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.968ns (9.435ns logic, 10.533ns route)
+                                                       (47.3% logic, 52.7% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point sound_gen/n_timer/counter_9 (SLICE_X17Y39.CE), 228502 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.387ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               tempo_reg/data_out_4 (FF)
+  Destination:          sound_gen/n_timer/counter_9 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.613ns (Levels of Logic = 14)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP falling at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: tempo_reg/data_out_4 to sound_gen/n_timer/counter_9
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y18.YQ       Tcko                  0.720   tempo_reg/data_out<5>
+                                                       tempo_reg/data_out_4
+    SLICE_X4Y19.F2       net (fanout=70)       1.084   tempo_reg/data_out<4>
+    SLICE_X4Y19.X        Tilo                  0.608   sound_gen/n_timer/Mrom_sig_base101_bdd4
+                                                       sound_gen/n_timer/Mrom_sig_base10141
+    SLICE_X4Y31.G2       net (fanout=15)       2.232   sound_gen/n_timer/Mrom_sig_base101_bdd4
+    SLICE_X4Y31.Y        Tilo                  0.608   sound_gen/n_timer/Mrom_sig_base162
+                                                       sound_gen/n_timer/Mrom_sig_base10431
+    SLICE_X11Y34.F1      net (fanout=1)        1.688   sound_gen/n_timer/Mrom_sig_base104_bdd1
+    SLICE_X11Y34.X       Tif5x                 0.911   sound_gen/n_timer/Mrom_sig_base1731_10
+                                                       sound_gen/n_timer/Mrom_sig_base1731_10_G
+                                                       sound_gen/n_timer/Mrom_sig_base1731_10
+    SLICE_X11Y33.G1      net (fanout=1)        0.645   sound_gen/n_timer/Mrom_sig_base1731_10
+    SLICE_X11Y33.X       Tif5x                 0.911   sig_base<15>
+                                                       sound_gen/n_timer/Mrom_sig_base1731_2_f5_F
+                                                       sound_gen/n_timer/Mrom_sig_base1731_2_f5
+    SLICE_X12Y29.G1      net (fanout=16)       1.327   sig_base<15>
+    SLICE_X12Y29.COUT    Topcyg                1.096   sound_gen/n_timer/sig_1_1_2<14>
+                                                       sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_lut<15>
+                                                       sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<15>
+    SLICE_X12Y30.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_cy<15>
+    SLICE_X12Y30.X       Tcinx                 0.904   sound_gen/n_timer/sig_1_1_2<16>
+                                                       sound_gen/n_timer/Madd_sig_1_1_2_addsub0000_xor<16>
+    SLICE_X11Y30.G4      net (fanout=1)        0.404   sound_gen/n_timer/sig_1_1_2<16>
+    SLICE_X11Y30.Y       Tilo                  0.551   N272
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<16>_SW0
+    SLICE_X16Y30.F3      net (fanout=1)        1.537   N268
+    SLICE_X16Y30.COUT    Topcyf                1.084   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<16>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<16>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+    SLICE_X16Y31.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+    SLICE_X16Y31.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<18>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+    SLICE_X16Y32.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+    SLICE_X16Y32.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<20>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+    SLICE_X16Y33.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+    SLICE_X16Y33.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<22>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+    SLICE_X16Y34.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+    SLICE_X16Y34.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<24>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+    SLICE_X16Y35.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+    SLICE_X16Y35.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<26>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+    SLICE_X17Y36.F4      net (fanout=2)        0.446   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+    SLICE_X17Y36.X       Tilo                  0.551   sound_gen/n_timer/timeout
+                                                       sound_gen/n_timer/counter_not00011
+    SLICE_X17Y39.CE      net (fanout=14)       1.104   sound_gen/n_timer/counter_not0001
+    SLICE_X17Y39.CLK     Tceck                 0.602   sound_gen/n_timer/counter<9>
+                                                       sound_gen/n_timer/counter_9
+    -------------------------------------------------  ---------------------------
+    Total                                     19.613ns (9.146ns logic, 10.467ns route)
+                                                       (46.6% logic, 53.4% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.395ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               tempo_reg/data_out_5 (FF)
+  Destination:          sound_gen/n_timer/counter_9 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.605ns (Levels of Logic = 15)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP falling at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: tempo_reg/data_out_5 to sound_gen/n_timer/counter_9
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y18.XQ       Tcko                  0.720   tempo_reg/data_out<5>
+                                                       tempo_reg/data_out_5
+    SLICE_X6Y21.G4       net (fanout=69)       0.720   tempo_reg/data_out<5>
+    SLICE_X6Y21.Y        Tilo                  0.608   sound_gen/n_timer/Mrom_sig_base72
+                                                       tempo_mux/data<3>1
+    SLICE_X3Y21.G2       net (fanout=137)      1.264   sig_tempo_mux_out<5>
+    SLICE_X3Y21.X        Tif5x                 0.911   sound_gen/n_timer/Mrom_sig_base146
+                                                       sound_gen/n_timer/Mrom_sig_base1461_F
+                                                       sound_gen/n_timer/Mrom_sig_base1461
+    SLICE_X6Y23.G2       net (fanout=1)        1.366   sound_gen/n_timer/Mrom_sig_base146
+    SLICE_X6Y23.X        Tif5x                 0.968   sound_gen/n_timer/Mrom_sig_base1531_8_f5
+                                                       sound_gen/n_timer/Mrom_sig_base1531_8_f5_F
+                                                       sound_gen/n_timer/Mrom_sig_base1531_8_f5
+    SLICE_X7Y29.G1       net (fanout=1)        1.806   sound_gen/n_timer/Mrom_sig_base1531_8_f5
+    SLICE_X7Y29.X        Tif5x                 0.911   sig_base<13>
+                                                       sound_gen/n_timer/Mrom_sig_base1531_2_f5_F
+                                                       sound_gen/n_timer/Mrom_sig_base1531_2_f5
+    SLICE_X13Y28.F2      net (fanout=16)       1.502   sig_base<13>
+    SLICE_X13Y28.COUT    Topcyf                1.027   sound_gen/n_timer/sig_3_4<12>
+                                                       sound_gen/n_timer/Madd_sig_3_4_addsub0000_lut<12>
+                                                       sound_gen/n_timer/Madd_sig_3_4_addsub0000_cy<12>
+                                                       sound_gen/n_timer/Madd_sig_3_4_addsub0000_cy<13>
+    SLICE_X13Y29.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Madd_sig_3_4_addsub0000_cy<13>
+    SLICE_X13Y29.X       Tcinx                 0.904   sound_gen/n_timer/sig_3_4<14>
+                                                       sound_gen/n_timer/Madd_sig_3_4_addsub0000_xor<14>
+    SLICE_X14Y32.F4      net (fanout=1)        0.710   sound_gen/n_timer/sig_3_4<14>
+    SLICE_X14Y32.X       Tilo                  0.608   sound_gen/n_timer/sig_duration<14>73
+                                                       sound_gen/n_timer/sig_duration<14>73
+    SLICE_X16Y29.F3      net (fanout=1)        1.073   sound_gen/n_timer/sig_duration<14>73
+    SLICE_X16Y29.COUT    Topcyf                1.084   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<14>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<14>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15>
+    SLICE_X16Y30.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15>
+    SLICE_X16Y30.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<16>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+    SLICE_X16Y31.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+    SLICE_X16Y31.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<18>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+    SLICE_X16Y32.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+    SLICE_X16Y32.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<20>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+    SLICE_X16Y33.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+    SLICE_X16Y33.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<22>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+    SLICE_X16Y34.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+    SLICE_X16Y34.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<24>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+    SLICE_X16Y35.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+    SLICE_X16Y35.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<26>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+    SLICE_X17Y36.F4      net (fanout=2)        0.446   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+    SLICE_X17Y36.X       Tilo                  0.551   sound_gen/n_timer/timeout
+                                                       sound_gen/n_timer/counter_not00011
+    SLICE_X17Y39.CE      net (fanout=14)       1.104   sound_gen/n_timer/counter_not0001
+    SLICE_X17Y39.CLK     Tceck                 0.602   sound_gen/n_timer/counter<9>
+                                                       sound_gen/n_timer/counter_9
+    -------------------------------------------------  ---------------------------
+    Total                                     19.605ns (9.614ns logic, 9.991ns route)
+                                                       (49.0% logic, 51.0% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.396ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               tempo_reg/data_out_5 (FF)
+  Destination:          sound_gen/n_timer/counter_9 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.604ns (Levels of Logic = 17)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP falling at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: tempo_reg/data_out_5 to sound_gen/n_timer/counter_9
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y18.XQ       Tcko                  0.720   tempo_reg/data_out<5>
+                                                       tempo_reg/data_out_5
+    SLICE_X5Y33.G1       net (fanout=69)       3.002   tempo_reg/data_out<5>
+    SLICE_X5Y33.X        Tif5x                 0.911   sound_gen/n_timer/Mrom_sig_base116
+                                                       sound_gen/n_timer/Mrom_sig_base1161_F
+                                                       sound_gen/n_timer/Mrom_sig_base1161
+    SLICE_X4Y30.G4       net (fanout=1)        0.472   sound_gen/n_timer/Mrom_sig_base116
+    SLICE_X4Y30.X        Tif5x                 0.968   sound_gen/n_timer/Mrom_sig_base1201_6_f5
+                                                       sound_gen/n_timer/Mrom_sig_base1201_6_f5_F
+                                                       sound_gen/n_timer/Mrom_sig_base1201_6_f5
+    SLICE_X4Y26.F3       net (fanout=1)        0.674   sound_gen/n_timer/Mrom_sig_base1201_6_f5
+    SLICE_X4Y26.X        Tif5x                 0.968   sig_base<10>
+                                                       sound_gen/n_timer/Mrom_sig_base1201_2_f5_G
+                                                       sound_gen/n_timer/Mrom_sig_base1201_2_f5
+    SLICE_X10Y27.G1      net (fanout=16)       1.909   sig_base<10>
+    SLICE_X10Y27.COUT    Topcyg                1.096   sound_gen/n_timer/sig_1_3<6>
+                                                       sound_gen/n_timer/Madd_sig_1_3_addsub0000_lut<7>
+                                                       sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<7>
+    SLICE_X10Y28.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<7>
+    SLICE_X10Y28.COUT    Tbyp                  0.120   sound_gen/n_timer/sig_1_3<8>
+                                                       sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<8>
+                                                       sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<9>
+    SLICE_X10Y29.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Madd_sig_1_3_addsub0000_cy<9>
+    SLICE_X10Y29.X       Tcinx                 0.904   sound_gen/n_timer/sig_1_3<10>
+                                                       sound_gen/n_timer/Madd_sig_1_3_addsub0000_xor<10>
+    SLICE_X13Y35.G1      net (fanout=1)        1.165   sound_gen/n_timer/sig_1_3<10>
+    SLICE_X13Y35.Y       Tilo                  0.551   N290
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<10>_SW0
+    SLICE_X16Y27.F4      net (fanout=1)        1.397   N256
+    SLICE_X16Y27.COUT    Topcyf                1.084   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<11>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_lut<10>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<10>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<11>
+    SLICE_X16Y28.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<11>
+    SLICE_X16Y28.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<13>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<12>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<13>
+    SLICE_X16Y29.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<13>
+    SLICE_X16Y29.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<14>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15>
+    SLICE_X16Y30.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<15>
+    SLICE_X16Y30.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<16>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+    SLICE_X16Y31.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<17>
+    SLICE_X16Y31.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<18>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+    SLICE_X16Y32.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<19>
+    SLICE_X16Y32.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<20>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+    SLICE_X16Y33.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<21>
+    SLICE_X16Y33.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<22>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+    SLICE_X16Y34.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<23>
+    SLICE_X16Y34.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<24>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+    SLICE_X16Y35.CIN     net (fanout=1)        0.000   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<25>
+    SLICE_X16Y35.COUT    Tbyp                  0.120   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<26>
+                                                       sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+    SLICE_X17Y36.F4      net (fanout=2)        0.446   sound_gen/n_timer/Mcompar_counter_cmp_lt0000_cy<27>
+    SLICE_X17Y36.X       Tilo                  0.551   sound_gen/n_timer/timeout
+                                                       sound_gen/n_timer/counter_not00011
+    SLICE_X17Y39.CE      net (fanout=14)       1.104   sound_gen/n_timer/counter_not0001
+    SLICE_X17Y39.CLK     Tceck                 0.602   sound_gen/n_timer/counter<9>
+                                                       sound_gen/n_timer/counter_9
+    -------------------------------------------------  ---------------------------
+    Total                                     19.604ns (9.435ns logic, 10.169ns route)
+                                                       (48.1% logic, 51.9% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: TS_USER_CLOCK_P = PERIOD TIMEGRP "USER_CLOCK_P" 40 ns HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point epp/Mtridata_pdb_7 (SLICE_X34Y1.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.800ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               epp/busEppOut_7 (FF)
+  Destination:          epp/Mtridata_pdb_7 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.800ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 40.000ns
+  Destination Clock:    clk_BUFGP rising at 40.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: epp/busEppOut_7 to epp/Mtridata_pdb_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X36Y1.XQ       Tcko                  0.576   epp/busEppOut<7>
+                                                       epp/busEppOut_7
+    SLICE_X34Y1.BX       net (fanout=1)        0.507   epp/busEppOut<7>
+    SLICE_X34Y1.CLK      Tckdi       (-Th)     0.283   epp/Mtridata_pdb<7>
+                                                       epp/Mtridata_pdb_7
+    -------------------------------------------------  ---------------------------
+    Total                                      0.800ns (0.293ns logic, 0.507ns route)
+                                                       (36.6% logic, 63.4% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point epp/Mtridata_pdb_5 (SLICE_X37Y0.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.801ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               epp/busEppOut_5 (FF)
+  Destination:          epp/Mtridata_pdb_5 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.800ns (Levels of Logic = 0)
+  Clock Path Skew:      -0.001ns (0.140 - 0.141)
+  Source Clock:         clk_BUFGP rising at 40.000ns
+  Destination Clock:    clk_BUFGP rising at 40.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: epp/busEppOut_5 to epp/Mtridata_pdb_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X39Y0.XQ       Tcko                  0.576   epp/busEppOut<5>
+                                                       epp/busEppOut_5
+    SLICE_X37Y0.BX       net (fanout=1)        0.507   epp/busEppOut<5>
+    SLICE_X37Y0.CLK      Tckdi       (-Th)     0.283   epp/Mtridata_pdb<5>
+                                                       epp/Mtridata_pdb_5
+    -------------------------------------------------  ---------------------------
+    Total                                      0.800ns (0.293ns logic, 0.507ns route)
+                                                       (36.6% logic, 63.4% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point epp/dataToBram_3 (SLICE_X48Y10.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.806ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               epp/buffer_data_3 (FF)
+  Destination:          epp/dataToBram_3 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.806ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 40.000ns
+  Destination Clock:    clk_BUFGP rising at 40.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: epp/buffer_data_3 to epp/dataToBram_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X46Y11.XQ      Tcko                  0.576   epp/buffer_data<3>
+                                                       epp/buffer_data_3
+    SLICE_X48Y10.BX      net (fanout=1)        0.513   epp/buffer_data<3>
+    SLICE_X48Y10.CLK     Tckdi       (-Th)     0.283   epp/dataToBram<3>
+                                                       epp/dataToBram_3
+    -------------------------------------------------  ---------------------------
+    Total                                      0.806ns (0.293ns logic, 0.513ns route)
+                                                       (36.4% logic, 63.6% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_USER_CLOCK_P = PERIOD TIMEGRP "USER_CLOCK_P" 40 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 37.268ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 40.000ns
+  Low pulse: 20.000ns
+  Low pulse limit: 1.366ns (Tbpwl)
+  Physical resource: mem/Mram_sig_data_mem/CLKA
+  Logical resource: mem/Mram_sig_data_mem.A/CLKA
+  Location pin: RAMB16_X1Y2.CLKA
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 37.268ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 40.000ns
+  High pulse: 20.000ns
+  High pulse limit: 1.366ns (Tbpwh)
+  Physical resource: mem/Mram_sig_data_mem/CLKA
+  Logical resource: mem/Mram_sig_data_mem.A/CLKA
+  Location pin: RAMB16_X1Y2.CLKA
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 37.268ns (period - min period limit)
+  Period: 40.000ns
+  Min period limit: 2.732ns (366.032MHz) (Tbp)
+  Physical resource: mem/Mram_sig_data_mem/CLKA
+  Logical resource: mem/Mram_sig_data_mem.A/CLKA
+  Location pin: RAMB16_X1Y2.CLKA
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |   31.837|    6.114|   19.977|    8.734|
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 16475788 paths, 0 nets, and 6926 connections
+
+Design statistics:
+   Minimum period:  39.954ns{1}   (Maximum frequency:  25.029MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Sat Oct 21 17:19:13 2017 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 148 MB
+
+
+
