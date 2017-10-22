@@ -213,7 +213,7 @@ architecture Behavioral of musicplayer_top is
 	signal sig_tempo_reg2_out: std_logic_vector(11 downto 0);
 	--signal sig_note_timer_en: std_logic;
 	signal sig_sw_tempo: std_logic_vector(7 downto 0);
-	
+	signal swtempo_en: std_logic;
 	--fsm
 	TYPE State_Type IS (load, idle, read_note, play_note);--, pause1, pause2); ---added handshake state
 	SIGNAL y : State_Type;
@@ -338,11 +338,18 @@ begin
       swingValue => tempo_val  
 	);
 	
+	process(clk)
+	begin
+	if rising_edge(clk) then
+		swtempo_en <= tempo_mode2 AND NOT tempo_mode AND sig_play;
+	end if;
+	end process;
+	
 	swcontol: swtempo
    Port map ( clk => clk,
 			  reset => reset,
 			  tempo_val => sig_tempo_data(9 downto 2),
-           tempo_mode => tempo_mode2,
+           tempo_mode => swtempo_en, -- tempo_mode2,
 			  tempo_up =>tempo_up,
 			  tempo_down => tempo_down,
            tempo_out => sig_sw_tempo

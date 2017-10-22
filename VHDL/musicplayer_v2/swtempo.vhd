@@ -202,7 +202,7 @@ begin
 		end case;
 	end process;
 	
-	tempo_reset <= reset OR NOT tempo_mode;
+	tempo_reset <= NOT tempo_mode;--reset OR NOT tempo_mode;
 	reg: tempo_reg 
 	port map(
 		clk => slowclk,
