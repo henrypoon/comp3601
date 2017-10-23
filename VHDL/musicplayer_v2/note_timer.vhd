@@ -41,13 +41,13 @@ architecture Behavioral of note_timer is
 	signal sig_3_4 : integer range 0 to 200000000;
 	signal sig_1 : integer range 0 to 200000000;
 	signal sig_1_1_2 : integer range 0 to 200000000;
-	signal sig_2 : integer range 0 to 200000000;
-	signal sig_3 : integer range 0 to 200000000;
-	signal sig_4 : integer range 0 to 200000000;
-	signal sig_8 : integer range 0 to 200000000;
+	signal sig_2 : integer range 0 to 1000000000;
+	signal sig_3 : integer range 0 to 1000000000;
+	signal sig_4 : integer range 0 to 1000000000;
+	signal sig_8 : integer range 0 to 1000000000;
 	signal sig_base: std_logic_vector(25 downto 0);
-	signal sig_duration: integer range 0 to 200000000;
-	signal counter : integer range 0 to 250000000:=0; -- bigger than note duration just in case it overflows
+	signal sig_duration: integer range 0 to 1000000000;
+	signal counter : integer range 0 to 1000000000:=0; -- bigger than note duration just in case it overflows
 begin
 	
 	base_vector <= sig_base; 
@@ -60,10 +60,10 @@ begin
 	sig_3_4 <= sig_1_2 + sig_1_4;
 	sig_1 <= to_integer(unsigned(sig_base));
 	sig_1_1_2 <= sig_1 + sig_1_2;
-	sig_2 <= to_integer(unsigned(sig_base(24 downto 0) & '0'));
+	sig_2 <= sig_1*2; --to_integer(unsigned(sig_base(24 downto 0) & '0'));
 	sig_3 <= sig_1 + sig_2;
-	sig_4 <= to_integer(unsigned(sig_base(23 downto 0) & "00"));
-	sig_8 <= to_integer(unsigned(sig_base(22 downto 0) & "000"));
+	sig_4 <= sig_2*2; --to_integer(unsigned(sig_base(23 downto 0) & "00"));
+	sig_8 <= sig_4*2; --to_integer(unsigned(sig_base(22 downto 0) & "000"));
 
 	with note_dur select sig_duration <= 
 		sig_1_4 when "0000",
