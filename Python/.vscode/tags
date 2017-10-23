@@ -29,7 +29,7 @@ jsonLine	../jsonToAscii.py	/^jsonLine = ""$/;"	kind:variable	line:20
 jsonLine	../jsonToBinary.py	/^jsonLine = ""$/;"	kind:variable	line:81
 jsonToAscii.py	../jsonToAscii.py	1;"	kind:file	line:1
 jsonToBinary.py	../jsonToBinary.py	1;"	kind:file	line:1
-lines	../asciiToBinary.py	/^lines = readFile(fin)$/;"	kind:variable	line:123
+lines	../asciiToBinary.py	/^lines = readFile(fin)$/;"	kind:variable	line:124
 noteHash	../asciiToBinary.py	/^noteHash = {}$/;"	kind:variable	line:6
 noteHash	../jsonToBinary.py	/^noteHash = {}$/;"	kind:variable	line:83
 notes	../jsonToAscii.py	/^notes = parsedJson["song"].split("|")$/;"	kind:variable	line:32
@@ -40,4 +40,4 @@ parsedJson	../jsonToAscii.py	/^parsedJson = json.loads(jsonLine)$/;"	kind:variab
 parsedJson	../jsonToBinary.py	/^parsedJson = json.loads(jsonLine)$/;"	kind:variable	line:90
 readFile	../asciiToBinary.py	/^def readFile(fileName):$/;"	kind:function	line:53
 removeComments	../asciiToBinary.py	/^def removeComments(line):$/;"	kind:function	line:69
-result	../asciiToBinary.py	/^result = conversion(lines)$/;"	kind:variable	line:124
+result	../asciiToBinary.py	/^result = conversion(lines)$/;"	kind:variable	line:125

@@ -13,7 +13,7 @@ def generateNoteHash():
     # 64 notes in required range
     # 37 frequencies in required range
     # dictionary requires 38 entries to include rest
-    noteHash['rest'] = 0
+    noteHash['rest'] = format(0, '06b')
 
     count = 1
     octave = 3

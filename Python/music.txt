@@ -1,40 +1,53 @@
 bpm 100
 normal
 %test
-c4 c
-c4 c
+rest c
+c3b c
+c3 c
+c3# c d3b c
+d3 c
+d3# c e3b c
+e3 c f3b c
+e3# c f3 c
+f3# c g3b c
+g3 c
+g3# c a3b
+c a3 c
+a3# c b3b c
+b3 c c4b c
+b3# c c4 c
+c4# c d4b c
+d4 c
+d4# c e4b c
+e4 c f4b c
+e4# c f4 c
+f4# c g4b c
 g4 c
-g4 c
+g4# c a4b c
 a4 c
-a4 c
-g4 c
-f4 c
-f4 c
-e4 c
-e4 c
-d4 c
-d4 c
-c4 c
-g4 c
-g4 c
-f4 c
-f4 c
-f4 c
-e4 c
-e4 c
-d4 c
-c4 c
-c4 c
-g4 c
-g4 c
-a4 c
-a4 c
-g4 c
-f4 c
-f4 c
-e4 c
-e4 c
-d4 c
-d4 c
-c4 c
-C4 C
+a4# c b4b c
+b4 c c5b c
+b5# c c5 c
+c5# c d5b c
+d5 c
+d5# c e5b c
+e5 c f5b c
+e5# c f5 c
+f5# c g5b c
+g5 c
+g5# c a5b c
+a5 c
+a5# c b5b c
+b5 c c6b c
+b6# c c6 c
+c6# c d6b c
+d6 c
+d6# c e6b c
+e6 c f6b c
+e6# c f6 c
+f6# c g6b c
+g6 c
+g6# c a6b c
+a6 c
+a6# c b6b c
+b6 c
