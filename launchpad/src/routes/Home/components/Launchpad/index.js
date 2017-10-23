@@ -3,15 +3,17 @@ import { Text, View, TouchableHighlight, Image, Dimensions, StyleSheet } from 'r
 import FadeInView from 'react-native-fade-in-view';
 import { connect } from 'react-redux';
 
-const pink = require('../../../../assets/img/Grid/pink.png');
-const blue = require('../../../../assets/img/Grid/blue.png');
-const orange = require('../../../../assets/img/Grid/orange.png');
-const cyan = require('../../../../assets/img/Grid/cyan.png');
-const purple = require('../../../../assets/img/Grid/purple.png');
-const green = require('../../../../assets/img/Grid/green.png');
-const grey = require('../../../../assets/img/Grid/grey.png');
-const yellow = require('../../../../assets/img/Grid/yellow.png');
-const brown = require('../../../../assets/img/Grid/brown.png');
+const pink = require('../../../../assets/img/Grid/pink_num.png');
+const blue = require('../../../../assets/img/Grid/blue_n.png');
+const blue_s = require('../../../../assets/img/Grid/blue_s.png');
+const blue_b = require('../../../../assets/img/Grid/blue_b.png');
+const orange = require('../../../../assets/img/Grid/orange_num.png');
+const cyan = require('../../../../assets/img/Grid/cyan_num.png');
+const purple = require('../../../../assets/img/Grid/purple_num.png');
+const green = require('../../../../assets/img/Grid/green_num.png');
+const grey = require('../../../../assets/img/Grid/grey_num.png');
+const yellow = require('../../../../assets/img/Grid/yellow_num.png');
+const brown = require('../../../../assets/img/Grid/brown_num.png');
 
 const deviceW = Dimensions.get('window').width;
 
@@ -19,11 +21,10 @@ export default class Launchpad extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(this.props.octave + 'dddddd');
   }
 
   render() {
-
+    console.log(this.props);
     const blurMap = (val) => {
       switch (this.props.octave) {
         case 3:
@@ -64,6 +65,32 @@ export default class Launchpad extends React.Component {
       );
     };
 
+    const renderFlat = (flag) => {
+      console.log(this.props);
+      if (flag === 'b') {
+        return (
+          <Image
+            source={blue_b}
+            style={{ width: deviceW / 3, height: deviceW / 3 }}
+          />
+        );
+      } else if (flag === '#') {
+        return (
+          <Image
+            source={blue_s}
+            style={{ width: deviceW / 3, height: deviceW / 3 }}
+          />
+        );        
+      } else {
+        return (
+          <Image
+            source={blue}
+            style={{ width: deviceW / 3, height: deviceW / 3 }}
+          />
+        );
+      }
+    };
+
     return (
         <View>
           <FadeInView
@@ -73,10 +100,7 @@ export default class Launchpad extends React.Component {
           <View style={{ flexDirection: 'row' }}>
             {renderGrid(pink, 'rest')}
             <TouchableHighlight onPress={() => this.props.setSign()}>
-              <Image
-                source={blue}
-                style={{ width: deviceW / 3, height: deviceW / 3 }}
-              />
+              {renderFlat(this.props.sign)}
             </TouchableHighlight>
             {renderGrid(orange, 'A')}
           </View>

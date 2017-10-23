@@ -1,14 +1,16 @@
 import update from 'react-addons-update';
 import axios from 'axios';
 import constants from './actionConstants';
+import { Actions } from 'react-native-router-flux';
+import { AlertIOS } from 'react-native';
+import urlConst from '../../url';
+const { url } = urlConst;
 
-var url = 'http://10.211.55.4:3000/';
-
-const { SET_DATA, PLAY_MUSIC } = constants;
+const { SET_DATA, PLAY_MUSIC, DELETE_SONG } = constants;
 
 export function setData() {
 	return (dispatch) => {
-		axios.get(url+'songs')
+		axios.get(url + 'songs')
 		.then((response) => {
 			dispatch({
 				type: SET_DATA,
@@ -22,11 +24,10 @@ export function setData() {
 }
 
 export function playMusic(payload) {
-	console.log('play');
-	const api = url + 'songs/play/' + payload.toString();
-	console.log(api);
+	const api = url + 'songs/play/' + payload;
 	axios.post(api)
 		.then((response) => {
+			AlertIOS.alert('Song has been transferred to FPGA borad!');
 			console.log(response);
 		})
 		.catch((error) => {
@@ -35,6 +36,25 @@ export function playMusic(payload) {
 	return {
 		type: PLAY_MUSIC,
 		payload: null
+	};
+}
+
+export function deleteSong(payload) {
+	return (dispatch) => {
+		const api = url + 'songs/' + payload;
+		axios.delete(api)
+			.then((response) => {
+				console.log(response);
+				dispatch({
+					type: DELETE_SONG,
+					payload: null
+				});
+				setData()
+				Actions.home();
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	};
 }
 
@@ -48,7 +68,7 @@ function handleSetData(state, action) {
 }
 
 const ACTION_HANDLERS = {
-	SET_DATA: handleSetData,
+	SET_DATA: handleSetData
 };
 
 const initialState = {

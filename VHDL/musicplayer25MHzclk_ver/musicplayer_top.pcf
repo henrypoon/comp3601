@@ -1,0 +1,276 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Sat Oct 21 17:17:51 2017
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "clk" LOCATE = SITE "A8" LEVEL 1;
+COMP "pwr" LOCATE = SITE "N7" LEVEL 1;
+COMP "astb" LOCATE = SITE "N8" LEVEL 1;
+COMP "dstb" LOCATE = SITE "P7" LEVEL 1;
+COMP "play" LOCATE = SITE "N15" LEVEL 1;
+COMP "trig" LOCATE = SITE "R11" LEVEL 1;
+COMP "displayOut<0>" LOCATE = SITE "G14" LEVEL 1;
+COMP "displayOut<1>" LOCATE = SITE "G12" LEVEL 1;
+COMP "displayOut<2>" LOCATE = SITE "G13" LEVEL 1;
+COMP "displayOut<3>" LOCATE = SITE "F12" LEVEL 1;
+COMP "segments<0>" LOCATE = SITE "F13" LEVEL 1;
+COMP "segments<1>" LOCATE = SITE "E13" LEVEL 1;
+COMP "segments<2>" LOCATE = SITE "G15" LEVEL 1;
+COMP "segments<3>" LOCATE = SITE "H13" LEVEL 1;
+COMP "segments<4>" LOCATE = SITE "J14" LEVEL 1;
+COMP "segments<5>" LOCATE = SITE "E14" LEVEL 1;
+COMP "segments<6>" LOCATE = SITE "G16" LEVEL 1;
+COMP "segments<7>" LOCATE = SITE "H14" LEVEL 1;
+COMP "tempo_down" LOCATE = SITE "L15" LEVEL 1;
+COMP "tempo_mode" LOCATE = SITE "J16" LEVEL 1;
+PIN tempo_mode_pin<0> = BEL "tempo_mode" PINNAME PAD;
+PIN "tempo_mode_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+COMP "reset" LOCATE = SITE "J13" LEVEL 1;
+PIN reset_pin<0> = BEL "reset" PINNAME PAD;
+PIN "reset_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+COMP "pwait" LOCATE = SITE "N5" LEVEL 1;
+COMP "pulse" LOCATE = SITE "P8" LEVEL 1;
+COMP "reset_sense" LOCATE = SITE "K13" LEVEL 1;
+PIN reset_sense_pin<0> = BEL "reset_sense" PINNAME PAD;
+PIN "reset_sense_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+COMP "swhardcode" LOCATE = SITE "N16" LEVEL 1;
+COMP "tempo_mode2" LOCATE = SITE "K16" LEVEL 1;
+PIN tempo_mode2_pin<0> = BEL "tempo_mode2" PINNAME PAD;
+PIN "tempo_mode2_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+COMP "speaker" LOCATE = SITE "T14" LEVEL 1;
+COMP "led<0>" LOCATE = SITE "L14" LEVEL 1;
+COMP "led<1>" LOCATE = SITE "L13" LEVEL 1;
+COMP "led<2>" LOCATE = SITE "M14" LEVEL 1;
+COMP "led<3>" LOCATE = SITE "L12" LEVEL 1;
+COMP "led<4>" LOCATE = SITE "N14" LEVEL 1;
+COMP "led<5>" LOCATE = SITE "M13" LEVEL 1;
+COMP "led<6>" LOCATE = SITE "P14" LEVEL 1;
+COMP "led<7>" LOCATE = SITE "R16" LEVEL 1;
+COMP "pdb<0>" LOCATE = SITE "N12" LEVEL 1;
+COMP "pdb<1>" LOCATE = SITE "P12" LEVEL 1;
+COMP "pdb<2>" LOCATE = SITE "N11" LEVEL 1;
+COMP "pdb<3>" LOCATE = SITE "P11" LEVEL 1;
+COMP "pdb<4>" LOCATE = SITE "N10" LEVEL 1;
+COMP "pdb<5>" LOCATE = SITE "P10" LEVEL 1;
+COMP "pdb<6>" LOCATE = SITE "M10" LEVEL 1;
+COMP "pdb<7>" LOCATE = SITE "R10" LEVEL 1;
+COMP "tempo_up" LOCATE = SITE "K15" LEVEL 1;
+NET "clk_BUFGP/IBUFG" BEL "clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+TIMEGRP USER_CLOCK_P = BEL "sig_load_done" BEL "rest_counter_0" BEL
+        "rest_counter_1" BEL "rest_counter_2" BEL "rest_counter_3" BEL
+        "rest_counter_4" BEL "rest_counter_5" BEL "rest_counter_6" BEL
+        "rest_counter_7" BEL "rest_counter_8" BEL "rest_counter_9" BEL
+        "rest_counter_10" BEL "rest_counter_11" BEL "rest_counter_12" BEL
+        "rest_counter_13" BEL "rest_counter_14" BEL "rest_counter_15" BEL
+        "rest_counter_16" BEL "rest_counter_17" BEL "rest_counter_18" BEL
+        "rest_counter_19" BEL "rest_counter_20" BEL "rest_counter_21" BEL
+        "rest_counter_22" BEL "rest_counter_23" BEL "rest_counter_24" BEL
+        "rest_counter_25" BEL "rest_counter_26" BEL
+        "sense/swingTimer/timerCounter_0" BEL
+        "sense/swingTimer/timerCounter_1" BEL
+        "sense/swingTimer/timerCounter_2" BEL
+        "sense/swingTimer/timerCounter_3" BEL
+        "sense/swingTimer/timerCounter_4" BEL
+        "sense/swingTimer/timerCounter_5" BEL
+        "sense/swingTimer/timerCounter_6" BEL
+        "sense/swingTimer/timerCounter_7" BEL
+        "sense/swingTimer/timerCounter_8" BEL
+        "sense/swingTimer/timerCounter_9" BEL
+        "sense/swingTimer/timerCounter_10" BEL
+        "sense/swingTimer/timerCounter_11" BEL
+        "sense/swingTimer/timerCounter_12" BEL
+        "sense/swingTimer/timerCounter_13" BEL
+        "sense/swingTimer/timerCounter_14" BEL
+        "sense/swingTimer/timerCounter_15" BEL
+        "sense/swingTimer/timerCounter_16" BEL
+        "sense/swingTimer/timerCounter_17" BEL
+        "sense/swingTimer/timerCounter_18" BEL
+        "sense/swingTimer/timerCounter_19" BEL
+        "sense/swingTimer/timerCounter_20" BEL
+        "sense/swingTimer/timerCounter_21" BEL
+        "sense/swingTimer/timerCounter_22" BEL
+        "sense/swingTimer/timerCounter_23" BEL
+        "sense/swingTimer/timerCounter_24" BEL
+        "sense/swingTimer/timerCounter_25" BEL
+        "sense/swingTimer/timerCounter_26" BEL
+        "sense/swingTimer/timerCounter_27" BEL
+        "sense/swingTimer/timerCounter_28" BEL
+        "sense/swingTimer/timerCounter_29" BEL
+        "sense/swingTimer/timerCounter_30" BEL
+        "sense/swingTimer/timerCounter_31" BEL "y_FSM_FFd1" BEL "y_FSM_FFd2"
+        BEL "epp/stEppCur_FSM_FFd4" BEL "epp/stEppCur_FSM_FFd3" BEL
+        "epp/dataToBram_11" BEL "epp/dataToBram_10" BEL "epp/dataToBram_9" BEL
+        "epp/dataToBram_8" BEL "epp/dataToBram_7" BEL "epp/dataToBram_6" BEL
+        "epp/dataToBram_5" BEL "epp/dataToBram_4" BEL "epp/dataToBram_3" BEL
+        "epp/dataToBram_2" BEL "epp/dataToBram_1" BEL "epp/dataToBram_0" BEL
+        "epp/buffer_data_7" BEL "epp/buffer_data_6" BEL "epp/buffer_data_5"
+        BEL "epp/buffer_data_4" BEL "epp/buffer_data_3" BEL
+        "epp/buffer_data_2" BEL "epp/buffer_data_1" BEL "epp/buffer_data_0"
+        BEL "epp/regData2_7" BEL "epp/regData2_6" BEL "epp/regData2_5" BEL
+        "epp/regData2_4" BEL "epp/regData2_3" BEL "epp/regData2_2" BEL
+        "epp/regData2_1" BEL "epp/regData2_0" BEL "epp/regData1_7" BEL
+        "epp/regData1_6" BEL "epp/regData1_5" BEL "epp/regData1_4" BEL
+        "epp/regData1_3" BEL "epp/regData1_2" BEL "epp/regData1_1" BEL
+        "epp/regData1_0" BEL "epp/regData0_7" BEL "epp/regData0_6" BEL
+        "epp/regData0_5" BEL "epp/regData0_4" BEL "epp/regData0_3" BEL
+        "epp/regData0_2" BEL "epp/regData0_1" BEL "epp/regData0_0" BEL
+        "epp/regEppAdr_3" BEL "epp/regEppAdr_2" BEL "epp/regEppAdr_1" BEL
+        "epp/regEppAdr_0" BEL "epp/busEppIn_7" BEL "epp/busEppIn_6" BEL
+        "epp/busEppIn_5" BEL "epp/busEppIn_4" BEL "epp/busEppIn_3" BEL
+        "epp/busEppIn_2" BEL "epp/busEppIn_1" BEL "epp/busEppIn_0" BEL
+        "epp/addressToBram_7" BEL "epp/addressToBram_6" BEL
+        "epp/addressToBram_5" BEL "epp/addressToBram_4" BEL
+        "epp/addressToBram_3" BEL "epp/addressToBram_2" BEL
+        "epp/addressToBram_1" BEL "epp/addressToBram_0" BEL
+        "epp/Mtridata_pdb_7" BEL "epp/Mtridata_pdb_6" BEL "epp/Mtridata_pdb_5"
+        BEL "epp/Mtridata_pdb_4" BEL "epp/Mtridata_pdb_3" BEL
+        "epp/Mtridata_pdb_2" BEL "epp/Mtridata_pdb_1" BEL "epp/Mtridata_pdb_0"
+        BEL "epp/pwait" BEL "epp/Mtrien_pdb" BEL "epp/busEppOut_7" BEL
+        "epp/busEppOut_6" BEL "epp/busEppOut_5" BEL "epp/busEppOut_4" BEL
+        "epp/busEppOut_3" BEL "epp/busEppOut_2" BEL "epp/busEppOut_1" BEL
+        "epp/busEppOut_0" BEL "epp/ctlEppWr" BEL "epp/done" BEL
+        "epp/sig_enable" BEL "epp/counter_7" BEL "epp/counter_6" BEL
+        "epp/counter_5" BEL "epp/counter_4" BEL "epp/counter_3" BEL
+        "epp/counter_2" BEL "epp/counter_1" BEL "epp/counter_0" BEL
+        "epp/ctlEppAstb" BEL "epp/ctlEppDstb" BEL "music_counter/data_out_7"
+        BEL "music_counter/data_out_6" BEL "music_counter/data_out_5" BEL
+        "music_counter/data_out_4" BEL "music_counter/data_out_3" BEL
+        "music_counter/data_out_2" BEL "music_counter/data_out_1" BEL
+        "music_counter/data_out_0" BEL "tempo_reg/data_out_11" BEL
+        "tempo_reg/data_out_10" BEL "tempo_reg/data_out_9" BEL
+        "tempo_reg/data_out_8" BEL "tempo_reg/data_out_7" BEL
+        "tempo_reg/data_out_6" BEL "tempo_reg/data_out_5" BEL
+        "tempo_reg/data_out_4" BEL "tempo_reg/data_out_3" BEL
+        "tempo_reg/data_out_2" BEL "buffer_reg/data_out_11" BEL
+        "buffer_reg/data_out_10" BEL "buffer_reg/data_out_9" BEL
+        "buffer_reg/data_out_8" BEL "buffer_reg/data_out_7" BEL
+        "buffer_reg/data_out_6" BEL "buffer_reg/data_out_5" BEL
+        "buffer_reg/data_out_4" BEL "buffer_reg/data_out_3" BEL
+        "buffer_reg/data_out_2" BEL "sense/sensor/c2_31" BEL
+        "sense/sensor/c2_30" BEL "sense/sensor/c2_29" BEL "sense/sensor/c2_28"
+        BEL "sense/sensor/c2_27" BEL "sense/sensor/c2_26" BEL
+        "sense/sensor/c2_25" BEL "sense/sensor/c2_24" BEL "sense/sensor/c2_23"
+        BEL "sense/sensor/c2_22" BEL "sense/sensor/c2_21" BEL
+        "sense/sensor/c2_20" BEL "sense/sensor/c2_19" BEL "sense/sensor/c2_18"
+        BEL "sense/sensor/c2_17" BEL "sense/sensor/c2_16" BEL
+        "sense/sensor/c2_15" BEL "sense/sensor/c2_14" BEL "sense/sensor/c2_13"
+        BEL "sense/sensor/c2_12" BEL "sense/sensor/c2_11" BEL
+        "sense/sensor/c2_10" BEL "sense/sensor/c2_9" BEL "sense/sensor/c2_8"
+        BEL "sense/sensor/c2_7" BEL "sense/sensor/c2_6" BEL
+        "sense/sensor/c2_5" BEL "sense/sensor/c2_4" BEL "sense/sensor/c2_3"
+        BEL "sense/sensor/c2_2" BEL "sense/sensor/c2_1" BEL
+        "sense/sensor/c2_0" BEL "sense/sensor/c1_31" BEL "sense/sensor/c1_30"
+        BEL "sense/sensor/c1_29" BEL "sense/sensor/c1_28" BEL
+        "sense/sensor/c1_27" BEL "sense/sensor/c1_26" BEL "sense/sensor/c1_25"
+        BEL "sense/sensor/c1_24" BEL "sense/sensor/c1_23" BEL
+        "sense/sensor/c1_22" BEL "sense/sensor/c1_21" BEL "sense/sensor/c1_20"
+        BEL "sense/sensor/c1_19" BEL "sense/sensor/c1_18" BEL
+        "sense/sensor/c1_17" BEL "sense/sensor/c1_16" BEL "sense/sensor/c1_15"
+        BEL "sense/sensor/c1_14" BEL "sense/sensor/c1_13" BEL
+        "sense/sensor/c1_12" BEL "sense/sensor/c1_11" BEL "sense/sensor/c1_10"
+        BEL "sense/sensor/c1_9" BEL "sense/sensor/c1_8" BEL
+        "sense/sensor/c1_7" BEL "sense/sensor/c1_6" BEL "sense/sensor/c1_5"
+        BEL "sense/sensor/c1_4" BEL "sense/sensor/c1_3" BEL
+        "sense/sensor/c1_2" BEL "sense/sensor/c1_1" BEL "sense/sensor/c1_0"
+        BEL "sense/sensor/echo_time_31" BEL "sense/sensor/echo_time_30" BEL
+        "sense/sensor/echo_time_29" BEL "sense/sensor/echo_time_28" BEL
+        "sense/sensor/echo_time_27" BEL "sense/sensor/echo_time_26" BEL
+        "sense/sensor/echo_time_25" BEL "sense/sensor/echo_time_24" BEL
+        "sense/sensor/echo_time_23" BEL "sense/sensor/echo_time_22" BEL
+        "sense/sensor/echo_time_21" BEL "sense/sensor/echo_time_20" BEL
+        "sense/sensor/echo_time_19" BEL "sense/sensor/echo_time_18" BEL
+        "sense/sensor/echo_time_17" BEL "sense/sensor/echo_time_16" BEL
+        "sense/sensor/echo_time_15" BEL "sense/sensor/echo_time_14" BEL
+        "sense/sensor/echo_time_13" BEL "sense/sensor/echo_time_12" BEL
+        "sense/sensor/echo_time_11" BEL "sense/sensor/echo_time_10" BEL
+        "sense/sensor/echo_time_9" BEL "sense/sensor/echo_time_8" BEL
+        "sense/sensor/echo_time_7" BEL "sense/sensor/echo_time_6" BEL
+        "sense/sensor/echo_time_5" BEL "sense/sensor/y" BEL
+        "sense/sensor/myOut" BEL "sense/sensor/trig" BEL
+        "sound_gen/sq_wave/count_18" BEL "sound_gen/sq_wave/count_17" BEL
+        "sound_gen/sq_wave/count_16" BEL "sound_gen/sq_wave/count_15" BEL
+        "sound_gen/sq_wave/count_14" BEL "sound_gen/sq_wave/count_13" BEL
+        "sound_gen/sq_wave/count_12" BEL "sound_gen/sq_wave/count_11" BEL
+        "sound_gen/sq_wave/count_10" BEL "sound_gen/sq_wave/count_9" BEL
+        "sound_gen/sq_wave/count_8" BEL "sound_gen/sq_wave/count_7" BEL
+        "sound_gen/sq_wave/count_6" BEL "sound_gen/sq_wave/count_5" BEL
+        "sound_gen/sq_wave/count_4" BEL "sound_gen/sq_wave/count_3" BEL
+        "sound_gen/sq_wave/count_2" BEL "sound_gen/sq_wave/count_1" BEL
+        "sound_gen/sq_wave/count_0" BEL "sound_gen/sq_wave/segment_counter_18"
+        BEL "sound_gen/sq_wave/segment_counter_17" BEL
+        "sound_gen/sq_wave/segment_counter_16" BEL
+        "sound_gen/sq_wave/segment_counter_15" BEL
+        "sound_gen/sq_wave/segment_counter_14" BEL
+        "sound_gen/sq_wave/segment_counter_13" BEL
+        "sound_gen/sq_wave/segment_counter_12" BEL
+        "sound_gen/sq_wave/segment_counter_11" BEL
+        "sound_gen/sq_wave/segment_counter_10" BEL
+        "sound_gen/sq_wave/segment_counter_9" BEL
+        "sound_gen/sq_wave/segment_counter_8" BEL
+        "sound_gen/sq_wave/segment_counter_7" BEL
+        "sound_gen/sq_wave/segment_counter_6" BEL
+        "sound_gen/sq_wave/segment_counter_5" BEL
+        "sound_gen/sq_wave/segment_counter_4" BEL
+        "sound_gen/sq_wave/segment_counter_3" BEL
+        "sound_gen/sq_wave/segment_counter_2" BEL
+        "sound_gen/sq_wave/segment_counter_1" BEL
+        "sound_gen/sq_wave/segment_counter_0" BEL "sound_gen/sq_wave/temp" BEL
+        "sound_gen/sq_wave/segment_counter_reset" BEL
+        "sound_gen/n_timer/timeout" BEL "sound_gen/n_timer/counter_27" BEL
+        "sound_gen/n_timer/counter_26" BEL "sound_gen/n_timer/counter_25" BEL
+        "sound_gen/n_timer/counter_24" BEL "sound_gen/n_timer/counter_23" BEL
+        "sound_gen/n_timer/counter_22" BEL "sound_gen/n_timer/counter_21" BEL
+        "sound_gen/n_timer/counter_20" BEL "sound_gen/n_timer/counter_19" BEL
+        "sound_gen/n_timer/counter_18" BEL "sound_gen/n_timer/counter_17" BEL
+        "sound_gen/n_timer/counter_16" BEL "sound_gen/n_timer/counter_15" BEL
+        "sound_gen/n_timer/counter_14" BEL "sound_gen/n_timer/counter_13" BEL
+        "sound_gen/n_timer/counter_12" BEL "sound_gen/n_timer/counter_11" BEL
+        "sound_gen/n_timer/counter_10" BEL "sound_gen/n_timer/counter_9" BEL
+        "sound_gen/n_timer/counter_8" BEL "sound_gen/n_timer/counter_7" BEL
+        "sound_gen/n_timer/counter_6" BEL "sound_gen/n_timer/counter_5" BEL
+        "sound_gen/n_timer/counter_4" BEL "sound_gen/n_timer/counter_3" BEL
+        "sound_gen/n_timer/counter_2" BEL "sound_gen/n_timer/counter_1" BEL
+        "sound_gen/n_timer/counter_0" BEL "dsplay/slwclkcounter_18" BEL
+        "dsplay/slwclkcounter_17" BEL "dsplay/slwclkcounter_16" BEL
+        "dsplay/slwclkcounter_15" BEL "dsplay/slwclkcounter_14" BEL
+        "dsplay/slwclkcounter_13" BEL "dsplay/slwclkcounter_12" BEL
+        "dsplay/slwclkcounter_11" BEL "dsplay/slwclkcounter_10" BEL
+        "dsplay/slwclkcounter_9" BEL "dsplay/slwclkcounter_8" BEL
+        "dsplay/slwclkcounter_7" BEL "dsplay/slwclkcounter_6" BEL
+        "dsplay/slwclkcounter_5" BEL "dsplay/slwclkcounter_4" BEL
+        "dsplay/slwclkcounter_3" BEL "dsplay/slwclkcounter_2" BEL
+        "dsplay/slwclkcounter_1" BEL "dsplay/slwclkcounter_0" BEL
+        "dsplay/counter_FSM_FFd2" BEL "dsplay/counter_FSM_FFd3" BEL
+        "dsplay/display_2" BEL "dsplay/display_1" BEL "dsplay/display_0" BEL
+        "dsplay/BCD_3" BEL "dsplay/BCD_2" BEL "dsplay/BCD_1" BEL
+        "dsplay/BCD_0" BEL "dsplay/SLWCLK" BEL "epp/stEppCur_FSM_FFd2" BEL
+        "epp/stEppCur_FSM_FFd1" BEL "epp/ctlEppDwr" BEL "epp/ctlEppAwr" BEL
+        "epp/ctlEppWait" BEL "epp/busEppData_7" BEL "epp/busEppData_6" BEL
+        "epp/busEppData_5" BEL "epp/busEppData_4" BEL "epp/busEppData_3" BEL
+        "epp/busEppData_2" BEL "epp/busEppData_1" BEL "epp/busEppData_0" BEL
+        "epp/ctlEppDir" BEL "Mshreg_sig_epp_addr_2/SRL16E" BEL
+        "sig_epp_addr_2" BEL "Mshreg_sig_epp_addr_0/SRL16E" BEL
+        "sig_epp_addr_0" BEL "Mshreg_sig_epp_addr_1/SRL16E" BEL
+        "sig_epp_addr_1" BEL "Mshreg_sig_epp_addr_5/SRL16E" BEL
+        "sig_epp_addr_5" BEL "Mshreg_sig_epp_addr_3/SRL16E" BEL
+        "sig_epp_addr_3" BEL "Mshreg_sig_epp_addr_4/SRL16E" BEL
+        "sig_epp_addr_4" BEL "Mshreg_sig_write_data_0/SRL16E" BEL
+        "sig_write_data_0" BEL "Mshreg_sig_epp_addr_6/SRL16E" BEL
+        "sig_epp_addr_6" BEL "Mshreg_sig_epp_addr_7/SRL16E" BEL
+        "sig_epp_addr_7" BEL "Mshreg_sig_write_data_1/SRL16E" BEL
+        "sig_write_data_1" BEL "Mshreg_sig_write_data_2/SRL16E" BEL
+        "sig_write_data_2" BEL "Mshreg_sig_write_data_5/SRL16E" BEL
+        "sig_write_data_5" BEL "Mshreg_sig_write_data_3/SRL16E" BEL
+        "sig_write_data_3" BEL "Mshreg_sig_write_data_4/SRL16E" BEL
+        "sig_write_data_4" BEL "Mshreg_sig_write_data_6/SRL16E" BEL
+        "sig_write_data_6" BEL "Mshreg_sig_write_data_7/SRL16E" BEL
+        "sig_write_data_7" BEL "Mshreg_sig_write_data_10/SRL16E" BEL
+        "sig_write_data_10" BEL "Mshreg_sig_write_data_8/SRL16E" BEL
+        "sig_write_data_8" BEL "Mshreg_sig_write_data_9/SRL16E" BEL
+        "sig_write_data_9" BEL "Mshreg_sig_write_data_11/SRL16E" BEL
+        "sig_write_data_11" BEL "dsplay/Mshreg_counter_FSM_FFd4" BEL
+        "dsplay/counter_FSM_FFd4" BEL "mem/Mram_sig_data_mem.A" BEL
+        "clk_BUFGP/BUFG.GCLKMUX" BEL "clk_BUFGP/BUFG";
+TS_USER_CLOCK_P = PERIOD TIMEGRP "USER_CLOCK_P" 40 ns HIGH 50%;
+SCHEMATIC END;
+

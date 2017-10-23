@@ -22,7 +22,7 @@ class List extends React.Component {
 
 	renderDetails() {
     const rendering = this.props.data.map((song) => 
-      <ListDetails key={song.id} song={song.attributes} playMusic={this.props.playMusic} loadSong={this.props.loadSong} i={song.id} />
+      <ListDetails key={song.id} song={song.attributes} playMusic={this.props.playMusic} loadSong={this.props.loadSong} deleteSong={this.props.deleteSong} i={song.id} />
     );
 		return rendering;
 	}

@@ -1,41 +1,20 @@
 import React from 'react';
 import { Text, View, ScrollView, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import Svg,{
-    Circle,
-    Ellipse,
-    G,
-    LinearGradient,
-    RadialGradient,
-    Line,
-    Path,
-    Polygon,
-    Polyline,
-    Rect,
-    Symbol,
-    Use,
-    Defs,
-    Stop
-} from 'react-native-svg';
-const pinkIMG = require('../../../../assets/img/Grid/pink.png');
+import { Rect, Svg } from 'react-native-svg';
 
-export const ProcessBar = ({ song, setSelected, selected, mode }) => {
-  console.log(song);
-  var test = 'rest|0|rest|0|rest|0|rest|0|C3b|0|E3b|0';
+export const ProcessBar = ({ song, setSelected, selected }) => {
+  const displayRect = (i, random) => {
+    if (i === selected) {
+      return (
+        <Rect x="0" y="0" width="50" stroke='#ff0a3b' height="50" strokeWidth="5" fill={random} />
+      );
+    } else {
+      return (
+        <Rect x="0" y="0" width="50" height="50" strokeWidth="5" fill={random} /> 
+      );
+    }
+  };
 
-  if (mode === 'edit') {
-    var song = [];
-    var element = {};
-    test.split('|').map((e, i) => {
-      if (i % 2 === 0) {
-        element.notes = e;
-      }
-      if (i & 2 !== 0) {
-        element.duration = e;
-        song.push(element);
-      }
-    });
-    console.log(song);
-  }
 
   return (
     <View style={{ flex: 1 }}>
@@ -50,14 +29,15 @@ export const ProcessBar = ({ song, setSelected, selected, mode }) => {
       >
       {song.map((e, i) => {
         const random = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
-        const stroke = i === selected ? '#f5ff77' : '';
+        const stroke = i === selected ? '#ff0a3b' : '';
         const x = e.notes.indexOf('rest') === -1 ? 15 : 11;
         return  <TouchableOpacity key={i} onPress={() => setSelected(i)}>
-                  <Svg height="150" width="55">
-                    <Text style={{ color: 'white', left: x, top: 20 }}>{e.notes} </Text>
-                    <Rect x="0" y="0" width="50" stroke={stroke} height="70" strokeWidth="5" fill={random} />
+                  <Svg height="70" width="55">
+                    <Text style={{ color: 'white', left: x, top: 7 }}>{e.notes} </Text>
+                    <Text style={{ color: 'white', left: x, top: 15 }}>{e.duration} </Text>
+                    {displayRect(i, random)}
                   </Svg>
-                </TouchableOpacity>;
+                </TouchableOpacity>
       })}
       </ScrollView>
     </View>

@@ -2,20 +2,22 @@ import update from 'react-addons-update';
 import axios from 'axios';
 import constants from './actionConstants';
 import { AlertIOS } from 'react-native';
+import { Actions } from 'react-native-router-flux';
+import urlConst from '../../url';
 
-var url = 'http://10.211.55.4:3000/';
+const { url } = urlConst;
 
 const { 
 	SET_OCTAVE, 
 	SET_DURATION, 
-	PLAY_MUSIC, 
 	SET_CURRENTNOTE, 
 	ADD_TO_SONG, 
 	DELETE_NOTE, 
 	SAVE_MUSIC,
 	SET_SELECTED,
 	SET_SIGN,
-	LOAD_SONG
+	LOAD_SONG,
+	SET_SONGID
 } = constants;
 
 export function setSign() {
@@ -39,52 +41,90 @@ export function setSign() {
 }
 
 export function playMusic() {
-	console.log('play');
-	axios.post(url + 'songs/play/1')
-		.then((response) => {
-			console.log(response);
-		})
-		.catch((error) => {
-			console.log(error);
+	return (dispatch, store) => {
+		let notes = '';
+		const bpm = store().setting.bpm;
+		const mode = store().setting.mode;
+		store().home.song.map((e) => {
+			notes = notes + e.notes + '|' + e.duration + '|';
 		});
-	return {
-		type: PLAY_MUSIC,
-		payload: null
+		notes = notes.slice(0, notes.length - 1);
+		const jsonToSend = {
+			notes,
+			mode,
+			bpm
+		};
+		console.log(jsonToSend);
+
+		axios.post(url + 'songs/playCurrent', jsonToSend)
+			.then((response) => {
+				AlertIOS.alert('Song has been transferred to FPGA borad!');
+				console.log(response);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	};
 }
 
-export function saveMusic() {
+export function saveMusic(filename) {
 	return (dispatch, store) => {
-		console.log(store().home.song);
 		let song = '';
 		let length = 0;
+		const mode = store().setting.mode;
+		const bpm = store().setting.bpm;
 		store().home.song.map((e) => {
 			song = song + e.notes + '|' + e.duration + '|';
 			length += e.duration;
 		});
 		song = song.slice(0, song.length - 1);
-		const jsonToSend = {
-			notes: song,
-			mode: 'normal',
-			name: 'test',
-			description: 'heeeee',
-			length: length/1000,
-			bpm: 20
-		};
-		console.log(jsonToSend);
 
-		axios.post(url + 'songs', jsonToSend)
-			.then((response) => {
-				console.log(response);
-				// AlertIOS.alert('Save Successfully!');
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-		dispatch({
-			type: SAVE_MUSIC,
-			payload: null
-		});
+		if (store().home.mode === 'new') {
+			const jsonToSend = {
+				notes: song,
+				mode,
+				name: filename,
+				length: length/1000,
+				bpm
+			};
+			console.log(jsonToSend);
+
+			axios.post(url + 'songs', jsonToSend)
+				.then((response) => {
+					console.log(response);
+					const id = response.data.data.id;
+					AlertIOS.alert('Save Successfully!');
+					dispatch({
+						type: SAVE_MUSIC,
+						payload: 'edit'
+					});
+					dispatch({
+						type: SET_SONGID,
+						payload: id
+					});
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		} else {
+			const jsonToSend = {
+				notes: song,
+				mode,
+				length: length/1000,
+				bpm
+			};
+			// console.log(jsonToSend);
+			const songid = store().home.songid;
+			console.log(songid);
+			axios.put(url + 'songs/' + songid, jsonToSend)
+				.then((response) => {
+					console.log(response);
+					// AlertIOS.alert('Save Successfully!');
+				})
+				.catch((error) => {
+					console.log(error);
+				});			
+		}
 	};
 }
 
@@ -124,7 +164,7 @@ export function addToSong() {
 		const duration = store().home.duration;
 		const sign = store().home.sign;
 		const notes = currNote === 'rest' ? 'rest' : currNote + octave + sign;
-		const n = { notes: notes, duration: duration };
+		const n = { notes, duration };
 		const song = store().home.song;
 		const add = song.concat(n);
 		if (store().home.selected !== -1) {
@@ -164,20 +204,29 @@ export function setSelected(payload) {
 
 export function loadSong(payload) {
 	return (dispatch) => {
-		console.log('load');
 		const link = url + 'songs/' + payload + '.json';
-		console.log(link);
 		axios.get(link)
 		.then((response) => {
-			var arr = [];
-			response.data.data.attributes.notes.split('|').map((i) => {
-				arr.push(i);
+			var song = [];
+			var element = {};
+			response.data.data.attributes.notes.split('|').map((e, i) => {
+				if (i % 2 === 0) {
+					element.notes = e;
+				}
+				if (i & 2 !== 0) {
+					element.duration = e;
+					song.push(element);
+				}
 			});
-			console.log(arr);
+			const id = response.data.data.id;
+			const bpm = response.data.data.bpm;
+			const mode = response.data.data.mode;
 			dispatch({
 				type: LOAD_SONG,
-				payload: response.data.data
+				song,
+				id
 			});
+			Actions.home();
 		})
 		.catch((error) => {
 			console.log(error);
@@ -185,13 +234,26 @@ export function loadSong(payload) {
 	};
 }
 
+function handleSaveMusic(state, action) {
+	return update(state, {
+		mode: {
+			$set: action.payload
+		}
+	});
+}
+
 function handleLoadSong(state, action) {
-	// return update(state, {
-	// 	song: {
-	// 		$set: action.payload
-	// 	}
-	// });
-	console.log(action.payload);
+	return update(state, {
+		song: {
+			$set: action.song
+		},
+		songid: {
+			$set: action.id
+		},
+		mode: {
+			$set: 'edit'
+		}
+	});
 }
 
 function handleSetCurrentNote(state, action) {
@@ -250,6 +312,14 @@ function handleSetSign(state, action) {
 	});
 }
 
+function handleSetSongId(state, action) {
+	return update(state, {
+		songid: {
+			$set: action.payload
+		}
+	});
+}
+
 const ACTION_HANDLERS = {
 	SET_OCTAVE: handleSetOctave,
 	SET_DURATION: handleSetDuration,
@@ -258,14 +328,16 @@ const ACTION_HANDLERS = {
 	DELETE_NOTE: handleDeteleNote,
 	SET_SELECTED: handleSetSelected,
 	SET_SIGN: handleSetSign,
-	LOAD_SONG: handleLoadSong
+	LOAD_SONG: handleLoadSong,
+	SAVE_MUSIC: handleSaveMusic,
+	SET_SONGID: handleSetSongId
 };
 
 const initialState = {
 	song: [],
 	currentNote: '',
 	octave: 0,
-	duration: 0,
+	duration: '1/4',
 	sign: '',
 	selected: 0,
 	mode: 'new',
