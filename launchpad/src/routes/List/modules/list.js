@@ -9,6 +9,7 @@ const { url } = urlConst;
 const { SET_DATA, PLAY_MUSIC, DELETE_SONG } = constants;
 
 export function setData() {
+	console.log('this url is ', url);
 	return (dispatch) => {
 		axios.get(url + 'songs')
 		.then((response) => {

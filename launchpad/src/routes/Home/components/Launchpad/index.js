@@ -19,12 +19,7 @@ const deviceW = Dimensions.get('window').width;
 
 export default class Launchpad extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    console.log(this.props);
     const blurMap = (val) => {
       switch (this.props.octave) {
         case 3:
@@ -33,7 +28,7 @@ export default class Launchpad extends React.Component {
           }
           return false;
         case 4:
-          if (val === 'C' && val === 'D' && val === 'E' && val === 'F' && val === 'G') {
+          if (val === 'C' && val === 'D' && val === 'E' && val === 'F' && val === 'G' && val === 'A' && val === 'B') {
             return true;
           }
           return false;

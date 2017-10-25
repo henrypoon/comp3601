@@ -1,3 +1,3 @@
 export default {
-	url: 'http://127.0.0.1:3000/'
+	url: 'http://10.249.18.6:9000/'
 };
